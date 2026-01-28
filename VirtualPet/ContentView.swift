@@ -65,7 +65,7 @@ struct ContentView: View {
             }
             .navigationTitle("虚拟宠物")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Menu {
                         Button(action: {
                             showingActivityLog = true
@@ -183,7 +183,7 @@ struct PetHeaderView: View {
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(.systemGray6))
+                    .fill(Color.gray.opacity(0.1))
                     .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 2)
             )
         }
@@ -448,7 +448,7 @@ struct StatusGridView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 15)
-                .fill(Color(.systemGray6))
+                .fill(Color.gray.opacity(0.1))
                 .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 2)
         )
     }
@@ -586,7 +586,7 @@ struct InteractionButtonsView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 15)
-                .fill(Color(.systemGray6))
+                .fill(Color.gray.opacity(0.1))
                 .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 2)
         )
     }
@@ -682,7 +682,7 @@ struct PetTypeSelector: View {
                         .frame(width: 60, height: 60)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(petType == type ? type.color.opacity(0.2) : Color(.systemGray5))
+                                .fill(petType == type ? type.color.opacity(0.2) : Color.gray.opacity(0.1))
                         )
                     }
                 }
@@ -691,7 +691,7 @@ struct PetTypeSelector: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 15)
-                .fill(Color(.systemGray6))
+                .fill(Color.gray.opacity(0.1))
                 .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 2)
         )
     }
@@ -716,7 +716,7 @@ struct QuickStatsView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 15)
-                .fill(Color(.systemGray6))
+                .fill(Color.gray.opacity(0.1))
                 .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 2)
         )
     }
@@ -787,7 +787,7 @@ struct ActivityLogView: View {
             }
             .navigationTitle("活动记录")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button(showingAllActivities ? "显示最近" : "显示全部") {
                         showingAllActivities.toggle()
                     }

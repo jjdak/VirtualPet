@@ -1,6 +1,9 @@
 import Foundation
 import Combine
 import SwiftUI
+#if canImport(AppKit)
+import AppKit
+#endif
 
 // Make Color Codable
 extension Color: Codable {
@@ -27,16 +30,22 @@ extension Color: Codable {
     }
 
     private func toRGB() -> (r: Double, g: Double, b: Double, a: Double) {
+        // Convert SwiftUI Color to components using SwiftUI API
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
         var a: CGFloat = 0
-        if self.description.contains("sRGB") {
-            UIColor(self).getRed(&r, green: &g, blue: &b, alpha: &a)
-        } else {
-            // Fallback for other color spaces
-            UIColor(self).getRed(&r, green: &g, blue: &b, alpha: &a)
-        }
+
+        // Get color components using platform-specific approach
+        #if canImport(UIKit)
+        let uiColor = UIColor(self)
+        uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
+        #else
+        // Fallback for non-UIKit platforms (macOS)
+        let resolved = NSColor(self)
+        resolved.getRed(&r, green: &g, blue: &b, alpha: &a)
+        #endif
+
         return (r, g, b, a)
     }
 }
@@ -73,7 +82,7 @@ enum PetType: String, CaseIterable, Codable {
 
 // 活动记录
 struct Activity: Identifiable, Codable {
-    let id = UUID()
+    var id = UUID()
     let title: String
     let icon: String
     let color: Color
@@ -346,6 +355,12 @@ class Pet: ObservableObject {
             updateMood()
             checkLevelUp()
             saveData()
+        case .failure(_):
+            // 验证失败，不执行互动
+            return result
+        case .warning(_):
+            // 警告情况，仍然执行互动
+            break
         }
 
         return result
