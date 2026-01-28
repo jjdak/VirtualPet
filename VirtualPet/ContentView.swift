@@ -527,13 +527,15 @@ struct InteractionButtonsView: View {
                     color: .purple,
                     icon: "gamecontroller",
                     action: {
-                        pet.interact(type: .play)
-                        animateInteraction()
-                        heartAnimation = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            heartAnimation = false
+                        let result = pet.interact(type: .play)
+                        if case .success = result {
+                            animateInteraction()
+                            heartAnimation = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                heartAnimation = false
+                            }
+                            addParticles(color: .purple, count: 3)
                         }
-                        addParticles(color: .purple, count: 3)
                     }
                 )
 
@@ -542,9 +544,11 @@ struct InteractionButtonsView: View {
                     color: .green,
                     icon: "sparkles",
                     action: {
-                        pet.interact(type: .clean)
-                        animateInteraction()
-                        addParticles(color: .green, count: 4)
+                        let result = pet.interact(type: .clean)
+                        if case .success = result {
+                            animateInteraction()
+                            addParticles(color: .green, count: 4)
+                        }
                     }
                 )
 
@@ -553,9 +557,11 @@ struct InteractionButtonsView: View {
                     color: .blue,
                     icon: "figure.walk",
                     action: {
-                        pet.interact(type: .exercise)
-                        animateInteraction()
-                        addParticles(color: .blue, count: 3)
+                        let result = pet.interact(type: .exercise)
+                        if case .success = result {
+                            animateInteraction()
+                            addParticles(color: .blue, count: 3)
+                        }
                     }
                 )
 
@@ -564,13 +570,15 @@ struct InteractionButtonsView: View {
                     color: .red,
                     icon: "heart.fill",
                     action: {
-                        pet.interact(type: .cuddle)
-                        animateInteraction()
-                        heartAnimation = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            heartAnimation = false
+                        let result = pet.interact(type: .cuddle)
+                        if case .success = result {
+                            animateInteraction()
+                            heartAnimation = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                heartAnimation = false
+                            }
+                            addParticles(color: .red, count: 6)
                         }
-                        addParticles(color: .red, count: 6)
                     }
                 )
             }

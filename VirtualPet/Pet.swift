@@ -440,103 +440,85 @@ class Pet: ObservableObject {
     
     // UserDefaults键名
     private let defaults = UserDefaults.standard
-    private let hungerKey = "pet_hunger"
-    private let happinessKey = "pet_happiness"
-    private let healthKey = "pet_health"
-    private let petTypeKey = "pet_type"
-    private let energyKey = "pet_energy"
-    private let ageKey = "pet_age"
-    private let experienceKey = "pet_experience"
-    private let levelKey = "pet_level"
-    private let lastFedKey = "pet_last_fed"
-    private let moodKey = "pet_mood"
-    private let totalInteractionsKey = "pet_total_interactions"
-    private let maxHappinessKey = "pet_max_happiness"
-    private let careStreakKey = "pet_care_streak"
-    private let unlockedAchievementsKey = "pet_unlocked_achievements"
-    private let activitiesKey = "pet_activities"
-    private let statsHistoryKey = "pet_stats_history"
     
     // 保存数据到UserDefaults
     func saveData() {
-        defaults.set(hunger, forKey: hungerKey)
-        defaults.set(happiness, forKey: happinessKey)
-        defaults.set(health, forKey: healthKey)
-        defaults.set(energy, forKey: energyKey)
-        defaults.set(age, forKey: ageKey)
-        defaults.set(experience, forKey: experienceKey)
-        defaults.set(level, forKey: levelKey)
-        defaults.set(lastFed, forKey: lastFedKey)
-        defaults.set(petType.rawValue, forKey: petTypeKey)
-        defaults.set(mood.rawValue, forKey: moodKey)
-        defaults.set(totalInteractions, forKey: totalInteractionsKey)
-        defaults.set(maxHappiness, forKey: maxHappinessKey)
-        defaults.set(careStreak, forKey: careStreakKey)
-        defaults.set(unlockedAchievements, forKey: unlockedAchievementsKey)
+        defaults.set(hunger, forKey: "pet_hunger")
+        defaults.set(happiness, forKey: "pet_happiness")
+        defaults.set(health, forKey: "pet_health")
+        defaults.set(energy, forKey: "pet_energy")
+        defaults.set(age, forKey: "pet_age")
+        defaults.set(experience, forKey: "pet_experience")
+        defaults.set(level, forKey: "pet_level")
+        defaults.set(lastFed, forKey: "pet_last_fed")
+        defaults.set(petType.rawValue, forKey: "pet_type")
+        defaults.set(mood.rawValue, forKey: "pet_mood")
+        defaults.set(totalInteractions, forKey: "pet_total_interactions")
+        defaults.set(maxHappiness, forKey: "pet_max_happiness")
+        defaults.set(careStreak, forKey: "pet_care_streak")
+        defaults.set(unlockedAchievements, forKey: "pet_unlocked_achievements")
 
         // 保存活动记录
         if let encoded = try? JSONEncoder().encode(activities) {
-            defaults.set(encoded, forKey: activitiesKey)
+            defaults.set(encoded, forKey: "pet_activities")
         }
 
         // 保存统计历史
         if let encoded = try? JSONEncoder().encode(statsHistory) {
-            defaults.set(encoded, forKey: statsHistoryKey)
+            defaults.set(encoded, forKey: "pet_stats_history")
         }
     }
     
     // 从UserDefaults加载数据
     static func loadData() -> Pet {
         let defaults = UserDefaults.standard
+        let pet = Pet()
 
         // 读取基础数据
-        let hunger = defaults.integer(forKey: hungerKey)
-        let happiness = defaults.integer(forKey: happinessKey)
-        let health = defaults.integer(forKey: healthKey)
+        pet.hunger = defaults.integer(forKey: "pet_hunger")
+        pet.happiness = defaults.integer(forKey: "pet_happiness")
+        pet.health = defaults.integer(forKey: "pet_health")
 
         // 如果是第一次加载，使用默认值
-        if hunger == 0 && happiness == 0 && health == 0 {
-            return Pet()
+        if pet.hunger == 0 && pet.happiness == 0 && pet.health == 0 {
+            return pet
         }
 
-        // 创建宠物实例
-        let pet = Pet(hunger: hunger, happiness: happiness, health: health)
-
         // 加载其他属性
-        pet.energy = defaults.integer(forKey: energyKey)
-        pet.age = defaults.integer(forKey: ageKey)
-        pet.experience = defaults.integer(forKey: experienceKey)
-        pet.level = defaults.integer(forKey: levelKey)
-        pet.totalInteractions = defaults.integer(forKey: totalInteractionsKey)
-        pet.maxHappiness = defaults.integer(forKey: maxHappinessKey)
-        pet.careStreak = defaults.integer(forKey: careStreakKey)
-        pet.unlockedAchievements = defaults.integer(forKey: unlockedAchievementsKey)
+        pet.energy = defaults.integer(forKey: "pet_energy")
+        pet.age = defaults.integer(forKey: "pet_age")
+        pet.experience = defaults.integer(forKey: "pet_experience")
+        pet.level = defaults.integer(forKey: "pet_level")
+        pet.totalInteractions = defaults.integer(forKey: "pet_total_interactions")
+        pet.maxHappiness = defaults.integer(forKey: "pet_max_happiness")
+        pet.careStreak = defaults.integer(forKey: "pet_care_streak")
+        pet.unlockedAchievements = defaults.integer(forKey: "pet_unlocked_achievements")
 
         // 加载宠物类型
-        if let petTypeRaw = defaults.string(forKey: petTypeKey),
+        if let petTypeRaw = defaults.string(forKey: "pet_type"),
            let petType = PetType(rawValue: petTypeRaw) {
             pet.petType = petType
         }
 
         // 加载心情
-        if let moodRaw = defaults.string(forKey: moodKey),
+        if let moodRaw = defaults.string(forKey: "pet_mood"),
            let mood = PetMood(rawValue: moodRaw) {
             pet.mood = mood
         }
 
         // 加载上次喂食时间
-        if let lastFedTime = defaults.object(forKey: lastFedKey) as? Date {
+        if let lastFedTime = defaults.object(forKey: "pet_last_fed") as? Date {
             pet.lastFed = lastFedTime
         }
 
         // 加载活动记录
-        if let data = defaults.data(forKey: activitiesKey),
+        if let data = defaults.data(forKey: "pet_activities"),
            let decodedActivities = try? JSONDecoder().decode([Activity].self, from: data) {
             pet.activities = decodedActivities
         }
 
         // 加载统计历史
-        if let data = defaults.data(forKey: statsHistoryKey),
+        if let data = defaults.data(forKey: "pet_stats_history"),
            let decodedStats = try? JSONDecoder().decode([PetStatsRecord].self, from: data) {
             pet.statsHistory = decodedStats
         }
