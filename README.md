@@ -1,10 +1,67 @@
 # VirtualPet
 
-[中文](#中文) | [English](#english)
+<div align="center">
+  <div id="language-toggle">
+    <button onclick="setLanguage('zh')" id="zh-btn" class="lang-btn active">中文</button>
+    <button onclick="setLanguage('en')" id="en-btn" class="lang-btn">English</button>
+  </div>
+</div>
 
-## 中文
+<style>
+  .lang-btn {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: 2px solid #2196F3;
+    background: white;
+    color: #2196F3;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
 
-一款使用 SwiftUI 和 Swift 5.0 构建的现代化 iOS 虚拟宠物应用。该应用具有完整的宠物模拟系统，包括心情追踪、成就系统、等级进阶和丰富的视觉动画效果。
+  .lang-btn.active {
+    background: #2196F3;
+    color: white;
+  }
+
+  .lang-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+</style>
+
+<script>
+  function setLanguage(lang) {
+    const zhContent = document.getElementById('zh-content');
+    const enContent = document.getElementById('en-content');
+    const zhBtn = document.getElementById('zh-btn');
+    const enBtn = document.getElementById('en-btn');
+
+    if (lang === 'zh') {
+      zhContent.style.display = 'block';
+      enContent.style.display = 'none';
+      zhBtn.classList.add('active');
+      enBtn.classList.remove('active');
+    } else {
+      zhContent.style.display = 'none';
+      enContent.style.display = 'block';
+      zhBtn.classList.remove('active');
+      enBtn.classList.add('active');
+    }
+
+    // Save preference
+    localStorage.setItem('preferredLanguage', lang);
+  }
+
+  // Load saved preference
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'zh';
+    setLanguage(savedLang);
+  });
+</script>
+
+<div id="zh-content">
 
 ### 🐾 宠物模拟
 - **5种宠物类型**: 可选择5种不同颜色的宠物
@@ -354,6 +411,138 @@ Achievement system with unlock conditions
 - 针对 iOS 26.2 及更高版本设计
 - 仅使用原生 Apple 框架
 - 中文语言界面，基于表情符号的宠物类型
+</div>
+
+<div id="en-content" style="display: none;">
+A modern iOS virtual pet application built with SwiftUI and Swift 5.0. The app features a comprehensive pet simulation system with mood tracking, achievements, level progression, and rich visual animations.
+
+### 🐾 Pet Simulation
+- **5 Pet Types**: Choose from 5 different pet types with unique colors
+- **Mood System**: 7 different mood states (happy, normal, hungry, sad, sick, excited, sleepy)
+- **Stats Management**: Track hunger, happiness, health, and energy (0-100 scale)
+- **Age System**: Pets age over time with visual progression
+
+### 🎮 Interactive Gameplay
+- **5 Interactions**: Play, feed, clean, exercise, and cuddle your pet
+- **Real-time Stats**: Stats decay automatically every minute for realism
+- **Experience & Levels**: Gain XP from interactions and level up
+- **Level Bonuses**: Each level grants +20 health bonus
+
+### 🏆 Achievement System
+- **4 Predefined Achievements**: Unlock achievements through various interactions
+- **Activity Logging**: Track all interactions with timestamps
+- **Progress Tracking**: Monitor your pet's journey and milestones
+
+### 🎨 Visual Design
+- **Dynamic UI**: Mood-based visual feedback and styling
+- **Smooth Animations**: Spring-based animations for all interactions
+- **Particle Effects**: Visual feedback for interactions
+- **Activity Log**: View interaction history
+- **Quick Stats**: At-a-glance status overview
+
+## Architecture
+
+### Core Components
+- **Pet.swift**: Central business logic and data model
+  - Main `Pet` class inheriting from `ObservableObject`
+  - Manages all pet state and interactions
+  - Implements automatic stat decay
+  - Achievement system with persistence
+
+- **ContentView.swift**: Main UI composition
+  - Modular SwiftUI view with multiple sub-views
+  - Reactive updates using SwiftUI's state management
+  - Clean separation of concerns
+
+- **VirtualPetApp.swift**: App entry point
+  - Standard SwiftUI `@main` app structure
+
+### Design Patterns
+- **MVVM Architecture**: View binds to ViewModel/Model
+- **State Management**: SwiftUI reactive state with `@Published` properties
+- **Event-Driven**: User interactions trigger state updates
+- **Data Persistence**: UserDefaults for core stats
+
+## Build and Development
+
+### Prerequisites
+- Xcode 15.0 or later
+- iOS 26.2 or later (minimum deployment target)
+
+### Building and Running
+
+```bash
+# Build the project
+xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Debug build
+
+# Run on simulator
+xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest' build
+
+# Run on device (replace with actual device ID)
+xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Release -destination 'platform=iOS,name=Your iPhone' build
+```
+
+### Testing
+
+```bash
+# Run unit tests
+swift test
+
+# Run unit tests via Xcode
+xcodebuild test -project VirtualPet.xcodeproj -scheme VirtualPet -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+
+# Run UI tests
+xcodebuild test -project VirtualPet.xcodeproj -scheme VirtualPet -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+```
+
+### Linting
+
+```bash
+# SwiftLint (if available)
+swiftlint lint --strict
+
+# Build-time syntax checking
+xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Debug build
+```
+
+## Game Mechanics
+
+### Stat System
+- All stats range from 0-100
+- Automatic decay: hunger +1, happiness -1, energy -2 per minute
+- Interactions affect multiple stats simultaneously
+
+### Mood Calculation
+- 7 mood states based on stat thresholds
+- Dynamic mood updates after each interaction
+- Visual feedback through UI changes
+
+### Progression System
+- Experience points from interactions
+- Level up every `level * 100` experience
+- Level bonuses: +20 health
+
+## Data Structures
+
+### PetMood Enum
+```swift
+enum PetMood: CaseIterable {
+    case happy, normal, hungry, sad, sick, excited, sleepy
+}
+```
+
+### PetType Enum
+```swift
+enum PetType: CaseIterable {
+    case dog, cat, rabbit, hamster, bird
+}
+```
+
+### Activity
+Interaction history with timestamps and values
+
+### Achievement
+Achievement system with unlock conditions
 
 ## Screenshots
 
@@ -373,3 +562,4 @@ This project is for educational purposes.
 - Designed for iOS 26.2 and later
 - Uses native Apple frameworks only
 - Chinese language interface with emoji-based pet types
+</div>
