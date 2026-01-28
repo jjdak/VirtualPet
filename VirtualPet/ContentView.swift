@@ -7,10 +7,7 @@
 
 import SwiftUI
 
-// 确保类型可见
-extension Pet {
-    typealias Activity = VirtualPet.Activity
-}
+
 
 struct ContentView: View {
     @StateObject private var pet = Pet.loadData()
@@ -25,6 +22,7 @@ struct ContentView: View {
     @State private var heartAnimation = false
     @State private var particleEffects: [Particle] = []
     @State private var selectedPetType: PetType = .cat
+    @State private var isAnimating = false // 防止动画期间重复点击
 
     var body: some View {
         NavigationView {
@@ -52,7 +50,8 @@ struct ContentView: View {
                         petBounce: $petBounce,
                         sparkleAnimation: $sparkleAnimation,
                         heartAnimation: $heartAnimation,
-                        particleEffects: $particleEffects
+                        particleEffects: $particleEffects,
+                        isAnimating: $isAnimating
                     )
 
                     // 宠物选择器
@@ -122,7 +121,7 @@ struct ContentView: View {
     private func startDecayTimer() {
         checkDecay()
         timer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { _ in
-            pet.decay()
+            self.pet.decay()
         }
     }
 
@@ -492,6 +491,7 @@ struct InteractionButtonsView: View {
     @Binding var sparkleAnimation: Bool
     @Binding var heartAnimation: Bool
     @Binding var particleEffects: [Particle]
+    @Binding var isAnimating: Bool
 
     var body: some View {
         VStack(spacing: 15) {
@@ -505,20 +505,30 @@ struct InteractionButtonsView: View {
                     color: .orange,
                     icon: "fork.knife",
                     action: {
-                        pet.interact(type: .feed)
-                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                            petBounce = true
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                            withAnimation {
-                                petBounce = false
+                        guard !isAnimating else { return }
+                        isAnimating = true
+
+                        let result = pet.interact(type: .feed)
+                        if case .success = result {
+                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                                petBounce = true
                             }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                withAnimation {
+                                    petBounce = false
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    isAnimating = false
+                                }
+                            }
+                            sparkleAnimation = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                sparkleAnimation = false
+                            }
+                            addParticles(color: .orange, count: 5)
+                        } else {
+                            isAnimating = false
                         }
-                        sparkleAnimation = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            sparkleAnimation = false
-                        }
-                        addParticles(color: .orange, count: 5)
                     }
                 )
 
@@ -527,14 +537,22 @@ struct InteractionButtonsView: View {
                     color: .purple,
                     icon: "gamecontroller",
                     action: {
+                        guard !isAnimating else { return }
+                        isAnimating = true
+
                         let result = pet.interact(type: .play)
                         if case .success = result {
                             animateInteraction()
                             heartAnimation = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                 heartAnimation = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    isAnimating = false
+                                }
                             }
                             addParticles(color: .purple, count: 3)
+                        } else {
+                            isAnimating = false
                         }
                     }
                 )
@@ -544,10 +562,18 @@ struct InteractionButtonsView: View {
                     color: .green,
                     icon: "sparkles",
                     action: {
+                        guard !isAnimating else { return }
+                        isAnimating = true
+
                         let result = pet.interact(type: .clean)
                         if case .success = result {
                             animateInteraction()
                             addParticles(color: .green, count: 4)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                self.isAnimating = false
+                            }
+                        } else {
+                            isAnimating = false
                         }
                     }
                 )
@@ -557,10 +583,18 @@ struct InteractionButtonsView: View {
                     color: .blue,
                     icon: "figure.walk",
                     action: {
+                        guard !isAnimating else { return }
+                        isAnimating = true
+
                         let result = pet.interact(type: .exercise)
                         if case .success = result {
                             animateInteraction()
                             addParticles(color: .blue, count: 3)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                self.isAnimating = false
+                            }
+                        } else {
+                            isAnimating = false
                         }
                     }
                 )
@@ -570,14 +604,22 @@ struct InteractionButtonsView: View {
                     color: .red,
                     icon: "heart.fill",
                     action: {
+                        guard !isAnimating else { return }
+                        isAnimating = true
+
                         let result = pet.interact(type: .cuddle)
                         if case .success = result {
                             animateInteraction()
                             heartAnimation = true
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                 heartAnimation = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    isAnimating = false
+                                }
                             }
                             addParticles(color: .red, count: 6)
+                        } else {
+                            isAnimating = false
                         }
                     }
                 )
