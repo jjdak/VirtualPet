@@ -7,7 +7,15 @@
 
 import SwiftUI
 
-
+extension Color {
+    static var systemBackground: Color {
+        #if os(iOS)
+        return Color(UIColor.systemBackground)
+        #else
+        return Color(NSColor.controlBackgroundColor)
+        #endif
+    }
+}
 
 struct ContentView: View {
     @StateObject private var pet = Pet.loadData()
@@ -60,6 +68,9 @@ struct ContentView: View {
 
                     // 宠物选择器
                     PetTypeSelector(petType: $selectedPetType)
+                        .onChange(of: selectedPetType) { newValue in
+                            pet.petType = newValue
+                        }
 
                     // 快速统计
                     QuickStatsView(pet: pet)
@@ -92,21 +103,43 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingActivityLog) {
                 ActivityLogView(pet: pet)
+                    #if os(iOS)
+                    .presentationDetents([.fraction(0.4), .fraction(0.7), .fraction(0.95)], selection: .constant(.fraction(0.95)))
+                    .presentationDragIndicator(.visible)
+                    #else
+                    .frame(minWidth: 700, minHeight: 600)
+                    #endif
             }
             .sheet(isPresented: $showingAchievements) {
                 AchievementsView(pet: pet)
+                    #if os(iOS)
+                    .presentationDetents([.fraction(0.4), .fraction(0.7), .fraction(0.95)], selection: .constant(.fraction(0.95)))
+                    .presentationDragIndicator(.visible)
+                    #else
+                    .frame(minWidth: 700, minHeight: 600)
+                    #endif
             }
             .overlay(
                 Group {
                     if showingError, let message = errorMessage {
-                        VStack {
-                            Spacer()
-                            HStack {
+                        ZStack {
+                            Color.black.opacity(0.4)
+                                .ignoresSafeArea()
+                                .onTapGesture {
+                                    withAnimation {
+                                        showingError = false
+                                        errorMessage = nil
+                                    }
+                                }
+                            
+                            VStack(spacing: 20) {
                                 Spacer()
-                                VStack(alignment: .leading, spacing: 10) {
+                                
+                                VStack(alignment: .leading, spacing: 15) {
                                     HStack {
                                         Image(systemName: "exclamationmark.triangle.fill")
                                             .foregroundColor(.orange)
+                                            .font(.title2)
                                         Text("提示")
                                             .font(.headline)
                                             .foregroundColor(.primary)
@@ -119,26 +152,32 @@ struct ContentView: View {
                                         }) {
                                             Image(systemName: "xmark.circle.fill")
                                                 .foregroundColor(.gray)
+                                                .font(.title2)
                                         }
                                     }
+                                    
                                     Text(message)
                                         .font(.body)
-                                        .foregroundColor(.secondary)
+                                        .foregroundColor(.primary)
+                                        .lineLimit(nil)
+                                        .fixedSize(horizontal: false, vertical: true)
                                 }
-                                .padding()
-                                .background(Color.white.opacity(0.95))
-                                .cornerRadius(12)
-                                .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
-                                .padding()
-                                Spacer()
+                                .padding(20)
+                                .background(Color.systemBackground)
+                                .cornerRadius(16)
+                                .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y: 10)
+                                .padding(.horizontal, 20)
+                                
+                                Spacer().frame(height: 40)
                             }
                         }
-                        .transition(.move(edge: .bottom))
+                        .transition(.opacity)
                         .animation(.easeInOut, value: showingError)
                     }
                 }
             )
             .onAppear {
+                selectedPetType = pet.petType
                 startDecayTimer()
             }
             .onDisappear {
@@ -921,24 +960,37 @@ struct ActivityLogView: View {
             List {
                 Section("最近活动") {
                     ForEach(filteredActivities) { activity in
-                        HStack {
+                        HStack(spacing: 12) {
                             Image(systemName: activity.icon)
-                                .foregroundColor(activity.color)
-                            VStack(alignment: .leading) {
+                                .foregroundColor(activity.color.color)
+                                .font(.title2)
+                                .frame(width: 32, height: 32)
+                            
+                            VStack(alignment: .leading, spacing: 2) {
                                 Text(activity.title)
+                                    .font(.body)
+                                    .fontWeight(.medium)
+                                    .lineLimit(1)
                                 Text(activity.date, style: .relative)
                                     .font(.caption)
-                                    .foregroundColor(.gray)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(1)
                             }
-                            Spacer()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            
                             if let value = activity.value {
                                 Text("+\(value)")
-                                    .font(.caption)
-                                    .fontWeight(.medium)
+                                    .font(.callout)
+                                    .fontWeight(.semibold)
                                     .foregroundColor(.green)
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 5)
+                                    .background(Color.green.opacity(0.15))
+                                    .cornerRadius(6)
                             }
                         }
-                        .padding(.vertical, 4)
+                        .frame(minHeight: 56)
+                        .padding(.vertical, 2)
                     }
                 }
 
@@ -950,12 +1002,14 @@ struct ActivityLogView: View {
                     StatRow(title: "宠物年龄", value: pet.age)
                 }
             }
+            .listStyle(.inset)
             .navigationTitle("活动记录")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button(showingAllActivities ? "显示最近" : "显示全部") {
                         showingAllActivities.toggle()
                     }
+                    .font(.body)
                 }
             }
         }
@@ -971,33 +1025,45 @@ struct AchievementsView: View {
             List {
                 Section("已解锁成就 (\(pet.unlockedAchievements)/\(pet.achievements.count))") {
                     ForEach(pet.achievements) { achievement in
-                        HStack {
-                            Image(systemName: achievement.icon)
-                                .foregroundColor(achievement.unlocked ? .yellow : .gray)
-                                .font(.title2)
-
-                            VStack(alignment: .leading) {
+                        HStack(spacing: 12) {
+                            ZStack {
+                                Circle()
+                                    .fill(achievement.unlocked ? Color.yellow.opacity(0.2) : Color.gray.opacity(0.1))
+                                    .frame(width: 44, height: 44)
+                                
+                                Image(systemName: achievement.icon)
+                                    .foregroundColor(achievement.unlocked ? .yellow : .gray)
+                                    .font(.title3)
+                            }
+                            
+                            VStack(alignment: .leading, spacing: 2) {
                                 Text(achievement.title)
-                                    .font(.headline)
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .lineLimit(1)
                                 Text(achievement.description)
                                     .font(.caption)
                                     .foregroundColor(.secondary)
+                                    .lineLimit(2)
                             }
-
-                            Spacer()
+                            .frame(maxWidth: .infinity, alignment: .leading)
 
                             if achievement.unlocked {
                                 Image(systemName: "checkmark.circle.fill")
                                     .foregroundColor(.green)
+                                    .font(.title3)
                             } else {
-                                Image(systemName: "circle")
+                                Image(systemName: "lock.fill")
                                     .foregroundColor(.gray)
+                                    .font(.title3)
                             }
                         }
-                        .padding(.vertical, 8)
+                        .frame(minHeight: 60)
+                        .padding(.vertical, 2)
                     }
                 }
             }
+            .listStyle(.inset)
             .navigationTitle("成就")
         }
     }

@@ -5,46 +5,25 @@ import SwiftUI
 import AppKit
 #endif
 
-// Make Color Codable
-extension Color: Codable {
-    enum CodingKeys: String, CodingKey {
-        case red, green, blue, alpha
-    }
-
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let red = try container.decode(Double.self, forKey: .red)
-        let green = try container.decode(Double.self, forKey: .green)
-        let blue = try container.decode(Double.self, forKey: .blue)
-        let alpha = try container.decodeIfPresent(Double.self, forKey: .alpha) ?? 1.0
-        self.init(.sRGB, red: red, green: green, blue: blue, opacity: alpha)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        let color = self.toRGB()
-        try container.encode(color.r, forKey: .red)
-        try container.encode(color.g, forKey: .green)
-        try container.encode(color.b, forKey: .blue)
-        try container.encode(color.a, forKey: .alpha)
-    }
-
-    private func toRGB() -> (r: Double, g: Double, b: Double, a: Double) {
-        // Convert SwiftUI Color to components using SwiftUI API
+// Color wrapper for Codable support
+struct CodableColor: Codable {
+    let red: Double
+    let green: Double
+    let blue: Double
+    let alpha: Double
+    
+    init(from color: Color) {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
         var a: CGFloat = 0
-
-        // Get color components using platform-specific approach
+        
         #if canImport(UIKit)
-        let uiColor = UIColor(self)
+        let uiColor = UIColor(color)
         uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
         #else
-        // Fallback for non-UIKit platforms (macOS)
-        let resolved = NSColor(self)
+        let resolved = NSColor(color)
         
-        // Handle dynamic colors by converting to RGB color space
         if resolved.colorSpaceName != NSColorSpaceName.deviceRGB {
             let rgbColor = resolved.usingColorSpace(.deviceRGB) ?? resolved
             rgbColor.getRed(&r, green: &g, blue: &b, alpha: &a)
@@ -52,8 +31,15 @@ extension Color: Codable {
             resolved.getRed(&r, green: &g, blue: &b, alpha: &a)
         }
         #endif
-
-        return (r, g, b, a)
+        
+        self.red = Double(r)
+        self.green = Double(g)
+        self.blue = Double(b)
+        self.alpha = Double(a)
+    }
+    
+    var color: Color {
+        Color(.sRGB, red: red, green: green, blue: blue, opacity: alpha)
     }
 }
 
@@ -92,7 +78,7 @@ struct Activity: Identifiable, Codable {
     var id = UUID()
     let title: String
     let icon: String
-    let color: Color
+    let color: CodableColor
     let date: Date
     let value: Int?
 }
@@ -293,7 +279,7 @@ class Pet: ObservableObject {
             let activity = Activity(
                 title: "成就解锁：\(achievement.title)",
                 icon: "trophy.fill",
-                color: .yellow,
+                color: CodableColor(from: .yellow),
                 date: Date(),
                 value: nil
             )
@@ -322,7 +308,7 @@ class Pet: ObservableObject {
                     Activity(
                         title: "玩耍",
                         icon: "gamecontroller",
-                        color: .purple,
+                        color: CodableColor(from: .purple),
                         date: Date(),
                         value: 15
                     )
@@ -336,7 +322,7 @@ class Pet: ObservableObject {
                     Activity(
                         title: "喂养",
                         icon: "fork.knife",
-                        color: .orange,
+                        color: CodableColor(from: .orange),
                         date: Date(),
                         value: 25
                     )
@@ -349,7 +335,7 @@ class Pet: ObservableObject {
                     Activity(
                         title: "清理",
                         icon: "sparkles",
-                        color: .green,
+                        color: CodableColor(from: .green),
                         date: Date(),
                         value: 15
                     )
@@ -363,7 +349,7 @@ class Pet: ObservableObject {
                     Activity(
                         title: "运动",
                         icon: "figure.walk",
-                        color: .blue,
+                        color: CodableColor(from: .blue),
                         date: Date(),
                         value: 10
                     )
@@ -377,7 +363,7 @@ class Pet: ObservableObject {
                     Activity(
                         title: "拥抱",
                         icon: "heart.fill",
-                        color: .red,
+                        color: CodableColor(from: .red),
                         date: Date(),
                         value: 20
                     )
@@ -453,7 +439,7 @@ class Pet: ObservableObject {
                 Activity(
                     title: "升级到\(level)级！",
                     icon: "star.fill",
-                    color: .yellow,
+                    color: CodableColor(from: .yellow),
                     date: Date(),
                     value: nil
                 )
@@ -463,15 +449,15 @@ class Pet: ObservableObject {
 
     // 原有方法保持兼容性
     func feed() {
-        interact(type: .feed)
+        _ = interact(type: .feed)
     }
 
     func clean() {
-        interact(type: .clean)
+        _ = interact(type: .clean)
     }
 
     func play() {
-        interact(type: .play)
+        _ = interact(type: .play)
     }
 
     // 自动衰减：每分钟饥饿度+1，快乐度-1，能量-2
