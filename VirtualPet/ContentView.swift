@@ -22,7 +22,9 @@ struct ContentView: View {
     @State private var heartAnimation = false
     @State private var particleEffects: [Particle] = []
     @State private var selectedPetType: PetType = .cat
-    @State private var isAnimating = false // 防止动画期间重复点击
+    @State private var isAnimating = false
+    @State private var errorMessage: String? = nil
+    @State private var showingError = false
 
     var body: some View {
         NavigationView {
@@ -51,7 +53,9 @@ struct ContentView: View {
                         sparkleAnimation: $sparkleAnimation,
                         heartAnimation: $heartAnimation,
                         particleEffects: $particleEffects,
-                        isAnimating: $isAnimating
+                        isAnimating: $isAnimating,
+                        errorMessage: $errorMessage,
+                        showingError: $showingError
                     )
 
                     // 宠物选择器
@@ -92,6 +96,48 @@ struct ContentView: View {
             .sheet(isPresented: $showingAchievements) {
                 AchievementsView(pet: pet)
             }
+            .overlay(
+                Group {
+                    if showingError, let message = errorMessage {
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                VStack(alignment: .leading, spacing: 10) {
+                                    HStack {
+                                        Image(systemName: "exclamationmark.triangle.fill")
+                                            .foregroundColor(.orange)
+                                        Text("提示")
+                                            .font(.headline)
+                                            .foregroundColor(.primary)
+                                        Spacer()
+                                        Button(action: {
+                                            withAnimation {
+                                                showingError = false
+                                                errorMessage = nil
+                                            }
+                                        }) {
+                                            Image(systemName: "xmark.circle.fill")
+                                                .foregroundColor(.gray)
+                                        }
+                                    }
+                                    Text(message)
+                                        .font(.body)
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding()
+                                .background(Color.white.opacity(0.95))
+                                .cornerRadius(12)
+                                .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+                                .padding()
+                                Spacer()
+                            }
+                        }
+                        .transition(.move(edge: .bottom))
+                        .animation(.easeInOut, value: showingError)
+                    }
+                }
+            )
             .onAppear {
                 startDecayTimer()
             }
@@ -492,6 +538,8 @@ struct InteractionButtonsView: View {
     @Binding var heartAnimation: Bool
     @Binding var particleEffects: [Particle]
     @Binding var isAnimating: Bool
+    @Binding var errorMessage: String?
+    @Binding var showingError: Bool
 
     var body: some View {
         VStack(spacing: 15) {
@@ -509,24 +557,39 @@ struct InteractionButtonsView: View {
                         isAnimating = true
 
                         let result = pet.interact(type: .feed)
-                        if case .success = result {
-                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                        switch result {
+                        case .success(_):
+                            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                                 petBounce = true
                             }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                 withAnimation {
                                     petBounce = false
                                 }
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                    isAnimating = false
-                                }
                             }
                             sparkleAnimation = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                                 sparkleAnimation = false
                             }
                             addParticles(color: .orange, count: 5)
-                        } else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                isAnimating = false
+                            }
+                        case .failure(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
+                            isAnimating = false
+                        case .warning(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
                             isAnimating = false
                         }
                     }
@@ -541,17 +604,32 @@ struct InteractionButtonsView: View {
                         isAnimating = true
 
                         let result = pet.interact(type: .play)
-                        if case .success = result {
+                        switch result {
+                        case .success(_):
                             animateInteraction()
                             heartAnimation = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 heartAnimation = false
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                    isAnimating = false
-                                }
                             }
                             addParticles(color: .purple, count: 3)
-                        } else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                isAnimating = false
+                            }
+                        case .failure(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
+                            isAnimating = false
+                        case .warning(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
                             isAnimating = false
                         }
                     }
@@ -566,13 +644,28 @@ struct InteractionButtonsView: View {
                         isAnimating = true
 
                         let result = pet.interact(type: .clean)
-                        if case .success = result {
+                        switch result {
+                        case .success(_):
                             animateInteraction()
                             addParticles(color: .green, count: 4)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 self.isAnimating = false
                             }
-                        } else {
+                        case .failure(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
+                            isAnimating = false
+                        case .warning(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
                             isAnimating = false
                         }
                     }
@@ -587,13 +680,28 @@ struct InteractionButtonsView: View {
                         isAnimating = true
 
                         let result = pet.interact(type: .exercise)
-                        if case .success = result {
+                        switch result {
+                        case .success(_):
                             animateInteraction()
                             addParticles(color: .blue, count: 3)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 self.isAnimating = false
                             }
-                        } else {
+                        case .failure(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
+                            isAnimating = false
+                        case .warning(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
                             isAnimating = false
                         }
                     }
@@ -608,17 +716,32 @@ struct InteractionButtonsView: View {
                         isAnimating = true
 
                         let result = pet.interact(type: .cuddle)
-                        if case .success = result {
+                        switch result {
+                        case .success(_):
                             animateInteraction()
                             heartAnimation = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 heartAnimation = false
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                    isAnimating = false
-                                }
                             }
                             addParticles(color: .red, count: 6)
-                        } else {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                isAnimating = false
+                            }
+                        case .failure(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
+                            isAnimating = false
+                        case .warning(let message):
+                            errorMessage = message
+                            showingError = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                showingError = false
+                                errorMessage = nil
+                            }
                             isAnimating = false
                         }
                     }
@@ -634,10 +757,10 @@ struct InteractionButtonsView: View {
     }
 
     private func animateInteraction() {
-        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
             petBounce = true
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             withAnimation {
                 petBounce = false
             }

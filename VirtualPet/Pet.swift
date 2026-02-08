@@ -43,7 +43,14 @@ extension Color: Codable {
         #else
         // Fallback for non-UIKit platforms (macOS)
         let resolved = NSColor(self)
-        resolved.getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        // Handle dynamic colors by converting to RGB color space
+        if resolved.colorSpaceName != NSColorSpaceName.deviceRGB {
+            let rgbColor = resolved.usingColorSpace(.deviceRGB) ?? resolved
+            rgbColor.getRed(&r, green: &g, blue: &b, alpha: &a)
+        } else {
+            resolved.getRed(&r, green: &g, blue: &b, alpha: &a)
+        }
         #endif
 
         return (r, g, b, a)
@@ -135,6 +142,10 @@ class Pet: ObservableObject {
     @Published var statsHistory: [PetStatsRecord] = []
     @Published var achievements: [Achievement] = []
 
+    // 缓存的统计数据
+    private var cachedFeedCount: Int = 0
+    private var feedCountCacheValid: Bool = false
+
     // 辅助方法：确保值在有效范围内
     private func clampValue(_ value: Int) -> Int {
         max(0, min(100, value))
@@ -194,9 +205,13 @@ class Pet: ObservableObject {
         case warning(String)
     }
 
-    // 喂养计数
+    // 喂养计数（使用缓存）
     private var feedCount: Int {
-        return activities.filter { $0.icon == "fork.knife" }.count
+        if !feedCountCacheValid {
+            cachedFeedCount = activities.filter { $0.icon == "fork.knife" }.count
+            feedCountCacheValid = true
+        }
+        return cachedFeedCount
     }
 
     // 健康连续天数
@@ -229,6 +244,14 @@ class Pet: ObservableObject {
     // 记录活动
     func logActivity(_ activity: Activity) {
         activities.append(activity)
+        
+        // 更新缓存
+        if activity.icon == "fork.knife" {
+            cachedFeedCount += 1
+        } else if activities.count > 100 && activities.first?.icon == "fork.knife" {
+            cachedFeedCount -= 1
+        }
+        
         if activities.count > 100 {
             activities.removeFirst()
         }
@@ -253,33 +276,43 @@ class Pet: ObservableObject {
         checkAchievements()
     }
 
-    // 检查成就
+    // 公开的检查成就方法（会记录活动）
     func checkAchievements() {
+        var newlyUnlockedAchievements: [Achievement] = []
+        
         for achievement in achievements {
             if !achievement.unlocked && achievement.requirement() {
                 achievement.unlocked = true
                 unlockedAchievements += 1
-                logActivity(
-                    Activity(
-                        title: "成就解锁：\(achievement.title)",
-                        icon: "trophy.fill",
-                        color: .yellow,
-                        date: Date(),
-                        value: nil
-                    )
-                )
+                newlyUnlockedAchievements.append(achievement)
+            }
+        }
+        
+        // 记录新解锁的成就
+        for achievement in newlyUnlockedAchievements {
+            let activity = Activity(
+                title: "成就解锁：\(achievement.title)",
+                icon: "trophy.fill",
+                color: .yellow,
+                date: Date(),
+                value: nil
+            )
+            
+            activities.append(activity)
+            if activities.count > 100 {
+                activities.removeFirst()
             }
         }
     }
 
     // 高级互动
     func interact(type: InteractionType) -> InteractionResult {
-        // 先验证互动
         let result = validateInteraction(type: type)
 
         switch result {
-        case .success(_):
-            // 如果验证通过，执行互动
+        case .failure(_):
+            return result
+        case .warning(_), .success(_):
             switch type {
             case .play:
                 happiness = clampValue(happiness + 15)
@@ -354,13 +387,11 @@ class Pet: ObservableObject {
             totalInteractions += 1
             updateMood()
             checkLevelUp()
-            saveData()
-        case .failure(_):
-            // 验证失败，不执行互动
-            return result
-        case .warning(_):
-            // 警告情况，仍然执行互动
-            break
+            
+            // 异步保存数据，避免阻塞主线程
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.saveData()
+            }
         }
 
         return result
