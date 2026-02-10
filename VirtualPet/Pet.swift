@@ -73,6 +73,80 @@ enum PetType: String, CaseIterable, Codable {
     }
 }
 
+// 进化阶段
+enum EvolutionStage: String, CaseIterable, Codable {
+    case egg = "蛋"
+    case baby = "幼体"
+    case child = "成长期"
+    case teen = "青春期"
+    case adult = "成年"
+    case elder = "长者"
+    case legendary = "传说"
+    
+    var requiredLevel: Int {
+        switch self {
+        case .egg: return 0
+        case .baby: return 1
+        case .child: return 5
+        case .teen: return 10
+        case .adult: return 20
+        case .elder: return 30
+        case .legendary: return 50
+        }
+    }
+    
+    var bonusMultiplier: Double {
+        switch self {
+        case .egg: return 0.5
+        case .baby: return 1.0
+        case .child: return 1.2
+        case .teen: return 1.5
+        case .adult: return 1.8
+        case .elder: return 2.0
+        case .legendary: return 2.5
+        }
+    }
+}
+
+// 进化路径
+enum EvolutionPath: String, CaseIterable, Codable {
+    case balanced = "平衡型"
+    case strong = "力量型"
+    case happy = "快乐型"
+    case healthy = "健康型"
+    case mysterious = "神秘型"
+    
+    var icon: String {
+        switch self {
+        case .balanced: return "scale.3d"
+        case .strong: return "figure.strengthtraining.traditional"
+        case .happy: return "face.smiling"
+        case .healthy: return "heart.pulse"
+        case .mysterious: return "sparkles"
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .balanced: return "各项能力均衡发展"
+        case .strong: return "更快的经验获取和进化"
+        case .happy: return "更高的快乐度上限和恢复速度"
+        case .healthy: return "更强的健康和抗病能力"
+        case .mysterious: return "更多随机事件和隐藏奖励"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .balanced: return .blue
+        case .strong: return .orange
+        case .happy: return .pink
+        case .healthy: return .green
+        case .mysterious: return .purple
+        }
+    }
+}
+
 // 活动记录
 struct Activity: Identifiable, Codable {
     var id = UUID()
@@ -127,6 +201,14 @@ class Pet: ObservableObject {
     @Published var activities: [Activity] = []
     @Published var statsHistory: [PetStatsRecord] = []
     @Published var achievements: [Achievement] = []
+    
+    @Published var intimacy: Int = 0 // 亲密度 0-100
+    @Published var evolutionStage: EvolutionStage = .egg // 进化阶段
+    @Published var evolutionPath: EvolutionPath? = nil // 进化路径
+    @Published var totalPlayTime: Int = 0 // 总游玩时间（分钟）
+    @Published var lastInteractionDate: Date = Date() // 上次互动时间
+    @Published var specialMoments: Int = 0 // 特殊时刻次数
+    @Published var luckyEvents: Int = 0 // 幸运事件次数
 
     // 缓存的统计数据
     private var cachedFeedCount: Int = 0
@@ -175,8 +257,64 @@ class Pet: ObservableObject {
             icon: "leaf.fill",
             requirement: { self.healthStreak >= 7 }
         )
+        
+        let achievement5 = Achievement(
+            title: "亲密伙伴",
+            description: "亲密度达到50",
+            icon: "heart.circle.fill",
+            requirement: { self.intimacy >= 50 }
+        )
+        
+        let achievement6 = Achievement(
+            title: "灵魂伴侣",
+            description: "亲密度达到100",
+            icon: "heart.fill",
+            requirement: { self.intimacy >= 100 }
+        )
+        
+        let achievement7 = Achievement(
+            title: "成长之路",
+            description: "宠物第一次进化",
+            icon: "arrow.up.forward",
+            requirement: { self.evolutionStage != .egg && self.evolutionStage != .baby }
+        )
+        
+        let achievement8 = Achievement(
+            title: "青春年少",
+            description: "进化到青春期",
+            icon: "figure.run",
+            requirement: { self.evolutionStage == .teen || self.evolutionStage.rawValue == "青春期" }
+        )
+        
+        let achievement9 = Achievement(
+            title: "成熟稳重",
+            description: "进化到成年期",
+            icon: "figure.stand",
+            requirement: { self.evolutionStage == .adult || self.evolutionStage.rawValue == "成年" }
+        )
+        
+        let achievement10 = Achievement(
+            title: "传说之宠",
+            description: "进化到传说阶段",
+            icon: "crown.fill",
+            requirement: { self.evolutionStage == .legendary || self.evolutionStage.rawValue == "传说" }
+        )
+        
+        let achievement11 = Achievement(
+            title: "幸运之星",
+            description: "触发5次幸运事件",
+            icon: "star.circle.fill",
+            requirement: { self.luckyEvents >= 5 }
+        )
+        
+        let achievement12 = Achievement(
+            title: "特殊时刻",
+            description: "经历10次特殊时刻",
+            icon: "sparkles",
+            requirement: { self.specialMoments >= 10 }
+        )
 
-        achievements = [achievement1, achievement2, achievement3, achievement4]
+        achievements = [achievement1, achievement2, achievement3, achievement4, achievement5, achievement6, achievement7, achievement8, achievement9, achievement10, achievement11, achievement12]
     }
 
     // 互动类型
@@ -299,80 +437,103 @@ class Pet: ObservableObject {
         case .failure(_):
             return result
         case .warning(_), .success(_):
+            let bonusMultiplier = evolutionStage.bonusMultiplier
+            var expGain = 0
+            var intimacyGain = 1
+            
             switch type {
             case .play:
-                happiness = clampValue(happiness + 15)
+                let happinessGain = Int(Double(15) * bonusMultiplier)
+                happiness = clampValue(happiness + happinessGain)
                 energy = clampValue(energy - 10)
-                experience += 5
+                expGain = Int(Double(5) * bonusMultiplier)
+                intimacyGain = 2
                 logActivity(
                     Activity(
                         title: "玩耍",
                         icon: "gamecontroller",
                         color: CodableColor(from: .purple),
                         date: Date(),
-                        value: 15
+                        value: happinessGain
                     )
                 )
             case .feed:
-                hunger = clampValue(hunger - 25)
+                let hungerReduction = Int(Double(25) * bonusMultiplier)
+                hunger = clampValue(hunger - hungerReduction)
                 happiness = clampValue(happiness + 5)
                 lastFed = Date()
-                experience += 3
+                expGain = Int(Double(3) * bonusMultiplier)
                 logActivity(
                     Activity(
                         title: "喂养",
                         icon: "fork.knife",
                         color: CodableColor(from: .orange),
                         date: Date(),
-                        value: 25
+                        value: hungerReduction
                     )
                 )
             case .clean:
-                health = clampValue(health + 15)
+                let healthGain = Int(Double(15) * bonusMultiplier)
+                health = clampValue(health + healthGain)
                 happiness = clampValue(happiness + 5)
-                experience += 2
+                expGain = Int(Double(2) * bonusMultiplier)
                 logActivity(
                     Activity(
                         title: "清理",
                         icon: "sparkles",
                         color: CodableColor(from: .green),
                         date: Date(),
-                        value: 15
+                        value: healthGain
                     )
                 )
             case .exercise:
-                health = clampValue(health + 10)
+                let healthGain = Int(Double(10) * bonusMultiplier)
+                health = clampValue(health + healthGain)
                 hunger = clampValue(hunger + 15)
                 energy = clampValue(energy - 20)
-                experience += 8
+                expGain = Int(Double(8) * bonusMultiplier)
+                intimacyGain = 2
                 logActivity(
                     Activity(
                         title: "运动",
                         icon: "figure.walk",
                         color: CodableColor(from: .blue),
                         date: Date(),
-                        value: 10
+                        value: healthGain
                     )
                 )
             case .cuddle:
-                happiness = clampValue(happiness + 20)
+                let happinessGain = Int(Double(20) * bonusMultiplier)
+                happiness = clampValue(happiness + happinessGain)
                 health = clampValue(health + 5)
                 energy = clampValue(energy - 5)
-                experience += 4
+                expGain = Int(Double(4) * bonusMultiplier)
+                intimacyGain = 3
                 logActivity(
                     Activity(
                         title: "拥抱",
                         icon: "heart.fill",
                         color: CodableColor(from: .red),
                         date: Date(),
-                        value: 20
+                        value: happinessGain
                     )
                 )
             }
 
+            experience += expGain
             totalInteractions += 1
+            lastInteractionDate = Date()
+            
+            // 更新亲密度
+            if intimacy < 100 {
+                let pathBonus = getEvolutionPathBonus()
+                intimacy = min(100, intimacy + intimacyGain + pathBonus)
+            }
+            
             updateMood()
             checkLevelUp()
+            checkEvolution()
+            triggerRandomEvent()
             
             // 异步保存数据，避免阻塞主线程
             DispatchQueue.global(qos: .userInitiated).async {
@@ -381,6 +542,190 @@ class Pet: ObservableObject {
         }
 
         return result
+    }
+    
+    // 获取进化路径加成
+    private func getEvolutionPathBonus() -> Int {
+        guard let path = evolutionPath else { return 0 }
+        
+        switch path {
+        case .balanced: return 0
+        case .strong: return 1
+        case .happy: return 2
+        case .healthy: return 1
+        case .mysterious: return Int.random(in: 0...3)
+        }
+    }
+    
+    // 检查进化
+    private func checkEvolution() {
+        let currentStageIndex = EvolutionStage.allCases.firstIndex(of: evolutionStage) ?? 0
+        let nextStages = Array(EvolutionStage.allCases.dropFirst(currentStageIndex + 1))
+        
+        for nextStage in nextStages {
+            if level >= nextStage.requiredLevel {
+                evolveTo(nextStage)
+                break
+            }
+        }
+    }
+    
+    // 执行进化
+    private func evolveTo(_ stage: EvolutionStage) {
+        guard evolutionStage != stage else { return }
+        
+        let oldStage = evolutionStage
+        evolutionStage = stage
+        
+        // 进化奖励
+        health = min(100, health + 30)
+        happiness = min(100, happiness + 20)
+        energy = min(100, energy + 25)
+        
+        specialMoments += 1
+        
+        logActivity(
+            Activity(
+                title: "进化！\(oldStage.rawValue) → \(stage.rawValue)",
+                icon: "sparkles",
+                color: CodableColor(from: .purple),
+                date: Date(),
+                value: nil
+            )
+        )
+        
+        // 如果是第一次进化，让玩家选择进化路径
+        if evolutionStage == .child && evolutionPath == nil {
+            logActivity(
+                Activity(
+                    title: "可以选择进化路径了！",
+                    icon: "arrow.triangle.2.circlepath",
+                    color: CodableColor(from: .blue),
+                    date: Date(),
+                    value: nil
+                )
+            )
+        }
+    }
+    
+    // 设置进化路径
+    func setEvolutionPath(_ path: EvolutionPath) {
+        guard evolutionPath == nil else { return }
+        
+        evolutionPath = path
+        logActivity(
+            Activity(
+                title: "选择了\(path.rawValue)进化路径",
+                icon: path.icon,
+                color: CodableColor(from: .blue),
+                date: Date(),
+                value: nil
+            )
+        )
+    }
+    
+    // 触发随机事件 - 优化版本
+    private func triggerRandomEvent() {
+        let baseChance = 0.05
+        let pathBonus = evolutionPath == .mysterious ? 0.1 : 0.0
+        let stageBonus = evolutionStage.bonusMultiplier * 0.05
+        let totalChance = min(0.25, baseChance + pathBonus + stageBonus)
+        
+        guard Double.random(in: 0...1) < totalChance else { return }
+        
+        handleRandomEvent()
+    }
+    
+    // 处理随机事件 - 优化版本（缓存事件池）
+    private static var eventPool: [RandomEvent]?
+    
+    private func handleRandomEvent() {
+        // 延迟初始化事件池
+        if Self.eventPool == nil {
+            Self.eventPool = [
+                RandomEvent(
+                    title: "幸运时刻",
+                    description: "你的宠物发现了一个隐藏的宝藏！",
+                    effect: { pet in
+                        pet.experience += 10
+                        pet.luckyEvents += 1
+                    },
+                    icon: "star.fill",
+                    color: .yellow
+                ),
+                RandomEvent(
+                    title: "突然饿了",
+                    description: "你的宠物突然感到非常饥饿...",
+                    effect: { pet in
+                        pet.hunger = min(100, pet.hunger + 20)
+                    },
+                    icon: "fork.knife",
+                    color: .orange
+                ),
+                RandomEvent(
+                    title: "快乐惊喜",
+                    description: "你的宠物因为一件小事而变得超级开心！",
+                    effect: { pet in
+                        pet.happiness = min(100, pet.happiness + 25)
+                        pet.specialMoments += 1
+                    },
+                    icon: "heart.fill",
+                    color: .pink
+                ),
+                RandomEvent(
+                    title: "意外收获",
+                    description: "你的宠物在玩耍时发现了一些有用的东西！",
+                    effect: { pet in
+                        pet.health = min(100, pet.health + 15)
+                        pet.energy = min(100, pet.energy + 10)
+                    },
+                    icon: "sparkles",
+                    color: .green
+                ),
+                RandomEvent(
+                    title: "亲密时刻",
+                    description: "你和宠物之间建立了更深的联系！",
+                    effect: { pet in
+                        pet.intimacy = min(100, pet.intimacy + 15)
+                        pet.specialMoments += 1
+                    },
+                    icon: "heart.circle.fill",
+                    color: .red
+                ),
+                RandomEvent(
+                    title: "神秘礼物",
+                    description: "你的宠物收到了一个神秘礼物！",
+                    effect: { pet in
+                        let reward = Int.random(in: 5...15)
+                        pet.experience += reward
+                        pet.luckyEvents += 1
+                    },
+                    icon: "gift.fill",
+                    color: .purple
+                )
+            ]
+        }
+        
+        guard let event = Self.eventPool?.randomElement() else { return }
+        event.effect(self)
+        logActivity(
+            Activity(
+                title: "事件：\(event.title)",
+                icon: event.icon,
+                color: CodableColor(from: event.color),
+                date: Date(),
+                value: nil
+            )
+        )
+    }
+
+    // 随机事件结构
+    struct RandomEvent {
+        let title: String
+        let description: String
+        let effect: (Pet) -> Void
+        let icon: String
+        let color: Color
     }
 
     // 验证互动
@@ -489,6 +834,13 @@ class Pet: ObservableObject {
         defaults.set(maxHappiness, forKey: "pet_max_happiness")
         defaults.set(careStreak, forKey: "pet_care_streak")
         defaults.set(unlockedAchievements, forKey: "pet_unlocked_achievements")
+        defaults.set(intimacy, forKey: "pet_intimacy")
+        defaults.set(evolutionStage.rawValue, forKey: "pet_evolution_stage")
+        defaults.set(evolutionPath?.rawValue, forKey: "pet_evolution_path")
+        defaults.set(totalPlayTime, forKey: "pet_total_play_time")
+        defaults.set(lastInteractionDate, forKey: "pet_last_interaction_date")
+        defaults.set(specialMoments, forKey: "pet_special_moments")
+        defaults.set(luckyEvents, forKey: "pet_lucky_events")
 
         // 保存活动记录
         if let encoded = try? JSONEncoder().encode(activities) {
@@ -525,6 +877,22 @@ class Pet: ObservableObject {
         pet.maxHappiness = defaults.integer(forKey: "pet_max_happiness")
         pet.careStreak = defaults.integer(forKey: "pet_care_streak")
         pet.unlockedAchievements = defaults.integer(forKey: "pet_unlocked_achievements")
+        pet.intimacy = defaults.integer(forKey: "pet_intimacy")
+        pet.totalPlayTime = defaults.integer(forKey: "pet_total_play_time")
+        pet.specialMoments = defaults.integer(forKey: "pet_special_moments")
+        pet.luckyEvents = defaults.integer(forKey: "pet_lucky_events")
+
+        // 加载进化阶段
+        if let evolutionStageRaw = defaults.string(forKey: "pet_evolution_stage"),
+           let evolutionStage = EvolutionStage(rawValue: evolutionStageRaw) {
+            pet.evolutionStage = evolutionStage
+        }
+
+        // 加载进化路径
+        if let evolutionPathRaw = defaults.string(forKey: "pet_evolution_path"),
+           let evolutionPath = EvolutionPath(rawValue: evolutionPathRaw) {
+            pet.evolutionPath = evolutionPath
+        }
 
         // 加载宠物类型
         if let petTypeRaw = defaults.string(forKey: "pet_type"),
@@ -541,6 +909,11 @@ class Pet: ObservableObject {
         // 加载上次喂食时间
         if let lastFedTime = defaults.object(forKey: "pet_last_fed") as? Date {
             pet.lastFed = lastFedTime
+        }
+        
+        // 加载上次互动时间
+        if let lastInteractionTime = defaults.object(forKey: "pet_last_interaction_date") as? Date {
+            pet.lastInteractionDate = lastInteractionTime
         }
 
         // 加载活动记录

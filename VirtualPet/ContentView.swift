@@ -33,6 +33,9 @@ struct ContentView: View {
     @State private var isAnimating = false
     @State private var errorMessage: String? = nil
     @State private var showingError = false
+    @State private var evolutionAnimation: EvolutionAnimation?
+    @State private var randomEventAnimation: RandomEventAnimation?
+    @State private var intimacyHeartPulse = false
 
     var body: some View {
         NavigationView {
@@ -63,7 +66,8 @@ struct ContentView: View {
                         particleEffects: $particleEffects,
                         isAnimating: $isAnimating,
                         errorMessage: $errorMessage,
-                        showingError: $showingError
+                        showingError: $showingError,
+                        intimacyHeartPulse: $intimacyHeartPulse
                     )
 
                     // 宠物选择器
@@ -174,6 +178,53 @@ struct ContentView: View {
                         .transition(.opacity)
                         .animation(.easeInOut, value: showingError)
                     }
+                    
+                    // 进化动画覆盖层
+                    if let animation = evolutionAnimation {
+                        EvolutionAnimationView(
+                            animation: animation,
+                            onComplete: {
+                                withAnimation {
+                                    evolutionAnimation = nil
+                                }
+                            }
+                        )
+                    }
+                    
+                    // 随机事件动画覆盖层
+                    if let animation = randomEventAnimation {
+                        RandomEventAnimationView(
+                            animation: animation,
+                            onComplete: {
+                                withAnimation {
+                                    randomEventAnimation = nil
+                                }
+                            }
+                        )
+                    }
+                    
+                    // 亲密度心跳动画
+                    if pet.intimacy > 0 && intimacyHeartPulse {
+                        GeometryReader { geometry in
+                            let centerX = geometry.size.width / 2
+                            let centerY = geometry.size.height / 2 - 50
+                            
+                            ForEach(0..<5, id: \.self) { index in
+                                Circle()
+                                    .stroke(Color.pink.opacity(0.6), lineWidth: 2)
+                                    .frame(width: 80 + CGFloat(index * 30), height: 80 + CGFloat(index * 30))
+                                    .position(x: centerX, y: centerY)
+                                    .opacity(intimacyHeartPulse ? Double(5 - index) * 0.2 : 0.0)
+                                    .scaleEffect(intimacyHeartPulse ? 1.0 + CGFloat(index) * 0.2 : 0.5)
+                                    .animation(
+                                        .easeOut(duration: 1.2)
+                                            .delay(Double(index) * 0.15),
+                                        value: intimacyHeartPulse
+                                    )
+                            }
+                        }
+                        .ignoresSafeArea()
+                    }
                 }
             )
             .onAppear {
@@ -217,64 +268,329 @@ struct ContentView: View {
 }
 
 // 粒子效果
-struct Particle: Identifiable {
+struct Particle: Identifiable, Equatable {
     let id = UUID()
     var position: CGPoint
     var size: CGFloat
     var color: Color
     var opacity: Double
     var animationProgress: Double
+    
+    static func == (lhs: Particle, rhs: Particle) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
+// 进化动画
+struct EvolutionAnimation {
+    let fromStage: EvolutionStage
+    let toStage: EvolutionStage
+    var progress: Double
+    var particles: [EvolutionParticle]
+    
+    init(from: EvolutionStage, to: EvolutionStage) {
+        self.fromStage = from
+        self.toStage = to
+        self.progress = 0.0
+        self.particles = []
+    }
+}
+
+struct EvolutionParticle: Identifiable {
+    let id = UUID()
+    var position: CGPoint
+    var velocity: CGVector
+    var size: CGFloat
+    var color: Color
+    var opacity: Double
+}
+
+// 随机事件动画
+struct RandomEventAnimation {
+    let title: String
+    let icon: String
+    let color: Color
+    var showProgress: Double
+    var particles: [EventParticle]
+    
+    init(title: String, icon: String, color: Color) {
+        self.title = title
+        self.icon = icon
+        self.color = color
+        self.showProgress = 0.0
+        self.particles = []
+    }
+}
+
+struct EventParticle: Identifiable {
+    let id = UUID()
+    var position: CGPoint
+    var size: CGFloat
+    var color: Color
+    var opacity: Double
+    var scale: CGFloat
 }
 
 // 宠物信息头部
 struct PetHeaderView: View {
     @ObservedObject var pet: Pet
+    @State private var showingEvolutionPathSelection = false
 
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                Text(pet.petType.rawValue)
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
+                VStack(alignment: .leading, spacing: 5) {
+                    Text(pet.petType.rawValue)
+                        .font(.system(size: 28))
+                    
+                    Text(getEvolutionEmoji())
+                        .font(.system(size: 16))
+                        .foregroundColor(.purple)
+                }
 
-                VStack(alignment: .leading) {
-                    Text("Level \(pet.level)")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.blue)
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(spacing: 8) {
+                        Text("Lv.\(pet.level)")
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(.blue)
+                        
+                        if pet.evolutionStage != .egg {
+                            Text("• \(pet.evolutionStage.rawValue)")
+                                .font(.caption)
+                                .foregroundColor(.purple)
+                        }
+                    }
 
                     Text("第 \(pet.age) 天")
-                        .font(.caption)
+                        .font(.caption2)
                         .foregroundColor(.gray)
                 }
 
                 Spacer()
 
-                VStack(alignment: .trailing) {
-                    Text("经验值")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-
+                VStack(alignment: .trailing, spacing: 6) {
+                    HStack(spacing: 12) {
+                        VStack(alignment: .trailing, spacing: 2) {
+                            Text("经验")
+                                .font(.caption2)
+                                .foregroundColor(.gray)
+                            Text("\(pet.experience)/\(pet.level * 100)")
+                                .font(.caption2)
+                                .foregroundColor(.blue)
+                        }
+                        VStack(alignment: .trailing, spacing: 2) {
+                            Text("亲密度")
+                                .font(.caption2)
+                                .foregroundColor(.gray)
+                            Text("\(pet.intimacy)/100")
+                                .font(.caption2)
+                                .foregroundColor(.pink)
+                        }
+                    }
+                    
                     ProgressView(value: Double(pet.experience), total: Double(pet.level * 100))
                         .progressViewStyle(LinearProgressViewStyle(tint: .blue))
-                        .frame(width: 100)
-
-                    Text("\(pet.experience)/\(pet.level * 100)")
-                        .font(.caption2)
-                        .foregroundColor(.gray)
+                        .frame(width: 120)
+                    
+                    if pet.intimacy > 0 {
+                        ProgressView(value: Double(pet.intimacy), total: 100)
+                            .progressViewStyle(LinearProgressViewStyle(tint: .pink))
+                            .frame(width: 120)
+                    }
                 }
             }
             .padding()
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color.gray.opacity(0.1))
-                    .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 2)
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.blue.opacity(0.1), Color.purple.opacity(0.1)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .shadow(color: .blue.opacity(0.1), radius: 8, x: 0, y: 4)
             )
+            
+            if pet.evolutionStage == .child && pet.evolutionPath == nil {
+                Button(action: {
+                    showingEvolutionPathSelection = true
+                }) {
+                    HStack {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .foregroundColor(.blue)
+                        Text("选择进化路径")
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .foregroundColor(.blue)
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 12)
+                    .background(
+                        Capsule()
+                            .fill(Color.blue.opacity(0.1))
+                    )
+                    .overlay(
+                        Capsule()
+                            .stroke(Color.blue, lineWidth: 1.5)
+                    )
+                }
+                .buttonStyle(PlainButtonStyle())
+                .sheet(isPresented: $showingEvolutionPathSelection) {
+                    EvolutionPathSelectionView(pet: pet, isPresented: $showingEvolutionPathSelection)
+                }
+            }
+        }
+    }
+    
+    private func getEvolutionEmoji() -> String {
+        switch pet.evolutionStage {
+        case .egg: return "🥚"
+        case .baby: return "🐣"
+        case .child: return "🐤"
+        case .teen: return "🐥"
+        case .adult: return "🐓"
+        case .elder: return "🦄"
+        case .legendary: return "🌟"
         }
     }
 }
 
-// 宠物显示视图
+// 进化路径选择视图
+struct EvolutionPathSelectionView: View {
+    @ObservedObject var pet: Pet
+    @Binding var isPresented: Bool
+    
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 25) {
+                VStack(spacing: 12) {
+                    Text("选择进化路径")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    
+                    Text("不同的路径会影响宠物的成长方式和特殊能力")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.top, 20)
+                
+                ScrollView {
+                    VStack(spacing: 16) {
+                        ForEach(EvolutionPath.allCases, id: \.self) { path in
+                            EvolutionPathCard(
+                                path: path,
+                                isSelected: pet.evolutionPath == path,
+                                onTap: {
+                                    pet.setEvolutionPath(path)
+                                    withAnimation {
+                                        isPresented = false
+                                    }
+                                }
+                            )
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                }
+                
+                Button("暂不选择") {
+                    withAnimation {
+                        isPresented = false
+                    }
+                }
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .padding(.bottom, 20)
+            }
+            .navigationTitle("")
+            #if os(iOS)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("关闭") {
+                        withAnimation {
+                            isPresented = false
+                        }
+                    }
+                }
+            }
+            #endif
+        }
+    }
+}
+
+// 进化路径卡片
+struct EvolutionPathCard: View {
+    let path: EvolutionPath
+    let isSelected: Bool
+    let onTap: () -> Void
+    
+    var body: some View {
+        Button(action: onTap) {
+            HStack(spacing: 16) {
+                ZStack {
+                    Circle()
+                        .fill(getPathColor().opacity(0.15))
+                        .frame(width: 60, height: 60)
+                    
+                    Image(systemName: path.icon)
+                        .font(.title2)
+                        .foregroundColor(getPathColor())
+                }
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(path.rawValue)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    
+                    Text(path.description)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
+                }
+                
+                Spacer()
+                
+                if isSelected {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(.green)
+                } else {
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(isSelected ? Color.blue.opacity(0.05) : Color.gray.opacity(0.05))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(isSelected ? Color.blue : Color.clear, lineWidth: 2)
+            )
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+    
+    private func getPathColor() -> Color {
+        switch path {
+        case .balanced: return .blue
+        case .strong: return .orange
+        case .happy: return .pink
+        case .healthy: return .green
+        case .mysterious: return .purple
+        }
+    }
+}
+
+// 宠物显示视图 - 优化版本
 struct PetDisplayView: View {
     @ObservedObject var pet: Pet
     @Binding var breathAnimation: Bool
@@ -282,75 +598,180 @@ struct PetDisplayView: View {
     @Binding var sparkleAnimation: Bool
     @Binding var heartAnimation: Bool
     @Binding var particleEffects: [Particle]
+    
+    @State private var evolutionGlow = 0.0
+    @State private var sparkleOffsets: [CGSize] = []
+    @State private var heartOffsets: [CGSize] = []
+    
+    private let animationNamespace = Namespace()
 
     var body: some View {
         ZStack {
-            // 背景渐变基于心情
+            // 背景渐变基于心情和进化阶段
             RoundedRectangle(cornerRadius: 25)
                 .fill(getMoodGradient())
                 .shadow(color: getMoodShadowColor(), radius: 15, x: 0, y: 5)
+                .overlay(
+                    // 进化光晕效果 - 使用优化的动画
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(
+                            getEvolutionGlowColor().opacity(evolutionGlow),
+                            lineWidth: 4
+                        )
+                        .shadow(color: getEvolutionGlowColor().opacity(evolutionGlow), radius: 20)
+                )
 
-            // 宠物表情
+            // 进化阶段背景装饰
+            if pet.evolutionStage != .egg {
+                getEvolutionDecoration()
+                    .opacity(0.3)
+                    .scaleEffect(1.5)
+            }
+
+            // 宠物表情 - 优化动画
             Text(getPetExpression())
-                .font(.system(size: 100))
+                .font(.system(size: getPetSize()))
                 .scaleEffect(getPetScale())
                 .rotationEffect(getPetRotation())
                 .offset(y: petBounce ? -20 : 0)
                 .animation(.spring(response: 0.6, dampingFraction: 0.8), value: petBounce)
+                .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
 
-            // 粒子效果
+            // 亲密度爱心装饰 - 使用预计算位置
+            if pet.intimacy >= 50 {
+                ForEach(0..<min(pet.intimacy / 25, 3), id: \.self) { index in
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(.pink)
+                        .font(.caption)
+                        .offset(
+                            x: CGFloat(index - 1) * 40,
+                            y: -80
+                        )
+                        .opacity(0.6)
+                        .scaleEffect(1.0 + CGFloat(index) * 0.1)
+                        .drawingGroup() // 优化渲染性能
+                }
+            }
+
+            // 进化路径图标
+            if let path = pet.evolutionPath {
+                ZStack {
+                    Circle()
+                        .fill(path.color.opacity(0.2))
+                        .frame(width: 40, height: 40)
+                    
+                    Image(systemName: path.icon)
+                        .foregroundColor(path.color)
+                        .font(.title3)
+                }
+                .position(x: 280, y: 50)
+            }
+
+            // 粒子效果 - 使用drawingGroup优化
             ForEach(particleEffects) { particle in
                 Circle()
                     .fill(particle.color)
                     .frame(width: particle.size, height: particle.size)
                     .opacity(particle.opacity)
                     .position(particle.position)
-                    .animation(.easeOut, value: particle.animationProgress)
             }
+            .drawingGroup()
 
-            // 特殊效果
+            // 特殊效果 - 优化的动画实现
             if sparkleAnimation {
-                ForEach(0..<5, id: \.self) { index in
+                ForEach(0..<8, id: \.self) { index in
                     Circle()
                         .fill(.yellow)
-                        .frame(width: 10, height: 10)
+                        .frame(width: 12, height: 12)
+                        .offset(getSparkleOffset(for: index))
                         .opacity(sparkleAnimation ? 1.0 : 0.0)
-                        .scaleEffect(sparkleAnimation ? 2.0 : 1.0)
-                        .offset(
-                            x: CGFloat.random(in: -50...50),
-                            y: CGFloat.random(in: -50...50)
-                        )
+                        .scaleEffect(sparkleAnimation ? 2.5 : 1.0)
                         .animation(
-                            .easeOut(duration: 1.0)
-                                .delay(Double(index) * 0.1),
+                            .easeOut(duration: 1.2)
+                                .delay(Double(index) * 0.08),
                             value: sparkleAnimation
                         )
                 }
             }
 
             if heartAnimation {
-                ForEach(0..<3, id: \.self) { index in
+                ForEach(0..<5, id: \.self) { index in
                     Image(systemName: "heart.fill")
                         .foregroundColor(.red)
-                        .scaleEffect(petBounce ? 1.5 : 1.0)
-                        .offset(
-                            x: CGFloat.random(in: -30...30),
-                            y: -CGFloat.random(in: 20...80)
-                        )
+                        .font(.title)
+                        .offset(getHeartOffset(for: index))
+                        .scaleEffect(petBounce ? 1.8 : 1.0)
                         .opacity(heartAnimation ? 1.0 : 0.0)
                         .animation(
-                            .easeOut(duration: 1.5)
-                                .delay(Double(index) * 0.2),
+                            .easeOut(duration: 1.8)
+                                .delay(Double(index) * 0.15),
                             value: heartAnimation
                         )
                 }
             }
         }
-        .frame(height: 250)
+        .frame(height: 280)
         .padding()
+        .onAppear {
+            startEvolutionGlow()
+            initializeOffsets()
+        }
+        .onChange(of: sparkleAnimation) { _ in
+            if sparkleAnimation {
+                initializeOffsets()
+            }
+        }
+        .onChange(of: heartAnimation) { _ in
+            if heartAnimation {
+                initializeOffsets()
+            }
+        }
+    }
+    
+    private func initializeOffsets() {
+        sparkleOffsets = (0..<8).map { _ in
+            CGSize(width: CGFloat.random(in: -60...60), height: CGFloat.random(in: -60...60))
+        }
+        heartOffsets = (0..<5).map { _ in
+            CGSize(width: CGFloat.random(in: -40...40), height: -CGFloat.random(in: 30...100))
+        }
+    }
+    
+    private func getSparkleOffset(for index: Int) -> CGSize {
+        guard index < sparkleOffsets.count else {
+            return CGSize(width: CGFloat.random(in: -60...60), height: CGFloat.random(in: -60...60))
+        }
+        return sparkleOffsets[index]
+    }
+    
+    private func getHeartOffset(for index: Int) -> CGSize {
+        guard index < heartOffsets.count else {
+            return CGSize(width: CGFloat.random(in: -40...40), height: -CGFloat.random(in: 30...100))
+        }
+        return heartOffsets[index]
+    }
+    
+    private func startEvolutionGlow() {
+        withAnimation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
+            evolutionGlow = 0.8
+        }
+    }
+    
+    private func getEvolutionGlowColor() -> Color {
+        switch pet.evolutionStage {
+        case .egg: return .white
+        case .baby: return .green
+        case .child: return .blue
+        case .teen: return .purple
+        case .adult: return .orange
+        case .elder: return .pink
+        case .legendary: return .yellow
+        }
     }
 
     private func getMoodGradient() -> LinearGradient {
+        let baseColor = pet.petType.color
+        
         switch pet.mood {
         case .happy:
             return LinearGradient(
@@ -390,7 +811,7 @@ struct PetDisplayView: View {
             )
         default:
             return LinearGradient(
-                colors: [pet.petType.color.opacity(0.2), .white],
+                colors: [baseColor.opacity(0.2), .white],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -405,7 +826,73 @@ struct PetDisplayView: View {
         case .sick: return .red
         case .hungry: return .orange
         case .sleepy: return .purple
-        default: return .gray
+        default: return pet.petType.color
+        }
+    }
+    
+    private func getPetSize() -> CGFloat {
+        let baseSize: CGFloat = 100
+        let evolutionBonus = getEvolutionStageIndex() * 10
+        let intimacyBonus = pet.intimacy >= 50 ? 10 : 0
+        
+        return baseSize + CGFloat(evolutionBonus + intimacyBonus)
+    }
+    
+    private func getEvolutionStageIndex() -> Int {
+        EvolutionStage.allCases.firstIndex(of: pet.evolutionStage) ?? 0
+    }
+    
+    private func getEvolutionDecoration() -> some View {
+        let stage = pet.evolutionStage
+        
+        switch stage {
+        case .egg:
+            return AnyView(
+                Circle()
+                    .stroke(Color.white.opacity(0.3), lineWidth: 2)
+                    .frame(width: 60, height: 60)
+            )
+        case .baby:
+            return AnyView(
+                Circle()
+                    .stroke(Color.green.opacity(0.3), lineWidth: 2)
+                    .frame(width: 80, height: 80)
+            )
+        case .child:
+            return AnyView(
+                Circle()
+                    .stroke(Color.blue.opacity(0.3), lineWidth: 3)
+                    .frame(width: 100, height: 100)
+            )
+        case .teen:
+            return AnyView(
+                Circle()
+                    .stroke(Color.purple.opacity(0.3), lineWidth: 4)
+                    .frame(width: 120, height: 120)
+            )
+        case .adult:
+            return AnyView(
+                Circle()
+                    .stroke(Color.orange.opacity(0.3), lineWidth: 5)
+                    .frame(width: 140, height: 140)
+            )
+        case .elder:
+            return AnyView(
+                Circle()
+                    .stroke(Color.pink.opacity(0.3), lineWidth: 6)
+                    .frame(width: 160, height: 160)
+            )
+        case .legendary:
+            return AnyView(
+                ZStack {
+                    Circle()
+                        .stroke(Color.yellow.opacity(0.3), lineWidth: 7)
+                        .frame(width: 180, height: 180)
+                    Circle()
+                        .stroke(Color.yellow.opacity(0.2), lineWidth: 5)
+                        .frame(width: 200, height: 200)
+                }
+            )
         }
     }
 
@@ -465,14 +952,22 @@ struct PetDisplayView: View {
     }
 
     private func getPetScale() -> CGFloat {
+        var scale: CGFloat = 1.0
+        
         switch pet.mood {
-        case .excited: return 1.2
-        case .happy: return 1.1
-        case .sad: return 0.9
-        case .sick: return 0.8
-        case .sleepy: return 0.95
-        default: return 1.0
+        case .excited: scale = 1.2
+        case .happy: scale = 1.1
+        case .sad: scale = 0.9
+        case .sick: scale = 0.8
+        case .sleepy: scale = 0.95
+        default: scale = 1.0
         }
+        
+        if pet.intimacy >= 80 {
+            scale *= 1.05
+        }
+        
+        return scale
     }
 
     private func getPetRotation() -> Angle {
@@ -579,6 +1074,7 @@ struct InteractionButtonsView: View {
     @Binding var isAnimating: Bool
     @Binding var errorMessage: String?
     @Binding var showingError: Bool
+    @Binding var intimacyHeartPulse: Bool
 
     var body: some View {
         VStack(spacing: 15) {
@@ -611,6 +1107,19 @@ struct InteractionButtonsView: View {
                                 sparkleAnimation = false
                             }
                             addParticles(color: .orange, count: 5)
+                            
+                            // 亲密度心跳动画
+                            if pet.intimacy > 0 && pet.intimacy % 10 == 0 {
+                                withAnimation {
+                                    intimacyHeartPulse = true
+                                }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                                    withAnimation {
+                                        intimacyHeartPulse = false
+                                    }
+                                }
+                            }
+                            
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                                 isAnimating = false
                             }
@@ -906,23 +1415,145 @@ struct QuickStatsView: View {
     @ObservedObject var pet: Pet
 
     var body: some View {
-        VStack(spacing: 10) {
-            Text("快速统计")
+        VStack(spacing: 12) {
+            Text("宠物档案")
                 .font(.headline)
                 .foregroundColor(.secondary)
 
-            HStack(spacing: 15) {
-                StatItem(title: "总互动", value: pet.totalInteractions)
-                StatItem(title: "最高快乐", value: pet.maxHappiness)
-                StatItem(title: "成就数", value: pet.unlockedAchievements)
+            VStack(spacing: 16) {
+                HStack(spacing: 15) {
+                    StatItem(title: "总互动", value: pet.totalInteractions, color: .blue)
+                    StatItem(title: "最高快乐", value: pet.maxHappiness, color: .yellow)
+                    StatItem(title: "成就数", value: pet.unlockedAchievements, color: .purple)
+                }
+                
+                Divider()
+                    .background(Color.gray.opacity(0.2))
+                
+                HStack(spacing: 15) {
+                    StatItem(title: "亲密度", value: pet.intimacy, color: .pink, suffix: "/100")
+                    StatItem(title: "幸运事件", value: pet.luckyEvents, color: .orange)
+                    StatItem(title: "特殊时刻", value: pet.specialMoments, color: .green)
+                }
+                
+                if pet.evolutionStage != .egg {
+                    Divider()
+                        .background(Color.gray.opacity(0.2))
+                    
+                    HStack(spacing: 12) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("进化阶段")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            
+                            HStack(spacing: 8) {
+                                Text(getEvolutionEmoji(pet.evolutionStage))
+                                    .font(.title2)
+                                
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(pet.evolutionStage.rawValue)
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                    
+                                    if let nextStage = getNextEvolutionStage() {
+                                        Text("下一级：\(nextStage.rawValue)")
+                                            .font(.caption2)
+                                            .foregroundColor(.secondary)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        VStack(alignment: .trailing, spacing: 4) {
+                            Text("进化路径")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            
+                            if let path = pet.evolutionPath {
+                                HStack(spacing: 4) {
+                                    Image(systemName: path.icon)
+                                        .foregroundColor(getPathColor(path))
+                                    Text(path.rawValue)
+                                        .font(.subheadline)
+                                        .fontWeight(.medium)
+                                }
+                            } else {
+                                Text("未选择")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 8)
+                }
+                
+                if pet.evolutionStage != .legendary {
+                    let currentLevelIndex = EvolutionStage.allCases.firstIndex(of: pet.evolutionStage) ?? 0
+                    let nextLevel = EvolutionStage.allCases[currentLevelIndex + 1]
+                    let progress = pet.level >= nextLevel.requiredLevel ? 1.0 : Double(pet.level) / Double(nextLevel.requiredLevel)
+                    
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack {
+                            Text("进化进度")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            
+                            Spacer()
+                            
+                            Text("\(pet.level)/\(nextLevel.requiredLevel)级")
+                                .font(.caption2)
+                                .foregroundColor(.blue)
+                        }
+                        
+                        ProgressView(value: progress)
+                            .progressViewStyle(LinearProgressViewStyle(tint: .purple))
+                            .scaleEffect(y: 1.5)
+                    }
+                }
             }
         }
         .padding()
         .background(
-            RoundedRectangle(cornerRadius: 15)
-                .fill(Color.gray.opacity(0.1))
-                .shadow(color: .gray.opacity(0.1), radius: 5, x: 0, y: 2)
+            RoundedRectangle(cornerRadius: 16)
+                .fill(
+                    LinearGradient(
+                        colors: [Color.gray.opacity(0.08), Color.gray.opacity(0.12)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+                .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
         )
+    }
+    
+    private func getEvolutionEmoji(_ stage: EvolutionStage) -> String {
+        switch stage {
+        case .egg: return "🥚"
+        case .baby: return "🐣"
+        case .child: return "🐤"
+        case .teen: return "🐥"
+        case .adult: return "🐓"
+        case .elder: return "🦄"
+        case .legendary: return "🌟"
+        }
+    }
+    
+    private func getNextEvolutionStage() -> EvolutionStage? {
+        guard let currentIndex = EvolutionStage.allCases.firstIndex(of: pet.evolutionStage) else { return nil }
+        let nextIndex = currentIndex + 1
+        return nextIndex < EvolutionStage.allCases.count ? EvolutionStage.allCases[nextIndex] : nil
+    }
+    
+    private func getPathColor(_ path: EvolutionPath) -> Color {
+        switch path {
+        case .balanced: return .blue
+        case .strong: return .orange
+        case .happy: return .pink
+        case .healthy: return .green
+        case .mysterious: return .purple
+        }
     }
 }
 
@@ -930,17 +1561,20 @@ struct QuickStatsView: View {
 struct StatItem: View {
     let title: String
     let value: Int
-
+    let color: Color
+    var suffix: String = ""
+    
     var body: some View {
-        VStack {
-            Text("\(value)")
+        VStack(spacing: 6) {
+            Text("\(value)\(suffix)")
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(.blue)
-
+                .foregroundColor(color)
+            
             Text(title)
                 .font(.caption)
                 .foregroundColor(.secondary)
+                .lineLimit(1)
         }
         .frame(maxWidth: .infinity)
     }
@@ -1081,6 +1715,229 @@ struct StatRow: View {
             Text("\(value)")
                 .font(.headline)
                 .foregroundColor(.blue)
+        }
+    }
+}
+
+// 进化动画视图
+struct EvolutionAnimationView: View {
+    @State var animation: EvolutionAnimation
+    let onComplete: () -> Void
+    @State private var particles: [EvolutionParticle] = []
+    @State private var screenSize: CGSize = CGSize(width: 400, height: 800)
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Color.black.opacity(0.8)
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 30) {
+                    Spacer()
+                    
+                    // 进化阶段展示
+                    VStack(spacing: 20) {
+                        Text("进化！")
+                            .font(.system(size: 48, weight: .bold))
+                            .foregroundColor(.white)
+                            .scaleEffect(animation.progress < 0.5 ? 1.0 : 1.2)
+                            .animation(.easeInOut(duration: 0.5), value: animation.progress)
+                        
+                        HStack(spacing: 40) {
+                            Text(getStageEmoji(animation.fromStage))
+                                .font(.system(size: 80))
+                                .opacity(animation.progress < 0.5 ? 1.0 : 0.0)
+                                .scaleEffect(animation.progress < 0.5 ? 1.0 : 0.5)
+                                .animation(.easeInOut(duration: 0.5), value: animation.progress)
+                            
+                            Text("→")
+                                .font(.system(size: 40))
+                                .foregroundColor(.white)
+                                .opacity(animation.progress > 0.3 && animation.progress < 0.7 ? 1.0 : 0.0)
+                                .animation(.easeInOut(duration: 0.2), value: animation.progress)
+                            
+                            Text(getStageEmoji(animation.toStage))
+                                .font(.system(size: 100))
+                                .opacity(animation.progress > 0.5 ? 1.0 : 0.0)
+                                .scaleEffect(animation.progress > 0.5 ? 1.0 : 0.5)
+                                .animation(.easeInOut(duration: 0.5), value: animation.progress)
+                        }
+                        
+                        Text("\(animation.fromStage.rawValue) → \(animation.toStage.rawValue)")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .opacity(animation.progress > 0.5 ? 1.0 : 0.0)
+                            .animation(.easeInOut(duration: 0.5).delay(0.3), value: animation.progress)
+                    }
+                    
+                    // 进化粒子效果
+                    ZStack {
+                        ForEach(particles) { particle in
+                            Circle()
+                                .fill(particle.color)
+                                .frame(width: particle.size, height: particle.size)
+                                .opacity(particle.opacity)
+                                .position(particle.position)
+                        }
+                    }
+                    .frame(height: 200)
+                    
+                    Spacer()
+                }
+            }
+        }
+        .onAppear {
+            screenSize = CGSize(width: 400, height: 800)
+            startAnimation()
+        }
+    }
+    
+    private func startAnimation() {
+        // 生成粒子
+        for _ in 0..<30 {
+            particles.append(EvolutionParticle(
+                position: CGPoint(x: screenSize.width / 2, y: screenSize.height / 2),
+                velocity: CGVector(dx: CGFloat.random(in: -3...3), dy: CGFloat.random(in: -3...3)),
+                size: CGFloat.random(in: 5...15),
+                color: [.yellow, .orange, .purple, .pink, .blue].randomElement() ?? .yellow,
+                opacity: 1.0
+            ))
+        }
+        
+        // 动画进度
+        withAnimation(.easeInOut(duration: 2.0)) {
+            animation.progress = 1.0
+        }
+        
+        // 粒子动画
+        withAnimation(.easeOut(duration: 2.0)) {
+            for index in particles.indices {
+                particles[index].position.x += CGFloat.random(in: -200...200)
+                particles[index].position.y += CGFloat.random(in: -200...200)
+                particles[index].opacity = 0.0
+            }
+        }
+        
+        // 完成回调
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            onComplete()
+        }
+    }
+    
+    private func getStageEmoji(_ stage: EvolutionStage) -> String {
+        switch stage {
+        case .egg: return "🥚"
+        case .baby: return "🐣"
+        case .child: return "🐤"
+        case .teen: return "🐥"
+        case .adult: return "🐓"
+        case .elder: return "🦄"
+        case .legendary: return "🌟"
+        }
+    }
+}
+
+// 随机事件动画视图
+struct RandomEventAnimationView: View {
+    @State var animation: RandomEventAnimation
+    let onComplete: () -> Void
+    @State private var particles: [EventParticle] = []
+    @State private var screenSize: CGSize = CGSize(width: 400, height: 800)
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Color.black.opacity(0.6)
+                    .ignoresSafeArea()
+                
+                VStack(spacing: 25) {
+                    Spacer()
+                    
+                    VStack(spacing: 20) {
+                        ZStack {
+                            Circle()
+                                .fill(animation.color.opacity(0.2))
+                                .frame(width: 120, height: 120)
+                                .scaleEffect(animation.showProgress)
+                                .animation(.easeInOut(duration: 0.6), value: animation.showProgress)
+                            
+                            Circle()
+                                .fill(animation.color.opacity(0.1))
+                                .frame(width: 150, height: 150)
+                                .scaleEffect(animation.showProgress * 1.2)
+                                .animation(.easeInOut(duration: 0.6).delay(0.1), value: animation.showProgress)
+                            
+                            Image(systemName: animation.icon)
+                                .font(.system(size: 50))
+                                .foregroundColor(animation.color)
+                                .scaleEffect(animation.showProgress)
+                                .rotationEffect(.degrees(animation.showProgress * 360))
+                                .animation(.spring(response: 0.6, dampingFraction: 0.8), value: animation.showProgress)
+                        }
+                        
+                        Text(animation.title)
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .opacity(animation.showProgress)
+                            .animation(.easeIn(duration: 0.5).delay(0.3), value: animation.showProgress)
+                    }
+                    
+                    // 事件粒子效果
+                    ZStack {
+                        ForEach(particles) { particle in
+                            Circle()
+                                .fill(particle.color)
+                                .frame(width: particle.size, height: particle.size)
+                                .opacity(particle.opacity)
+                                .scaleEffect(particle.scale)
+                                .position(particle.position)
+                        }
+                    }
+                    .frame(height: 150)
+                    
+                    Spacer()
+                }
+            }
+        }
+        .onAppear {
+            screenSize = CGSize(width: 400, height: 800)
+            startAnimation()
+        }
+    }
+    
+    private func startAnimation() {
+        // 生成粒子
+        for _ in 0..<20 {
+            particles.append(EventParticle(
+                position: CGPoint(x: screenSize.width / 2, y: screenSize.height / 2),
+                size: CGFloat.random(in: 3...10),
+                color: animation.color,
+                opacity: 1.0,
+                scale: 1.0
+            ))
+        }
+        
+        // 显示动画
+        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+            animation.showProgress = 1.0
+        }
+        
+        // 粒子扩散
+        withAnimation(.easeOut(duration: 1.5)) {
+            for index in particles.indices {
+                let angle = Double(index) * (2 * .pi / Double(particles.count))
+                let distance: CGFloat = 150
+                particles[index].position.x += CGFloat(cos(angle) * distance)
+                particles[index].position.y += CGFloat(sin(angle) * distance)
+                particles[index].opacity = 0.0
+                particles[index].scale = 0.0
+            }
+        }
+        
+        // 完成回调
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            onComplete()
         }
     }
 }
