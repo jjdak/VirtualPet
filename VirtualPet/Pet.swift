@@ -73,6 +73,202 @@ enum PetType: String, CaseIterable, Codable {
     }
 }
 
+// 天气系统
+enum WeatherType: String, CaseIterable, Codable {
+    case sunny = "晴天"
+    case rainy = "雨天"
+    case snowy = "雪天"
+    case cloudy = "多云"
+    case stormy = "暴风雨"
+
+    var icon: String {
+        switch self {
+        case .sunny: return "sun.max.fill"
+        case .rainy: return "cloud.rain.fill"
+        case .snowy: return "cloud.snow.fill"
+        case .cloudy: return "cloud.fill"
+        case .stormy: return "cloud.bolt.rain.fill"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .sunny: return .yellow
+        case .rainy: return .blue
+        case .snowy: return .cyan
+        case .cloudy: return .gray
+        case .stormy: return .purple
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .sunny: return "阳光明媚，宠物心情愉悦"
+        case .rainy: return "下雨了，记得保持干燥"
+        case .snowy: return "下雪了，注意保暖"
+        case .cloudy: return "多云天气，一切正常"
+        case .stormy: return "暴风雨！请待在室内"
+        }
+    }
+
+    // 天气效果
+    var happinessModifier: Double {
+        switch self {
+        case .sunny: return 1.2
+        case .rainy: return 0.8
+        case .snowy: return 0.9
+        case .cloudy: return 1.0
+        case .stormy: return 0.6
+        }
+    }
+
+    var experienceModifier: Double {
+        switch self {
+        case .sunny: return 1.0
+        case .rainy: return 1.2
+        case .snowy: return 1.5
+        case .cloudy: return 1.0
+        case .stormy: return 0.7
+        }
+    }
+
+    var healthDecayModifier: Double {
+        switch self {
+        case .sunny: return 1.0
+        case .rainy: return 1.3
+        case .snowy: return 1.5
+        case .cloudy: return 1.0
+        case .stormy: return 2.0
+        }
+    }
+}
+
+// 宠物技能系统
+enum PetSkill: String, CaseIterable, Codable, Identifiable {
+    case music = "音乐天赋"
+    case sports = "运动健将"
+    case study = "学霸"
+    case social = "社交达人"
+    case cooking = "小厨师"
+    case cleaning = "洁癖"
+    case lucky = "幸运星"
+    case guardian = "守护者"
+
+    var id: String { rawValue }
+
+    var icon: String {
+        switch self {
+        case .music: return "music.note"
+        case .sports: return "figure.run"
+        case .study: return "book.fill"
+        case .social: return "person.2.fill"
+        case .cooking: return "fork.knife"
+        case .cleaning: return "sparkles"
+        case .lucky: return "star.fill"
+        case .guardian: return "shield.fill"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .music: return .purple
+        case .sports: return .orange
+        case .study: return .blue
+        case .social: return .pink
+        case .cooking: return .red
+        case .cleaning: return .green
+        case .lucky: return .yellow
+        case .guardian: return .indigo
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .music: return "亲密度增长 +50%"
+        case .sports: return "能量恢复 +30%"
+        case .study: return "训练经验 +100%"
+        case .social: return "生病概率 -50%"
+        case .cooking: return "喂食效果 +30%"
+        case .cleaning: return "清洁效果 +50%"
+        case .lucky: return "幸运事件概率 +20%"
+        case .guardian: return "自动保护机制"
+        }
+    }
+
+    var maxLevel: Int {
+        return 5
+    }
+
+    func effect(at level: Int) -> String {
+        let bonus = (level - 1) * 20
+        switch self {
+        case .music: return "亲密度增长 +\(bonus + 50)%"
+        case .sports: return "能量恢复 +\(bonus + 30)%"
+        case .study: return "训练经验 +\(bonus + 100)%"
+        case .social: return "生病概率 -\(bonus + 50)%"
+        case .cooking: return "喂食效果 +\(bonus + 30)%"
+        case .cleaning: return "清洁效果 +\(bonus + 50)%"
+        case .lucky: return "幸运事件概率 +\(bonus + 20)%"
+        case .guardian: return "自动保护激活"
+        }
+    }
+}
+
+// 迷你游戏类型
+enum MiniGameType: String, CaseIterable, Codable {
+    case feedingFrenzy = "觅食大作战"
+    case memoryMatch = "记忆翻翻看"
+    case catchToys = "玩具接接乐"
+
+    var icon: String {
+        switch self {
+        case .feedingFrenzy: return "fork.knife"
+        case .memoryMatch: return "brain.head.profile"
+        case .catchToys: return "gamecontroller"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .feedingFrenzy: return .orange
+        case .memoryMatch: return .purple
+        case .catchToys: return .blue
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .feedingFrenzy: return "点击出现的食物获得奖励！"
+        case .memoryMatch: return "记住卡片位置并配对！"
+        case .catchToys: return "移动篮子接住掉落的玩具！"
+        }
+    }
+
+    var cooldownMinutes: Int {
+        switch self {
+        case .feedingFrenzy: return 10
+        case .memoryMatch: return 30
+        case .catchToys: return 20
+        }
+    }
+}
+
+// 迷你游戏结果
+struct MiniGameResult {
+    let success: Bool
+    let score: Int
+    let rewards: MiniGameReward
+    let message: String
+}
+
+struct MiniGameReward {
+    let experience: Int
+    let happiness: Int
+    let energy: Int
+    let specialCurrency: Int
+    let items: [String]
+}
+
 // 活动类型
 enum ActivityType: String, CaseIterable, Codable {
     case feed = "喂食"
@@ -475,6 +671,22 @@ class Pet: ObservableObject {
     @Published var sleepTime: Date? = nil
     @Published var cleanliness: Int = 100
     @Published var name: String = ""
+
+    // 天气系统
+    @Published var currentWeather: WeatherType = .sunny
+    @Published var lastWeatherChange: Date = Date()
+
+    // 技能系统
+    @Published var unlockedSkills: [PetSkill: Int] = [:]
+    @Published var availableSkillPoints: Int = 0
+    @Published var totalSkillPointsEarned: Int = 0
+
+    // 迷你游戏系统
+    @Published var lastMiniGamePlay: Date = Date()
+    @Published var miniGameCooldowns: [MiniGameType: Date] = [:]
+    @Published var totalMiniGameWins: Int = 0
+    @Published var specialCurrency: Int = 0  // 特殊货币，用于兑换奖励
+    @Published var unlockedMiniGames: [MiniGameType] = []
 
     // 缓存的统计数据
     private var cachedFeedCount: Int = 0
@@ -1417,6 +1629,242 @@ class Pet: ObservableObject {
     // 自动衰减：每分钟饥饿度+1，快乐度-1，能量-2
     func decay() {
         guard !isDead else { return }
+
+        // 应用天气效果到衰减
+        let healthDecayMultiplier = currentWeather.healthDecayModifier
+
+        hunger = clampValue(hunger + 1)
+        happiness = clampValue(happiness - 1)
+        energy = clampValue(energy - 2)
+        age += 1
+        daysUntilDeath = max(0, daysUntilDeath - 1)
+
+        // 应用天气衰减效果
+        if healthDecayMultiplier > 1.0 && health > 0 {
+            health = max(0, health - Int(Double(health) * 0.1 * (healthDecayMultiplier - 1.0)))
+        }
+
+        updateMood()
+        checkLifeStage()
+        checkDeathConditions()
+        checkEvolution()
+
+        // 个性化宠物
+        if age >= 2 && age <= 3 {
+            personalize()
+        }
+
+        // 每6-12小时随机切换天气
+        if shouldChangeWeather() {
+            changeWeather()
+        }
+
+        saveData()
+    }
+
+    // MARK: - 天气系统方法
+
+    // 检查是否应该切换天气
+    private func shouldChangeWeather() -> Bool {
+        guard let hoursSinceLastChange = Calendar.current.dateComponents(
+            [.hour],
+            from: lastWeatherChange,
+            to: Date()
+        ).hour else { return false }
+
+        // 每 6-12 小时切换一次天气
+        return hoursSinceLastChange >= Int.random(in: 6...12)
+    }
+
+    // 改变天气
+    func changeWeather() {
+        let weathers = WeatherType.allCases
+        currentWeather = weathers.randomElement() ?? .sunny
+        lastWeatherChange = Date()
+
+        logActivity(
+            Activity(
+                title: "天气变化：\(currentWeather.rawValue)",
+                icon: currentWeather.icon,
+                color: CodableColor(from: currentWeather.color),
+                date: Date(),
+                value: nil
+            )
+        )
+    }
+
+    // 应用天气效果到经验值
+    func applyWeatherBonus(to experience: Int) -> Int {
+        return Int(Double(experience) * currentWeather.experienceModifier)
+    }
+
+    // MARK: - 技能系统方法
+
+    // 检查是否可以学习技能
+    func canLearnSkill(_ skill: PetSkill) -> Bool {
+        guard let currentLevel = unlockedSkills[skill] else {
+            return true  // 还没学过这个技能
+        }
+
+        return currentLevel < skill.maxLevel
+    }
+
+    // 学习技能
+    func learnSkill(_ skill: PetSkill) -> Bool {
+        guard canLearnSkill(skill) else { return false }
+        guard availableSkillPoints > 0 else { return false }
+
+        availableSkillPoints -= 1
+        unlockedSkills[skill] = (unlockedSkills[skill] ?? 0) + 1
+
+        logActivity(
+            Activity(
+                title: "学习了技能：\(skill.rawValue)",
+                icon: skill.icon,
+                color: CodableColor(from: skill.color),
+                date: Date(),
+                value: nil
+            )
+        )
+
+        return true
+    }
+
+    // 获得技能点
+    func earnSkillPoints() {
+        availableSkillPoints += 1
+        totalSkillPointsEarned += 1
+
+        logActivity(
+            Activity(
+                title: "获得 1 个技能点！",
+                icon: "star.circle.fill",
+                color: CodableColor(from: .yellow),
+                date: Date(),
+                value: nil
+            )
+        )
+    }
+
+    // 检查技能总等级
+    func getTotalSkillLevel() -> Int {
+        return unlockedSkills.values.reduce(0, +)
+    }
+
+    // MARK: - 迷你游戏系统方法
+
+    // 检查迷你游戏是否冷却中
+    func isMiniGameOnCooldown(_ gameType: MiniGameType) -> Bool {
+        guard let lastPlay = miniGameCooldowns[gameType] else {
+            return false  // 还没玩过
+        }
+
+        let cooldownInterval: TimeInterval = Double(gameType.cooldownMinutes) * 60
+        return Date().timeIntervalSince(lastPlay) < cooldownInterval
+    }
+
+    // 获取迷你游戏剩余冷却时间
+    func getMiniGameCooldownRemaining(_ gameType: MiniGameType) -> String {
+        guard let lastPlay = miniGameCooldowns[gameType] else {
+            return "可用"
+        }
+
+        let cooldownInterval: TimeInterval = Double(gameType.cooldownMinutes) * 60
+        let elapsed = Date().timeIntervalSince(lastPlay)
+        let remaining = cooldownInterval - elapsed
+
+        if remaining <= 0 {
+            return "可用"
+        }
+
+        let minutes = Int(remaining / 60)
+        let seconds = Int(remaining.truncatingRemainder(dividingBy: 60))
+
+        return "\(minutes)分\(seconds)秒"
+    }
+
+    // 玩迷你游戏
+    func playMiniGame(_ gameType: MiniGameType) -> MiniGameResult {
+        guard !isMiniGameOnCooldown(gameType) else {
+            return MiniGameResult(
+                success: false,
+                score: 0,
+                rewards: MiniGameReward(experience: 0, happiness: 0, energy: 0, specialCurrency: 0, items: []),
+                message: "游戏冷却中，\(getMiniGameCooldownRemaining(gameType))后可玩"
+            )
+        }
+
+        lastMiniGamePlay = Date()
+        miniGameCooldowns[gameType] = Date()
+
+        // 解锁迷你游戏
+        if !unlockedMiniGames.contains(gameType) {
+            unlockedMiniGames.append(gameType)
+        }
+
+        // 根据游戏类型生成结果
+        let result = generateMiniGameResult(for: gameType)
+
+        if result.success {
+            totalMiniGameWins += 1
+
+            // 应用奖励
+            experience += result.rewards.experience
+            happiness = clampValue(happiness + result.rewards.happiness)
+            energy = clampValue(energy + result.rewards.energy)
+            specialCurrency += result.rewards.specialCurrency
+
+            logActivity(
+                Activity(
+                    title: "游戏胜利：\(gameType.rawValue)",
+                    icon: gameType.icon,
+                    color: CodableColor(from: gameType.color),
+                    date: Date(),
+                    value: result.score
+                )
+            )
+        }
+
+        return result
+    }
+
+    // 生成迷你游戏结果
+    private func generateMiniGameResult(for gameType: MiniGameType) -> MiniGameResult {
+        let baseScore = Int.random(in: 50...100)
+        let successProbability = Double.random(in: 0.3...0.9)
+        let isSuccess = successProbability > 0.4
+
+        if isSuccess {
+            let expReward = Int.random(in: 10...25)
+            let happinessReward = Int.random(in: 5...15)
+            let energyReward = Int.random(in: 5...10)
+            let currencyReward = Int.random(in: 1...5)
+
+            return MiniGameResult(
+                success: true,
+                score: baseScore,
+                rewards: MiniGameReward(
+                    experience: expReward,
+                    happiness: happinessReward,
+                    energy: energyReward,
+                    specialCurrency: currencyReward,
+                    items: []
+                ),
+                message: "恭喜！获得了 \(expReward) 经验，\(happinessReward) 快乐，\(currencyReward) 钻石"
+            )
+        } else {
+            return MiniGameResult(
+                success: false,
+                score: Int(baseScore / 2),
+                rewards: MiniGameReward(experience: 0, happiness: 0, energy: 0, specialCurrency: 0, items: []),
+                message: "游戏失败，再接再厉！"
+            )
+        }
+    }
+
+    // 自动衰减：每分钟饥饿度+1，快乐度-1，能量-2
+    func decay_OLD() {
+        guard !isDead else { return }
         
         hunger = clampValue(hunger + 1)
         happiness = clampValue(happiness - 1)
@@ -1463,6 +1911,22 @@ class Pet: ObservableObject {
         defaults.set(lastInteractionDate, forKey: "pet_last_interaction_date")
         defaults.set(specialMoments, forKey: "pet_special_moments")
         defaults.set(luckyEvents, forKey: "pet_lucky_events")
+        defaults.set(currentWeather.rawValue, forKey: "pet_weather")
+        defaults.set(lastWeatherChange, forKey: "pet_last_weather_change")
+        defaults.set(totalSkillPointsEarned, forKey: "pet_total_skill_points")
+
+        // 保存技能数据
+        if let skillData = try? JSONEncoder().encode(unlockedSkills) {
+            defaults.set(skillData, forKey: "pet_unlocked_skills")
+        }
+        defaults.set(availableSkillPoints, forKey: "pet_available_skill_points")
+
+        // 保存迷你游戏数据
+        defaults.set(lastMiniGamePlay, forKey: "pet_last_mini_game")
+        defaults.set(totalMiniGameWins, forKey: "pet_mini_game_wins")
+        defaults.set(specialCurrency, forKey: "pet_special_currency")
+
+        // 保存活动记录
 
         // 保存活动记录
         if let encoded = try? JSONEncoder().encode(activities) {
@@ -1548,6 +2012,41 @@ class Pet: ObservableObject {
         if let data = defaults.data(forKey: "pet_stats_history"),
            let decodedStats = try? JSONDecoder().decode([PetStatsRecord].self, from: data) {
             pet.statsHistory = decodedStats
+        }
+
+        // 加载天气数据
+        if let weatherRaw = defaults.string(forKey: "pet_weather"),
+           let weather = WeatherType(rawValue: weatherRaw) {
+            pet.currentWeather = weather
+        }
+
+        // 加载上次天气变化时间
+        if let lastWeatherChange = defaults.object(forKey: "pet_last_weather_change") as? Date {
+            pet.lastWeatherChange = lastWeatherChange
+        }
+
+        // 加载技能数据
+        if let skillData = defaults.data(forKey: "pet_unlocked_skills"),
+           let decodedSkills = try? JSONDecoder().decode([PetSkill: Int].self, from: skillData) {
+            pet.unlockedSkills = decodedSkills
+        }
+
+        // 加载技能点
+        pet.availableSkillPoints = defaults.integer(forKey: "pet_available_skill_points")
+        pet.totalSkillPointsEarned = defaults.integer(forKey: "pet_total_skill_points")
+
+        // 加载迷你游戏数据
+        if let lastMiniGamePlay = defaults.object(forKey: "pet_last_mini_game") as? Date {
+            pet.lastMiniGamePlay = lastMiniGamePlay
+        }
+
+        pet.totalMiniGameWins = defaults.integer(forKey: "pet_mini_game_wins")
+        pet.specialCurrency = defaults.integer(forKey: "pet_special_currency")
+
+        // 加载解锁的迷你游戏
+        if let gamesData = defaults.data(forKey: "pet_unlocked_mini_games"),
+           let decodedGames = try? JSONDecoder().decode([MiniGameType].self, from: gamesData) {
+            pet.unlockedMiniGames = decodedGames
         }
 
         return pet

@@ -112,6 +112,12 @@ struct MainContentView: View {
                     }
                 
                 QuickStatsView(pet: pet)
+
+                // 新功能：天气显示
+                WeatherView(pet: pet)
+
+                // 新功能：技能系统
+                SkillsView(pet: pet)
             }
             .padding()
         }
@@ -2038,6 +2044,296 @@ struct TraitsView: View {
                 }
                 #endif
             }
+        }
+    }
+}
+
+// MARK: - 新功能：天气视图
+struct WeatherView: View {
+    @ObservedObject var pet: Pet
+
+    var body: some View {
+        VStack(spacing: 12) {
+            HStack {
+                Image(systemName: pet.currentWeather.icon)
+                    .foregroundColor(pet.currentWeather.color)
+                    .font(.title2)
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("天气")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+
+                    Text(pet.currentWeather.rawValue)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+
+                    Text(pet.currentWeather.description)
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
+                }
+
+                Spacer()
+
+                Button(action: {
+                    pet.changeWeather()
+                }) {
+                    Image(systemName: "arrow.clockwise")
+                        .foregroundColor(.blue)
+                        .font(.caption)
+                }
+                .buttonStyle(PlainButtonStyle())
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(pet.currentWeather.color.opacity(0.1))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(pet.currentWeather.color, lineWidth: 1)
+                    )
+            )
+        }
+    }
+}
+
+// MARK: - 新功能：技能视图
+struct SkillsView: View {
+    @ObservedObject var pet: Pet
+    @State private var showingSkillDetails: PetSkill?
+
+    var body: some View {
+        VStack(spacing: 12) {
+            Text("宠物技能")
+                .font(.headline)
+                .foregroundColor(.secondary)
+
+            // 技能点显示
+            HStack {
+                Text("技能点：\(pet.availableSkillPoints)")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
+
+                Spacer()
+
+                Button(action: {
+                    pet.earnSkillPoints()
+                }) {
+                    Image(systemName: "plus.circle.fill")
+                        .foregroundColor(.green)
+                }
+                .buttonStyle(PlainButtonStyle())
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 4)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.yellow.opacity(0.15))
+            )
+
+            // 技能列表
+            ScrollView {
+                VStack(spacing: 10) {
+                    ForEach(PetSkill.allCases, id: \.self) { skill in
+                        SkillRow(
+                            skill: skill,
+                            currentLevel: pet.unlockedSkills[skill] ?? 0,
+                            canLearn: pet.canLearnSkill(skill),
+                            onLearn: {
+                                _ = pet.learnSkill(skill)
+                            },
+                            onTapDetails: {
+                                showingSkillDetails = skill
+                            }
+                        )
+                    }
+                }
+            }
+
+            Divider()
+
+            // 总技能等级
+            HStack {
+                Text("总技能等级：\(pet.getTotalSkillLevel())")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            .font(.caption)
+            .padding(.horizontal)
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 15)
+                .fill(Color.gray.opacity(0.1))
+                .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
+        )
+        .sheet(item: $showingSkillDetails) { skill in
+            SkillDetailView(skill: skill, pet: pet)
+        }
+    }
+}
+
+struct SkillRow: View {
+    let skill: PetSkill
+    let currentLevel: Int
+    let canLearn: Bool
+    let onLearn: () -> Void
+    let onTapDetails: () -> Void
+
+    var body: some View {
+        HStack(spacing: 12) {
+            ZStack {
+                Circle()
+                    .fill(skill.color.opacity(0.15))
+                    .frame(width: 50, height: 50)
+
+                Image(systemName: skill.icon)
+                    .foregroundColor(skill.color)
+                    .font(.title3)
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(skill.rawValue)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+
+                Text("Lv.\(currentLevel)")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
+                if canLearn {
+                    Button(action: onLearn) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "plus.circle.fill")
+                                .foregroundColor(.green)
+                            Text("学习")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(Color.green)
+                        .cornerRadius(8)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+            }
+
+            Spacer()
+
+            Text(skill.effect(at: currentLevel))
+                .font(.caption2)
+                .foregroundColor(.secondary)
+                .lineLimit(2)
+
+            Button(action: onTapDetails) {
+                Image(systemName: "info.circle")
+                    .foregroundColor(.gray)
+                    .font(.callout)
+            }
+            .buttonStyle(PlainButtonStyle())
+        }
+        .padding(.vertical, 8)
+    }
+}
+
+struct SkillDetailView: View {
+    let skill: PetSkill
+    @ObservedObject var pet: Pet
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 20) {
+                VStack(spacing: 15) {
+                    ZStack {
+                        Circle()
+                            .fill(skill.color.opacity(0.2))
+                            .frame(width: 80, height: 80)
+
+                        Image(systemName: skill.icon)
+                            .foregroundColor(skill.color)
+                            .font(.system(size: 40))
+                    }
+
+                    Text(skill.rawValue)
+                        .font(.title)
+                        .fontWeight(.bold)
+                }
+
+                Divider()
+
+                Text(skill.description)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+
+                VStack(alignment: .leading, spacing: 15) {
+                    SkillInfoRow(title: "最大等级", value: "\(skill.maxLevel)")
+                    SkillInfoRow(title: "当前等级", value: "\(pet.unlockedSkills[skill] ?? 0)")
+                    SkillInfoRow(title: "每级加成", value: "+20% 效果")
+                }
+
+                Spacer()
+
+                // 等级预览
+                VStack(spacing: 10) {
+                    Text("等级效果预览")
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+
+                    ForEach(1...skill.maxLevel, id: \.self) { level in
+                        HStack {
+                            Text("Lv.\(level)")
+                                .font(.caption)
+                                .frame(width: 50, alignment: .leading)
+                                .foregroundColor(.secondary)
+
+                            Text(skill.effect(at: level))
+                                .font(.caption)
+                                .foregroundColor(level == (pet.unlockedSkills[skill] ?? 0) ? .green : .primary)
+                        }
+                    }
+                }
+            }
+            .padding()
+            .navigationTitle(skill.rawValue)
+            #if os(iOS)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .toolbar {
+                #if os(iOS)
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("关闭") {
+                        dismiss()
+                    }
+                }
+                #else
+                ToolbarItem(placement: .automatic) {
+                    Button("关闭") {
+                        dismiss()
+                    }
+                }
+                #endif
+            }
+        }
+    }
+}
+
+struct SkillInfoRow: View {
+    let title: String
+    let value: String
+
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            Spacer()
+            Text(value)
+                .font(.subheadline)
+                .foregroundColor(.primary)
         }
     }
 }
