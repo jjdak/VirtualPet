@@ -1,103 +1,36 @@
-//
-//  ContentView.swift
-//  VirtualPet
-//
-//  Created by 冯卓 on 2026/1/26.
-//
-
 import SwiftUI
-
-extension Color {
-    static var systemBackground: Color {
-        #if os(iOS)
-        return Color(UIColor.systemBackground)
-        #else
-        return Color(NSColor.controlBackgroundColor)
-        #endif
-    }
-}
 
 struct ContentView: View {
     @StateObject private var pet = Pet.loadData()
-    @State private var breathAnimation = true
-    @State private var lastDecayTime = Date()
-    @State private var timer: Timer? = nil
-    @State private var petName = "我的宠物"
+    @State private var selectedPetType: PetType = .cat
     @State private var showingActivityLog = false
     @State private var showingAchievements = false
-    @State private var petBounce = false
-    @State private var sparkleAnimation = false
-    @State private var heartAnimation = false
-    @State private var particleEffects: [Particle] = []
-    @State private var selectedPetType: PetType = .cat
-    @State private var isAnimating = false
     @State private var errorMessage: String? = nil
     @State private var showingError = false
-    @State private var evolutionAnimation: EvolutionAnimation?
-    @State private var randomEventAnimation: RandomEventAnimation?
-    @State private var intimacyHeartPulse = false
+    @State private var timer: Timer? = nil
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 25) {
-                    // 宠物信息头部
-                    PetHeaderView(pet: pet)
-
-                    // 宠物显示区域
-                    PetDisplayView(
-                        pet: pet,
-                        breathAnimation: $breathAnimation,
-                        petBounce: $petBounce,
-                        sparkleAnimation: $sparkleAnimation,
-                        heartAnimation: $heartAnimation,
-                        particleEffects: $particleEffects
-                    )
-
-                    // 状态指标
-                    StatusGridView(pet: pet)
-
-                    // 操作按钮
-                    InteractionButtonsView(
-                        pet: pet,
-                        petBounce: $petBounce,
-                        sparkleAnimation: $sparkleAnimation,
-                        heartAnimation: $heartAnimation,
-                        particleEffects: $particleEffects,
-                        isAnimating: $isAnimating,
-                        errorMessage: $errorMessage,
-                        showingError: $showingError,
-                        intimacyHeartPulse: $intimacyHeartPulse
-                    )
-
-                    // 宠物选择器
-                    PetTypeSelector(petType: $selectedPetType)
-                        .onChange(of: selectedPetType) { newValue in
-                            pet.petType = newValue
-                        }
-
-                    // 快速统计
-                    QuickStatsView(pet: pet)
+            MainContentView(
+                pet: pet,
+                selectedPetType: $selectedPetType,
+                errorMessage: $errorMessage,
+                showingError: $showingError,
+                onReset: {
+                    resetPet()
                 }
-                .padding()
-            }
+            )
             .navigationTitle("虚拟宠物")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Menu {
-                        Button(action: {
-                            showingActivityLog = true
-                        }) {
+                        Button(action: { showingActivityLog = true }) {
                             Label("活动记录", systemImage: "clock.fill")
                         }
-                        Button(action: {
-                            showingAchievements = true
-                        }) {
+                        Button(action: { showingAchievements = true }) {
                             Label("成就", systemImage: "trophy.fill")
                         }
-                        Button(action: {
-                            resetPet()
-                        }) {
+                        Button(action: { resetPet() }) {
                             Label("重置宠物", systemImage: "arrow.clockwise")
                         }
                     } label: {
@@ -107,163 +40,192 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingActivityLog) {
                 ActivityLogView(pet: pet)
-                    #if os(iOS)
-                    .presentationDetents([.fraction(0.4), .fraction(0.7), .fraction(0.95)], selection: .constant(.fraction(0.95)))
-                    .presentationDragIndicator(.visible)
-                    #else
-                    .frame(minWidth: 700, minHeight: 600)
-                    #endif
             }
             .sheet(isPresented: $showingAchievements) {
                 AchievementsView(pet: pet)
-                    #if os(iOS)
-                    .presentationDetents([.fraction(0.4), .fraction(0.7), .fraction(0.95)], selection: .constant(.fraction(0.95)))
-                    .presentationDragIndicator(.visible)
-                    #else
-                    .frame(minWidth: 700, minHeight: 600)
-                    #endif
-            }
-            .overlay(
-                Group {
-                    if showingError, let message = errorMessage {
-                        ZStack {
-                            Color.black.opacity(0.4)
-                                .ignoresSafeArea()
-                                .onTapGesture {
-                                    withAnimation {
-                                        showingError = false
-                                        errorMessage = nil
-                                    }
-                                }
-                            
-                            VStack(spacing: 20) {
-                                Spacer()
-                                
-                                VStack(alignment: .leading, spacing: 15) {
-                                    HStack {
-                                        Image(systemName: "exclamationmark.triangle.fill")
-                                            .foregroundColor(.orange)
-                                            .font(.title2)
-                                        Text("提示")
-                                            .font(.headline)
-                                            .foregroundColor(.primary)
-                                        Spacer()
-                                        Button(action: {
-                                            withAnimation {
-                                                showingError = false
-                                                errorMessage = nil
-                                            }
-                                        }) {
-                                            Image(systemName: "xmark.circle.fill")
-                                                .foregroundColor(.gray)
-                                                .font(.title2)
-                                        }
-                                    }
-                                    
-                                    Text(message)
-                                        .font(.body)
-                                        .foregroundColor(.primary)
-                                        .lineLimit(nil)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                }
-                                .padding(20)
-                                .background(Color.systemBackground)
-                                .cornerRadius(16)
-                                .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y: 10)
-                                .padding(.horizontal, 20)
-                                
-                                Spacer().frame(height: 40)
-                            }
-                        }
-                        .transition(.opacity)
-                        .animation(.easeInOut, value: showingError)
-                    }
-                    
-                    // 进化动画覆盖层
-                    if let animation = evolutionAnimation {
-                        EvolutionAnimationView(
-                            animation: animation,
-                            onComplete: {
-                                withAnimation {
-                                    evolutionAnimation = nil
-                                }
-                            }
-                        )
-                    }
-                    
-                    // 随机事件动画覆盖层
-                    if let animation = randomEventAnimation {
-                        RandomEventAnimationView(
-                            animation: animation,
-                            onComplete: {
-                                withAnimation {
-                                    randomEventAnimation = nil
-                                }
-                            }
-                        )
-                    }
-                    
-                    // 亲密度心跳动画
-                    if pet.intimacy > 0 && intimacyHeartPulse {
-                        GeometryReader { geometry in
-                            let centerX = geometry.size.width / 2
-                            let centerY = geometry.size.height / 2 - 50
-                            
-                            ForEach(0..<5, id: \.self) { index in
-                                Circle()
-                                    .stroke(Color.pink.opacity(0.6), lineWidth: 2)
-                                    .frame(width: 80 + CGFloat(index * 30), height: 80 + CGFloat(index * 30))
-                                    .position(x: centerX, y: centerY)
-                                    .opacity(intimacyHeartPulse ? Double(5 - index) * 0.2 : 0.0)
-                                    .scaleEffect(intimacyHeartPulse ? 1.0 + CGFloat(index) * 0.2 : 0.5)
-                                    .animation(
-                                        .easeOut(duration: 1.2)
-                                            .delay(Double(index) * 0.15),
-                                        value: intimacyHeartPulse
-                                    )
-                            }
-                        }
-                        .ignoresSafeArea()
-                    }
-                }
-            )
-            .onAppear {
-                selectedPetType = pet.petType
-                startDecayTimer()
-            }
-            .onDisappear {
-                timer?.invalidate()
             }
         }
+        .onAppear {
+            setupTimer()
+        }
+        .onDisappear {
+            timer?.invalidate()
+        }
     }
-
-    // 重置宠物
+    
     private func resetPet() {
-        let resetPet = Pet()
-        pet.hunger = resetPet.hunger
-        pet.happiness = resetPet.happiness
-        pet.health = resetPet.health
-        pet.energy = resetPet.energy
-        pet.age = resetPet.age
-        pet.experience = resetPet.experience
-        pet.level = resetPet.level
-        pet.activities.removeAll()
-        pet.statsHistory.removeAll()
-        pet.achievements.forEach { $0.unlocked = false }
-        pet.unlockedAchievements = 0
+        pet.reset()
     }
-
-    // 启动自动衰减定时器
-    private func startDecayTimer() {
-        checkDecay()
+    
+    private func setupTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { _ in
-            self.pet.decay()
+            pet.decay()
         }
     }
+}
 
-    // 检查是否需要衰减
-    private func checkDecay() {
-        // 此方法保留以保持兼容性
+struct MainContentView: View {
+    @ObservedObject var pet: Pet
+    @Binding var selectedPetType: PetType
+    @Binding var errorMessage: String?
+    @Binding var showingError: Bool
+    let onReset: () -> Void
+    
+    @State private var petBounce = false
+    @State private var sparkleAnimation = false
+    @State private var heartAnimation = false
+    @State private var particleEffects: [Particle] = []
+    @State private var isAnimating = false
+    @State private var intimacyHeartPulse = false
+
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 20) {
+                PetHeaderView(pet: pet)
+                
+                PetDisplayView(
+                    pet: pet,
+                    breathAnimation: .constant(true),
+                    petBounce: $petBounce,
+                    sparkleAnimation: $sparkleAnimation,
+                    heartAnimation: $heartAnimation,
+                    particleEffects: $particleEffects
+                )
+                
+                StatusGridView(pet: pet)
+                
+                InteractionButtonsView(
+                    pet: pet,
+                    petBounce: $petBounce,
+                    sparkleAnimation: $sparkleAnimation,
+                    heartAnimation: $heartAnimation,
+                    particleEffects: $particleEffects,
+                    isAnimating: $isAnimating,
+                    errorMessage: $errorMessage,
+                    showingError: $showingError,
+                    intimacyHeartPulse: $intimacyHeartPulse
+                )
+                
+                PetTypeSelector(petType: $selectedPetType)
+                    .onChange(of: selectedPetType) { newValue in
+                        pet.petType = newValue
+                    }
+                
+                QuickStatsView(pet: pet)
+            }
+            .padding()
+        }
+        .overlay {
+            ContentViewOverlays(pet: pet, intimacyHeartPulse: $intimacyHeartPulse, showingError: showingError, errorMessage: errorMessage, onDismissError: {
+                withAnimation {
+                    showingError = false
+                    errorMessage = nil
+                }
+            }, onReset: onReset)
+        }
+    }
+}
+
+struct ContentViewOverlays: View {
+    @ObservedObject var pet: Pet
+    @Binding var intimacyHeartPulse: Bool
+    var showingError: Bool
+    var errorMessage: String?
+    let onDismissError: () -> Void
+    let onReset: () -> Void
+    
+    var body: some View {
+        ZStack {
+            if showingError, let message = errorMessage {
+                ErrorAlert(message: message, onDismiss: onDismissError)
+            }
+            
+            if pet.intimacy > 0 && intimacyHeartPulse {
+                IntimacyHeartAnimation()
+            }
+            
+            if pet.isDead {
+                DeathView(pet: pet, onRebirth: {
+                    _ = pet.rebirth()
+                    onReset()
+                }, onReset: onReset)
+            }
+        }
+    }
+}
+
+struct ErrorAlert: View {
+    let message: String
+    let onDismiss: () -> Void
+    
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.4)
+                .ignoresSafeArea()
+                .onTapGesture(perform: onDismiss)
+            
+            VStack(spacing: 20) {
+                Spacer()
+                
+                VStack(alignment: .leading, spacing: 15) {
+                    HStack {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .foregroundColor(.orange)
+                            .font(.title2)
+                        Text("提示")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        Spacer()
+                        Button(action: onDismiss) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.gray)
+                                .font(.title2)
+                        }
+                    }
+                    
+                    Text(message)
+                        .font(.body)
+                        .foregroundColor(.primary)
+                        .lineLimit(nil)
+                }
+                .padding(20)
+                #if os(iOS)
+                .background(Color(UIColor.systemBackground))
+                #else
+                .background(Color(nsColor: .textBackgroundColor))
+                #endif
+                .cornerRadius(16)
+                .shadow(radius: 10)
+                .padding(.horizontal, 20)
+                
+                Spacer().frame(height: 40)
+            }
+        }
+        .transition(.opacity)
+        .animation(.easeInOut, value: message)
+    }
+}
+
+struct IntimacyHeartAnimation: View {
+    var body: some View {
+        GeometryReader { geometry in
+            let centerX = geometry.size.width / 2
+            let centerY = geometry.size.height / 2 - 50
+            
+            ForEach(0..<5, id: \.self) { index in
+                Circle()
+                    .stroke(Color.pink.opacity(0.6), lineWidth: 2)
+                    .frame(width: 80 + CGFloat(index * 30), height: 80 + CGFloat(index * 30))
+                    .position(x: centerX, y: centerY)
+                    .opacity(0.6)
+                    .scaleEffect(1.0 + CGFloat(index) * 0.2)
+                    .animation(
+                        .easeOut(duration: 1.2).delay(Double(index) * 0.15),
+                        value: index
+                    )
+            }
+        }
+        .ignoresSafeArea()
     }
 }
 
@@ -510,7 +472,9 @@ struct EvolutionPathSelectionView: View {
             .navigationTitle("")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
+                #if os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("关闭") {
                         withAnimation {
@@ -518,8 +482,16 @@ struct EvolutionPathSelectionView: View {
                         }
                     }
                 }
+                #else
+                ToolbarItem(placement: .automatic) {
+                    Button("关闭") {
+                        withAnimation {
+                            isPresented = false
+                        }
+                    }
+                }
+                #endif
             }
-            #endif
         }
     }
 }
@@ -716,13 +688,13 @@ struct PetDisplayView: View {
             startEvolutionGlow()
             initializeOffsets()
         }
-        .onChange(of: sparkleAnimation) { _ in
-            if sparkleAnimation {
+        .onChange(of: sparkleAnimation) { oldValue, newValue in
+            if newValue {
                 initializeOffsets()
             }
         }
-        .onChange(of: heartAnimation) { _ in
-            if heartAnimation {
+        .onChange(of: heartAnimation) { oldValue, newValue in
+            if newValue {
                 initializeOffsets()
             }
         }
@@ -1087,212 +1059,35 @@ struct InteractionButtonsView: View {
                     title: "喂食",
                     color: .orange,
                     icon: "fork.knife",
-                    action: {
-                        guard !isAnimating else { return }
-                        isAnimating = true
-
-                        let result = pet.interact(type: .feed)
-                        switch result {
-                        case .success(_):
-                            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
-                                petBounce = true
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                withAnimation {
-                                    petBounce = false
-                                }
-                            }
-                            sparkleAnimation = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                                sparkleAnimation = false
-                            }
-                            addParticles(color: .orange, count: 5)
-                            
-                            // 亲密度心跳动画
-                            if pet.intimacy > 0 && pet.intimacy % 10 == 0 {
-                                withAnimation {
-                                    intimacyHeartPulse = true
-                                }
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-                                    withAnimation {
-                                        intimacyHeartPulse = false
-                                    }
-                                }
-                            }
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                isAnimating = false
-                            }
-                        case .failure(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        case .warning(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        }
-                    }
+                    action: { handleInteraction(.feed, animation: .sparkle) }
                 )
 
                 InteractionButton(
                     title: "玩耍",
                     color: .purple,
                     icon: "gamecontroller",
-                    action: {
-                        guard !isAnimating else { return }
-                        isAnimating = true
-
-                        let result = pet.interact(type: .play)
-                        switch result {
-                        case .success(_):
-                            animateInteraction()
-                            heartAnimation = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                heartAnimation = false
-                            }
-                            addParticles(color: .purple, count: 3)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                isAnimating = false
-                            }
-                        case .failure(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        case .warning(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        }
-                    }
+                    action: { handleInteraction(.play, animation: .heart) }
                 )
 
                 InteractionButton(
                     title: "清理",
                     color: .green,
                     icon: "sparkles",
-                    action: {
-                        guard !isAnimating else { return }
-                        isAnimating = true
-
-                        let result = pet.interact(type: .clean)
-                        switch result {
-                        case .success(_):
-                            animateInteraction()
-                            addParticles(color: .green, count: 4)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                self.isAnimating = false
-                            }
-                        case .failure(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        case .warning(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        }
-                    }
+                    action: { handleInteraction(.clean, animation: .bounce) }
                 )
 
                 InteractionButton(
                     title: "运动",
                     color: .blue,
                     icon: "figure.walk",
-                    action: {
-                        guard !isAnimating else { return }
-                        isAnimating = true
-
-                        let result = pet.interact(type: .exercise)
-                        switch result {
-                        case .success(_):
-                            animateInteraction()
-                            addParticles(color: .blue, count: 3)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                self.isAnimating = false
-                            }
-                        case .failure(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        case .warning(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        }
-                    }
+                    action: { handleInteraction(.exercise, animation: .bounce) }
                 )
 
                 InteractionButton(
                     title: "拥抱",
                     color: .red,
                     icon: "heart.fill",
-                    action: {
-                        guard !isAnimating else { return }
-                        isAnimating = true
-
-                        let result = pet.interact(type: .cuddle)
-                        switch result {
-                        case .success(_):
-                            animateInteraction()
-                            heartAnimation = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                heartAnimation = false
-                            }
-                            addParticles(color: .red, count: 6)
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                isAnimating = false
-                            }
-                        case .failure(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        case .warning(let message):
-                            errorMessage = message
-                            showingError = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showingError = false
-                                errorMessage = nil
-                            }
-                            isAnimating = false
-                        }
-                    }
+                    action: { handleInteraction(.cuddle, animation: .heart) }
                 )
             }
         }
@@ -1304,7 +1099,92 @@ struct InteractionButtonsView: View {
         )
     }
 
-    private func animateInteraction() {
+    // 动画类型
+    enum AnimationType {
+        case bounce, sparkle, heart
+    }
+
+    // 处理交互 - 统一处理逻辑
+    private func handleInteraction(_ type: Pet.InteractionType, animation: AnimationType) {
+        guard !isAnimating else { return }
+        isAnimating = true
+
+        let result = pet.interact(type: type)
+        handleInteractionResult(result, animation: animation, interactionType: type)
+    }
+
+    // 处理交互结果
+    private func handleInteractionResult(_ result: Pet.InteractionResult, animation: AnimationType, interactionType: Pet.InteractionType) {
+        switch result {
+        case .success(_):
+            applyAnimation(animation, for: interactionType)
+            checkIntimacyMilestone()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                isAnimating = false
+            }
+        case .failure(let message), .warning(let message):
+            showError(message)
+            isAnimating = false
+        }
+    }
+
+    // 应用动画效果（根据交互类型确定颜色）
+    private func applyAnimation(_ type: AnimationType, for interactionType: Pet.InteractionType) {
+        let particleColor = getParticleColor(for: interactionType)
+        let particleCount = getParticleCount(for: interactionType)
+
+        switch type {
+        case .bounce:
+            animateBounce()
+        case .sparkle:
+            animateBounce()
+            sparkleAnimation = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                sparkleAnimation = false
+            }
+            addParticles(color: particleColor, count: particleCount)
+        case .heart:
+            animateBounce()
+            heartAnimation = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                heartAnimation = false
+            }
+            addParticles(color: particleColor, count: particleCount)
+        }
+    }
+
+    // 获取粒子颜色
+    private func getParticleColor(for type: Pet.InteractionType) -> Color {
+        switch type {
+        case .feed: return .orange
+        case .play: return .purple
+        case .clean: return .green
+        case .exercise: return .blue
+        case .cuddle: return .red
+        case .train: return .orange
+        case .discipline: return .gray
+        case .praise: return .yellow
+        case .study: return .indigo
+        }
+    }
+
+    // 获取粒子数量
+    private func getParticleCount(for type: Pet.InteractionType) -> Int {
+        switch type {
+        case .feed: return 5
+        case .play: return 3
+        case .clean: return 4
+        case .exercise: return 3
+        case .cuddle: return 6
+        case .train: return 4
+        case .discipline: return 2
+        case .praise: return 5
+        case .study: return 3
+        }
+    }
+
+    // 弹跳动画
+    private func animateBounce() {
         withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
             petBounce = true
         }
@@ -1312,6 +1192,30 @@ struct InteractionButtonsView: View {
             withAnimation {
                 petBounce = false
             }
+        }
+    }
+
+    // 检查亲密度里程碑
+    private func checkIntimacyMilestone() {
+        if pet.intimacy > 0 && pet.intimacy % 10 == 0 {
+            withAnimation {
+                intimacyHeartPulse = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                withAnimation {
+                    intimacyHeartPulse = false
+                }
+            }
+        }
+    }
+
+    // 显示错误消息
+    private func showError(_ message: String) {
+        errorMessage = message
+        showingError = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            showingError = false
+            errorMessage = nil
         }
     }
 
@@ -1944,4 +1848,237 @@ struct RandomEventAnimationView: View {
 
 #Preview {
     ContentView()
+}
+
+// 死亡界面
+struct DeathView: View {
+    @ObservedObject var pet: Pet
+    let onRebirth: () -> Void
+    let onReset: () -> Void
+    
+    @State private var showingTraits = false
+    
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.8)
+                .ignoresSafeArea()
+            
+            VStack(spacing: 30) {
+                Spacer()
+                
+                // 死亡原因图标
+                ZStack {
+                    Circle()
+                        .fill(pet.deathCause?.color.opacity(0.2) ?? .gray.opacity(0.2))
+                        .frame(width: 120, height: 120)
+                    
+                    Image(systemName: pet.deathCause?.icon ?? "heart.slash.fill")
+                        .font(.system(size: 60))
+                        .foregroundColor(pet.deathCause?.color ?? .gray)
+                }
+                
+                // 死亡信息
+                VStack(spacing: 15) {
+                    Text(pet.deathCause == .oldAge ? "寿终正寝" : "宠物离开了")
+                        .font(.system(size: 32, weight: .bold))
+                        .foregroundColor(.white)
+                    
+                    Text("死因：\(pet.deathCause?.rawValue ?? "未知")")
+                        .font(.title2)
+                        .foregroundColor(.gray)
+                    
+                    if pet.deathCause == .oldAge {
+                        Text("感谢你的细心照料！")
+                            .font(.subheadline)
+                            .foregroundColor(.green)
+                    }
+                }
+                
+                // 生命统计
+                VStack(spacing: 10) {
+                    StatRow(title: "生存天数", value: pet.age)
+                    StatRow(title: "第 \(pet.generation) 代", value: 0)
+                    StatRow(title: "最终等级", value: pet.level)
+                    StatRow(title: "进化阶段", value: EvolutionStage.allCases.firstIndex(of: pet.evolutionStage) ?? 0)
+                    StatRow(title: "最终亲密度", value: pet.intimacy)
+                }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color.gray.opacity(0.2))
+                )
+                
+                // 传承特质
+                if !pet.unlockedTraits.isEmpty {
+                    VStack(spacing: 10) {
+                        Button(action: {
+                            showingTraits.toggle()
+                        }) {
+                            HStack {
+                                Text("已解锁 \(pet.unlockedTraits.count) 个特质")
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(
+                        Capsule()
+                            .fill(Color.purple.opacity(0.3))
+                    )
+                }
+                
+                // 操作按钮
+                VStack(spacing: 15) {
+                    if pet.deathCause == .oldAge {
+                        Button(action: onRebirth) {
+                            HStack {
+                                Image(systemName: "arrow.clockwise")
+                                    .foregroundColor(.white)
+                                Text("培养下一代")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(
+                                Capsule()
+                                    .fill(LinearGradient(
+                                        colors: [.blue, .purple],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    ))
+                            )
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                    
+                    Button(action: onReset) {
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                                .foregroundColor(.blue)
+                            Text("重新开始")
+                                .font(.subheadline)
+                                .foregroundColor(.blue)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(
+                            Capsule()
+                                .fill(Color.blue.opacity(0.1))
+                        )
+                        .overlay(
+                            Capsule()
+                                .stroke(Color.blue, lineWidth: 1.5)
+                        )
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .padding(.horizontal, 20)
+                
+                Spacer()
+            }
+            .padding()
+        }
+        .sheet(isPresented: $showingTraits) {
+            TraitsView(traits: pet.unlockedTraits)
+        }
+    }
+}
+
+// 特质展示视图
+struct TraitsView: View {
+    let traits: [Trait]
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 20) {
+                Text("已解锁特质")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .padding(.top)
+                
+                ScrollView {
+                    VStack(spacing: 15) {
+                        ForEach(traits, id: \.self) { trait in
+                            TraitCard(trait: trait)
+                        }
+                    }
+                    .padding()
+                }
+                
+                Button("关闭") {
+                    dismiss()
+                }
+                .font(.headline)
+                .foregroundColor(.blue)
+                .padding(.bottom)
+            }
+            .navigationTitle("")
+            #if os(iOS)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .toolbar {
+                #if os(iOS)
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("关闭") {
+                        dismiss()
+                    }
+                }
+                #else
+                ToolbarItem(placement: .automatic) {
+                    Button("关闭") {
+                        dismiss()
+                    }
+                }
+                #endif
+            }
+        }
+    }
+}
+
+// 特质卡片
+struct TraitCard: View {
+    let trait: Trait
+    
+    var body: some View {
+        HStack(spacing: 15) {
+            ZStack {
+                Circle()
+                    .fill(Color.purple.opacity(0.15))
+                    .frame(width: 50, height: 50)
+                
+                Image(systemName: trait.icon)
+                    .font(.title2)
+                    .foregroundColor(.purple)
+            }
+            
+            VStack(alignment: .leading, spacing: 5) {
+                Text(trait.rawValue)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                
+                Text(trait.description)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .lineLimit(2)
+            }
+            
+            Spacer()
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.purple.opacity(0.05))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(Color.purple.opacity(0.3), lineWidth: 1)
+        )
+    }
 }

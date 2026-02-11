@@ -23,9 +23,9 @@ struct CodableColor: Codable {
         uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
         #else
         let resolved = NSColor(color)
-        
-        if resolved.colorSpaceName != NSColorSpaceName.deviceRGB {
-            let rgbColor = resolved.usingColorSpace(.deviceRGB) ?? resolved
+
+        // 尝试转换到 RGB 色彩空间
+        if let rgbColor = resolved.usingColorSpace(.deviceRGB) {
             rgbColor.getRed(&r, green: &g, blue: &b, alpha: &a)
         } else {
             resolved.getRed(&r, green: &g, blue: &b, alpha: &a)
@@ -69,6 +69,238 @@ enum PetType: String, CaseIterable, Codable {
         case .rabbit: return .pink
         case .hamster: return .yellow
         case .bird: return .blue
+        }
+    }
+}
+
+// 活动类型
+enum ActivityType: String, CaseIterable, Codable {
+    case feed = "喂食"
+    case play = "玩耍"
+    case hug = "拥抱"
+    case sleep = "睡觉"
+    case clean = "清洁"
+    case train = "训练"
+    case medical = "医疗"
+    case discipline = "管教"
+    case praise = "夸奖"
+    case study = "学习"
+    
+    var icon: String {
+        switch self {
+        case .feed: return "leaf.fill"
+        case .play: return "gamecontroller.fill"
+        case .hug: return "heart.fill"
+        case .sleep: return "bed.double.fill"
+        case .clean: return "sparkles"
+        case .train: return "dumbbell.fill"
+        case .medical: return "cross.circle.fill"
+        case .discipline: return "hand.raised.fill"
+        case .praise: return "hand.thumbsup.fill"
+        case .study: return "book.fill"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .feed: return .green
+        case .play: return .blue
+        case .hug: return .pink
+        case .sleep: return .purple
+        case .clean: return .cyan
+        case .train: return .orange
+        case .medical: return .red
+        case .discipline: return .gray
+        case .praise: return .yellow
+        case .study: return .indigo
+        }
+    }
+}
+
+// 生命阶段
+enum LifeStage: String, CaseIterable, Codable {
+    case egg = "蛋"
+    case baby = "幼体"
+    case child = "成长期"
+    case teen = "青春期"
+    case adult = "成年"
+    case senior = "老年"
+    case ancient = "远古"
+    
+    var emoji: String {
+        switch self {
+        case .egg: return "🥚"
+        case .baby: return "🐣"
+        case .child: return "🐤"
+        case .teen: return "🐥"
+        case .adult: return "🐓"
+        case .senior: return "🦄"
+        case .ancient: return "🌟"
+        }
+    }
+    
+    var minAge: Int {
+        switch self {
+        case .egg: return 0
+        case .baby: return 1
+        case .child: return 5
+        case .teen: return 10
+        case .adult: return 20
+        case .senior: return 35
+        case .ancient: return 50
+        }
+    }
+}
+
+// 死亡原因
+enum DeathCause: String, CaseIterable, Codable {
+    case oldAge = "寿终正寝"
+    case neglected = "疏忽照顾"
+    case sickness = "疾病"
+    case starvation = "饥饿"
+    case overwork = "过度疲劳"
+    case accident = "意外"
+    
+    var icon: String {
+        switch self {
+        case .oldAge: return "clock.fill"
+        case .neglected: return "heart.slash.fill"
+        case .sickness: return "cross.circle.fill"
+        case .starvation: return "leaf.slash.fill"
+        case .overwork: return "bed.double.fill"
+        case .accident: return "exclamationmark.triangle.fill"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .oldAge: return .gray
+        case .neglected: return .red
+        case .sickness: return .orange
+        case .starvation: return .brown
+        case .overwork: return .purple
+        case .accident: return .yellow
+        }
+    }
+}
+
+// 特质
+enum Trait: String, CaseIterable, Codable {
+    case glutton = "贪吃"
+    case energetic = "活力四射"
+    case lazy = "懒散"
+    case curious = "好奇"
+    case shy = "害羞"
+    case brave = "勇敢"
+    case smart = "聪明"
+    case clumsy = "笨拙"
+    case affectionate = "粘人"
+    case independent = "独立"
+    case playful = "爱玩"
+    case calm = "冷静"
+    
+    var icon: String {
+        switch self {
+        case .glutton: return "fork.knife"
+        case .energetic: return "bolt.fill"
+        case .lazy: return "bed.double.fill"
+        case .curious: return "eye.fill"
+        case .shy: return "eye.slash.fill"
+        case .brave: return "shield.fill"
+        case .smart: return "brain.head.profile"
+        case .clumsy: return "shuffle"
+        case .affectionate: return "heart.fill"
+        case .independent: return "person.crop.circle.fill"
+        case .playful: return "gamecontroller.fill"
+        case .calm: return "wind"
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .glutton: return "更容易感到饥饿，但喂食获得更多经验"
+        case .energetic: return "精力恢复更快，但消耗也更快"
+        case .lazy: return "精力消耗更慢，但互动效果减弱"
+        case .curious: return "更容易触发随机事件"
+        case .shy: return "需要更多时间建立亲密度"
+        case .brave: return "不容易生病"
+        case .smart: return "训练效果翻倍"
+        case .clumsy: return "偶尔会笨拙地摔倒"
+        case .affectionate: return "亲密度增长更快"
+        case .independent: return "可以更好地照顾自己"
+        case .playful: return "玩耍效果增强"
+        case .calm: return "不容易受到压力影响"
+        }
+    }
+}
+
+// 个性
+enum Personality: String, CaseIterable, Codable {
+    case cheerful = "开朗"
+    case calm = "冷静"
+    case naughty = "调皮"
+    case serious = "认真"
+    case shy = "害羞"
+    case brave = "勇敢"
+    
+    var icon: String {
+        switch self {
+        case .cheerful: return "face.smiling.fill"
+        case .calm: return "moon.fill"
+        case .naughty: return "face.smiling.inverse"
+        case .serious: return "face.dashed.fill"
+        case .shy: return "face.dashed"
+        case .brave: return "star.fill"
+        }
+    }
+    
+    var color: Color {
+        switch self {
+        case .cheerful: return .yellow
+        case .calm: return .blue
+        case .naughty: return .orange
+        case .serious: return .gray
+        case .shy: return .purple
+        case .brave: return .red
+        }
+    }
+}
+
+// 食物类型
+enum FoodType: String, CaseIterable, Codable {
+    case regular = "普通食物"
+    case delicious = "美味食物"
+    case healthy = "健康食物"
+    case premium = "高级食物"
+    case special = "特殊食物"
+    
+    var icon: String {
+        switch self {
+        case .regular: return "leaf.fill"
+        case .delicious: return "star.fill"
+        case .healthy: return "heart.fill"
+        case .premium: return "crown.fill"
+        case .special: return "sparkles"
+        }
+    }
+    
+    var nutritionValue: Int {
+        switch self {
+        case .regular: return 10
+        case .delicious: return 15
+        case .healthy: return 12
+        case .premium: return 20
+        case .special: return 25
+        }
+    }
+    
+    var experienceBonus: Int {
+        switch self {
+        case .regular: return 5
+        case .delicious: return 10
+        case .healthy: return 8
+        case .premium: return 15
+        case .special: return 20
         }
     }
 }
@@ -209,6 +441,40 @@ class Pet: ObservableObject {
     @Published var lastInteractionDate: Date = Date() // 上次互动时间
     @Published var specialMoments: Int = 0 // 特殊时刻次数
     @Published var luckyEvents: Int = 0 // 幸运事件次数
+    
+    // 生命周期系统
+    @Published var generation: Int = 1
+    @Published var lifeStage: LifeStage = .egg
+    @Published var isDead: Bool = false
+    @Published var deathCause: DeathCause? = nil
+    @Published var birthDate: Date = Date()
+    @Published var lifeSpan: Int = 30
+    @Published var daysUntilDeath: Int = 30
+    
+    // 传承系统
+    @Published var inheritedTraits: [Trait] = []
+    @Published var unlockedTraits: [Trait] = []
+    @Published var legendaryCount: Int = 0
+    
+    // 养成记录（用于影响进化结果）
+    @Published var feedCount: Int = 0
+    @Published var playCount: Int = 0
+    @Published var hugCount: Int = 0
+    @Published var cleanCount: Int = 0
+    @Published var trainCount: Int = 0
+    @Published var medicalCount: Int = 0
+    
+    // 个性化特征
+    @Published var personality: Personality? = nil
+    @Published var favoriteFood: FoodType? = nil
+    @Published var favoriteActivity: ActivityType? = nil
+    
+    // 其他需要的状态
+    @Published var trainingLevel: Int = 0
+    @Published var isAsleep: Bool = false
+    @Published var sleepTime: Date? = nil
+    @Published var cleanliness: Int = 100
+    @Published var name: String = ""
 
     // 缓存的统计数据
     private var cachedFeedCount: Int = 0
@@ -319,7 +585,7 @@ class Pet: ObservableObject {
 
     // 互动类型
     enum InteractionType {
-        case play, feed, clean, exercise, cuddle
+        case play, feed, clean, exercise, cuddle, train, discipline, praise, study
     }
 
     // 互动结果
@@ -327,15 +593,6 @@ class Pet: ObservableObject {
         case success(String)
         case failure(String)
         case warning(String)
-    }
-
-    // 喂养计数（使用缓存）
-    private var feedCount: Int {
-        if !feedCountCacheValid {
-            cachedFeedCount = activities.filter { $0.icon == "fork.knife" }.count
-            feedCountCacheValid = true
-        }
-        return cachedFeedCount
     }
 
     // 健康连续天数
@@ -509,6 +766,7 @@ class Pet: ObservableObject {
                 energy = clampValue(energy - 5)
                 expGain = Int(Double(4) * bonusMultiplier)
                 intimacyGain = 3
+                hugCount += 1
                 logActivity(
                     Activity(
                         title: "拥抱",
@@ -516,6 +774,74 @@ class Pet: ObservableObject {
                         color: CodableColor(from: .red),
                         date: Date(),
                         value: happinessGain
+                    )
+                )
+            case .train:
+                let healthGain = Int(Double(12) * bonusMultiplier)
+                health = clampValue(health + healthGain)
+                energy = clampValue(energy - 25)
+                hunger = clampValue(hunger + 10)
+                let trainBonus = hasTrait(.smart) ? 2.0 : 1.0
+                expGain = Int(Double(12) * bonusMultiplier * trainBonus)
+                intimacyGain = 2
+                trainCount += 1
+                trainingLevel += 1
+                logActivity(
+                    Activity(
+                        title: "训练",
+                        icon: "dumbbell.fill",
+                        color: CodableColor(from: .orange),
+                        date: Date(),
+                        value: healthGain
+                    )
+                )
+            case .discipline:
+                if personality == .naughty {
+                    happiness = clampValue(happiness - 10)
+                    intimacy = clampValue(intimacy - 5)
+                } else {
+                    happiness = clampValue(happiness - 5)
+                }
+                energy = clampValue(energy - 5)
+                expGain = Int(Double(3) * bonusMultiplier)
+                logActivity(
+                    Activity(
+                        title: "管教",
+                        icon: "hand.raised.fill",
+                        color: CodableColor(from: .gray),
+                        date: Date(),
+                        value: nil
+                    )
+                )
+            case .praise:
+                let happinessGain = Int(Double(15) * bonusMultiplier)
+                happiness = clampValue(happiness + happinessGain)
+                let praiseBonus = hasTrait(.affectionate) ? 2 : 1
+                intimacy = min(100, intimacy + 5 * praiseBonus)
+                expGain = Int(Double(4) * bonusMultiplier)
+                logActivity(
+                    Activity(
+                        title: "夸奖",
+                        icon: "hand.thumbsup.fill",
+                        color: CodableColor(from: .yellow),
+                        date: Date(),
+                        value: happinessGain
+                    )
+                )
+            case .study:
+                health = clampValue(health + 8)
+                energy = clampValue(energy - 20)
+                hunger = clampValue(hunger + 8)
+                let studyBonus = hasTrait(.smart) ? 1.5 : 1.0
+                expGain = Int(Double(15) * bonusMultiplier * studyBonus)
+                intimacyGain = 1
+                logActivity(
+                    Activity(
+                        title: "学习",
+                        icon: "book.fill",
+                        color: CodableColor(from: .indigo),
+                        date: Date(),
+                        value: expGain
                     )
                 )
             }
@@ -567,6 +893,211 @@ class Pet: ObservableObject {
                 evolveTo(nextStage)
                 break
             }
+        }
+    }
+    
+    // 检查生命周期阶段
+    private func checkLifeStage() {
+        if isDead { return }
+        
+        let newStage = LifeStage.allCases.first { stage in
+            age >= stage.minAge
+        } ?? .egg
+        
+        if newStage != lifeStage {
+            lifeStage = newStage
+            
+            // 随着年龄增长，生命上限减少
+            let agePenalty = max(0, age - 20) * 2
+            daysUntilDeath = max(1, lifeSpan - agePenalty)
+        }
+    }
+    
+    // 检查死亡条件
+    private func checkDeathConditions() {
+        guard !isDead else { return }
+        
+        var shouldDie = false
+        var cause: DeathCause = .oldAge
+        
+        // 检查各种死亡条件
+        if hunger >= 100 {
+            shouldDie = true
+            cause = .starvation
+        } else if health <= 0 {
+            shouldDie = true
+            cause = .sickness
+        } else if energy <= 0 && !isAsleep {
+            shouldDie = true
+            cause = .overwork
+        } else if happiness <= 0 && age > 3 {
+            shouldDie = true
+            cause = .neglected
+        } else if daysUntilDeath <= 0 {
+            shouldDie = true
+            cause = .oldAge
+        }
+        
+        if shouldDie {
+            die(cause: cause)
+        }
+    }
+    
+    // 执行死亡
+    private func die(cause: DeathCause) {
+        isDead = true
+        deathCause = cause
+        lifeStage = .ancient
+        
+        logActivity(
+            Activity(
+                title: "宠物离开了",
+                icon: cause.icon,
+                color: CodableColor(from: cause.color),
+                date: Date(),
+                value: nil
+            )
+        )
+        
+        // 如果是寿终正寝，解锁传承奖励
+        if cause == .oldAge {
+            unlockLegacyRewards()
+        }
+    }
+    
+    // 解锁传承奖励
+    private func unlockLegacyRewards() {
+        // 根据养成方式解锁特质
+        if feedCount > 50 {
+            unlockTrait(.glutton)
+        }
+        if playCount > 50 {
+            unlockTrait(.playful)
+        }
+        if trainCount > 30 {
+            unlockTrait(.smart)
+        }
+        if hugCount > 40 {
+            unlockTrait(.affectionate)
+        }
+        if cleanCount > 30 {
+            unlockTrait(.calm)
+        }
+        
+        // 根据亲密度解锁
+        if intimacy >= 100 {
+            unlockTrait(.brave)
+        }
+        
+        // 根据总互动数解锁
+        if totalInteractions > 200 {
+            unlockTrait(.energetic)
+        }
+    }
+    
+    // 解锁特质
+    private func unlockTrait(_ trait: Trait) {
+        if !unlockedTraits.contains(trait) {
+            unlockedTraits.append(trait)
+            logActivity(
+                Activity(
+                    title: "解锁特质：\(trait.rawValue)",
+                    icon: trait.icon,
+                    color: CodableColor(from: .purple),
+                    date: Date(),
+                    value: nil
+                )
+            )
+        }
+    }
+    
+    // 检查是否拥有某个特质
+    private func hasTrait(_ trait: Trait) -> Bool {
+        return inheritedTraits.contains(trait) || unlockedTraits.contains(trait)
+    }
+    
+    // 重生（培养下一代）
+    func rebirth() -> Pet {
+        let newPet = Pet()
+
+        // 增加代数
+        newPet.generation = generation + 1
+
+        // 传承特质（随机选择2-3个）
+        let availableTraits = unlockedTraits
+        let traitCount = min(3, availableTraits.count)
+        let inheritedTraits = Array(availableTraits.shuffled().prefix(traitCount))
+        newPet.inheritedTraits = inheritedTraits
+
+        // 如果是传说宠物，增加传说计数
+        if evolutionStage == .legendary {
+            newPet.legendaryCount = legendaryCount + 1
+        }
+
+        // 传承一些基础属性
+        newPet.petType = petType
+        newPet.name = ""
+        newPet.birthDate = Date()
+        newPet.lifeSpan = calculateNewLifeSpan(for: newPet.generation)
+
+        // 根据代数增加初始属性
+        let generationBonus = generation * 2
+        newPet.health = min(100, 100 + generationBonus)
+        newPet.energy = min(100, 100 + generationBonus)
+        newPet.intimacy = min(20, 5 + generationBonus)
+
+        return newPet
+    }
+
+    // 计算新宠物的寿命
+    private func calculateNewLifeSpan(for generation: Int) -> Int {
+        let baseSpan = 30
+        let generationBonus = min(10, generation * 2)
+        let legendaryBonus = legendaryCount * 5
+
+        return baseSpan + generationBonus + legendaryBonus
+    }
+
+    // 个性化宠物
+    func personalize() {
+        if personality == nil {
+            personality = Personality.allCases.randomElement()
+            logActivity(
+                Activity(
+                    title: "性格觉醒：\(personality!.rawValue)",
+                    icon: personality!.icon,
+                    color: CodableColor(from: personality!.color),
+                    date: Date(),
+                    value: nil
+                )
+            )
+        }
+        
+        if favoriteFood == nil {
+            favoriteFood = FoodType.allCases.randomElement()
+            logActivity(
+                Activity(
+                    title: "喜爱食物：\(favoriteFood!.rawValue)",
+                    icon: favoriteFood!.icon,
+                    color: CodableColor(from: .blue),
+                    date: Date(),
+                    value: nil
+                )
+            )
+        }
+        
+        if favoriteActivity == nil && age >= 2 {
+            let activities: [ActivityType] = [.play, .train, .study, .clean]
+            favoriteActivity = activities.randomElement()
+            logActivity(
+                Activity(
+                    title: "最爱活动：\(favoriteActivity!.rawValue)",
+                    icon: favoriteActivity!.icon,
+                    color: CodableColor(from: .green),
+                    date: Date(),
+                    value: nil
+                )
+            )
         }
     }
     
@@ -637,76 +1168,71 @@ class Pet: ObservableObject {
     }
     
     // 处理随机事件 - 优化版本（缓存事件池）
-    private static var eventPool: [RandomEvent]?
-    
     private func handleRandomEvent() {
-        // 延迟初始化事件池
-        if Self.eventPool == nil {
-            Self.eventPool = [
-                RandomEvent(
-                    title: "幸运时刻",
-                    description: "你的宠物发现了一个隐藏的宝藏！",
-                    effect: { pet in
-                        pet.experience += 10
-                        pet.luckyEvents += 1
-                    },
-                    icon: "star.fill",
-                    color: .yellow
-                ),
-                RandomEvent(
-                    title: "突然饿了",
-                    description: "你的宠物突然感到非常饥饿...",
-                    effect: { pet in
-                        pet.hunger = min(100, pet.hunger + 20)
-                    },
-                    icon: "fork.knife",
-                    color: .orange
-                ),
-                RandomEvent(
-                    title: "快乐惊喜",
-                    description: "你的宠物因为一件小事而变得超级开心！",
-                    effect: { pet in
-                        pet.happiness = min(100, pet.happiness + 25)
-                        pet.specialMoments += 1
-                    },
-                    icon: "heart.fill",
-                    color: .pink
-                ),
-                RandomEvent(
-                    title: "意外收获",
-                    description: "你的宠物在玩耍时发现了一些有用的东西！",
-                    effect: { pet in
-                        pet.health = min(100, pet.health + 15)
-                        pet.energy = min(100, pet.energy + 10)
-                    },
-                    icon: "sparkles",
-                    color: .green
-                ),
-                RandomEvent(
-                    title: "亲密时刻",
-                    description: "你和宠物之间建立了更深的联系！",
-                    effect: { pet in
-                        pet.intimacy = min(100, pet.intimacy + 15)
-                        pet.specialMoments += 1
-                    },
-                    icon: "heart.circle.fill",
-                    color: .red
-                ),
-                RandomEvent(
-                    title: "神秘礼物",
-                    description: "你的宠物收到了一个神秘礼物！",
-                    effect: { pet in
-                        let reward = Int.random(in: 5...15)
-                        pet.experience += reward
-                        pet.luckyEvents += 1
-                    },
-                    icon: "gift.fill",
-                    color: .purple
-                )
-            ]
-        }
+        let events = [
+            RandomEvent(
+                title: "幸运时刻",
+                description: "你的宠物发现了一个隐藏的宝藏！",
+                effect: { pet in
+                    pet.experience += 10
+                    pet.luckyEvents += 1
+                },
+                icon: "star.fill",
+                color: .yellow
+            ),
+            RandomEvent(
+                title: "突然饿了",
+                description: "你的宠物突然感到非常饥饿...",
+                effect: { pet in
+                    pet.hunger = min(100, pet.hunger + 20)
+                },
+                icon: "fork.knife",
+                color: .orange
+            ),
+            RandomEvent(
+                title: "快乐惊喜",
+                description: "你的宠物因为一件小事而变得超级开心！",
+                effect: { pet in
+                    pet.happiness = min(100, pet.happiness + 25)
+                    pet.specialMoments += 1
+                },
+                icon: "heart.fill",
+                color: .pink
+            ),
+            RandomEvent(
+                title: "意外收获",
+                description: "你的宠物在玩耍时发现了一些有用的东西！",
+                effect: { pet in
+                    pet.health = min(100, pet.health + 15)
+                    pet.energy = min(100, pet.energy + 10)
+                },
+                icon: "sparkles",
+                color: .green
+            ),
+            RandomEvent(
+                title: "亲密时刻",
+                description: "你和宠物之间建立了更深的联系！",
+                effect: { pet in
+                    pet.intimacy = min(100, pet.intimacy + 15)
+                    pet.specialMoments += 1
+                },
+                icon: "heart.circle.fill",
+                color: .red
+            ),
+            RandomEvent(
+                title: "神秘礼物",
+                description: "你的宠物收到了一个神秘礼物！",
+                effect: { pet in
+                    let reward = Int.random(in: 5...15)
+                    pet.experience += reward
+                    pet.luckyEvents += 1
+                },
+                icon: "gift.fill",
+                color: .purple
+            )
+        ]
         
-        guard let event = Self.eventPool?.randomElement() else { return }
+        guard let event = events.randomElement() else { return }
         event.effect(self)
         logActivity(
             Activity(
@@ -767,6 +1293,22 @@ class Pet: ObservableObject {
             if health < 30 {
                 return .warning("宠物生病了，虚弱地接受拥抱...")
             }
+        case .train:
+            if energy < 30 {
+                return .failure("宠物太累了，不能训练！")
+            }
+            if health < 30 {
+                return .failure("宠物生病了，不能训练！")
+            }
+        case .discipline, .praise:
+            return .success("互动成功！")
+        case .study:
+            if energy < 25 {
+                return .failure("宠物太累了，不能学习！")
+            }
+            if health < 30 {
+                return .failure("宠物生病了，不能学习！")
+            }
         }
 
         return .success("互动成功！")
@@ -792,6 +1334,73 @@ class Pet: ObservableObject {
         }
     }
 
+    // 重置宠物到初始状态
+    func reset() {
+        let defaultPet = Pet()
+        self.hunger = defaultPet.hunger
+        self.happiness = defaultPet.happiness
+        self.health = defaultPet.health
+        self.energy = defaultPet.energy
+        self.age = defaultPet.age
+        self.experience = defaultPet.experience
+        self.level = defaultPet.level
+        self.lastFed = defaultPet.lastFed
+        self.mood = defaultPet.mood
+        self.totalInteractions = defaultPet.totalInteractions
+        self.maxHappiness = defaultPet.maxHappiness
+        self.careStreak = defaultPet.careStreak
+        self.unlockedAchievements = defaultPet.unlockedAchievements
+        self.activities = defaultPet.activities
+        self.statsHistory = defaultPet.statsHistory
+        self.intimacy = defaultPet.intimacy
+        self.evolutionStage = defaultPet.evolutionStage
+        self.evolutionPath = defaultPet.evolutionPath
+        self.totalPlayTime = defaultPet.totalPlayTime
+        self.lastInteractionDate = defaultPet.lastInteractionDate
+        self.specialMoments = defaultPet.specialMoments
+        self.luckyEvents = defaultPet.luckyEvents
+        self.generation = defaultPet.generation
+        self.lifeStage = defaultPet.lifeStage
+        self.isDead = defaultPet.isDead
+        self.deathCause = defaultPet.deathCause
+        self.birthDate = defaultPet.birthDate
+        self.lifeSpan = defaultPet.lifeSpan
+        self.daysUntilDeath = defaultPet.daysUntilDeath
+        self.inheritedTraits = defaultPet.inheritedTraits
+        self.unlockedTraits = defaultPet.unlockedTraits
+        self.legendaryCount = defaultPet.legendaryCount
+        self.feedCount = defaultPet.feedCount
+        self.playCount = defaultPet.playCount
+        self.hugCount = defaultPet.hugCount
+        self.cleanCount = defaultPet.cleanCount
+        self.trainCount = defaultPet.trainCount
+        self.medicalCount = defaultPet.medicalCount
+        self.personality = defaultPet.personality
+        self.favoriteFood = defaultPet.favoriteFood
+        self.favoriteActivity = defaultPet.favoriteActivity
+        self.cleanliness = defaultPet.cleanliness
+        self.trainingLevel = defaultPet.trainingLevel
+        self.isAsleep = defaultPet.isAsleep
+        self.sleepTime = defaultPet.sleepTime
+        self.name = defaultPet.name
+        self.saveData()
+    }
+
+    // 清除 UserDefaults 数据
+    static func clearSavedData() {
+        let defaults = UserDefaults.standard
+        let keys = [
+            "pet_hunger", "pet_happiness", "pet_health", "pet_energy",
+            "pet_age", "pet_experience", "pet_level", "pet_last_fed",
+            "pet_type", "pet_mood", "pet_total_interactions", "pet_max_happiness",
+            "pet_care_streak", "pet_unlocked_achievements", "pet_activities",
+            "pet_stats_history", "pet_intimacy", "pet_evolution_stage",
+            "pet_evolution_path", "pet_total_play_time", "pet_last_interaction_date",
+            "pet_special_moments", "pet_lucky_events"
+        ]
+        keys.forEach { defaults.removeObject(forKey: $0) }
+    }
+
     // 原有方法保持兼容性
     func feed() {
         _ = interact(type: .feed)
@@ -807,11 +1416,24 @@ class Pet: ObservableObject {
 
     // 自动衰减：每分钟饥饿度+1，快乐度-1，能量-2
     func decay() {
+        guard !isDead else { return }
+        
         hunger = clampValue(hunger + 1)
         happiness = clampValue(happiness - 1)
         energy = clampValue(energy - 2)
         age += 1
+        daysUntilDeath = max(0, daysUntilDeath - 1)
+        
         updateMood()
+        checkLifeStage()
+        checkDeathConditions()
+        checkEvolution()
+        
+        // 个性化宠物
+        if age >= 2 && age <= 3 {
+            personalize()
+        }
+        
         saveData()
     }
     
