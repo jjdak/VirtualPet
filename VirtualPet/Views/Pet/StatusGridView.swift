@@ -36,7 +36,7 @@ struct StatusGridView: View {
                     isCritical: pet.happiness < 20
                 )
 
-                // 健康度
+                // 健康
                 StatusItem(
                     title: "健康度",
                     value: "\(pet.health)",
@@ -58,5 +58,3 @@ struct StatusGridView: View {
         .padding()
     }
 }
-EOF
-echo "✅ StatusGridView.swift 创建完成 (~150 行)"

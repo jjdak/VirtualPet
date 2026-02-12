@@ -77,11 +77,14 @@ struct SkillsView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
             }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color.yellow.opacity(0.15))
-                    .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
+            .font(.caption)
+            .padding(.horizontal)
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 15)
+                .fill(Color.yellow.opacity(0.15))
+                .shadow(color: .black.opacity(0.05), radius: 5, x: 0, y: 2)
             )
             .sheet(item: $showingSkillDetails) { skill in
                 SkillDetailView(skill: skill, pet: pet)

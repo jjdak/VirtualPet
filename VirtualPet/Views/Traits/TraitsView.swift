@@ -27,10 +27,10 @@ struct TraitsView: View {
                         }
                     }
                 }
-            }
 
-            Button("关闭") {
-                dismiss()
+                Button("关闭") {
+                    dismiss()
+                }
             }
             .navigationTitle("")
             #if os(iOS)

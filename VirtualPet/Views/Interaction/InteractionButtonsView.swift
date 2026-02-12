@@ -217,5 +217,3 @@ struct InteractionButtonsView: View {
         }
     }
 }
-EOF
-echo "✅ InteractionButtonsView.swift 创建完成 (~800 行)"

@@ -319,53 +319,53 @@ struct PetDisplayView: View {
         switch pet.petType {
         case .cat:
             switch pet.mood {
-            case .happy: return "😸"
-            case .sad: return "😿"
-            case .sick: return "🙀"
-            case .hungry: return "🙀"
-            case .sleepy: return "😴"
-            case .excited: return "😻"
-            default: return "😺"
+            case .happy: return "\u{1F600}"
+            case .sad: return "\u{1F627}"
+            case .sick: return "\u{1F640}"
+            case .hungry: return "\u{1F640}"
+            case .sleepy: return "\u{1F634}"
+            case .excited: return "\u{1F643}"
+            default: return "\u{1F642}"
             }
         case .dog:
             switch pet.mood {
-            case .happy: return "🐶"
-            case .sad: return "😢"
-            case .sick: return "🤒"
-            case .hungry: return "🍖"
-            case .sleepy: return "😴"
-            case .excited: return "🎾"
-            default: return "🐕"
+            case .happy: return "\u{1F436}"
+            case .sad: return "\u{1F622}"
+            case .sick: return "\u{1F492}"
+            case .hungry: return "\u{1F576}"
+            case .sleepy: return "\u{1F634}"
+            case .excited: return "\u{1F63E}"
+            default: return "\u{1F435}"
             }
         case .rabbit:
             switch pet.mood {
-            case .happy: return "🐰"
-            case .sad: return "😔"
-            case .sick: return "🤧"
-            case .hungry: return "🥕"
-            case .sleepy: return "😴"
-            case .excited: return "🎉"
-            default: return "🐇"
+            case .happy: return "\u{1F430}"
+            case .sad: return "\u{1F614}"
+            case .sick: return "\u{1F4A7}"
+            case .hungry: return "\u{1F595}"
+            case .sleepy: return "\u{1F634}"
+            case .excited: return "\u{1F389}"
+            default: return "\u{1F438}"
             }
         case .hamster:
             switch pet.mood {
-            case .happy: return "🐹"
-            case .sad: return "😞"
-            case .sick: return "🤕"
-            case .hungry: return "🌰"
-            case .sleepy: return "😴"
-            case .excited: return "🎊"
-            default: return "🐭"
+            case .happy: return "\u{1F439}"
+            case .sad: return "\u{1F63E}"
+            case .sick: return "\u{1F495}"
+            case .hungry: return "\u{1F4F0}"
+            case .sleepy: return "\u{1F634}"
+            case .excited: return "\u{1F3CE}"
+            default: return "\u{1F43D}"
             }
         case .bird:
             switch pet.mood {
-            case .happy: return "🐦"
-            case .sad: return "😔"
-            case .sick: return "🤧"
-            case .hungry: return "🌽"
-            case .sleepy: return "😴"
-            case .excited: return "🎈"
-            default: return "🐥"
+            case .happy: return "\u{1F426}"
+            case .sad: return "\u{1F614}"
+            case .sick: return "\u{1F4A7}"
+            case .hungry: return "\u{1F52D}"
+            case .sleepy: return "\u{1F634}"
+            case .excited: return "\u{1F628}"
+            default: return "\u{1F435}"
             }
         }
     }

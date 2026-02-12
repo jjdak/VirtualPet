@@ -48,11 +48,10 @@ struct WeatherView: View {
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(pet.currentWeather.color.opacity(0.1))
-                    .shadow(color: pet.currentWeather.color.opacity(0.3), radius: 8, x: 0, y: 3)
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(pet.currentWeather.color, lineWidth: 1)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(pet.currentWeather.color, lineWidth: 1)
+                    )
             )
     }
 }
