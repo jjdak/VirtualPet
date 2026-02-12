@@ -48,7 +48,7 @@ struct PetDisplayView: View {
             }
 
             // 宠物表情 - 优化的动画
-            Text(getPetExpression())
+            // Text(getPetExpression())
                 .font(.system(size: getPetSize()))
                 .scaleEffect(getPetScale())
                 .rotationEffect(getPetRotation())
@@ -315,57 +315,57 @@ struct PetDisplayView: View {
         }
     }
 
-    private func getPetExpression() -> String {
+    // private func getPetExpression() -> String
         switch pet.petType {
         case .cat:
             switch pet.mood {
-            case .happy: return "\u{1F600}"
-            case .sad: return "\u{1F627}"
-            case .sick: return "\u{1F640}"
-            case .hungry: return "\u{1F640}"
-            case .sleepy: return "\u{1F634}"
-            case .excited: return "\u{1F643}"
-            default: return "\u{1F642}"
+            case .happy: return "开心"
+            case .sad: return "伤心"
+            case .sick: return "生病"
+            case .hungry: return "生病"
+            case .sleepy: return "困倦"
+            case .excited: return "兴奋"
+            default: return "正常"
             }
         case .dog:
             switch pet.mood {
-            case .happy: return "\u{1F436}"
-            case .sad: return "\u{1F622}"
-            case .sick: return "\u{1F492}"
-            case .hungry: return "\u{1F576}"
-            case .sleepy: return "\u{1F634}"
-            case .excited: return "\u{1F63E}"
-            default: return "\u{1F435}"
+            case .happy: return "开心"
+            case .sad: return "伤心"
+            case .sick: return "生病"
+            case .hungry: return "困倦"
+            case .sleepy: return "困倦"
+            case .excited: return "兴奋"
+            default: return "正常"
             }
         case .rabbit:
             switch pet.mood {
-            case .happy: return "\u{1F430}"
-            case .sad: return "\u{1F614}"
-            case .sick: return "\u{1F4A7}"
-            case .hungry: return "\u{1F595}"
-            case .sleepy: return "\u{1F634}"
+            case .happy: return "开心"
+            case .sad: return "伤心"
+            case .sick: return "生病"
+            case .hungry: return "饥饿"
+            case .sleepy: return "困倦"
             case .excited: return "\u{1F389}"
-            default: return "\u{1F438}"
+            default: return "正常"
             }
         case .hamster:
             switch pet.mood {
-            case .happy: return "\u{1F439}"
-            case .sad: return "\u{1F63E}"
-            case .sick: return "\u{1F495}"
-            case .hungry: return "\u{1F4F0}"
-            case .sleepy: return "\u{1F634}"
+            case .happy: return "开心"
+            case .sad: return "兴奋"
+            case .sick: return "生病"
+            case .hungry: return "困倦"
+            case .sleepy: return "困倦"
             case .excited: return "\u{1F3CE}"
             default: return "\u{1F43D}"
             }
         case .bird:
             switch pet.mood {
             case .happy: return "\u{1F426}"
-            case .sad: return "\u{1F614}"
-            case .sick: return "\u{1F4A7}"
-            case .hungry: return "\u{1F52D}"
-            case .sleepy: return "\u{1F634}"
-            case .excited: return "\u{1F628}"
-            default: return "\u{1F435}"
+            case .sad: return "伤心"
+            case .sick: return "生病"
+            case .hungry: return "困倦"
+            case .sleepy: return "困倦"
+            case .excited: return "兴奋"
+            default: return "正常"
             }
         }
     }

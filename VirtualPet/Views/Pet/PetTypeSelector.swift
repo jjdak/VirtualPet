@@ -17,5 +17,7 @@ struct PetTypeSelector: View {
                 Text(type.rawValue).tag(type)
             }
             .pickerStyle(.segmented)
+        }
     }
 }
+EOF
