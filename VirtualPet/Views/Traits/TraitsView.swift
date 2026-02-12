@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import SwiftUI
+import VirtualPet
 
 struct TraitsView: View {
     let traits: [Trait]
