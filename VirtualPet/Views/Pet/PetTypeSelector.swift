@@ -13,11 +13,10 @@ struct PetTypeSelector: View {
 
     var body: some View {
         Picker("", selection: $pet.petType) {
-            ForEach(PetType.allCases) { type in
+            ForEach(PetType.allCases, id: \.self) { type in
                 Text(type.rawValue).tag(type)
             }
-            .pickerStyle(.segmented)
         }
+        .pickerStyle(.segmented)
     }
 }
-EOF

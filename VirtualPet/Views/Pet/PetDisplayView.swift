@@ -48,7 +48,7 @@ struct PetDisplayView: View {
             }
 
             // 宠物表情 - 优化的动画
-            // Text(getPetExpression())
+            Text(getPetExpression())
                 .font(.system(size: getPetSize()))
                 .scaleEffect(getPetScale())
                 .rotationEffect(getPetRotation())
@@ -315,14 +315,14 @@ struct PetDisplayView: View {
         }
     }
 
-    // private func getPetExpression() -> String
+    private func getPetExpression() -> String {
         switch pet.petType {
         case .cat:
             switch pet.mood {
             case .happy: return "开心"
             case .sad: return "伤心"
             case .sick: return "生病"
-            case .hungry: return "生病"
+            case .hungry: return "饥饿"
             case .sleepy: return "困倦"
             case .excited: return "兴奋"
             default: return "正常"
@@ -332,7 +332,7 @@ struct PetDisplayView: View {
             case .happy: return "开心"
             case .sad: return "伤心"
             case .sick: return "生病"
-            case .hungry: return "困倦"
+            case .hungry: return "饥饿"
             case .sleepy: return "困倦"
             case .excited: return "兴奋"
             default: return "正常"
@@ -344,25 +344,25 @@ struct PetDisplayView: View {
             case .sick: return "生病"
             case .hungry: return "饥饿"
             case .sleepy: return "困倦"
-            case .excited: return "\u{1F389}"
+            case .excited: return "兴奋"
             default: return "正常"
             }
         case .hamster:
             switch pet.mood {
             case .happy: return "开心"
-            case .sad: return "兴奋"
+            case .sad: return "伤心"
             case .sick: return "生病"
-            case .hungry: return "困倦"
+            case .hungry: return "饥饿"
             case .sleepy: return "困倦"
-            case .excited: return "\u{1F3CE}"
-            default: return "\u{1F43D}"
+            case .excited: return "兴奋"
+            default: return "正常"
             }
         case .bird:
             switch pet.mood {
-            case .happy: return "\u{1F426}"
+            case .happy: return "开心"
             case .sad: return "伤心"
             case .sick: return "生病"
-            case .hungry: return "困倦"
+            case .hungry: return "饥饿"
             case .sleepy: return "困倦"
             case .excited: return "兴奋"
             default: return "正常"
@@ -398,5 +398,3 @@ struct PetDisplayView: View {
         }
     }
 }
-EOF
-echo "✅ PetDisplayView.swift 创建完成 (~360 行)"

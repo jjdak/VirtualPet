@@ -18,37 +18,33 @@ struct StatusGridView: View {
                 .foregroundColor(.secondary)
 
             HStack(spacing: 15) {
-                // 饥饿度
                 StatusItem(
                     title: "饥饿度",
-                    value: "\(pet.hunger)",
+                    value: pet.hunger,
                     color: .orange,
                     icon: "flame.fill",
                     isCritical: pet.hunger >= 80
                 )
 
-                // 快乐度
                 StatusItem(
                     title: "快乐度",
-                    value: "\(pet.happiness)",
+                    value: pet.happiness,
                     color: .blue,
                     icon: "face.smiling.fill",
                     isCritical: pet.happiness < 20
                 )
 
-                // 健康
                 StatusItem(
                     title: "健康度",
-                    value: "\(pet.health)",
+                    value: pet.health,
                     color: .green,
                     icon: "heart.fill",
                     isCritical: pet.health < 30
                 )
 
-                // 能量
                 StatusItem(
                     title: "能量",
-                    value: "\(pet.energy)",
+                    value: pet.energy,
                     color: .purple,
                     icon: "bolt.fill",
                     isCritical: pet.energy < 20
