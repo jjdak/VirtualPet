@@ -178,8 +178,8 @@
     - 进化完成通知
     - 每日任务提醒
 
-#### 1.6 新手引导 (P0) - 18h
-- [ ] **OnboardingFlow 设计**
+#### 1.6 新手引导 (P0) - 18h ✅
+- [x] **OnboardingFlow 设计** ✅
   - 5 步引导流程
   - 交互式教程
   - 跳过选项
@@ -189,25 +189,23 @@
     3. 状态监控说明
     4. 进化和路径选择
     5. 天气和技能介绍
-  - **技术要点**: OnboardingCoordinator, UserDefaults 完成标记
-  - **UI 组件**: OnboardingView, TutorialOverlayView
+  - **完成日期**: 2026-02-14
+  - **详见**: [docs/PHASE1_ONBOARDING_COMPLETE.md](docs/PHASE1_ONBOARDING_COMPLETE.md)
 
-- [ ] **帮助系统**
+- [x] **帮助系统** ✅
   - 内置 FAQ (10-15 个常见问题)
   - 互动提示系统
   - 长按手势显示详情
-  - **技术要点**: HelpViewController, 动态提示生成
-  - **内容示例**:
-    - Q: 如何快速增加亲密度?
-    - A: 多进行拥抱和夸奖互动,选择快乐型进化路径
+  - **完成日期**: 2026-02-14
+  - **技术实现**: HelpView, FAQRow, HelpTooltipView
 
 **Phase 1 完成标准**:
 - [x] 测试覆盖率 ≥ 70% (实际: 79%)
-- [ ] 所有 P0 任务完成 (67% 完成)
+- [x] 所有 P0 任务完成 (100% 完成) ✅
 - [x] 性能稳定在 60fps ✅
 - [ ] 用户留存率 > 60% (Day 1) - 待测试
 
-**当前进度**: 60% (3/5 主要任务完成)
+**当前进度**: 80% (4/5 主要任务完成，仅剩P1任务)
 
 ---
 
