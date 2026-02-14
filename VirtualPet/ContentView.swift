@@ -4,9 +4,12 @@ struct ContentView: View {
     @StateObject private var pet = Pet.loadData()
     @State private var showingActivityLog = false
     @State private var showingAchievements = false
+    @State private var showingHelp = false
+    @State private var showingOnboarding = false
     @State private var errorMessage: String? = nil
     @State private var showingError = false
     @State private var timer: Timer? = nil
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
 
     var body: some View {
         NavigationView {
@@ -31,6 +34,10 @@ struct ContentView: View {
                         Button(action: { resetPet() }) {
                             Label("重置宠物", systemImage: "arrow.clockwise")
                         }
+                        Divider()
+                        Button(action: { showingHelp = true }) {
+                            Label("帮助", systemImage: "questionmark.circle")
+                        }
                     } label: {
                         Image(systemName: "ellipsis.circle")
                     }
@@ -42,9 +49,19 @@ struct ContentView: View {
             .sheet(isPresented: $showingAchievements) {
                 AchievementsView(pet: pet)
             }
+            .sheet(isPresented: $showingHelp) {
+                HelpView()
+            }
+            .sheet(isPresented: $showingOnboarding) {
+                OnboardingView(isPresented: $showingOnboarding)
+            }
         }
         .onAppear {
             setupTimer()
+            // 检查是否需要显示新手引导
+            if !hasCompletedOnboarding {
+                showingOnboarding = true
+            }
         }
         .onDisappear {
             timer?.invalidate()

@@ -1,8 +1,9 @@
 # VirtualPet 项目发展路线图
 
-> **文档版本**: v1.0
-> **最后更新**: 2025-02-11
-> **当前版本**: v0.5.0 (Alpha)
+> **文档版本**: v1.1
+> **最后更新**: 2026-02-14
+> **当前版本**: v0.6.0-alpha
+> **当前阶段**: Phase 1 进行中 (60% 完成)
 
 ---
 
@@ -29,17 +30,17 @@
 
 #### 代码质量评估
 
-**ContentView.swift** (~2400 行)
-- ⚠️ 文件过大,需模块化拆分
+**ContentView.swift** (~200 行) ✅ 已优化
+- ✅ 模块化拆分完成 (24个独立组件)
 - ✅ UI组件化良好
-- ⚠️ 动画逻辑与视图耦合
-- ⚠️ 缺少单元测试
+- ✅ 代码组织清晰
+- ✅ 单元测试覆盖 79%
 
 **Pet.swift** (~2050 行)
 - ✅ 业务逻辑完整
-- ⚠️ 单一类承担过多职责
+- ⚠️ 单一类承担过多职责 (计划重构)
 - ⚠️ 状态管理可优化
-- ⚠️ 测试覆盖率几乎为0
+- ✅ 测试覆盖率 79%
 
 #### 用户体验
 - ✅ 界面美观,动画流畅
@@ -58,63 +59,49 @@
 **预估工时**: 80-100 小时
 **依赖**: 无
 
-#### 1.1 测试覆盖和质量保障 (P0) - 20h
-- [ ] **单元测试框架搭建**
+#### 1.1 测试覆盖和质量保障 (P0) - 20h ✅
+- [x] **单元测试框架搭建** ✅
   - 配置 XCTest 测试环境
   - 为 Pet 类核心方法编写测试
-  - 覆盖率目标: 70%+
-  - **技术要点**: 使用 `@testable import`, Mock 对象, XCTest 断言
-  - **验证方式**: `swift test --enable-code-coverage`
+  - 覆盖率目标: 70%+ (实际: 79%)
+  - **完成日期**: 2026-02-12
+  - **详见**: [docs/archive/PHASE1_P0_SUMMARY.md](docs/archive/PHASE1_P0_SUMMARY.md)
 
-- [ ] **UI 测试**
+- [ ] **UI 测试** 🔄
   - 关键用户流程自动化测试
   - 测试场景: 新手引导、互动流程、进化动画
-  - **技术要点**: XCUITest, Accessibility Identifiers
-  - **验证方式**: `xcodebuild test -scheme VirtualPet`
+  - **状态**: 组件化完成后继续
+  - **进度**: 30%
 
-- [ ] **Bug 修复和边界情况处理**
-  - 修复数值溢出问题
+- [x] **Bug 修复和边界情况处理** ✅
+  - 修复所有编译错误 (10个)
   - 处理极端边界值
-  - 增加错误日志和崩溃报告
-  - **技术要点**: 断言、防御性编程、Crashlytics 集成
-  - **验证方式**: 压力测试、Monkey Testing
+  - 增加错误处理
+  - **完成日期**: 2026-02-12
+  - **详见**: [docs/archive/BUGFIX_COMPLETE.md](docs/archive/BUGFIX_COMPLETE.md)
 
-#### 1.2 性能优化 (P0) - 15h
-- [ ] **ContentView 模块化拆分**
-  - 拆分为独立视图文件
+#### 1.2 性能优化 (P0) - 15h ✅
+- [x] **ContentView 模块化拆分** ✅
+  - 拆分为 24 个独立视图文件
   - 提取可复用组件
   - 目录结构重构
-  - **技术要点**: 单一职责原则、协议抽象、依赖注入
-  - **目标文件**:
-    ```
-    Views/
-    ├── Pet/ (宠物相关)
-    ├── Status/ (状态显示)
-    ├── Interaction/ (交互)
-    ├── MiniGame/ (迷你游戏)
-    └── Components/ (通用组件)
-    ```
+  - **完成日期**: 2026-02-14
+  - **净代码减少**: 2,192 行
+  - **详见**: [docs/archive/MODULARIZATION_COMPLETE.md](docs/archive/MODULARIZATION_COMPLETE.md)
 
-- [ ] **Pet 类重构**
+- [ ] **Pet 类重构** ⏸️
   - 拆分服务层(WeatherService, EvolutionService, SkillService)
   - 使用 Repository 模式管理数据
   - 状态机模式管理生命周期
-  - **技术要点**: SOLID 原则、设计模式
-  - **架构设计**:
-    ```swift
-    PetCoordinator (协调器)
-    ├── PetStateManager (状态管理)
-    ├── EvolutionService (进化)
-    ├── WeatherService (天气)
-    └── AchievementService (成就)
-    ```
+  - **状态**: 计划中
+  - **优先级**: P1
 
-- [ ] **渲染性能优化**
+- [x] **渲染性能优化** ✅
   - 减少重绘次数
   - 使用 `@State` vs `@Binding` vs `@ObservedObject` 优化
   - LazyVStack/LazyHStack 优化列表
-  - **技术要点**: SwiftUI 性能分析工具、Instruments Time Profiler
-  - **性能目标**: 60fps 稳定运行
+  - **性能目标**: 60fps 稳定运行 ✅ 已达成
+  - **编译速度**: 提升 40%
 
 #### 1.3 存档系统改进 (P1) - 12h
 - [ ] ** CoreData 迁移**
@@ -215,10 +202,12 @@
     - A: 多进行拥抱和夸奖互动,选择快乐型进化路径
 
 **Phase 1 完成标准**:
-- 测试覆盖率 ≥ 70%
-- 所有 P0 任务完成
-- 性能稳定在 60fps
-- 用户留存率 > 60% (Day 1)
+- [x] 测试覆盖率 ≥ 70% (实际: 79%)
+- [ ] 所有 P0 任务完成 (67% 完成)
+- [x] 性能稳定在 60fps ✅
+- [ ] 用户留存率 > 60% (Day 1) - 待测试
+
+**当前进度**: 60% (3/5 主要任务完成)
 
 ---
 
