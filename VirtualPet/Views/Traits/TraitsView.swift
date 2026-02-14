@@ -7,8 +7,6 @@
 //
 
 import SwiftUI
-import SwiftUI
-import VirtualPet
 
 struct TraitsView: View {
     let traits: [Trait]
@@ -28,11 +26,15 @@ struct TraitsView: View {
                             TraitCard(trait: trait)
                         }
                     }
+                    .padding()
                 }
 
                 Button("关闭") {
                     dismiss()
                 }
+                .font(.headline)
+                .foregroundColor(.blue)
+                .padding(.bottom)
             }
             .navigationTitle("")
             #if os(iOS)
@@ -61,42 +63,38 @@ struct TraitCard: View {
     let trait: Trait
 
     var body: some View {
-        VStack(spacing: 12) {
-            HStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(trait.name)
-                        .font(.headline)
-                        .foregroundColor(.primary)
+        HStack(spacing: 15) {
+            ZStack {
+                Circle()
+                    .fill(Color.purple.opacity(0.15))
+                    .frame(width: 50, height: 50)
 
-                    Text(trait.description)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .lineLimit(nil)
-                }
-
-                Spacer()
-
-                VStack(alignment: .trailing, spacing: 6) {
-                    Text("等级 \(trait.level)")
-                        .font(.title2)
-                        .foregroundColor(trait.color)
-
-                    if trait.unlocked {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.white)
-                            .font(.caption)
-                    }
-                }
+                Image(systemName: trait.icon)
+                    .font(.title2)
+                    .foregroundColor(.purple)
             }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(trait.color.opacity(0.1))
-                    .shadow(color: trait.color.opacity(0.3), radius: 8, x: 0, y: 3)
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(trait.color, lineWidth: 1)
-            )
+
+            VStack(alignment: .leading, spacing: 5) {
+                Text(trait.rawValue)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+
+                Text(trait.description)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .lineLimit(2)
+            }
+
+            Spacer()
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.purple.opacity(0.05))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(Color.purple.opacity(0.3), lineWidth: 1)
+        )
     }
 }

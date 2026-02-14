@@ -9,9 +9,13 @@
 import SwiftUI
 
 struct ContentViewOverlays: View {
+    @ObservedObject var pet: Pet
     @Binding var errorMessage: String?
     @Binding var showingError: Bool
     @Binding var intimacyHeartPulse: Bool
+    let onDismissError: () -> Void
+    let onRebirth: () -> Void
+    let onReset: () -> Void
 
     var body: some View {
         ZStack {
@@ -30,15 +34,18 @@ struct ContentViewOverlays: View {
                     .zIndex(1)
             }
 
-            // 随机事件动画（如果需要）
-            // RandomEventAnimationView(pet: pet)
+            // 死亡界面
+            if pet.isDead {
+                DeathView(pet: pet, onRebirth: onRebirth)
+                    .zIndex(3)
+            }
         }
     }
 }
 
 struct ErrorAlert: View {
     let errorMessage: String
-    @Binding var isPresented: Binding<Bool>
+    @Binding var isPresented: Bool
 
     var body: some View {
         VStack(spacing: 16) {
@@ -50,10 +57,9 @@ struct ErrorAlert: View {
                 .foregroundColor(.primary)
 
             Button("确定") {
-                isPresented.wrappedValue = false
+                isPresented = false
             }
             .buttonStyle(.bordered)
-            .buttonControlSize(.large)
         }
         .padding(24)
         .background(

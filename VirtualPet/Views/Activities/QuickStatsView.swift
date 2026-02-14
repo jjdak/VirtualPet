@@ -27,7 +27,7 @@ struct QuickStatsView: View {
                 HStack(spacing: 15) {
                     StatItem(title: "成就数", value: "\(pet.unlockedAchievements)", color: .purple)
 
-                    StatItem(title: "亲密度", value: pet.intimacy, color: .pink, suffix: "/100")
+                    StatItem(title: "亲密度", value: "\(pet.intimacy)/100", color: .pink)
                 }
             }
         }

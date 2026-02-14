@@ -44,14 +44,15 @@ struct WeatherView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(pet.currentWeather.color.opacity(0.1))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(pet.currentWeather.color, lineWidth: 1)
-                    )
-            )
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(pet.currentWeather.color.opacity(0.1))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(pet.currentWeather.color, lineWidth: 1)
+                )
+        )
     }
 }

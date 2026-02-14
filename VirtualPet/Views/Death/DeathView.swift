@@ -70,7 +70,6 @@ struct DeathView: View {
                     )
             }
             .buttonStyle(.borderedProminent)
-            .buttonControlSize(.large)
         }
         .frame(maxWidth: .infinity)
         .frame(maxHeight: .infinity)
