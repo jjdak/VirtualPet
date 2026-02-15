@@ -5,6 +5,9 @@ import SwiftUI
 import AppKit
 #endif
 
+// 导入 AudioManager 用于音效播放
+import VirtualPet
+
 // Color wrapper for Codable support
 struct CodableColor: Codable {
     let red: Double
@@ -1072,7 +1075,25 @@ class Pet: ObservableObject {
             checkLevelUp()
             checkEvolution()
             triggerRandomEvent()
-            
+
+            // 播放对应音效
+            switch type {
+            case .play:
+                AudioManager.shared.playSound(.play)
+            case .feed:
+                AudioManager.shared.playSound(.feed)
+            case .clean:
+                AudioManager.shared.playSound(.clean)
+            case .exercise:
+                AudioManager.shared.playSound(.exercise)
+            case .cuddle:
+                AudioManager.shared.playSound(.cuddle)
+            case .praise:
+                AudioManager.shared.playSound(.achievement)
+            default:
+                break
+            }
+
             // 异步保存数据，避免阻塞主线程
             DispatchQueue.global(qos: .userInitiated).async {
                 self.saveData()
