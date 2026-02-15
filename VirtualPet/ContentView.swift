@@ -86,6 +86,17 @@ struct ContentView: View {
                 }
                 Spacer()
             }
+
+            // 连击指示器
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    ComboIndicator()
+                        .padding(.trailing, 20)
+                        .padding(.bottom, 100)
+                }
+            }
         }
         .sheet(isPresented: $showingActivityLog) {
             ActivityLogView(pet: pet)
@@ -210,6 +221,11 @@ struct TopBarView: View {
 // MARK: - 宠物展示区域 (手表风格)
 struct PetDisplaySection: View {
     @ObservedObject var pet: Pet
+    @State private var showFloatingText = false
+    @State private var floatingText = ""
+    @State private var floatingColor: Color = .green
+    @State private var showEmoji = false
+    @State private var currentEmoji = ""
 
     var body: some View {
         ZStack {
@@ -243,6 +259,24 @@ struct PetDisplaySection: View {
             )
             .frame(width: 200, height: 200)
             .scaleEffect(1.8) // 放大 1.8 倍
+
+            // 表情浮层
+            if showEmoji {
+                Text(currentEmoji)
+                    .font(.system(size: 80))
+                    .scaleEffect(showEmoji ? 1.5 : 0.5)
+                    .opacity(showEmoji ? 1.0 : 0.0)
+                    .animation(.spring(response: 0.3, dampingFraction: 0.6), value: showEmoji)
+            }
+
+            // 数值飘字
+            if showFloatingText {
+                FloatingTextView(
+                    text: floatingText,
+                    color: floatingColor
+                )
+                .position(x: 160, y: 100)
+            }
 
             // 简化的状态指示器 (小圆点)
             VStack {
@@ -293,6 +327,17 @@ struct PetDisplaySection: View {
                 Spacer().frame(height: 20)
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("ShowFloatingText"))) { notification in
+            if let text = notification.userInfo?["text"] as? String,
+               let color = notification.userInfo?["color"] as? Color {
+                showFloatingGain(text, color: color)
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("ShowEmoji"))) { notification in
+            if let emoji = notification.userInfo?["emoji"] as? String {
+                showEmojiFeedback(emoji)
+            }
+        }
     }
 
     private func getMoodColor() -> Color {
@@ -304,6 +349,27 @@ struct PetDisplaySection: View {
         case .sleepy: return .purple
         case .excited: return .pink
         case .normal: return .green
+        }
+    }
+
+    // 显示数值飘字
+    func showFloatingGain(_ text: String, color: Color) {
+        floatingText = text
+        floatingColor = color
+        showFloatingText = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            showFloatingText = false
+        }
+    }
+
+    // 显示表情反馈
+    func showEmojiFeedback(_ emoji: String) {
+        currentEmoji = emoji
+        showEmoji = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            showEmoji = false
         }
     }
 }
@@ -434,36 +500,76 @@ struct WatchInteractionButton: View {
     let action: () -> Void
 
     @State private var isPressed = false
+    @State private var showRipple = false
 
     var body: some View {
         Button(action: {
-            withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+            // 1. 触觉反馈
+            HapticManager.shared.trigger(.medium)
+
+            // 2. 按下动画
+            withAnimation(.easeInOut(duration: 0.1)) {
                 isPressed = true
             }
+
+            // 3. 涟漪效果
+            showRipple = true
+
+            // 4. 增加连击
+            ComboSystem.shared.incrementCombo()
+
+            // 5. 执行互动
             action()
+
+            // 6. 恢复状态
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 withAnimation {
                     isPressed = false
                 }
             }
-        }) {
-            VStack(spacing: 6) {
-                Image(systemName: icon)
-                    .font(.title2)
-                    .foregroundColor(.white)
 
-                Text(label)
-                    .font(.caption)
-                    .foregroundColor(.white)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                showRipple = false
             }
-            .padding(.vertical, 12)
-            .frame(maxWidth: .infinity)
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(color)
-                    .shadow(color: color.opacity(0.4), radius: isPressed ? 8 : 4, x: 0, y: isPressed ? 4 : 2)
-            )
+        }) {
+            ZStack {
+                // 涟漪效果
+                if showRipple {
+                    Circle()
+                        .stroke(Color.white.opacity(0.5), lineWidth: 2)
+                        .scaleEffect(showRipple ? 1.5 : 1.0)
+                        .opacity(showRipple ? 0.0 : 1.0)
+                        .animation(
+                            .easeOut(duration: 0.5),
+                            value: showRipple
+                        )
+                }
+
+                // 按钮内容
+                VStack(spacing: 6) {
+                    Image(systemName: icon)
+                        .font(.title2)
+                        .foregroundColor(.white)
+
+                    Text(label)
+                        .font(.caption)
+                        .foregroundColor(.white)
+                }
+                .padding(.vertical, 12)
+                .frame(maxWidth: .infinity)
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(color)
+                        .shadow(
+                            color: color.opacity(isPressed ? 0.8 : 0.4),
+                            radius: isPressed ? 8 : 4,
+                            x: 0,
+                            y: isPressed ? 4 : 2
+                        )
+                )
+            }
         }
+        .scaleEffect(isPressed ? 0.95 : 1.0)
         .buttonStyle(PlainButtonStyle())
     }
 }
