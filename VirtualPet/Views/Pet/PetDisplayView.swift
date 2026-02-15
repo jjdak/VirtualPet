@@ -47,14 +47,17 @@ struct PetDisplayView: View {
                     .scaleEffect(1.5)
             }
 
-            // 宠物表情 - 优化的动画
-            Text(getPetExpression())
-                .font(.system(size: getPetSize()))
-                .scaleEffect(getPetScale())
-                .rotationEffect(getPetRotation())
-                .offset(y: petBounce ? -20 : 0)
-                .animation(.spring(response: 0.6, dampingFraction: 0.8), value: petBounce)
-                .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+            // 宠物形象 - Emoji + 心情系统 (Phase 1, Task 1.7)
+            PetAvatarView(
+                petType: pet.petType,
+                mood: pet.mood,
+                evolutionStage: pet.evolutionStage
+            )
+            .scaleEffect(getPetScale())
+            .rotationEffect(getPetRotation())
+            .offset(y: petBounce ? -20 : 0)
+            .animation(.spring(response: 0.6, dampingFraction: 0.8), value: petBounce)
+            .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
 
             // 亲密度爱心装饰 - 使用预计算位置
             if pet.intimacy >= 50 {
