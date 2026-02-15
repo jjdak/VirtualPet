@@ -14,7 +14,6 @@ struct InteractionButtonsView: View {
     @Binding var petBounce: Bool
     @Binding var sparkleAnimation: Bool
     @Binding var heartAnimation: Bool
-    @Binding var particleEffects: [Particle]
     @Binding var isAnimating: Bool
     @Binding var errorMessage: String?
     @Binding var showingError: Bool
@@ -191,29 +190,8 @@ struct InteractionButtonsView: View {
         }
     }
 
-    // MARK: - 粒子系统
+    // MARK: - 粒子系统 (简化版 - 移除粒子效果)
     private func addParticles(color: Color, count: Int) {
-        let newParticles = (0..<count).map { _ in
-            Particle(
-                position: CGPoint(
-                    x: CGFloat.random(in: 50...250),
-                    y: CGFloat.random(in: 50...200)
-                ),
-                size: CGFloat.random(in: 5...15),
-                color: color,
-                opacity: 1.0,
-                animationProgress: 0.0
-            )
-        }
-
-        withAnimation(.easeOut(duration: 1.0)) {
-            particleEffects.append(contentsOf: newParticles)
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            withAnimation {
-                particleEffects.removeAll()
-            }
-        }
+        // 粒子系统已简化，仅保留函数签名以兼容现有调用
     }
 }

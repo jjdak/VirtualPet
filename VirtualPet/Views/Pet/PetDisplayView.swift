@@ -14,7 +14,6 @@ struct PetDisplayView: View {
     @Binding var petBounce: Bool
     @Binding var sparkleAnimation: Bool
     @Binding var heartAnimation: Bool
-    @Binding var particleEffects: [Particle]
     @Binding var isAnimating: Bool
     @Binding var intimacyHeartPulse: Bool
 
@@ -88,16 +87,6 @@ struct PetDisplayView: View {
                 }
                 .position(x: 280, y: 50)
             }
-
-            // 粒子效果 - 使用drawingGroup优化
-            ForEach(particleEffects) { particle in
-                Circle()
-                    .fill(particle.color)
-                    .frame(width: particle.size, height: particle.size)
-                    .opacity(particle.opacity)
-                    .position(particle.position)
-            }
-            .drawingGroup()
 
             // 特殊效果 - 优化的动画实现
             if sparkleAnimation {
