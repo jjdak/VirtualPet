@@ -47,8 +47,8 @@ struct PetDisplayView: View {
                     .scaleEffect(1.5)
             }
 
-            // 宠物形象 - Emoji + 心情系统 (Phase 1, Task 1.7)
-            PetAvatarView(
+            // 宠物形象 - 可爱像素风格 (Phase 1, Task 1.7 升级版)
+            PixelPetAvatarView(
                 petType: pet.petType,
                 mood: pet.mood,
                 evolutionStage: pet.evolutionStage
