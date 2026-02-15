@@ -5,6 +5,7 @@ struct ContentView: View {
     @State private var showingActivityLog = false
     @State private var showingAchievements = false
     @State private var showingHelp = false
+    @State private var showingSettings = false
     @State private var showingOnboarding = false
     @State private var errorMessage: String? = nil
     @State private var showingError = false
@@ -38,6 +39,9 @@ struct ContentView: View {
                         Button(action: { showingHelp = true }) {
                             Label("帮助", systemImage: "questionmark.circle")
                         }
+                        Button(action: { showingSettings = true }) {
+                            Label("设置", systemImage: "gearshape.fill")
+                        }
                     } label: {
                         Image(systemName: "ellipsis.circle")
                     }
@@ -51,6 +55,9 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showingHelp) {
                 HelpView()
+            }
+            .sheet(isPresented: $showingSettings) {
+                SettingsView()
             }
             .sheet(isPresented: $showingOnboarding) {
                 OnboardingView(isPresented: $showingOnboarding)
