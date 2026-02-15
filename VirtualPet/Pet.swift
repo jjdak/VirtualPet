@@ -1098,9 +1098,152 @@ class Pet: ObservableObject {
             DispatchQueue.global(qos: .userInitiated).async {
                 self.saveData()
             }
+
+            // 检查随机事件 (阶段一: 简单随机事件)
+            checkRandomEvent(type)
         }
 
         return result
+    }
+
+    // MARK: - 随机事件系统 (阶段一)
+    private func checkRandomEvent(_ type: InteractionType) {
+        let roll = Int.random(in: 1...100)
+
+        switch roll {
+        case 1...5:  // 5% 暴击
+            triggerCriticalSuccess()
+
+        case 6...8:  // 3% 幸运发现
+            triggerLuckyFind()
+
+        case 9...13: // 5% 滑稽反应
+            triggerFunnyReaction()
+
+        case 99...100: // 2% 拒绝
+            triggerRefusal()
+
+        default:
+            break // 正常互动
+        }
+    }
+
+    // 暴击效果
+    private func triggerCriticalSuccess() {
+        // 2倍奖励
+        happiness = min(100, happiness + 10)
+        experience += 5
+
+        // 记录活动
+        logActivity(
+            Activity(
+                title: "✨ 暴击！✨",
+                icon: "star.fill",
+                color: CodableColor(from: .yellow),
+                date: Date(),
+                value: 20
+            )
+        )
+
+        // 发送通知
+        NotificationCenter.default.post(
+            name: NSNotification.Name("ShowFloatingText"),
+            object: nil,
+            userInfo: ["text": "✨ 暴击！✨", "color": Color.yellow]
+        )
+
+        NotificationCenter.default.post(
+            name: NSNotification.Name("ShowEmoji"),
+            object: nil,
+            userInfo: ["emoji": "🤩"]
+        )
+
+        HapticManager.shared.trigger(.heavy)
+    }
+
+    // 幸运发现
+    private func triggerLuckyFind() {
+        // 发现小礼物
+        intimacy = min(100, intimacy + 5)
+
+        logActivity(
+            Activity(
+                title: "🎁 幸运发现！",
+                icon: "gift.fill",
+                color: CodableColor(from: .purple),
+                date: Date(),
+                value: nil
+            )
+        )
+
+        // 发送通知
+        NotificationCenter.default.post(
+            name: NSNotification.Name("ShowFloatingText"),
+            object: nil,
+            userInfo: ["text": "🎁 幸运发现！", "color": Color.purple]
+        )
+
+        NotificationCenter.default.post(
+            name: NSNotification.Name("ShowEmoji"),
+            object: nil,
+            userInfo: ["emoji": "😮"]
+        )
+
+        HapticManager.shared.trigger(.heartbeat)
+    }
+
+    // 滑稽反应
+    private func triggerFunnyReaction() {
+        happiness = min(100, happiness + 5)
+
+        logActivity(
+            Activity(
+                title: "😄 滑稽时刻",
+                icon: "face.smiling.fill",
+                color: CodableColor(from: .yellow),
+                date: Date(),
+                value: nil
+            )
+        )
+
+        // 发送通知
+        NotificationCenter.default.post(
+            name: NSNotification.Name("ShowEmoji"),
+            object: nil,
+            userInfo: ["emoji": "😄"]
+        )
+
+        HapticManager.shared.trigger(.light)
+    }
+
+    // 拒绝互动
+    private func triggerRefusal() {
+        happiness = max(0, happiness - 5)
+
+        logActivity(
+            Activity(
+                title: "😅 宠物拒绝了...",
+                icon: "hand.raised.fill",
+                color: CodableColor(from: .gray),
+                date: Date(),
+                value: nil
+            )
+        )
+
+        // 发送通知
+        NotificationCenter.default.post(
+            name: NSNotification.Name("ShowFloatingText"),
+            object: nil,
+            userInfo: ["text": "😅 宠物拒绝了", "color": Color.gray]
+        )
+
+        NotificationCenter.default.post(
+            name: NSNotification.Name("ShowEmoji"),
+            object: nil,
+            userInfo: ["emoji": "😅"]
+        )
+
+        HapticManager.shared.trigger(.notification)
     }
     
     // 获取进化路径加成
