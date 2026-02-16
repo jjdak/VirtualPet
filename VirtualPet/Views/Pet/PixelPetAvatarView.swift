@@ -18,9 +18,9 @@ struct PixelPetAvatarView: View {
     let petType: PetType
     let mood: PetMood
     let evolutionStage: EvolutionStage
+    let isBlinking: Bool  // Phase 4: 外部眨眼状态
 
     @State private var bounceOffset: CGFloat = 0
-    @State private var blinkOpacity: Double = 1
     @State private var animationFrame = 0
 
     var body: some View {
@@ -31,11 +31,10 @@ struct PixelPetAvatarView: View {
                 .scaleEffect(1 + bounceOffset)
                 .animation(.spring(response: 0.3, dampingFraction: 0.6), value: bounceOffset)
 
-            // 闪烁动画
-            if blinkOpacity < 1 {
+            // Phase 4: 使用外部眨眼状态
+            if isBlinking {
                 PixelBlinkOverlay(petType: petType)
                     .frame(width: getPetSize(), height: getPetSize())
-                    .opacity(blinkOpacity)
             }
         }
         .onAppear {
@@ -61,17 +60,8 @@ struct PixelPetAvatarView: View {
             bounceOffset = 0.05
         }
 
-        // 眨眼动画
-        Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { _ in
-            withAnimation(.easeInOut(duration: 0.15)) {
-                blinkOpacity = 0
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                withAnimation(.easeInOut(duration: 0.15)) {
-                    blinkOpacity = 1
-                }
-            }
-        }
+        // Phase 4: 移除内部眨眼Timer,使用外部控制
+        // 眨眼由 BreathAnimationManager 统一管理
 
         // 像素动画帧
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
@@ -646,11 +636,11 @@ enum SleepyExpression {
             Text("可爱像素宠物")
                 .font(.headline)
             HStack(spacing: 20) {
-                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .child)
-                PixelPetAvatarView(petType: .dog, mood: .normal, evolutionStage: .adult)
-                PixelPetAvatarView(petType: .rabbit, mood: .excited, evolutionStage: .teen)
-                PixelPetAvatarView(petType: .bird, mood: .happy, evolutionStage: .child)
-                PixelPetAvatarView(petType: .hamster, mood: .normal, evolutionStage: .baby)
+                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .child, isBlinking: false)
+                PixelPetAvatarView(petType: .dog, mood: .normal, evolutionStage: .adult, isBlinking: false)
+                PixelPetAvatarView(petType: .rabbit, mood: .excited, evolutionStage: .teen, isBlinking: false)
+                PixelPetAvatarView(petType: .bird, mood: .happy, evolutionStage: .child, isBlinking: false)
+                PixelPetAvatarView(petType: .hamster, mood: .normal, evolutionStage: .baby, isBlinking: false)
             }
         }
 
@@ -659,13 +649,13 @@ enum SleepyExpression {
             Text("不同心情")
                 .font(.headline)
             HStack(spacing: 15) {
-                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .adult)
-                PixelPetAvatarView(petType: .cat, mood: .sad, evolutionStage: .adult)
-                PixelPetAvatarView(petType: .cat, mood: .sick, evolutionStage: .adult)
-                PixelPetAvatarView(petType: .cat, mood: .excited, evolutionStage: .adult)
-                PixelPetAvatarView(petType: .cat, mood: .hungry, evolutionStage: .adult)
-                PixelPetAvatarView(petType: .cat, mood: .sleepy, evolutionStage: .adult)
-                PixelPetAvatarView(petType: .cat, mood: .normal, evolutionStage: .adult)
+                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .adult, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .sad, evolutionStage: .adult, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .sick, evolutionStage: .adult, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .excited, evolutionStage: .adult, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .hungry, evolutionStage: .adult, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .sleepy, evolutionStage: .adult, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .normal, evolutionStage: .adult, isBlinking: false)
             }
         }
 
@@ -674,11 +664,11 @@ enum SleepyExpression {
             Text("进化阶段")
                 .font(.headline)
             HStack(spacing: 12) {
-                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .egg)
-                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .baby)
-                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .child)
-                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .adult)
-                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .legendary)
+                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .egg, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .baby, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .child, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .adult, isBlinking: false)
+                PixelPetAvatarView(petType: .cat, mood: .happy, evolutionStage: .legendary, isBlinking: false)
             }
         }
     }

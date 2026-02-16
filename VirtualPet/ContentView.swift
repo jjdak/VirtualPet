@@ -322,7 +322,8 @@ struct PetDisplaySection: View {
             PixelPetAvatarView(
                 petType: pet.petType,
                 mood: pet.mood,
-                evolutionStage: pet.evolutionStage
+                evolutionStage: pet.evolutionStage,
+                isBlinking: false  // Phase 4: 暂时使用false,实际由PetDisplayView控制
             )
             .frame(width: 200, height: 200)
             .scaleEffect(1.8) // 放大 1.8 倍

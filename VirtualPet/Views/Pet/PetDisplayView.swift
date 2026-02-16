@@ -17,6 +17,9 @@ struct PetDisplayView: View {
     @Binding var isAnimating: Bool
     @Binding var intimacyHeartPulse: Bool
 
+    // Phase 4: 呼吸动画管理器
+    @StateObject private var breathAnimator = BreathAnimationManager.shared
+
     @State private var evolutionGlow = 0.0
     @State private var sparkleOffsets: [CGSize] = []
     @State private var heartOffsets: [CGSize] = []
@@ -47,14 +50,18 @@ struct PetDisplayView: View {
             }
 
             // 宠物形象 - 可爱像素风格 (Phase 1, Task 1.7 升级版)
+            // Phase 4 增强: 集成呼吸动画系统
             PixelPetAvatarView(
                 petType: pet.petType,
                 mood: pet.mood,
-                evolutionStage: pet.evolutionStage
+                evolutionStage: pet.evolutionStage,
+                isBlinking: breathAnimator.isBlinking  // ← 新增
             )
-            .scaleEffect(getPetScale())
-            .rotationEffect(getPetRotation())
+            // 应用呼吸动画效果
+            .scaleEffect(getPetScale() * breathAnimator.breathScale)  // ← 增强
+            .rotationEffect(getPetRotation() + Angle(degrees: breathAnimator.rotationAngle))  // ← 增强
             .offset(y: petBounce ? -20 : 0)
+            .offset(y: breathAnimator.verticalOffset)  // ← 新增
             .animation(.spring(response: 0.6, dampingFraction: 0.8), value: petBounce)
             .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
 
@@ -126,6 +133,11 @@ struct PetDisplayView: View {
         .onAppear {
             startEvolutionGlow()
             initializeOffsets()
+            // Phase 4: 配置呼吸动画
+            breathAnimator.configureAnimation(
+                petType: pet.petType.rawValue,
+                mood: pet.mood.rawValue
+            )
         }
         .onChange(of: sparkleAnimation) { oldValue, newValue in
             if newValue {
@@ -136,6 +148,18 @@ struct PetDisplayView: View {
             if newValue {
                 initializeOffsets()
             }
+        }
+        // Phase 4: 监听宠物状态变化,更新呼吸动画配置
+        .onChange(of: pet.mood) { oldValue, newValue in
+            breathAnimator.configureAnimation(
+                petType: pet.petType.rawValue,
+                mood: newValue.rawValue
+            )
+        }
+        .onDisappear {
+            // Phase 4: 清理动画资源
+            breathAnimator.stopBreathAnimation()
+            breathAnimator.stopBlinkAnimation()
         }
     }
 
