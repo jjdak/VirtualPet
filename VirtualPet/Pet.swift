@@ -220,38 +220,48 @@ enum PetSkill: String, CaseIterable, Codable, Identifiable {
 // 迷你游戏类型
 enum MiniGameType: String, CaseIterable, Codable {
     case feedingFrenzy = "觅食大作战"
-    case memoryMatch = "记忆翻翻看"
+    case memoryCards = "记忆卡片"
     case catchToys = "玩具接接乐"
+    case reactionTest = "反应测试"
+    case cleaningGame = "清洁大作战"
 
     var icon: String {
         switch self {
         case .feedingFrenzy: return "fork.knife"
-        case .memoryMatch: return "brain.head.profile"
+        case .memoryCards: return "square.grid.3x3.fill"
         case .catchToys: return "gamecontroller"
+        case .reactionTest: return "bolt.circle.fill"
+        case .cleaningGame: return "sparkles"
         }
     }
 
     var color: Color {
         switch self {
         case .feedingFrenzy: return .orange
-        case .memoryMatch: return .purple
+        case .memoryCards: return .purple
         case .catchToys: return .blue
+        case .reactionTest: return .red
+        case .cleaningGame: return .cyan
         }
     }
 
     var description: String {
         switch self {
         case .feedingFrenzy: return "点击出现的食物获得奖励！"
-        case .memoryMatch: return "记住卡片位置并配对！"
+        case .memoryCards: return "记住卡片位置并配对！"
         case .catchToys: return "移动篮子接住掉落的玩具！"
+        case .reactionTest: return "快速点击目标锻炼反应！"
+        case .cleaningGame: return "擦拭脏污保持清洁！"
         }
     }
 
     var cooldownMinutes: Int {
         switch self {
         case .feedingFrenzy: return 10
-        case .memoryMatch: return 30
+        case .memoryCards: return 30
         case .catchToys: return 20
+        case .reactionTest: return 15
+        case .cleaningGame: return 25
         }
     }
 }

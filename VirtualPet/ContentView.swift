@@ -21,6 +21,19 @@ struct ContentView: View {
     @State private var showingHelp = false
     @State private var showingSettings = false
     @State private var showingOnboarding = false
+    @State private var showingFoodSelection = false
+    @State private var showingMiniGames = false
+    @State private var showingExerciseSelection = false
+    @State private var showingCleaningGame = false
+    @State private var showingSkillSystem = false
+    @State private var showingEvolutionSystem = false
+    @State private var showingEnvironmentInfo = false
+    @State private var showingDailyTasks = false
+    @State private var showingShop = false
+    @State private var showingSocial = false
+    @State private var showingLeaderboard = false
+    @State private var showingGuild = false
+    @State private var showingBattle = false
     @State private var errorMessage: String? = nil
     @State private var showingError = false
     @State private var timer: Timer? = nil
@@ -53,9 +66,14 @@ struct ContentView: View {
 
                 // 底部：标签页控制
                 if selectedTab == 0 {
-                    WatchInteractionButtonsView(pet: pet)
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 20)
+                    WatchInteractionButtonsView(
+                        pet: pet,
+                        showingFoodSelection: $showingFoodSelection,
+                        showingExerciseSelection: $showingExerciseSelection,
+                        showingCleaningGame: $showingCleaningGame
+                    )
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 20)
                 } else if selectedTab == 1 {
                     StatusGridView(pet: pet)
                         .padding(.horizontal, 20)
@@ -76,6 +94,16 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     MenuButton {
+                        Button("📋 每日任务") { showingDailyTasks = true }
+                        Button("🛍️ 商店") { showingShop = true }
+                        Button("👥 社交") { showingSocial = true }
+                        Button("🏰 公会") { showingGuild = true }
+                        Button("⚔️ 对战") { showingBattle = true }
+                        Button("🏆 排行榜") { showingLeaderboard = true }
+                        Button("🎮 小游戏") { showingMiniGames = true }
+                        Button("⚡ 技能") { showingSkillSystem = true }
+                        Button("🌟 进化") { showingEvolutionSystem = true }
+                        Button("🌤 环境") { showingEnvironmentInfo = true }
                         Button("活动记录") { showingActivityLog = true }
                         Button("成就") { showingAchievements = true }
                         Button("帮助") { showingHelp = true }
@@ -112,6 +140,45 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showingOnboarding) {
             OnboardingView(isPresented: $showingOnboarding)
+        }
+        .sheet(isPresented: $showingFoodSelection) {
+            FoodSelectionView(pet: pet, isPresented: $showingFoodSelection)
+        }
+        .sheet(isPresented: $showingMiniGames) {
+            MiniGameHubView(pet: pet, isPresented: $showingMiniGames)
+        }
+        .sheet(isPresented: $showingExerciseSelection) {
+            ExerciseSelectionView(pet: pet, isPresented: $showingExerciseSelection)
+        }
+        .sheet(isPresented: $showingCleaningGame) {
+            CleaningMiniGameView(pet: pet, isPresented: $showingCleaningGame)
+        }
+        .sheet(isPresented: $showingSkillSystem) {
+            SkillSystemView(pet: pet, isPresented: $showingSkillSystem)
+        }
+        .sheet(isPresented: $showingEvolutionSystem) {
+            EvolutionUnlockView(pet: pet, isPresented: $showingEvolutionSystem)
+        }
+        .sheet(isPresented: $showingEnvironmentInfo) {
+            EnvironmentInfoView(pet: pet)
+        }
+        .sheet(isPresented: $showingDailyTasks) {
+            DailyTasksView(pet: pet)
+        }
+        .sheet(isPresented: $showingShop) {
+            ShopView(pet: pet)
+        }
+        .sheet(isPresented: $showingSocial) {
+            SocialView(pet: pet, isPresented: $showingSocial)
+        }
+        .sheet(isPresented: $showingGuild) {
+            GuildView(pet: pet, isPresented: $showingGuild)
+        }
+        .sheet(isPresented: $showingBattle) {
+            BattleView(pet: pet, isPresented: $showingBattle)
+        }
+        .sheet(isPresented: $showingLeaderboard) {
+            LeaderboardView(pet: pet, isPresented: $showingLeaderboard)
         }
         .alert("错误", isPresented: $showingError, presenting: errorMessage) { _ in
             Button("确定") { }
@@ -440,6 +507,9 @@ struct TabButton: View {
 // MARK: - 简化的互动按钮包装器
 struct WatchInteractionButtonsView: View {
     @ObservedObject var pet: Pet
+    @Binding var showingFoodSelection: Bool
+    @Binding var showingExerciseSelection: Bool
+    @Binding var showingCleaningGame: Bool
 
     var body: some View {
         VStack(spacing: 12) {
@@ -450,7 +520,7 @@ struct WatchInteractionButtonsView: View {
                     label: "喂食",
                     color: .orange
                 ) {
-                    _ = pet.interact(type: .feed)
+                    showingFoodSelection = true
                 }
 
                 WatchInteractionButton(
@@ -466,7 +536,7 @@ struct WatchInteractionButtonsView: View {
                     label: "清洁",
                     color: .cyan
                 ) {
-                    _ = pet.interact(type: .clean)
+                    showingCleaningGame = true
                 }
             }
 
@@ -477,7 +547,7 @@ struct WatchInteractionButtonsView: View {
                     label: "运动",
                     color: .green
                 ) {
-                    _ = pet.interact(type: .exercise)
+                    showingExerciseSelection = true
                 }
 
                 WatchInteractionButton(
