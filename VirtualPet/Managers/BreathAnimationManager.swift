@@ -56,10 +56,10 @@ struct BreathAnimationConfig {
 
     /// 困倦型 (睡觉状态)
     static let sleepy = BreathAnimationConfig(
-        duration: 3.5,
-        scaleRange: 0.98...1.02,
-        verticalOffsetRange: -1.0...1.0,
-        rotationRange: 0.0...0.0,
+        duration: 3.0,
+        scaleRange: 0.92...1.08,  // 增大幅度
+        verticalOffsetRange: -3.0...3.0,  // 增加浮动
+        rotationRange: -1.0...1.0,  // 添加轻微旋转
         hasTailWag: false,
         tailWagSpeed: 2.0
     )
@@ -157,9 +157,9 @@ class BreathAnimationManager: ObservableObject {
         case "伤心":
             return BreathAnimationConfig(
                 duration: 2.5,
-                scaleRange: 0.96...1.02,
-                verticalOffsetRange: -2.0...1.0,
-                rotationRange: -1.0...0.0,
+                scaleRange: 0.94...1.04,  // 增大幅度
+                verticalOffsetRange: -3.0...0.0,  // 下垂更明显
+                rotationRange: -2.0...0.0,  // 增加旋转
                 hasTailWag: false,
                 tailWagSpeed: 1.5
             )
