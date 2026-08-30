@@ -152,6 +152,7 @@
 				A10000000000000000000006 /* Sources */,
 				A10000000000000000000007 /* Frameworks */,
 				A10000000000000000000008 /* Resources */,
+				A10000000000000000000010 /* Stage private audio */,
 			);
 			buildRules = (
 			);
@@ -178,6 +179,7 @@
 				588081FA2F27BF2200B4351A /* Resources */,
 				A1000000000000000000000C /* Stage private Live2D model */,
 				A1000000000000000000000F /* Stage private Phoebe artwork */,
+				A10000000000000000000010 /* Stage private audio */,
 			);
 			buildRules = (
 			);
@@ -361,6 +363,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "bash \"${PROJECT_DIR}/scripts/stage_private_artwork_resources.sh\"";
+		};
+		A10000000000000000000010 /* Stage private audio */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/SharedAssets/PrivateAudio/phoebe-chirubi-angry-private.m4a",
+				"$(PROJECT_DIR)/SharedAssets/PrivateAudio/phoebe-chirubi-soft-private.m4a",
+				"$(PROJECT_DIR)/SharedAssets/PrivateAudio/phoebe-chirubi-mildly-angry-private.m4a",
+			);
+			name = "Stage private audio";
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/PrivateAudio/phoebe-chirubi-angry-private.m4a",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/PrivateAudio/phoebe-chirubi-soft-private.m4a",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/PrivateAudio/phoebe-chirubi-mildly-angry-private.m4a",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${PROJECT_DIR}/scripts/stage_private_audio_resources.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

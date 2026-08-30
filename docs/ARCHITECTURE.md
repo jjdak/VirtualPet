@@ -67,7 +67,7 @@ Live2D 现在是条件分支：只有人工在隔离 checkpoint 中制作出一�
 
 公开仓库保留 `PhoebePlaceholder.imageset/phoebe-public-placeholder.svg`。私人 v3 待机图和三张关键姿势分别位于独立 imageset，目录通过 `.gitignore` 排除。
 
-`CompanionAssets` 分别使用 `NSImage` 或 `UIImage` 检测每张私有资源是否存在。iOS/macOS 构建阶段会把本地忽略的姿势 PNG 复制到 `PhoebePrivateArt/`，SpriteKit 优先从明确 Bundle URL 加载，避免冷启动时 `SKTexture(imageNamed:)` 名称缓存未就绪；某个关键姿势缺失时回退到私人待机图，私人资源全部缺失时加载公开占位，因此公开代码仍可构建。
+`CompanionAssets` 分别使用 `NSImage` 或 `UIImage` 检测每张私有资源是否存在。iOS/macOS 构建阶段会把本地忽略的姿势 PNG 复制到 `PhoebePrivateArt/`，SpriteKit 优先从明确 Bundle URL 加载，避免冷启动时 `SKTexture(imageNamed:)` 名称缓存未就绪；各 App target 也会把三条本地忽略的 Q 版音频复制到 `PrivateAudio/`，由 `CompanionAudioPlayer` 通过明确子目录 URL 读取。某个关键姿势缺失时回退到私人待机图，私人资源全部缺失时加载公开占位或保持静默，因此公开代码仍可构建。
 
 ## 后续同步
 

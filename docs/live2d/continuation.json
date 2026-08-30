@@ -64,6 +64,8 @@
     "2026-08-31 clean iPhone 17 cold preview contains phoebe-idle, phoebe-headpat, phoebe-bodypoke and phoebe-chirp in PhoebePrivateArt; the portrait screenshot renders the full Phoebe artwork and VirtualPetTests passes all 11 iOS cases",
     "2026-08-31 clean Apple Watch SE 3 (40mm) Simulator preview rebuilds and captures the compact key-pose fallback with the title, two-line message and 啾比 button inside the viewport",
     "2026-08-31 macOS arm64 VirtualPetTests passes all 11 cases after the explicit private artwork Bundle URL loader and staging build phase changes",
+    "2026-08-31 audit found the clean iOS/macOS preview bundles lacked PrivateAudio despite the private files existing locally; added a shared staging build phase for all App targets so CompanionAudioPlayer can resolve the three m4a files by subdirectory URL",
+    "2026-08-31 iOS, macOS and watchOS cold bundles each contain the three private m4a files under PrivateAudio; the iOS Simulator VirtualPetTests regression passes all 11 cases after the staging phase change",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
