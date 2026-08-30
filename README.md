@@ -37,6 +37,8 @@ SharedAssets/PrivateAudio/phoebe-chirubi-mildly-angry-private.m4a
 
 如需在 Mac 上听候选 A/B（A 原始 / B 轻度降噪连续拼接），运行 `./scripts/play_audio_ab.sh` 顺序试听 01、02、03，或传入 `01`、`02`、`03` 只试听单条。脚本仅访问被 Git 忽略的 `PrivateAssets/`，不会替换 App 默认语音。
 
+构建后可用 `./scripts/verify_private_audio_bundle.sh /path/to/VirtualPet.app` 检查私有音频是否已进入 Bundle；脚本会自动识别 iOS/watchOS 的 `PrivateAudio/` 和 macOS 的 `Contents/Resources/PrivateAudio/`。
+
 当前本机待机图和三张关键姿势由 v3 概念板派生，保留 v3 的脸型、下巴长度和原服装。摸头、身体受戳和啾比跳跃会切换独立姿势；帽子、三连点和长按复用身体受戳姿势并叠加轻量运动参数。它们是当前版本采用的可交互关键帧方案。
 
 已额外生成一张私人中立姿势源图用于 Live2D 拆层，不会替换当前 v3 待机图。分层清单、参数命名、Cubism 接入检查点和 watchOS 图集规则见 [Live2D 动画管线](docs/LIVE2D_PIPELINE.md)。
