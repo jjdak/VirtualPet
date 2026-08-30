@@ -1,1 +1,14 @@
 build_output.log
+.runtime/
+.DS_Store
+**/.DS_Store
+**/xcuserdata/
+*.xcuserstate
+/PrivateAssets/
+/SharedAssets/Assets.xcassets/PhoebePrivate.imageset/
+/SharedAssets/Assets.xcassets/PhoebeHeadPatPrivate.imageset/
+/SharedAssets/Assets.xcassets/PhoebeBodyPokePrivate.imageset/
+/SharedAssets/Assets.xcassets/PhoebeChirpPrivate.imageset/
+/SharedAssets/PrivateAudio/
+/SharedAssets/PrivateModels/
+/SharedAssets/PrivateMotionAtlases/

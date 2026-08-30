@@ -1,0 +1,3 @@
+// Public builds work without the proprietary Cubism Core.
+// The optional private file adds module and linker paths after a local SDK build.
+#include? "../PrivateAssets/Config/Live2D.private.xcconfig"

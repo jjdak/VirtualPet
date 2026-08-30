@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "model": "phoebe-private-lite",
+  "canvas": {
+    "recommendedWidth": 2048,
+    "recommendedHeight": 3072,
+    "colorSpace": "sRGB",
+    "bitDepth": 8
+  },
+  "groups": {
+    "hat": [
+      "hat_crown",
+      "hat_brim_front",
+      "hat_brim_back",
+      "hat_blue_band",
+      "hat_gold_ornaments",
+      "hat_black_ribbon"
+    ],
+    "face": [
+      "face_base",
+      "ear_left",
+      "ear_right",
+      "eyebrow_left",
+      "eyebrow_right",
+      "eye_white_left",
+      "eye_white_right",
+      "iris_left",
+      "iris_right",
+      "eyelash_left",
+      "eyelash_right",
+      "mouth_upper",
+      "mouth_lower",
+      "blush"
+    ],
+    "hair": [
+      "hair_back",
+      "hair_side_left",
+      "hair_side_right",
+      "hair_bangs_left",
+      "hair_bangs_center",
+      "hair_bangs_right",
+      "hair_tip_left",
+      "hair_tip_right"
+    ],
+    "body": [
+      "neck",
+      "torso",
+      "cape_left",
+      "cape_right",
+      "dress_front",
+      "dress_back",
+      "sash_blue",
+      "arm_upper_left",
+      "arm_lower_left",
+      "hand_left",
+      "arm_upper_right",
+      "arm_lower_right",
+      "hand_right",
+      "leg_left",
+      "boot_left",
+      "leg_right",
+      "boot_right"
+    ],
+    "prop": [
+      "staff_back",
+      "staff_front",
+      "staff_ribbon",
+      "staff_bird"
+    ]
+  },
+  "requiredParameters": [
+    "ParamAngleX",
+    "ParamAngleY",
+    "ParamAngleZ",
+    "ParamBodyAngleX",
+    "ParamEyeSmile",
+    "ParamMouthOpenY",
+    "ParamBreath",
+    "ParamHairSwing",
+    "ParamHatSwing"
+  ],
+  "parameterMappings": {
+    "ParamEyeSmile": [
+      "ParamEyeLSmile",
+      "ParamEyeRSmile"
+    ],
+    "ParamHairSwing": [
+      "ParamHairFront",
+      "ParamHairSide",
+      "ParamHairBack"
+    ]
+  }
+}

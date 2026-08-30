@@ -1,0 +1,11 @@
+LIVE2D_BOOTSTRAP_ROOT = $(PROJECT_DIR)/PrivateAssets/Build/PhoebeLive2DRuntime.xcframework
+
+SWIFT_INCLUDE_PATHS[sdk=iphoneos*] = $(inherited) $(LIVE2D_BOOTSTRAP_ROOT)/ios-arm64/Headers
+OTHER_LDFLAGS[sdk=iphoneos*] = $(inherited) $(LIVE2D_BOOTSTRAP_ROOT)/ios-arm64/libPhoebeLive2DRuntime-ios-arm64.a
+
+SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*] = $(inherited) $(LIVE2D_BOOTSTRAP_ROOT)/ios-arm64-simulator/Headers
+OTHER_LDFLAGS[sdk=iphonesimulator*] = $(inherited) $(LIVE2D_BOOTSTRAP_ROOT)/ios-arm64-simulator/libPhoebeLive2DRuntime-ios-arm64-simulator.a
+EXCLUDED_ARCHS[sdk=iphonesimulator*] = x86_64
+
+SWIFT_INCLUDE_PATHS[sdk=macosx*] = $(inherited) $(LIVE2D_BOOTSTRAP_ROOT)/macos-arm64/Headers
+OTHER_LDFLAGS[sdk=macosx*] = $(inherited) $(LIVE2D_BOOTSTRAP_ROOT)/macos-arm64/libPhoebeLive2DRuntime-macos-arm64.a

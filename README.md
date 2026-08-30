@@ -1,305 +1,118 @@
 # VirtualPet
 
-## 项目简介
+一个以角色触摸反馈为核心的轻量陪伴 App 初稿，使用 SwiftUI 同时面向 iPhone、iPad、macOS 和 Apple Watch。
 
-VirtualPet是一款使用SwiftUI和Swift 5.0构建的现代iOS虚拟宠物应用。该应用具有全面的宠物模拟系统，包括心情跟踪、成就系统、等级提升和丰富的视觉动画。
+当前产品方向已经确定为：菲比同人原型、仅私人非商业测试、直接触摸与动作反馈、活泼吐槽。旧版的饥饿、健康、等级、进化、商店、任务、公会、战斗和排行榜均不再保留；角色不会因为用户离开而受罚。
 
-## 功能特点
+## 当前体验
 
-### 🐾 宠物模拟
-- **5种宠物类型**: 可选择5种不同颜色的宠物
-- **心情系统**: 7种不同心情状态（开心、正常、饥饿、悲伤、生病、兴奋、困倦）
-- **属性管理**: 追踪饥饿度、快乐度、健康度和能量值（0-100范围）
-- **年龄系统**: 宠物会随着年龄增长而发展
+- 分区触摸：帽子、头部和身体分别触发不同反应
+- 连点识别：0.72 秒内连续三次触摸会触发专属吐槽
+- 长按反馈：角色被压扁，并配合平台触觉反馈
+- “啾比”按钮：触发独立跳跃姿势、台词和本地私人语音
+- 活泼吐槽：当前文案为原型原创，不复刻游戏或短视频台词
+- 安静陪伴：降低打扰和声音，保留轻触回应
+- 时间氛围：清晨、午后、黄昏和夜间使用不同背景与开场白
+- 动画主线：当前由三张关键姿势负责可读动作，SpriteKit 驱动过渡和呼吸；Live2D 仅保留条件恢复门禁
 
-### 🎮 互动游戏
-- **5种互动**: 喂食、玩耍、清理、运动和拥抱你的宠物
-- **实时属性**: 属性每分钟自动衰减，增加真实感
-- **经验值与等级**: 通过互动获得经验值并升级
-- **等级奖励**: 每个等级提供+20健康值奖励
+## 同人素材边界
 
-### 🏆 成就系统
-- **4个预设成就**: 通过各种互动解锁成就
-- **活动记录**: 带时间戳的所有互动记录
-- **进度追踪**: 监控宠物的旅程和里程碑
+仓库只公开代码和 `PhoebePlaceholder` 原创占位剪影，不包含菲比立绘、拆帧动作或参考视频声音。运行时会检测 `PhoebePrivate` 是否存在；缺失时自动回退，不产生空角色或资源编译警告。
 
-### 🎨 视觉设计
-- **动态UI**: 基于心情的视觉反馈和样式
-- **流畅动画**: 所有互动的弹簧动画效果
-- **粒子特效**: 互动的视觉反馈
-- **活动日志**: 查看互动历史
-- **快速统计**: 一目了然的状态概览
+本地私人版本使用以下被 Git 忽略的资源：
 
-## 架构概述
+```text
+PrivateAssets/
+SharedAssets/Assets.xcassets/PhoebePrivate.imageset/phoebe-private-idle-2x.png
+SharedAssets/Assets.xcassets/PhoebePrivate.imageset/phoebe-private-idle-3x.png
+SharedAssets/Assets.xcassets/PhoebeHeadPatPrivate.imageset/phoebe-headpat-private.png
+SharedAssets/Assets.xcassets/PhoebeBodyPokePrivate.imageset/phoebe-bodypoke-private.png
+SharedAssets/Assets.xcassets/PhoebeChirpPrivate.imageset/phoebe-chirp-private.png
+SharedAssets/PrivateAudio/phoebe-chirubi-angry-private.m4a
+SharedAssets/PrivateAudio/phoebe-chirubi-soft-private.m4a
+SharedAssets/PrivateAudio/phoebe-chirubi-mildly-angry-private.m4a
+```
 
-### 核心组件
+其中私有音频支持 `.m4a`、`.caf` 或 `.wav`。本机版本按反应强度使用三条 Q 版“菲比啾比”：三连点/长按为明显生气，帽子或身体被戳为轻微生气，摸头与啾比按钮为正常偏委屈。音频本体不进入公开仓库；任一语音缺失时对应互动仍保留动作、台词和触觉，不以合成提示音冒充角色语音。来源、时间段和复现步骤见 [语音素材记录](docs/AUDIO_SOURCE.md)。
 
-- **Pet.swift**: 中央业务逻辑和数据模型
-  - 继承自 `ObservableObject` 的主 `Pet` 类
-  - 管理所有宠物状态和互动
-  - 实现自动属性衰减
-  - 带持久化的成就系统
+如需在 Mac 上听候选 A/B（A 原始 / B 轻度降噪连续拼接），运行 `./scripts/play_audio_ab.sh` 顺序试听 01、02、03，或传入 `01`、`02`、`03` 只试听单条。脚本仅访问被 Git 忽略的 `PrivateAssets/`，不会替换 App 默认语音。
 
-- **ContentView.swift**: 主要UI组成
-  - 具有多种子视图的模块化SwiftUI视图
-  - 使用SwiftUI状态管理的响应式更新
-  - 清晰的关注点分离
+当前本机待机图和三张关键姿势由 v3 概念板派生，保留 v3 的脸型、下巴长度和原服装。摸头、身体受戳和啾比跳跃会切换独立姿势；帽子、三连点和长按复用身体受戳姿势并叠加轻量运动参数。它们是当前版本采用的可交互关键帧方案。
 
-- **VirtualPetApp.swift**: 应用入口点
-  - 标准的 SwiftUI `@main` 应用结构
+已额外生成一张私人中立姿势源图用于 Live2D 拆层，不会替换当前 v3 待机图。分层清单、参数命名、Cubism 接入检查点和 watchOS 图集规则见 [Live2D 动画管线](docs/LIVE2D_PIPELINE.md)。
 
-### 设计模式
+## 平台结构
 
-- **MVVM架构**: 视图绑定到ViewModel/Model
-- **状态管理**: 使用 `@Published` 属性的SwiftUI响应式状态
-- **事件驱动**: 用户互动触发状态更新
-- **数据持久化**: UserDefaults 用于核心属性
+| Target | 平台 | 说明 |
+| --- | --- | --- |
+| `VirtualPet` | iOS、iPadOS、macOS | 共用主界面、状态模型和触摸区域 |
+| `VirtualPetWatch` | watchOS | 专用紧凑布局，共用角色状态和反馈逻辑 |
 
-## 构建和开发
+核心代码位于 `Shared/`。初稿只保存安静模式偏好；没有数据库、后台衰减、账号或网络请求。
 
-### 前置要求
-- Xcode 15.0 或更高版本
-- iOS 26.2 或更高版本（最低部署目标）
+## 构建与测试
 
-### 构建和运行
+需要 Xcode 26.2。最低系统版本：iOS/iPadOS 26.2、macOS 15.7、watchOS 10。
 
 ```bash
-# 构建项目
-xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Debug build
-
-# 在模拟器上运行
-xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.2' build
-
-# 在设备上运行（替换为实际设备ID）
-xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Release -destination 'platform=iOS,name=Your iPhone' build
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+xcodebuild -project VirtualPet.xcodeproj \
+  -scheme VirtualPet \
+  -destination 'platform=macOS' \
+  -derivedDataPath /tmp/VirtualPetDerivedData \
+  CODE_SIGNING_ALLOWED=NO build
 ```
-
-### 测试
 
 ```bash
-# 通过Xcode运行单元测试
-xcodebuild test -project VirtualPet.xcodeproj -scheme VirtualPet -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.2'
-
-# 运行UI测试
-xcodebuild test -project VirtualPet.xcodeproj -scheme VirtualPet -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.2'
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+xcodebuild -project VirtualPet.xcodeproj \
+  -scheme VirtualPetWatch \
+  -destination 'generic/platform=watchOS' \
+  -derivedDataPath /tmp/VirtualPetWatchDerivedData \
+  CODE_SIGNING_ALLOWED=NO build
 ```
-
-### 代码检查
 
 ```bash
-# SwiftLint（如果可用）
-swiftlint lint --strict
-
-# 构建时语法检查
-xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Debug build
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+xcodebuild -project VirtualPet.xcodeproj \
+  -scheme VirtualPet \
+  -destination 'platform=macOS' \
+  -only-testing:VirtualPetTests \
+  test
 ```
 
-## 游戏机制
-
-### 属性系统
-- 所有属性范围在0-100之间
-- 自动衰减：饥饿度+1，快乐度-1，能量-2每分钟
-- 互动同时影响多个属性
-
-### 心情计算
-- 基于属性阈值的7种心情状态
-- 每次互动后动态更新心情
-- 通过UI变化提供视觉反馈
-
-### 进阶系统
-- 通过互动获得经验值
-- 每`等级 * 100`经验值升级
-- 等级奖励：+20健康值
-
-## 数据结构
-
-### PetMood 枚举
-```swift
-enum PetMood: CaseIterable {
-    case happy, normal, hungry, sad, sick, excited, sleepy
-}
-```
-
-### PetType 枚举
-```swift
-enum PetType: CaseIterable {
-    case dog, cat, rabbit, hamster, bird
-}
-```
-
-### Activity
-带时间戳和值的互动历史
-
-### Achievement
-带解锁条件的成就系统
-
-## 截图
-
-*(截图将添加在这里)*
-
-## 贡献
-
-这是一个使用 SwiftUI 进行 iOS 开发的个人学习项目。欢迎贡献！
-
-## 许可证
-
-本项目用于教育目的。
-
-## 致谢
-
-- 使用 SwiftUI 和 Swift 5.0 构建
-- 针对 iOS 26.2 及更高版本设计
-- 仅使用原生 Apple 框架
-- 中文语言界面，基于表情符号的宠物类型
-
----
-
-## Project Introduction
-
-VirtualPet is a modern iOS virtual pet application built with SwiftUI and Swift 5.0. The app features a comprehensive pet simulation system with mood tracking, achievements, level progression, and rich visual animations.
-
-## Features
-
-### 🐾 Pet Simulation
-- **5 Pet Types**: Choose from 5 different pet types with unique colors
-- **Mood System**: 7 different mood states (happy, normal, hungry, sad, sick, excited, sleepy)
-- **Stats Management**: Track hunger, happiness, health, and energy (0-100 scale)
-- **Age System**: Pets age over time with visual progression
-
-### 🎮 Interactive Gameplay
-- **5 Interactions**: Play, feed, clean, exercise, and cuddle your pet
-- **Real-time Stats**: Stats decay automatically every minute for realism
-- **Experience & Levels**: Gain XP from interactions and level up
-- **Level Bonuses**: Each level grants +20 health bonus
-
-### 🏆 Achievement System
-- **4 Predefined Achievements**: Unlock achievements through various interactions
-- **Activity Logging**: Track all interactions with timestamps
-- **Progress Tracking**: Monitor your pet's journey and milestones
-
-### 🎨 Visual Design
-- **Dynamic UI**: Mood-based visual feedback and styling
-- **Smooth Animations**: Spring-based animations for all interactions
-- **Particle Effects**: Visual feedback for interactions
-- **Activity Log**: View interaction history
-- **Quick Stats**: At-a-glance status overview
-
-## Architecture Overview
-
-### Core Components
-- **Pet.swift**: Central business logic and data model
-  - Main `Pet` class inheriting from `ObservableObject`
-  - Manages all pet state and interactions
-  - Implements automatic stat decay
-  - Achievement system with persistence
-
-- **ContentView.swift**: Main UI composition
-  - Modular SwiftUI view with multiple sub-views
-  - Reactive updates using SwiftUI's state management
-  - Clean separation of concerns
-
-- **VirtualPetApp.swift**: App entry point
-  - Standard SwiftUI `@main` app structure
-
-### Design Patterns
-- **MVVM Architecture**: View binds to ViewModel/Model
-- **State Management**: SwiftUI reactive state with `@Published` properties
-- **Event-Driven**: User interactions trigger state updates
-- **Data Persistence**: UserDefaults for core stats
-
-## Build and Development
-
-### Prerequisites
-- Xcode 15.0 or later
-- iOS 26.2 or later (minimum deployment target)
-
-### Building and Running
+快速启动 iPhone 17 模拟器、构建、安装、运行并截取当前画面：
 
 ```bash
-# Build the project
-xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Debug build
-
-# Run on simulator
-xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.2' build
-
-# Run on device (replace with actual device ID)
-xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Release -destination 'platform=iOS,name=Your iPhone' build
+./scripts/run_ios_preview.sh
 ```
 
-### Testing
+脚本默认使用 `iPhone 17` 和 Xcode 26.2，并在启动后等待 4 秒让 SpriteKit 纹理完成首帧加载；可用 `DEVICE_NAME`、`DEVICE_UDID`、`DERIVED_DATA`、`SCREENSHOT`、`PREVIEW_WAIT` 覆盖目标。构建产物和截图写入被 Git 忽略的 `.runtime/`，不会进入仓库。
+
+快速启动 Apple Watch SE 3（40mm）模拟器并截屏：
 
 ```bash
-# Run unit tests via Xcode
-xcodebuild test -project VirtualPet.xcodeproj -scheme VirtualPet -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.2'
-
-# Run UI tests
-xcodebuild test -project VirtualPet.xcodeproj -scheme VirtualPet -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.2'
+./scripts/run_watch_preview.sh
 ```
 
-### Linting
+Watch 脚本默认等待 2 秒；可用同名环境变量覆盖设备、构建目录、截图路径和等待时间。
+
+在 Mac 上构建、启动并截取当前 App：
 
 ```bash
-# SwiftLint (if available)
-swiftlint lint --strict
-
-# Build-time syntax checking
-xcodebuild -project VirtualPet.xcodeproj -scheme VirtualPet -configuration Debug build
+./scripts/run_macos_preview.sh
 ```
 
-## Game Mechanics
+默认截图写入 `.runtime/macos-preview.png`；设置 `CAPTURE_SCREENSHOT=0` 可只构建并启动，不抓取桌面。
 
-### Stat System
-- All stats range from 0-100
-- Automatic decay: hunger +1, happiness -1, energy -2 per minute
-- Interactions affect multiple stats simultaneously
+依赖与制作工具登记规则见 [依赖清单](docs/DEPENDENCIES.md)，状态结构见 [架构说明](docs/ARCHITECTURE.md)。
 
-### Mood Calculation
-- 7 mood states based on stat thresholds
-- Dynamic mood updates after each interaction
-- Visual feedback through UI changes
+## 下一轮
 
-### Progression System
-- Experience points from interactions
-- Level up every `level * 100` experience
-- Level bonuses: +20 health
-
-## Data Structures
-
-### PetMood Enum
-```swift
-enum PetMood: CaseIterable {
-    case happy, normal, hungry, sad, sick, excited, sleepy
-}
-```
-
-### PetType Enum
-```swift
-enum PetType: CaseIterable {
-    case dog, cat, rabbit, hamster, bird
-}
-```
-
-### Activity
-Interaction history with timestamps and values
-
-### Achievement
-Achievement system with unlock conditions
-
-## Screenshots
-
-*(Screenshots would be added here)*
-
-## Contributing
-
-This is a personal learning project for iOS development with SwiftUI. Contributions are welcome!
-
-## License
-
-This project is for educational purposes.
-
-## Acknowledgments
-
-- Built with SwiftUI and Swift 5.0
-- Designed for iOS 26.2 and later
-- Uses native Apple frameworks only
-- Chinese language interface with emoji-based pet types
+1. 读取 [`docs/live2d/continuation.json`](docs/live2d/continuation.json)，继续 `spritekit-mainline`；不要打开 Cubism 或继续 Metal host。
+2. 用现有反应和关键姿态契约继续做动作细节验收；首轮 idle、greet、pat、sleep 节奏已完成。
+3. 仅在明显改善 Watch 体验时制作透明动作图集，并始终保留 SwiftUI 静态后备。
+4. iOS、iPadOS 与 watchOS 模拟器视觉验收已完成（含 Apple Watch 40mm/42mm/46mm 表壳）；下一步完成 iPhone、Apple Watch 和 Mac 的真机验收（当前连接的 Apple Watch 因架构/签名资格暂不可用）。
+5. 当前 iPhone 17 Simulator UI 6 项与 macOS arm64 单元 11 项均通过；Live2D 只保留一次人工嘴型或眼睛 keyform 恢复门禁，动作探针返回 0 前不安装 MCP、不自研画布自动化、不扩展正式模型。
+6. 已生成三条语音的 A/B 本地试听候选；待听感确认后再决定是否把 B 替换进 App，记录见 [语音素材记录](docs/AUDIO_SOURCE.md)。
+7. 真机验收按 [真机验收清单](docs/PHYSICAL_ACCEPTANCE.md) 执行；当前设备资格不足时保留 `ineligible` 记录，不把模拟器结果冒充真机通过。

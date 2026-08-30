@@ -1,0 +1,4 @@
+interface:
+  display_name: "Live2D Cubism Workflow"
+  short_description: "Cubism 5.3 建模、参数、导出与运行时验证"
+  default_prompt: "使用 $live2d-cubism-workflow 继续制作、检查并导出当前 Live2D Cubism 模型。"

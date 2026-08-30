@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "updatedAt": "2026-08-31",
+  "activeTrack": "spritekit-mainline",
+  "decision": {
+    "live2dStatus": "paused",
+    "customCubismAutomationStatus": "stopped",
+    "currentReleaseRenderer": "SpriteKit on iOS/macOS and SwiftUI key poses or atlases on watchOS",
+    "rationale": [
+      "The exported model, all nine logical parameter IDs and Cubism Core loading pass deterministic checks.",
+      "The Core motion probe returns exit 2 because none of the 12 tested parameter extremes changes drawable vertex hashes.",
+      "Cubism 5.4 Alpha External Application Integration does not expose ArtMesh vertex-coordinate editing, so MCP or GUI automation does not remove the real rigging bottleneck.",
+      "A custom canvas automation layer is not economical for one character and must not block the app."
+    ]
+  },
+  "milestone": {
+    "id": "spritekit-animation-polish",
+    "status": "in_progress",
+    "nextAction": "Keep the simulator acceptance green, then complete physical iPhone, Apple Watch and Mac acceptance; add Watch atlases only if they materially improve the fallback.",
+    "cubismActionRequired": false
+  },
+  "lastVerified": [
+    "scripts/verify_live2d_export.sh passes model3, moc3, cdi3, texture and all nine logical parameter IDs",
+    "scripts/verify_live2d_moc.sh passes with Core 6.0.1, Moc version 6, 28 parameters and 6 drawables",
+    "scripts/verify_live2d_model3_motion.sh returns 2 because all 12 tested parameters preserve vertex hash 0xe681164419e57b67",
+    "the macOS build produces VirtualPet.app with the private PhoebeLive2D directory present",
+    "CompanionRendererView continues to use the proven SpriteKit renderer",
+    "CompanionSpriteView now uses a bounded inhale, exhale and settle loop, while PhoebeCharacterView mirrors a 1.012x idle scale pulse",
+    "macOS build, iOS Simulator build, unsigned watchOS build and the 11-case VirtualPetTests suite pass after the idle and action-timing increments",
+    "iOS 26.2 Simulator visual acceptance confirms the portrait layout, full control row and Phoebe artwork render without clipping",
+    "iPadOS 26.2 Simulator visual acceptance confirms the regular-size centered layout and stable character scale",
+    "watchOS 26.2 Simulator visual acceptance confirms the wrapped message, compact character pose and fully visible 啾比 button",
+    "watchOS 26.2 Simulator visual acceptance covers Apple Watch 40mm, 42mm and 46mm; the layout uses WKInterfaceDevice screenBounds to keep the title, character, message and button inside each viewport",
+    "watchOS ReactionGlyph uses a compact 16pt glyph and 7pt padding so zzz and other feedback remain readable without covering the character face",
+    "watchOS ReactionGlyph now scales to 0.78 and sits closer to the upper-right edge; fresh 40mm, 42mm and 46mm screenshots keep the glyph readable while reducing overlap with the hat and face, while iOS/macOS retain their original glyph placement through conditional compilation",
+    "watchOS glyph-tight build and iOS glyph-final build both succeed after the platform-specific placement fix",
+    "iPhone 17 Simulator iOS 26.2 VirtualPetUITests passes 6 tests, including the current 菲比 response interaction and four light/dark portrait/landscape launch configurations",
+    "2026-08-31 fresh iOS 26.2 Simulator test session passes VirtualPetTests 11 cases, VirtualPetUITests.testCompanionResponds, four launch-test configurations and testLaunchPerformance; xcodebuild reports TEST SUCCEEDED after 141.535 seconds",
+    "2026-08-31 fresh macOS arm64 unit-only test session passes all 11 VirtualPetTests cases; the separate macOS full test invocation was stopped after its UI runner failed to finish, without a compile or unit-test failure",
+    "latest iPhone 17 Simulator runtime check launches the current private Phoebe artwork in portrait without clipping; tapping 叫她一声 changes the message, mood, pose and music-note reaction",
+    "2026-08-31 iPhone 17 Simulator 4.23-second capture shows distinct idle frames over time, validating the bounded SpriteKit inhale/exhale/settle loop rather than a one-time static swap",
+    "iPhone 17 Simulator rotation check confirms the landscape layout is centered and the portrait layout restores the full vertical composition after the simulator orientation settles",
+    "scripts/run_ios_preview.sh passes shell syntax and a full cold build/install/launch/screenshot run on iPhone 17 Simulator; a 4-second post-launch wait avoids capturing the SpriteKit texture-loading placeholder",
+    "scripts/run_watch_preview.sh passes shell syntax and a full build/install/launch/screenshot run on Apple Watch SE 3 (40mm) Simulator; the compact title, character, two-line message and 啾比 button remain inside the viewport",
+    "macOS arm64 runtime preview launches the private Phoebe artwork and the 叫她一声 action updates mood, message, pose and reaction glyph without a renderer error",
+    "docs/PHYSICAL_ACCEPTANCE.md records the device-specific handoff checklist and keeps unavailable physical destinations explicitly ineligible",
+    "GitHub connector and local git remote both return 404 or no accessible repositories for jjdak/VirtualPet; no remote publish or overwrite was attempted",
+    "current verification matrix passes: iOS UI 6 tests, macOS arm64 VirtualPetTests 11 tests, and watchOS Simulator build on Apple Watch SE 3 (40mm)",
+    "macOS arm64 VirtualPetTests passes 11 tests after the iOS-only UI orientation setup was made conditional for cross-platform test compilation",
+    "three user-approved Q-version voice candidates now have private A/B files; A remains the current App audio and B is the light-denoise listening candidate",
+    "xcodebuild -showdestinations still exposes no physical iPhone and marks the connected Apple Watch ineligible because its architecture is unknown",
+    "VirtualPetUITests now targets the current 菲比 UI; the response interaction and launch-performance test pass on iPhone 17 Simulator",
+    "watchOS device signing remains a separate environment requirement because no provisioning profile exists for com.yourcompany.VirtualPet.watchkitapp",
+    "macOS preview visually confirms the idle loop preserves the silhouette and hands off cleanly to the head-pat reaction",
+    "macOS preview confirms chirp uses a short elastic accent, headPat uses a softer compression/recovery, and sleepy keeps the slow transition",
+    "scripts/play_audio_ab.sh validates all three private A/B preview files with macOS afplay and leaves the App default audio unchanged",
+    "2026-08-31 macOS incremental staging now declares model3, moc3, cdi3 and texture outputs; a clean macOS preview bundle contains texture_00.png and the Phoebe artwork renders",
+    "2026-08-31 clean macOS preview interaction confirms 叫她一声 updates the mood to 开心, message to 菲比啾比！这声招呼还算有精神。, and reaction glyph",
+    "2026-08-31 run_ios_preview.sh and run_watch_preview.sh pass after separating readonly device-name values from the Python environment assignment",
+    "2026-08-31 run_macos_preview.sh builds and launches the current arm64 app; a clean instance shows the private Phoebe artwork and the SpriteKit macOS image path remains compatible",
+    "2026-08-31 macOS arm64 VirtualPetTests checkpoint passes all 11 cases after the macOS SpriteKit resource-path and preview-script fixes"
+  ],
+  "live2dResumeGate": {
+    "status": "not_met",
+    "allowedAttempt": "One human-authored ParamMouthOpenY or eye keyform on an isolated editable checkpoint, followed by one export and deterministic motion probe.",
+    "passCriteria": [
+      "The keyform is visibly different at the default and extreme values in Cubism.",
+      "scripts/verify_live2d_model3_motion.sh returns 0 and reports at least one changed Core drawable vertex hash.",
+      "The editable cmo3 and runtime export are saved outside temporary storage."
+    ],
+    "onPass": "Live2D runtime work may resume at the Native Metal host without building custom Cubism GUI automation.",
+    "onFailure": "Freeze Live2D for the current release and continue SpriteKit and watchOS atlas work.",
+    "prohibitedUntilPass": [
+      "Installing or enabling a Cubism MCP",
+      "Building a custom Cubism keyform or canvas automation tool",
+      "Continuing the Native Metal renderer",
+      "Expanding the production Live2D PSD, physics or motion scope"
+    ]
+  },
+  "nextActions": [
+    "Keep CompanionSpriteView as the iOS/macOS renderer for the current release.",
+    "Polish idle, greet, pat and sleep using the existing reaction and key-pose contract.",
+    "Build watchOS transparent motion atlases only when they materially improve the key-pose fallback.",
+    "Complete physical iPhone, Apple Watch and Mac visual and device acceptance; no physical iPhone destination is currently connected, and the connected Apple Watch remains ineligible until its architecture/provisioning is resolved.",
+    "Reconsider Live2D only after the resume gate receives a human-authored moving model."
+  ],
+  "preservedLive2DCheckpoint": {
+    "baselineModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-imported.cmo3",
+    "experimentalModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-5.4-alpha-test0.cmo3",
+    "runtimeExport": "PrivateAssets/Live2D/Exports/PhoebeLive2D/",
+    "temporaryStorageAllowed": false
+  }
+}

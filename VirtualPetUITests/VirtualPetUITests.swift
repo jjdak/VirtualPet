@@ -23,12 +23,23 @@ final class VirtualPetUITests: XCTestCase {
     }
 
     @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testCompanionResponds() throws {
+#if os(iOS)
+        XCUIDevice.shared.orientation = .portrait
+#endif
         let app = XCUIApplication()
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertTrue(app.staticTexts["菲比"].waitForExistence(timeout: 3))
+
+        let responseButton = app.buttons["叫她一声"]
+        XCTAssertTrue(responseButton.exists)
+
+        let character = app.buttons["菲比"]
+        XCTAssertTrue(character.waitForExistence(timeout: 3))
+        responseButton.tap()
+
+        XCTAssertEqual(character.value as? String, "开心地啾比")
     }
 
     @MainActor

@@ -1,0 +1,4 @@
+module PhoebeLive2DRuntime {
+  header "PhoebeLive2DRuntime.h"
+  export *
+}

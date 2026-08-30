@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct VirtualPetApp: App {
+struct VirtualPetWatchApp: App {
     @StateObject private var companion = CompanionStore()
 
     var body: some Scene {
@@ -9,9 +9,5 @@ struct VirtualPetApp: App {
             ContentView()
                 .environmentObject(companion)
         }
-#if os(macOS)
-        .defaultSize(width: 560, height: 720)
-        .windowResizability(.contentMinSize)
-#endif
     }
 }
