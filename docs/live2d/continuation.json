@@ -58,7 +58,8 @@
     "2026-08-31 clean macOS preview interaction confirms 叫她一声 updates the mood to 开心, message to 菲比啾比！这声招呼还算有精神。, and reaction glyph",
     "2026-08-31 run_ios_preview.sh and run_watch_preview.sh pass after separating readonly device-name values from the Python environment assignment",
     "2026-08-31 run_macos_preview.sh builds and launches the current arm64 app; a clean instance shows the private Phoebe artwork and the SpriteKit macOS image path remains compatible",
-    "2026-08-31 macOS arm64 VirtualPetTests checkpoint passes all 11 cases after the macOS SpriteKit resource-path and preview-script fixes"
+    "2026-08-31 macOS arm64 VirtualPetTests checkpoint passes all 11 cases after the macOS SpriteKit resource-path and preview-script fixes",
+    "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
     "status": "not_met",
