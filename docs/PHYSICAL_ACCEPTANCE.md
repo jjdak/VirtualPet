@@ -46,5 +46,6 @@
 ## 当前状态
 
 - iPhone、iPad、Apple Watch 40/42/46mm 和 macOS 模拟器验收已完成。
+- 2026-08-31 冷启动构建已确认 iOS、macOS 和 watchOS Bundle 均包含三条 `PrivateAudio/*.m4a`；扬声器实际播放与 A/B 听感仍需解锁本机后由项目所有者确认。
 - 当前没有可用的物理 iPhone destination；连接的 Apple Watch 仍因架构未知且缺少 provisioning profile 而不可用。
 - 因此本清单暂不勾选真机通过，也不把模拟器结果表述为发布资格。
