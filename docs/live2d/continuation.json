@@ -66,6 +66,7 @@
     "2026-08-31 macOS arm64 VirtualPetTests passes all 11 cases after the explicit private artwork Bundle URL loader and staging build phase changes",
     "2026-08-31 audit found the clean iOS/macOS preview bundles lacked PrivateAudio despite the private files existing locally; added a shared staging build phase for all App targets so CompanionAudioPlayer can resolve the three m4a files by subdirectory URL",
     "2026-08-31 iOS, macOS and watchOS cold bundles each contain the three private m4a files under PrivateAudio; the iOS Simulator VirtualPetTests regression passes all 11 cases after the staging phase change",
+    "2026-08-31 afinfo decodes all nine staged audio copies as mono 44.1 kHz AAC with the expected 1.28/1.46/1.78 second durations; private source and A/B files remain git-ignored",
     "2026-08-31 physical acceptance records bundle-level audio presence separately from speaker playback; the Mac is currently locked, so no human listening result is claimed",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
