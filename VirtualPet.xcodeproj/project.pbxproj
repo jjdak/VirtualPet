@@ -177,6 +177,7 @@
 				588081F92F27BF2200B4351A /* Frameworks */,
 				588081FA2F27BF2200B4351A /* Resources */,
 				A1000000000000000000000C /* Stage private Live2D model */,
+				A1000000000000000000000F /* Stage private Phoebe artwork */,
 			);
 			buildRules = (
 			);
@@ -338,6 +339,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "bash \"${PROJECT_DIR}/scripts/stage_private_live2d_resources.sh\"";
+		};
+		A1000000000000000000000F /* Stage private Phoebe artwork */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/SharedAssets/Assets.xcassets/PhoebePrivate.imageset/phoebe-private-idle-3x.png",
+				"$(PROJECT_DIR)/SharedAssets/Assets.xcassets/PhoebeHeadPatPrivate.imageset/phoebe-headpat-private.png",
+				"$(PROJECT_DIR)/SharedAssets/Assets.xcassets/PhoebeBodyPokePrivate.imageset/phoebe-bodypoke-private.png",
+				"$(PROJECT_DIR)/SharedAssets/Assets.xcassets/PhoebeChirpPrivate.imageset/phoebe-chirp-private.png",
+			);
+			name = "Stage private Phoebe artwork";
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/PhoebePrivateArt/phoebe-idle.png",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/PhoebePrivateArt/phoebe-headpat.png",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/PhoebePrivateArt/phoebe-bodypoke.png",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/PhoebePrivateArt/phoebe-chirp.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${PROJECT_DIR}/scripts/stage_private_artwork_resources.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

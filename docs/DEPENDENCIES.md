@@ -47,6 +47,7 @@
 | `scripts/run_ios_preview.sh` | 随项目 | 选择或启动 iOS 模拟器，构建、安装、启动并截屏当前 App | 无需安装；依赖 Xcode `xcodebuild`、`simctl` 与系统 Python 3 | 否 | 项目脚本 |
 | `scripts/run_watch_preview.sh` | 随项目 | 选择或启动 watchOS 模拟器，构建、安装、启动并截屏当前 Watch App | 无需安装；依赖 Xcode `xcodebuild`、`simctl` 与系统 Python 3 | 否 | 项目脚本 |
 | `scripts/run_macos_preview.sh` | 随项目 | 构建、启动并截屏 macOS 当前 App | 无需安装；依赖 Xcode `xcodebuild`、macOS `open`、`screencapture` | 否 | 项目脚本 |
+| `scripts/stage_private_artwork_resources.sh` | 随项目 | 将本地忽略的四张 PNG 姿势图复制为明确 Bundle 资源，避免 SpriteKit 冷启动名称缓存问题 | 无需安装；由 Xcode Build Phase 调用 `bash`；缺失私有图时保留公开占位后备 | 否 | 项目脚本 |
 | `scripts/play_audio_ab.sh` | 随项目 | 顺序或单独播放三条私有 A/B 连续试听候选；不修改 App 资源 | 无需安装；依赖 macOS 内置 `/usr/bin/afplay` | 否 | 项目脚本 |
 | `docs/PHYSICAL_ACCEPTANCE.md` | 随项目 | 记录 iPhone、iPad、Apple Watch 与 Mac 的真机验收动作和证据格式 | 无需安装 | 否 | 项目文档 |
 | yt-dlp | 2026.07.04 | 下载项目所有者指定的公开视频独立音轨，供本地私人候选裁剪 | `brew install yt-dlp` | 否 | Unlicense；Homebrew |

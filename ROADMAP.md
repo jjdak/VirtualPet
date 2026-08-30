@@ -33,6 +33,7 @@
 - [x] 为三条用户确认的 Q 版语音生成原始 A 与轻降噪 B 私人试听候选，暂不替换当前 App 音频
 - [x] 固化 iPhone 与 Apple Watch 模拟器的一键构建、安装、启动和截屏预览脚本
 - [x] 增加 macOS 一键构建、启动和截屏预览脚本，并修复增量构建遗漏私有 Live2D 纹理的问题
+- [x] 将私有姿势 PNG 显式复制到 iOS/macOS Bundle，消除冷启动灰色占位并完成 iOS/macOS 冷启动预览验证
 - [ ] 仅在明显改善 Watch 体验时制作透明动作图集
 - [ ] 完成 iPhone、Apple Watch 和 Mac 的真机与视觉验收
 

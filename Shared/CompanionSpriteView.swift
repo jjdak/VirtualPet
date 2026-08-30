@@ -3,6 +3,8 @@ import SwiftUI
 
 #if os(macOS)
 import AppKit
+#else
+import UIKit
 #endif
 
 #if !os(watchOS)
@@ -128,17 +130,23 @@ private final class CompanionSpriteScene: SKScene {
 
         let texture: SKTexture
 #if os(macOS)
-        // Asset-catalog names resolve reliably through NSImage on macOS.
-        // Constructing the SpriteKit texture from that image avoids the
-        // imageNamed cache path returning a zero-sized texture in a freshly
-        // launched unsigned preview bundle.
-        if let image = NSImage(named: NSImage.Name(imageName)) {
+        // Prefer an explicit private PNG staged into the bundle. This avoids
+        // relying on SpriteKit's asset-catalog name cache during cold launch.
+        if let url = CompanionAssets.privateArtworkURL(forAssetName: imageName),
+           let image = NSImage(contentsOf: url) {
+            texture = SKTexture(image: image)
+        } else if let image = NSImage(named: NSImage.Name(imageName)) {
             texture = SKTexture(image: image)
         } else {
             texture = SKTexture(imageNamed: imageName)
         }
 #else
-        texture = SKTexture(imageNamed: imageName)
+        if let url = CompanionAssets.privateArtworkURL(forAssetName: imageName),
+           let image = UIImage(contentsOfFile: url.path) {
+            texture = SKTexture(image: image)
+        } else {
+            texture = SKTexture(imageNamed: imageName)
+        }
 #endif
         artworkNode.texture = texture
         artworkNode.size = texture.size()

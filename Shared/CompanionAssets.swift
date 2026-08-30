@@ -12,6 +12,7 @@ enum CompanionAssets {
     static let headPatArtworkName = "PhoebeHeadPatPrivate"
     static let bodyPokeArtworkName = "PhoebeBodyPokePrivate"
     static let chirpArtworkName = "PhoebeChirpPrivate"
+    static let privateArtworkDirectory = "PhoebePrivateArt"
     static let live2DModelDirectory = "PhoebeLive2D"
     static let live2DModelFile = "phoebe.model3"
     static let watchAtlasDirectory = "PhoebeWatch"
@@ -58,6 +59,28 @@ enum CompanionAssets {
             forResource: watchAtlasFile,
             withExtension: "json",
             subdirectory: watchAtlasDirectory
+        )
+    }
+
+    static func privateArtworkURL(forAssetName name: String, in bundle: Bundle = .main) -> URL? {
+        let fileName: String
+        switch name {
+        case privateArtworkName:
+            fileName = "phoebe-idle"
+        case headPatArtworkName:
+            fileName = "phoebe-headpat"
+        case bodyPokeArtworkName:
+            fileName = "phoebe-bodypoke"
+        case chirpArtworkName:
+            fileName = "phoebe-chirp"
+        default:
+            return nil
+        }
+
+        return bundle.url(
+            forResource: fileName,
+            withExtension: "png",
+            subdirectory: privateArtworkDirectory
         )
     }
 }

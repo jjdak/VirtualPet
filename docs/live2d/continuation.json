@@ -60,6 +60,10 @@
     "2026-08-31 run_macos_preview.sh builds and launches the current arm64 app; a clean instance shows the private Phoebe artwork and the SpriteKit macOS image path remains compatible",
     "2026-08-31 macOS arm64 VirtualPetTests checkpoint passes all 11 cases after the macOS SpriteKit resource-path and preview-script fixes",
     "2026-08-31 isolated macOS VirtualPetUITests/testCompanionResponds also stalls before XCTRunner materializes; it was stopped without claiming a UI pass, while app-level macOS runtime interaction remains green",
+    "2026-08-31 private pose PNGs are staged into the iOS/macOS bundle under PhoebePrivateArt and CompanionSpriteView prefers explicit Bundle URLs; clean macOS cold preview renders Phoebe without the gray SpriteView placeholder",
+    "2026-08-31 clean iPhone 17 cold preview contains phoebe-idle, phoebe-headpat, phoebe-bodypoke and phoebe-chirp in PhoebePrivateArt; the portrait screenshot renders the full Phoebe artwork and VirtualPetTests passes all 11 iOS cases",
+    "2026-08-31 clean Apple Watch SE 3 (40mm) Simulator preview rebuilds and captures the compact key-pose fallback with the title, two-line message and 啾比 button inside the viewport",
+    "2026-08-31 macOS arm64 VirtualPetTests passes all 11 cases after the explicit private artwork Bundle URL loader and staging build phase changes",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
