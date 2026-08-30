@@ -69,6 +69,7 @@
     "2026-08-31 afinfo decodes all nine staged audio copies as mono 44.1 kHz AAC with the expected 1.28/1.46/1.78 second durations; private source and A/B files remain git-ignored",
     "2026-08-31 AVAudioPlayer opens all three staged m4a files successfully in the iOS, macOS and watchOS cold App bundles; runtime resource resolution is verified, but speaker timbre remains a human listening gate",
     "2026-08-31 scripts/verify_private_audio_bundle.sh now reproduces the three-bundle presence and 44.1 kHz AAC metadata check without exposing private audio files",
+    "2026-08-31 clean iPhone 17 Simulator build from fresh DerivedData stages all four private Phoebe pose PNGs and all three private m4a files; the bundle verifier passes",
     "2026-08-31 fresh iPhone 17 Simulator VirtualPetUITests run passes testCompanionResponds, testLaunchPerformance and all four launch-test configurations after private audio staging",
     "2026-08-31 physical acceptance records bundle-level audio presence separately from speaker playback; the Mac is currently locked, so no human listening result is claimed",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
