@@ -90,6 +90,21 @@ xcodebuild -project VirtualPet.xcodeproj \
   ENABLE_USER_SCRIPT_SANDBOXING=NO test
 ```
 
+在 iPhone 17 Simulator 上运行完整 UI 回归（回应、重复呼叫、启动性能和四种明暗/横竖屏配置）：
+
+```bash
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+xcodebuild -project VirtualPet.xcodeproj \
+  -scheme VirtualPet \
+  -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.2' \
+  -only-testing:VirtualPetUITests \
+  -parallel-testing-enabled NO \
+  CODE_SIGNING_ALLOWED=NO \
+  ENABLE_USER_SCRIPT_SANDBOXING=NO test
+```
+
+使用 `-only-testing:VirtualPetUITests` target 级筛选，避免只写方法名时出现“成功但实际执行 0 项”的假阳性。
+
 快速启动 iPhone 17 模拟器、构建、安装、运行并截取当前画面：
 
 ```bash
