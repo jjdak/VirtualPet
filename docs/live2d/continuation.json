@@ -98,6 +98,7 @@
     "2026-08-31 no-private-assets public archive macOS arm64 VirtualPetTests Swift Testing summary reports 12 tests with the project default build settings",
     "2026-08-31 no-private-assets public archive iPhone 17 iOS 26.2 VirtualPetUITests regression passes all 7 tests with 0 failures, including launch configurations and response interactions",
     "2026-08-31 current preview refresh generated .runtime/ios-preview.png on iPhone 17 and .runtime/watch-preview.png on Apple Watch SE 3 (40mm); both show the private Phoebe artwork and current idle/sleep layout",
+    "2026-08-31 post-commit public tree guard and public clone builds pass again for iOS Simulator, macOS arm64 and generic watchOS; the archive reports the documented silent fallback because private audio is absent",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
