@@ -93,6 +93,7 @@
     "2026-08-31 scripts/verify_public_tree.sh passes and now guards the Git index against private assets, private audio/models, and removed legacy documents before a future public push",
     "2026-08-31 git archive HEAD public-clone build contains no private assets and still builds the iOS Simulator app successfully; the staging phases report missing private audio and retain the documented silent/public fallback",
     "2026-08-31 scripts/verify_public_build.sh reproduces the no-private-assets archive build and passes the iOS Simulator build from current HEAD",
+    "2026-08-31 verify_public_build.sh now runs the no-private-assets archive through all three public targets; iOS Simulator, macOS arm64 and generic watchOS builds each succeed",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {

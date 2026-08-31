@@ -26,20 +26,30 @@ if [[ -n "$private_files" ]]; then
   exit 1
 fi
 
-DEVELOPER_DIR="$developer_dir" xcodebuild \
-  -project "$clone_dir/VirtualPet.xcodeproj" \
-  -scheme VirtualPet \
-  -destination "$destination" \
-  -derivedDataPath "$build_dir" \
-  CODE_SIGNING_ALLOWED=NO \
-  build
+build_target() {
+  local scheme="$1"
+  local target_destination="$2"
+  local product_path="$3"
 
-app_path="$build_dir/Build/Products/Debug-iphonesimulator/VirtualPet.app"
-[[ -d "$app_path" ]] || {
-  echo "public clone build did not produce an iOS app: $app_path" >&2
-  exit 1
+  echo "building public clone: ${scheme} (${target_destination})"
+  DEVELOPER_DIR="$developer_dir" xcodebuild \
+    -project "$clone_dir/VirtualPet.xcodeproj" \
+    -scheme "$scheme" \
+    -destination "$target_destination" \
+    -derivedDataPath "$build_dir" \
+    CODE_SIGNING_ALLOWED=NO \
+    build
+
+  [[ -d "$build_dir/$product_path" ]] || {
+    echo "public clone build did not produce expected product: $build_dir/$product_path" >&2
+    exit 1
+  }
 }
+
+build_target "VirtualPet" "$destination" "Build/Products/Debug-iphonesimulator/VirtualPet.app"
+build_target "VirtualPet" "platform=macOS,arch=arm64" "Build/Products/Debug/VirtualPet.app"
+build_target "VirtualPetWatch" "generic/platform=watchOS" "Build/Products/Debug-watchos/VirtualPetWatch.app"
 
 echo "public clone build passed"
 echo "source: $clone_dir"
-echo "app: $app_path"
+echo "derived data: $build_dir"
