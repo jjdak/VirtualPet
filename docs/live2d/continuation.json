@@ -45,7 +45,7 @@
     "macOS arm64 runtime preview launches the private Phoebe artwork and the 叫她一声 action updates mood, message, pose and reaction glyph without a renderer error",
     "docs/PHYSICAL_ACCEPTANCE.md records the device-specific handoff checklist and keeps unavailable physical destinations explicitly ineligible",
     "GitHub connector and local git remote both return 404 or no accessible repositories for jjdak/VirtualPet; no remote publish or overwrite was attempted",
-    "current verification matrix passes: iOS UI 6 tests, macOS arm64 VirtualPetTests 11 tests, and watchOS Simulator build on Apple Watch SE 3 (40mm)",
+    "earlier verification checkpoint passed: iOS UI 6 tests, macOS arm64 VirtualPetTests 11 tests, and watchOS Simulator build on Apple Watch SE 3 (40mm); the current matrix is recorded by the later 2026-08-31 entries below",
     "macOS arm64 VirtualPetTests passes 11 tests after the iOS-only UI orientation setup was made conditional for cross-platform test compilation",
     "three user-approved Q-version voice candidates now have private A/B files; A remains the current App audio and B is the light-denoise listening candidate",
     "xcodebuild -showdestinations still exposes no physical iPhone and marks the connected Apple Watch ineligible because its architecture is unknown",
