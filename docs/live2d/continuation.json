@@ -73,6 +73,7 @@
     "2026-08-31 clean iPad Air 11-inch (M3) Simulator preview from fresh DerivedData also stages all four private Phoebe pose PNGs and all three private m4a files; the bundle verifier passes",
     "2026-08-31 fresh iPhone 17 Simulator VirtualPetUITests run passes testCompanionResponds, testLaunchPerformance and all four launch-test configurations after private audio staging",
     "2026-08-31 My Mac runtime acceptance passes the default window, narrow/wide resize, 叫她一声, hat/head/body coordinate touches and quiet-mode UI; baseline screenshot is .runtime/macos-physical-acceptance.png, while audible speaker output and Reduce Motion remain manual gates",
+    "2026-08-31 My Mac normal-mode 啾比 click produces the expected happy pose, note glyph and line while invoking the audio path; no claim is made about audible output until the owner confirms listening",
     "2026-08-31 physical acceptance records bundle-level audio presence separately from speaker playback; the Mac is currently locked, so no human listening result is claimed",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],

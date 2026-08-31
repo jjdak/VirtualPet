@@ -48,6 +48,7 @@
 
 - iPhone、iPad、Apple Watch 40/42/46mm 和 macOS 模拟器验收已完成。
 - 2026-08-31 `My Mac` 已完成默认窗口、缩窄/放宽、叫她一声、帽子/头部/身体鼠标触摸和安静模式 UI 验收；基线截图保存在 `.runtime/macos-physical-acceptance.png`。
+- 2026-08-31 `My Mac` 正常模式点击“啾比”后，界面出现开心姿势、音符和对应台词；按钮到 `CompanionAudioPlayer` 的调用路径已触发，但扬声器是否实际出声仍待项目所有者确认。
 - 2026-08-31 冷启动构建已确认 iOS、macOS 和 watchOS Bundle 均包含三条 `PrivateAudio/*.m4a`；扬声器实际播放与 A/B 听感仍需解锁本机后由项目所有者确认。
 - 当前没有可用的物理 iPhone destination；连接的 Apple Watch 仍因架构未知且缺少 provisioning profile 而不可用。
 - 因此本清单暂不勾选真机通过，也不把模拟器结果表述为发布资格。
