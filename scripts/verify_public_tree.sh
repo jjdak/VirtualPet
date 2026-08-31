@@ -21,6 +21,13 @@ if [[ -n "$legacy_matches" ]]; then
   exit 1
 fi
 
+generated_matches="$(printf '%s\n' "$tracked_paths" | rg '(^|/)xcuserdata(/|$)|(^|/)\.DS_Store$' || true)"
+if [[ -n "$generated_matches" ]]; then
+  echo "generated Xcode/user files must not be staged or tracked:" >&2
+  printf '%s\n' "$generated_matches" >&2
+  exit 1
+fi
+
 if ! git diff --check; then
   echo "whitespace errors found in the working tree" >&2
   exit 1
