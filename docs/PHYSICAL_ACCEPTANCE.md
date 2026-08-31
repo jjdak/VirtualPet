@@ -7,6 +7,7 @@
 1. 在 Xcode 中选择 `VirtualPet` 或 `VirtualPetWatch` scheme，并确认私人 v3 图像和三条私人音频已位于本机忽略目录。
 2. 使用无签名模拟器构建或个人开发者签名真机构建；不要把 `PrivateAssets/` 或私人音频提交到公开仓库。
 3. 关闭或开启 Reduce Motion 各验一次；安静模式需要单独记录声音关闭但动作仍保留。
+4. 先运行 `./scripts/check_physical_acceptance.sh`；它只读检查 iPhone/Watch destination、Watch Developer Mode/DDI/tunnel 和 Mac 显示器状态。退出码为 `1` 只表示尚未具备真机验收资格，不会修改设备或桌面状态。
 
 ## Apple Watch 真机资格恢复
 
