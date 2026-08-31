@@ -43,6 +43,25 @@ final class VirtualPetUITests: XCTestCase {
     }
 
     @MainActor
+    func testRepeatedCallKeepsChirpReaction() throws {
+#if os(iOS)
+        XCUIDevice.shared.orientation = .portrait
+#endif
+        let app = XCUIApplication()
+        app.launch()
+
+        let responseButton = app.buttons["叫她一声"]
+        let character = app.buttons["菲比"]
+        XCTAssertTrue(responseButton.waitForExistence(timeout: 3))
+        XCTAssertTrue(character.waitForExistence(timeout: 3))
+
+        responseButton.tap()
+        responseButton.tap()
+
+        XCTAssertEqual(character.value as? String, "开心地啾比")
+    }
+
+    @MainActor
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {

@@ -78,6 +78,7 @@
     "2026-08-31 scripts/play_audio_ab.sh all runs to completion on the Mac and plays all three A/B pairs; no A/B winner is inferred without owner listening feedback",
     "2026-08-31 devicectl confirms the connected Apple Watch is a paired, available Series 11 arm64e device, but Developer Mode is disabled, DDI services are unavailable and the tunnel is disconnected; xcodebuild therefore remains ineligible for physical deployment",
     "2026-08-31 generic watchOS build forced to ARCHS=arm64e with CODE_SIGNING_ALLOWED=NO succeeds; the project supports the connected watch architecture and does not need an ARCHS workaround",
+    "2026-08-31 respond button semantics are tightened: repeated 叫她一声 calls always keep the chirp reaction and only vary roast text/mood; macOS unit and iOS UI regressions pass",
     "2026-08-31 physical acceptance records bundle-level audio presence separately from speaker playback; the Mac is currently locked, so no human listening result is claimed",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],

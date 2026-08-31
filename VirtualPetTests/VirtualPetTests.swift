@@ -31,6 +31,20 @@ struct VirtualPetTests {
     }
 
     @Test @MainActor
+    func repeatedCallsKeepTheChirpActionWhileVaryingTheRoast() {
+        let companion = CompanionStore(defaults: makeDefaults())
+
+        companion.respond()
+        let firstMessage = companion.message
+        companion.respond()
+        let secondMessage = companion.message
+
+        #expect(companion.reaction == .chirp)
+        #expect(firstMessage != secondMessage)
+        #expect(secondMessage.contains("叫我做什么"))
+    }
+
+    @Test @MainActor
     func touchRegionChoosesMatchingReaction() {
         let companion = CompanionStore(defaults: makeDefaults())
 

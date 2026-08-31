@@ -181,16 +181,16 @@ final class CompanionStore: ObservableObject {
             return
         }
 
-        let responses: [(CompanionReaction, CompanionMood, String)] = [
-            (.chirp, .bright, "菲比啾比！这声招呼还算有精神。"),
-            (.hatTouch, .curious, "叫我做什么？先说好，不许安排麻烦事。"),
-            (.headPat, .bright, "你来得正好，我刚想找个人夸夸我。"),
-            (.bodyPoke, .curious, "我在认真陪伴，你却在研究按钮？")
+        let responses: [(CompanionMood, String)] = [
+            (.bright, "菲比啾比！这声招呼还算有精神。"),
+            (.curious, "叫我做什么？先说好，不许安排麻烦事。"),
+            (.bright, "你来得正好，我刚想找个人夸夸我。"),
+            (.curious, "我在认真陪伴，你却只会按按钮？")
         ]
 
         let response = responses[responseIndex % responses.count]
         responseIndex += 1
-        trigger(reaction: response.0, mood: response.1, message: response.2)
+        trigger(reaction: .chirp, mood: response.0, message: response.1)
     }
 
     func touch(_ region: CompanionHitRegion, at date: Date = .now) {
