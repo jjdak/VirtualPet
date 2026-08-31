@@ -8,6 +8,10 @@
 2. 使用无签名模拟器构建或个人开发者签名真机构建；不要把 `PrivateAssets/` 或私人音频提交到公开仓库。
 3. 关闭或开启 Reduce Motion 各验一次；安静模式需要单独记录声音关闭但动作仍保留。
 
+## Apple Watch 真机资格恢复
+
+当前连接的 Series 11（`Watch7,18`、watchOS 26.2.1、`arm64e`）已经配对且 CoreDevice 显示 `available (paired)`，但 `xcodebuild` 仍标记为 `ineligible`。`devicectl device info details` 的直接原因是 Developer Mode 为 `disabled`、DDI services 不可用、网络 tunnel 为 `disconnected`。部署前需要在手表/配对 iPhone 上开启 Developer Mode，保持手表解锁并重新连接到 Mac；然后重新运行 `xcodebuild -showdestinations`，只有出现可选的物理 watch destination 后才开始签名部署。
+
 ## iPhone / iPad
 
 - [ ] 启动后待机台词、时间氛围、角色比例和底部控件无裁切。
@@ -51,6 +55,7 @@
 - 2026-08-31 `My Mac` 正常模式点击“啾比”后，界面出现开心姿势、音符和对应台词；按钮到 `CompanionAudioPlayer` 的调用路径已触发，但扬声器是否实际出声仍待项目所有者确认。
 - 2026-08-31 在 Mac 上实际执行 `./scripts/play_audio_ab.sh all`，01/02/03 三条 A→静音→B 连续试听均正常退出；最终听感选择仍由项目所有者决定。
 - 2026-08-31 在系统设置中将“减弱动态效果”临时打开后，App 间隔 3.5 秒的两张截图 SHA-256 相同；恢复关闭后截图哈希再次变化，Reduce Motion 行为通过且系统原值已恢复。
+- 2026-08-31 `devicectl` 诊断连接的 Apple Watch 为已配对且可见的 Series 11（`arm64e`），但 Developer Mode disabled、DDI services unavailable、tunnel disconnected；因此物理 Watch 仍记录为 `ineligible`，不是项目 `ARCHS` 配置错误。
 - 2026-08-31 冷启动构建已确认 iOS、macOS 和 watchOS Bundle 均包含三条 `PrivateAudio/*.m4a`；扬声器实际播放与 A/B 听感仍需解锁本机后由项目所有者确认。
 - 当前没有可用的物理 iPhone destination；连接的 Apple Watch 仍因架构未知且缺少 provisioning profile 而不可用。
 - 因此本清单暂不勾选真机通过，也不把模拟器结果表述为发布资格。

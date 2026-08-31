@@ -76,6 +76,7 @@
     "2026-08-31 My Mac normal-mode 啾比 click produces the expected happy pose, note glyph and line while invoking the audio path; no claim is made about audible output until the owner confirms listening",
     "2026-08-31 My Mac Reduce Motion check passes: enabling AX_REDUCE_MOTION makes two 3.5-second idle screenshots byte-identical, disabling it restores differing hashes, and the original setting is confirmed off",
     "2026-08-31 scripts/play_audio_ab.sh all runs to completion on the Mac and plays all three A/B pairs; no A/B winner is inferred without owner listening feedback",
+    "2026-08-31 devicectl confirms the connected Apple Watch is a paired, available Series 11 arm64e device, but Developer Mode is disabled, DDI services are unavailable and the tunnel is disconnected; xcodebuild therefore remains ineligible for physical deployment",
     "2026-08-31 physical acceptance records bundle-level audio presence separately from speaker playback; the Mac is currently locked, so no human listening result is claimed",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
