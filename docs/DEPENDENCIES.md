@@ -54,6 +54,7 @@
 | `scripts/verify_private_audio_bundle.sh` | 随项目 | 构建后检查各 App Bundle 的三条私有音频是否存在且为 44.1 kHz AAC | 无需安装；依赖 macOS 内置 `afinfo` | 否 | 项目脚本 |
 | `scripts/verify_public_tree.sh` | 随项目 | 发布前检查 Git index 不含私人素材或已清理的旧文档，并检查工作树空白错误 | 无需安装；依赖 Git 与系统 `rg` | 否 | 项目脚本 |
 | `scripts/verify_public_build.sh` | 随项目 | 从当前 `HEAD` 生成无私人素材公开副本并依次构建 iOS Simulator、macOS arm64 与 generic watchOS | 无需安装；依赖 Git、Xcode `xcodebuild` 与 `tar` | 否 | 项目脚本 |
+| `scripts/verify_public_regression.sh` | 随项目 | 从当前 `HEAD` 生成无私人素材公开副本，验证 macOS Swift Testing 真实计数与 iPhone 17 Simulator UI 回归；拒绝 0-test 假阳性 | 无需安装；依赖 Git、Xcode `xcodebuild`、`tar` 与 `rg` | 否 | 项目脚本 |
 | `scripts/play_audio_ab.sh` | 随项目 | 顺序或单独播放三条私有 A/B 连续试听候选；不修改 App 资源 | 无需安装；依赖 macOS 内置 `/usr/bin/afplay` | 否 | 项目脚本 |
 | `docs/PHYSICAL_ACCEPTANCE.md` | 随项目 | 记录 iPhone、iPad、Apple Watch 与 Mac 的真机验收动作和证据格式 | 无需安装 | 否 | 项目文档 |
 | yt-dlp | 2026.07.04 | 下载项目所有者指定的公开视频独立音轨，供本地私人候选裁剪 | `brew install yt-dlp` | 否 | Unlicense；Homebrew |
