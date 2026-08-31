@@ -42,7 +42,7 @@ SharedAssets/PrivateAudio/phoebe-chirubi-mildly-angry-private.m4a
 
 准备发布公开源码前运行 `./scripts/verify_public_tree.sh`。它检查 Git index 不含私人素材和已清理的旧文档，并检查工作树空白错误；私人资源即使存在于本机，也不会因此进入公开树。
 
-提交前还可运行 `./scripts/verify_public_build.sh`，它从当前 `HEAD` 生成不含私人素材的临时公开副本，并依次构建 iOS Simulator、macOS arm64 和 generic watchOS，验证公开仓库能跨平台独立编译。
+提交前还可运行 `./scripts/verify_public_build.sh`，它从当前 `HEAD` 生成不含私人素材的临时公开副本，并依次构建 iOS Simulator、macOS arm64 和 generic watchOS，验证公开仓库能跨平台独立编译。公开副本的 macOS 单元回归和 iOS UI 回归也已在本机通过。
 
 当前本机待机图和三张关键姿势由 v3 概念板派生，保留 v3 的脸型、下巴长度和原服装。摸头、身体受戳和啾比跳跃会切换独立姿势；帽子、三连点和长按复用身体受戳姿势并叠加轻量运动参数。它们是当前版本采用的可交互关键帧方案。
 

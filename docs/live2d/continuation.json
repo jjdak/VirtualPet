@@ -94,6 +94,8 @@
     "2026-08-31 git archive HEAD public-clone build contains no private assets and still builds the iOS Simulator app successfully; the staging phases report missing private audio and retain the documented silent/public fallback",
     "2026-08-31 scripts/verify_public_build.sh reproduces the no-private-assets archive build and passes the iOS Simulator build from current HEAD",
     "2026-08-31 verify_public_build.sh now runs the no-private-assets archive through all three public targets; iOS Simulator, macOS arm64 and generic watchOS builds each succeed",
+    "2026-08-31 no-private-assets public archive macOS arm64 VirtualPetTests regression passes all 12 tests with the project default build settings",
+    "2026-08-31 no-private-assets public archive iPhone 17 iOS 26.2 VirtualPetUITests regression passes all 7 tests with 0 failures, including launch configurations and response interactions",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
