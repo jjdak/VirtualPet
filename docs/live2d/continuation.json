@@ -91,6 +91,7 @@
     "2026-08-31 clean iPhone 17 iOS 26.2 UI regression with the project default sandbox setting passes all 7 tests with 0 failures, confirming direct-Xcode staging changes did not alter the UI path",
     "2026-08-31 GitHub CLI confirms the authenticated account is jjdak, but jjdak/VirtualPet is absent; the accessible jjdak/codexPet repository is a different sprite-pet project, so the VirtualPet remote remains unchanged and no push is attempted",
     "2026-08-31 scripts/verify_public_tree.sh passes and now guards the Git index against private assets, private audio/models, and removed legacy documents before a future public push",
+    "2026-08-31 git archive HEAD public-clone build contains no private assets and still builds the iOS Simulator app successfully; the staging phases report missing private audio and retain the documented silent/public fallback",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
