@@ -88,6 +88,7 @@
     "2026-08-31 full-screen screencapture during a clean macOS preview shows the Computer Use lock overlay; the gray app-level SpriteView capture is not classified as a renderer regression until the desktop is unlocked",
     "2026-08-31 physical acceptance records bundle-level audio presence separately from speaker playback; the Mac is currently locked, so no human listening result is claimed",
     "2026-08-31 project Debug/Release configurations now default ENABLE_USER_SCRIPT_SANDBOXING=NO because private staging phases read owner-local ignored assets; clean default xcodebuild builds pass for iOS Simulator, macOS arm64 and generic watchOS without an override",
+    "2026-08-31 clean iPhone 17 iOS 26.2 UI regression with the project default sandbox setting passes all 7 tests with 0 failures, confirming direct-Xcode staging changes did not alter the UI path",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
