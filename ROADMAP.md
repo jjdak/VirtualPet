@@ -36,6 +36,7 @@
 - [x] 将私有姿势 PNG 显式复制到 iOS/macOS Bundle，消除冷启动灰色占位并完成 iOS/macOS 冷启动预览验证
 - [x] 将三条私有 Q 版音频显式复制到各 App Bundle，修复仅有按钮而无音频文件的冷启动路径
 - [x] 增加公开树守门、无私人素材公开副本跨平台构建与回归验证，确保未来发布不会泄露私人资源且 iOS/macOS/watchOS 仍可独立编译与测试
+- [x] 清理旧版 Sunling/成长系统遗留物，创建 `jjdak/VirtualPet` 公开仓库并推送仅代码版本
 - [ ] 仅在明显改善 Watch 体验时制作透明动作图集
 - [ ] 完成 iPhone、Apple Watch 和 Mac 的真机与视觉验收
 

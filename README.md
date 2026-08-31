@@ -46,6 +46,8 @@ SharedAssets/PrivateAudio/phoebe-chirubi-mildly-angry-private.m4a
 
 若要连同回归一起验证公开副本，可运行 `./scripts/verify_public_regression.sh`。它会从当前 `HEAD` 生成同样的无私人素材副本，检查 macOS Swift Testing 的真实测试计数（当前 12 项）以及 iPhone 17 Simulator UI 回归（当前 7 项）；脚本不会把 macOS XCTest 的 `Executed 0 tests` 适配器汇总误认为真实通过。
 
+当前仅代码公开版本已推送到 [jjdak/VirtualPet](https://github.com/jjdak/VirtualPet) 的 `main` 分支。公开仓库不包含私人立绘、音频、Cubism SDK、模型导出或本机 Xcode 状态；这些内容仍只在本地忽略目录中使用。
+
 当前本机待机图和三张关键姿势由 v3 概念板派生，保留 v3 的脸型、下巴长度和原服装。摸头、身体受戳和啾比跳跃会切换独立姿势；帽子、三连点和长按复用身体受戳姿势并叠加轻量运动参数。它们是当前版本采用的可交互关键帧方案。
 
 已额外生成一张私人中立姿势源图用于 Live2D 拆层，不会替换当前 v3 待机图。分层清单、参数命名、Cubism 接入检查点和 watchOS 图集规则见 [Live2D 动画管线](docs/LIVE2D_PIPELINE.md)。
