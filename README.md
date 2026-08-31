@@ -57,6 +57,8 @@ SharedAssets/PrivateAudio/phoebe-chirubi-mildly-angry-private.m4a
 
 需要 Xcode 26.2。最低系统版本：iOS/iPadOS 26.2、macOS 15.7、watchOS 10。
 
+项目已将 `ENABLE_USER_SCRIPT_SANDBOXING` 默认设为 `NO`，所以在 Xcode 中可直接运行；下面的命令仍显式传入该设置，便于复制到独立命令行或 CI 环境。
+
 ```bash
 DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 xcodebuild -project VirtualPet.xcodeproj \

@@ -16,7 +16,7 @@
 
 当前没有第三方运行时依赖，也没有 Swift Package Manager、CocoaPods 或 Carthage 包。
 
-本地构建会执行读取被 Git 忽略的私人资源的 Xcode Build Phase；直接使用 `xcodebuild` 时需传入 `ENABLE_USER_SCRIPT_SANDBOXING=NO`。项目内的 iOS、watchOS 和 macOS 预览脚本已自动设置该参数。
+本地构建会执行读取被 Git 忽略的私人资源的 Xcode Build Phase；项目 Debug/Release 配置已将 `ENABLE_USER_SCRIPT_SANDBOXING` 设为 `NO`，因此在 Xcode 中可直接运行。预览、回归脚本仍显式传入 `ENABLE_USER_SCRIPT_SANDBOXING=NO`，保证 CI/命令行环境不依赖用户默认设置。脚本只读取项目内被 Git 忽略的私人资源目录。
 
 | 名称 | 版本 | 用途 | 进入 App | 许可证/来源 |
 | --- | --- | --- | --- | --- |
