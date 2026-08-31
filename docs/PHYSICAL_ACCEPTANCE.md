@@ -57,6 +57,7 @@
 - 2026-08-31 在系统设置中将“减弱动态效果”临时打开后，App 间隔 3.5 秒的两张截图 SHA-256 相同；恢复关闭后截图哈希再次变化，Reduce Motion 行为通过且系统原值已恢复。
 - 2026-08-31 `devicectl` 诊断连接的 Apple Watch 为已配对且可见的 Series 11（`arm64e`），但 Developer Mode disabled、DDI services unavailable、tunnel disconnected；因此物理 Watch 仍记录为 `ineligible`，不是项目 `ARCHS` 配置错误。
 - 2026-08-31 项目以 `ARCHS=arm64e ONLY_ACTIVE_ARCH=YES CODE_SIGNING_ALLOWED=NO` 执行 generic watchOS 构建并成功生成 `VirtualPetWatch.app`；实体手表不可部署与项目架构无关。
+- 2026-08-31 干净 macOS 预览期间全屏 `screencapture` 明确显示 Computer Use 的“ChatGPT is Using Your Mac / Press any key or click to unlock”遮罩；遮罩期间 App-level 截图中的灰色 SpriteView 表面不作为渲染回归判断。
 - 2026-08-31 冷启动构建已确认 iOS、macOS 和 watchOS Bundle 均包含三条 `PrivateAudio/*.m4a`；扬声器实际播放与 A/B 听感仍需解锁本机后由项目所有者确认。
 - 当前没有可用的物理 iPhone destination；连接的 Apple Watch 仍因架构未知且缺少 provisioning profile 而不可用。
 - 因此本清单暂不勾选真机通过，也不把模拟器结果表述为发布资格。

@@ -80,6 +80,7 @@
     "2026-08-31 generic watchOS build forced to ARCHS=arm64e with CODE_SIGNING_ALLOWED=NO succeeds; the project supports the connected watch architecture and does not need an ARCHS workaround",
     "2026-08-31 respond button semantics are tightened: repeated 叫她一声 calls always keep the chirp reaction and only vary roast text/mood; macOS unit and iOS UI regressions pass",
     "2026-08-31 post-fix verification passes: iOS Simulator build, watchOS Simulator build on Apple Watch SE 3 40mm, macOS arm64 unit suite, iOS repeated-call UI test, and macOS runtime double-call inspection",
+    "2026-08-31 full-screen screencapture during a clean macOS preview shows the Computer Use lock overlay; the gray app-level SpriteView capture is not classified as a renderer regression until the desktop is unlocked",
     "2026-08-31 physical acceptance records bundle-level audio presence separately from speaker playback; the Mac is currently locked, so no human listening result is claimed",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
