@@ -36,8 +36,8 @@ DEVELOPER_DIR="$DEVELOPER_DIR_VALUE" "$XCODEBUILD" \
 
 DEVELOPER_DIR="$DEVELOPER_DIR_VALUE" "$DEVICETool" list devices > "$devices_log" 2>&1 || true
 
-physical_iphone_count="$(rg -c '^\s*\{ platform:iOS, arch:[^,]+, id:[0-9A-Fa-f-]{36},' "$destinations_log" || true)"
-physical_watch_count="$(rg -c '^\s*\{ platform:watchOS, arch:[^,]+, id:[0-9A-Fa-f-]{36},' "$watch_destinations_log" || true)"
+physical_iphone_count="$(rg '^\s*\{ platform:iOS, arch:[^,]+, id:[0-9A-Za-z-]{16,},' "$destinations_log" | rg -v 'error:' | wc -l | tr -d ' ' || true)"
+physical_watch_count="$(rg '^\s*\{ platform:watchOS, arch:[^,]+, id:[0-9A-Za-z-]{16,},' "$watch_destinations_log" | rg -v 'error:' | wc -l | tr -d ' ' || true)"
 iphone_ineligible_count="$(rg -c '^\s*\{ platform:iOS,.*error:' "$destinations_log" || true)"
 watch_ineligible_count="$(rg -c '^\s*\{ platform:watchOS,.*error:' "$watch_destinations_log" || true)"
 simulator_count="$(rg -c '^\s*\{ platform:iOS Simulator,' "$destinations_log" || true)"
