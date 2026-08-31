@@ -101,6 +101,7 @@
     "2026-08-31 post-commit public tree guard and public clone builds pass again for iOS Simulator, macOS arm64 and generic watchOS; the archive reports the documented silent fallback because private audio is absent",
     "2026-08-31 removed the unreferenced legacy Sunling asset, old growth-system screenshot and tracked Xcode xcuserdata from the public tree; local Xcode state files remain on disk as ignored files, and post-cleanup public regression still reports 12 macOS tests and 7 iPhone 17 UI tests",
     "2026-08-31 after the public tree guard and post-cleanup build/regression checks, created jjdak/VirtualPet as a public code-only repository and pushed the verified main branch; private Phoebe assets, audio, Cubism SDK and local Xcode state remain untracked",
+    "2026-08-31 remote GitHub tree audit of jjdak/VirtualPet main finds 94 tracked paths and no private asset/audio/model files, Cubism SDK, xcuserdata, Sunling artifact or removed legacy documents; main points to a3d3460",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
