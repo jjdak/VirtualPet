@@ -63,7 +63,8 @@ xcodebuild -project VirtualPet.xcodeproj \
   -scheme VirtualPet \
   -destination 'platform=macOS' \
   -derivedDataPath /tmp/VirtualPetDerivedData \
-  CODE_SIGNING_ALLOWED=NO build
+  CODE_SIGNING_ALLOWED=NO \
+  ENABLE_USER_SCRIPT_SANDBOXING=NO build
 ```
 
 ```bash
@@ -72,7 +73,8 @@ xcodebuild -project VirtualPet.xcodeproj \
   -scheme VirtualPetWatch \
   -destination 'generic/platform=watchOS' \
   -derivedDataPath /tmp/VirtualPetWatchDerivedData \
-  CODE_SIGNING_ALLOWED=NO build
+  CODE_SIGNING_ALLOWED=NO \
+  ENABLE_USER_SCRIPT_SANDBOXING=NO build
 ```
 
 ```bash
@@ -81,7 +83,11 @@ xcodebuild -project VirtualPet.xcodeproj \
   -scheme VirtualPet \
   -destination 'platform=macOS' \
   -only-testing:VirtualPetTests \
-  test
+  -skip-testing:VirtualPetUITests \
+  -skip-testing:VirtualPetUITestsLaunchTests \
+  -parallel-testing-enabled NO \
+  CODE_SIGNING_ALLOWED=NO \
+  ENABLE_USER_SCRIPT_SANDBOXING=NO test
 ```
 
 快速启动 iPhone 17 模拟器、构建、安装、运行并截取当前画面：
