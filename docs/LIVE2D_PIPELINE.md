@@ -22,7 +22,7 @@
 
 2026-08-24 状态：Cubism Editor 5.4.00 alpha1 已与 5.3 并行安装，原始 5.3 `.cmo3` 未修改。用户在隔离副本中创建并保存了 `ParamHatSwing`，可恢复 checkpoint 为 `PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-5.4-alpha-test0.cmo3`；从该副本导出的 `model3/moc3/cdi3` 已固定到 `PrivateAssets/Live2D/Exports/PhoebeLive2D/`。`ParamEyeSmile` 和 `ParamHairSwing` 仍由现有左右微笑、前/侧/后发参数映射；九个逻辑参数 ID 已通过导出与 Core 探针，但帽子真实 keyform 和可视变形仍未验收。
 
-运行时导出门禁 `scripts/verify_live2d_export.sh` 已确认 `model3/moc3/cdi3` 引用完整，纹理为 1024 × 1024 且带 alpha。`VirtualPet` macOS arm64 目标已验证能把私有导出以 `PhoebeLive2D/` 目录复制进 App bundle；当前受限终端的 `sandbox-exec` 不支持 Xcode 用户脚本沙盒，因此验证命令显式使用 `ENABLE_USER_SCRIPT_SANDBOXING=NO`：
+运行时导出门禁 `scripts/verify_live2d_export.sh` 已确认 `model3/moc3/cdi3` 引用完整，纹理为 1024 × 1024 且带 alpha。`VirtualPet` macOS arm64 目标已验证能把私有导出以 `PhoebeLive2D/` 目录复制进 App bundle。项目 Debug/Release 已默认关闭 `ENABLE_USER_SCRIPT_SANDBOXING`，使 Xcode 可直接运行；下面的历史验证命令仍显式传入 `NO`，以保持在独立命令行环境中的可复现性：
 
 ```bash
 DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
