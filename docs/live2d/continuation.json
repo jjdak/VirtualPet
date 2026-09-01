@@ -16,7 +16,7 @@
   "milestone": {
     "id": "spritekit-animation-polish",
     "status": "in_progress",
-    "nextAction": "Keep the simulator acceptance green, then complete physical iPhone, Apple Watch and Mac acceptance; add Watch atlases only if they materially improve the fallback.",
+    "nextAction": "Project owner enables Developer Mode on the paired iPhone and Apple Watch, reruns scripts/check_physical_acceptance.sh, then completes physical interaction and owner speaker listening; keep the current SwiftUI Watch fallback and do not reopen Cubism.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -136,7 +136,8 @@
   "nextActions": [
     "Keep CompanionSpriteView as the iOS/macOS renderer for the current release.",
     "Polish idle, greet, pat and sleep using the existing reaction and key-pose contract.",
-    "Build watchOS transparent motion atlases only when they materially improve the key-pose fallback.",
+    "Keep the verified SwiftUI Watch motion fallback; build transparent motion atlases only if later device testing shows a material improvement.",
+    "Project owner: enable Developer Mode on the paired iPhone and Apple Watch, reconnect them, and rerun scripts/check_physical_acceptance.sh.",
     "Complete physical iPhone, Apple Watch and Mac visual and device acceptance; no physical iPhone destination is currently connected, and the connected Apple Watch remains ineligible until its architecture/provisioning is resolved.",
     "Reconsider Live2D only after the resume gate receives a human-authored moving model."
   ],

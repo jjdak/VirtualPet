@@ -156,7 +156,7 @@ Watch 脚本默认等待 2 秒；可用同名环境变量覆盖设备、构建�
 
 1. 读取 [`docs/live2d/continuation.json`](docs/live2d/continuation.json)，继续 `spritekit-mainline`；不要打开 Cubism 或继续 Metal host。
 2. 用现有反应和关键姿态契约继续做动作细节验收；首轮 idle、greet、pat、sleep 节奏已完成。
-3. 仅在明显改善 Watch 体验时制作透明动作图集，并始终保留 SwiftUI 静态后备。
+3. 当前 Watch SwiftUI 轻量运动已通过 40/42/44/46mm 连续帧检查；仅在后续真机测试证明有明显收益时制作透明动作图集，并始终保留 SwiftUI 后备。
 4. iOS、iPadOS 与 watchOS 模拟器视觉验收已完成（含 Apple Watch 40mm/42mm/46mm 表壳）；下一步完成 iPhone、Apple Watch 和 Mac 的真机验收（当前连接的 Apple Watch 因架构/签名资格暂不可用）。
 5. 当前 iPhone 17 Simulator UI 7 项与 macOS arm64 单元 12 项均通过；Live2D 只保留一次人工嘴型或眼睛 keyform 恢复门禁，动作探针返回 0 前不安装 MCP、不自研画布自动化、不扩展正式模型。
 6. 已生成三条语音的 A/B 本地试听候选；待听感确认后再决定是否把 B 替换进 App，记录见 [语音素材记录](docs/AUDIO_SOURCE.md)。
