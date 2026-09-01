@@ -88,6 +88,7 @@ else
   echo "iPhone DDI services: unavailable"
   echo "iPhone tunnel: unavailable"
 fi
+echo "iPhone CoreDevice ID: ${iphone_id:-unavailable}"
 iphone_ready=false
 if [[ "$physical_iphone_count" -gt 0 && "$iphone_pairing_state" == "paired" && "$iphone_developer_mode" == "enabled" && "$iphone_ddi_services" == "true" && "$iphone_tunnel_state" != "disconnected" && "$iphone_tunnel_state" != "unavailable" && -n "$iphone_tunnel_state" ]]; then
   iphone_ready=true
@@ -116,6 +117,7 @@ else
   echo "Apple Watch DDI services: unavailable"
   echo "Apple Watch tunnel: unavailable"
 fi
+echo "Apple Watch CoreDevice ID: ${watch_id:-unavailable}"
 if [[ "$physical_watch_count" -gt 0 && "$pairing_state" == "paired" && "$developer_mode" == "enabled" && "$ddi_services" == "true" && "$tunnel_state" != "disconnected" && "$tunnel_state" != "unavailable" && -n "$tunnel_state" ]]; then
   watch_ready=true
 fi
@@ -163,9 +165,15 @@ if [[ "$scope_ready" != true ]]; then
   echo "manual next steps:" >&2
   if [[ "$PHYSICAL_SCOPE" == "ios" || "$PHYSICAL_SCOPE" == "all" ]] && [[ "$iphone_ready" != true ]]; then
     echo "- iPhone: enable Developer Mode in Settings > Privacy & Security, trust this Mac, then reconnect it." >&2
+    if [[ -n "$iphone_id" ]]; then
+      echo "  after recovery: DEVICE_ID='$iphone_id' PLATFORM=ios ./scripts/run_physical_preview.sh" >&2
+    fi
   fi
   if [[ "$PHYSICAL_SCOPE" == "watch" || "$PHYSICAL_SCOPE" == "all" ]] && [[ "$watch_ready" != true ]]; then
     echo "- Apple Watch: keep it unlocked and near the paired iPhone/Mac, enable Developer Mode, then reconnect it." >&2
+    if [[ -n "$watch_id" ]]; then
+      echo "  after recovery: DEVICE_ID='$watch_id' PLATFORM=watchos ./scripts/run_physical_preview.sh" >&2
+    fi
   fi
   if [[ "$display_ready" != true ]]; then
     echo "- Mac: unlock or wake the display before visual and speaker acceptance." >&2

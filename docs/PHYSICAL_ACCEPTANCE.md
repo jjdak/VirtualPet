@@ -9,6 +9,7 @@
 3. 关闭或开启 Reduce Motion 各验一次；安静模式需要单独记录声音关闭但动作仍保留。
 4. 先运行 `./scripts/check_physical_acceptance.sh`；它只读检查 iPhone/Watch destination、iPhone/Watch Developer Mode/DDI/tunnel 和 Mac 显示器状态。退出码为 `1` 只表示尚未具备真机验收资格，不会修改设备或桌面状态，并会打印针对当前状态的手动下一步。
    默认检查范围为 `all`；若先只恢复一端，可使用 `PHYSICAL_SCOPE=ios ./scripts/check_physical_acceptance.sh` 或 `PHYSICAL_SCOPE=watch ./scripts/check_physical_acceptance.sh`，不会因另一端尚未就绪而隐藏当前端状态。
+   预检会打印当前配对 iPhone/Apple Watch 的 CoreDevice ID；未就绪时会同时输出对应的真机部署命令，可直接复制到恢复 Developer Mode/DDI/tunnel 后的终端。
 
 资格通过后，使用显式 CoreDevice ID 启动部署脚本：
 
@@ -67,6 +68,7 @@ DEVICE_ID='你的 Apple Watch CoreDevice ID' PLATFORM=watchos ./scripts/run_phys
 - 2026-09-02 当前 Mac 显示器已在线且桌面可操作；预检脚本兼容新版 `system_profiler` 的 `Online: Yes` 字段并报告 `Mac display: Online`。iPhone 15 Pro 已配对但仍是 unavailable（Developer Mode disabled、DDI false、tunnel unavailable）；Apple Watch 仍是 Developer Mode disabled/DDI false/tunnel disconnected，因此真机部署门禁仍未通过。
 - 2026-09-02 最新只读预检报告 Mac display: `Asleep`，因此暂不执行桌面视觉或扬声器验收；脚本已将 `Display Asleep: Yes/No` 规范为 `Asleep/Awake`，并继续保留 iPhone/Apple Watch Developer Mode 与 DDI/tunnel 门禁。
 - 2026-09-02 预检支持 `PHYSICAL_SCOPE=ios|watch|all`；在当前设备状态下三种范围均安全退出 1，分别只提示对应未就绪设备或同时提示两端。
+- 2026-09-02 最新预检会显示当前配对 iPhone/Apple Watch 的 CoreDevice ID，并按 `PHYSICAL_SCOPE` 输出目标专属部署命令；当前仍只读拒绝，未执行构建、安装或启动。
 - 2026-09-02 Apple Watch SE 3（44mm）模拟器补充预览成功：`./scripts/run_watch_preview.sh` 构建、安装、启动和截屏均通过，截图为 `.runtime/watch-preview-44-current.png`；标题、角色、两行台词和“啾比”按钮均在安全区内。该结果不替代实体手表验收。
 - 2026-08-31 `My Mac` 已完成默认窗口、缩窄/放宽、叫她一声、帽子/头部/身体鼠标触摸和安静模式 UI 验收；基线截图保存在 `.runtime/macos-physical-acceptance.png`。
 - 2026-08-31 `My Mac` 正常模式点击“啾比”后，界面出现开心姿势、音符和对应台词；按钮到 `CompanionAudioPlayer` 的调用路径已触发，但扬声器是否实际出声仍待项目所有者确认。

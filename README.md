@@ -162,6 +162,7 @@ Watch 脚本默认等待 2 秒；可用同名环境变量覆盖设备、构建�
 开始真机验收前可运行 `./scripts/check_physical_acceptance.sh`，只读汇总 iPhone/Watch destination、iPhone/Watch Developer Mode/DDI/tunnel 和 Mac 显示器状态；退出码为 `1` 时不会改变设备或桌面状态。
 若资格未就绪，脚本还会根据当前状态打印开启 Developer Mode、重新连接设备或唤醒 Mac 的手动下一步。
 默认 `PHYSICAL_SCOPE=all` 要求 iPhone、Apple Watch 和 Mac 都就绪；设备可以分阶段恢复时，可改用 `PHYSICAL_SCOPE=ios` 或 `PHYSICAL_SCOPE=watch` 单独检查一端。
+预检还会打印当前配对设备的 CoreDevice ID；若目标未就绪，会直接给出对应的 `run_physical_preview.sh` 命令，避免脚本猜错设备。
 
 资格恢复后可用显式 CoreDevice ID 构建、安装并启动真机 App（脚本不会猜设备；资格检查失败时不会构建或安装）：
 

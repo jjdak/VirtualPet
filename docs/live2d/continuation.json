@@ -123,6 +123,7 @@
     "2026-09-02 current-source iPhone 17 iOS 26.2 target-level UI regression executes 9 tests with 0 failures; testCharacterLongPressSquashes verifies the rendered accessibility character responds to a 0.75 second press",
     "2026-09-02 no-private-assets public archive regression after the long-press test executes 12 macOS Swift tests and 9 iPhone 17 UI tests with 0 failures",
     "2026-09-02 run_physical_preview.sh also refuses the paired Apple Watch before build/install/launch when Developer Mode is disabled and tunnel is disconnected",
+    "2026-09-02 check_physical_acceptance.sh now prints paired iPhone/Apple Watch CoreDevice IDs and scope-specific run_physical_preview.sh commands; the current preflight remains read-only and refuses before build/install/launch",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
