@@ -87,6 +87,18 @@ xcodebuild -project VirtualPet.xcodeproj \
   ENABLE_USER_SCRIPT_SANDBOXING=NO build
 ```
 
+验证 iOS 真机 arm64 编译链（不安装到设备、不需要签名）：
+
+```bash
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+xcodebuild -project VirtualPet.xcodeproj \
+  -scheme VirtualPet \
+  -destination 'generic/platform=iOS' \
+  -derivedDataPath /tmp/VirtualPetGenericDeviceDerivedData \
+  CODE_SIGNING_ALLOWED=NO \
+  ENABLE_USER_SCRIPT_SANDBOXING=NO build
+```
+
 ```bash
 DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 xcodebuild -project VirtualPet.xcodeproj \

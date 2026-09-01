@@ -114,6 +114,7 @@
     "2026-09-02 scripts/verify_public_build.sh passes after adding the watch motion verifier; a clean no-private-assets archive builds iOS Simulator, macOS arm64 and generic watchOS targets successfully",
     "2026-09-02 no-private-assets public clone also passes scripts/verify_watch_motion.sh on Apple Watch SE 3 (44mm); the placeholder fallback's character crop changes between captures without requiring private artwork",
     "2026-09-02 check_physical_acceptance.sh remains read-only and now prints state-specific manual next steps; the current paired iPhone and Apple Watch still report Developer Mode disabled, DDI unavailable and disconnected/unavailable tunnels",
+    "2026-09-02 generic iOS device arm64 and generic watchOS builds both succeed with CODE_SIGNING_ALLOWED=NO; this proves device architecture compilation without claiming deployment or provisioning",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {

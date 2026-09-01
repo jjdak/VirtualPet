@@ -48,6 +48,7 @@
 | `remove_chroma_key.py` | 随 Codex imagegen skill | 软边缘抠图与去绿边 | Codex imagegen skill 内置 | 否 | OpenAI 工具 |
 | `scripts/run_ios_preview.sh` | 随项目 | 选择或启动 iOS 模拟器，构建、安装、启动并截屏当前 App | 无需安装；依赖 Xcode `xcodebuild`、`simctl` 与系统 Python 3 | 否 | 项目脚本 |
 | `scripts/run_watch_preview.sh` | 随项目 | 选择或启动 watchOS 模拟器，构建、安装、启动并截屏当前 Watch App | 无需安装；依赖 Xcode `xcodebuild`、`simctl` 与系统 Python 3 | 否 | 项目脚本 |
+| `scripts/verify_watch_motion.sh` | 随项目 | 在 40/42/44/46mm Watch 模拟器连续截取角色区域，验证 SwiftUI 轻量运动持续变化 | 无需安装；依赖 Xcode `xcodebuild`、`simctl`、系统 Python 3 与 macOS `sips` | 否 | 项目脚本 |
 | `scripts/run_macos_preview.sh` | 随项目 | 构建、启动并截屏 macOS 当前 App | 无需安装；依赖 Xcode `xcodebuild`、macOS `open`、`screencapture` | 否 | 项目脚本 |
 | `scripts/check_physical_acceptance.sh` | 随项目 | 只读检查 iPhone/Watch 真机 destination、iPhone/Watch Developer Mode/DDI/tunnel 与 Mac 显示器状态 | 无需安装；依赖 Xcode `xcodebuild`、`devicectl`、`rg` 与 `system_profiler` | 否 | 项目脚本 |
 | `scripts/stage_private_artwork_resources.sh` | 随项目 | 将本地忽略的四张 PNG 姿势图复制为明确 Bundle 资源，避免 SpriteKit 冷启动名称缓存问题 | 无需安装；由 Xcode Build Phase 调用 `bash`；缺失私有图时保留公开占位后备 | 否 | 项目脚本 |
