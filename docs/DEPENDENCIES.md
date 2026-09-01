@@ -23,7 +23,7 @@
 | SwiftUI | 随 Xcode 26.2 SDK | 跨平台界面和手势 | 是 | Apple SDK |
 | Combine | 随 Xcode 26.2 SDK | `ObservableObject` 状态发布 | 是 | Apple SDK |
 | Foundation | 随 Xcode 26.2 SDK | 日期、偏好和 Bundle 资源 | 是 | Apple SDK |
-| AVFoundation | 随 Xcode 26.2 SDK | 本地私人短语音播放 | 是 | Apple SDK |
+| AVFoundation | 随 Xcode 26.2 SDK | 本地私人短语音播放；iOS 首次播放时准备 `.ambient` 音频会话 | 是 | Apple SDK |
 | SpriteKit | 随 Xcode 26.2 SDK | 当前 iOS/macOS 正式动画主线 | 仅 iOS/macOS | Apple SDK |
 | libc++ | 随 Xcode 26.2 SDK | Native R5 bootstrap 的 `model3.json` 资源解析（`std::string`/文件流） | 仅 iOS/macOS 私人构建 | Apple SDK；通过私有 `Live2D.private.xcconfig` 的 `-lc++` 链接 |
 | UIKit | 随 iOS SDK | iOS 触觉反馈 | 仅 iOS | Apple SDK |

@@ -43,7 +43,7 @@ sleepy
 - 其余区域：身体
 - 长按 0.62 秒：压扁反馈
 
-`CompanionFeedback` 在 iOS 使用 UIKit 触觉，在 watchOS 使用 WatchKit 触觉，macOS 保持无触觉。`CompanionAudioPlayer` 使用 AVFoundation，并由 `CompanionReaction.voiceTone` 选择 bundle 内被 Git 忽略的三条私人音效：`rapidTap/longPress` 使用 `angry`，`hatTouch/bodyPoke` 使用 `mildlyAngry`，`headPat/chirp` 使用 `soft`；待机和困倦不主动发声。安静模式跳过所有语音。任一私有语音缺失时播放器返回 `false`，不以提示音冒充角色语音。
+`CompanionFeedback` 在 iOS 使用 UIKit 触觉，在 watchOS 使用 WatchKit 触觉，macOS 保持无触觉。`CompanionAudioPlayer` 使用 AVFoundation，并由 `CompanionReaction.voiceTone` 选择 bundle 内被 Git 忽略的三条私人音效：`rapidTap/longPress` 使用 `angry`，`hatTouch/bodyPoke` 使用 `mildlyAngry`，`headPat/chirp` 使用 `soft`；待机和困倦不主动发声。iOS 首次播放前准备 `.ambient` 音频会话并允许与其他音频混音，尊重系统静音开关；若当前路由拒绝会话激活，仍继续尝试 `AVAudioPlayer`，不让会话错误短路播放。安静模式跳过所有语音。任一私有语音缺失、播放器初始化失败或播放失败时才返回 `false`，不以提示音冒充角色语音。
 
 ## View adaptation
 
