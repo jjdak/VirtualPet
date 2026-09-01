@@ -162,6 +162,15 @@ Watch 脚本默认等待 2 秒；可用同名环境变量覆盖设备、构建�
 开始真机验收前可运行 `./scripts/check_physical_acceptance.sh`，只读汇总 iPhone/Watch destination、iPhone/Watch Developer Mode/DDI/tunnel 和 Mac 显示器状态；退出码为 `1` 时不会改变设备或桌面状态。
 若资格未就绪，脚本还会根据当前状态打印开启 Developer Mode、重新连接设备或唤醒 Mac 的手动下一步。
 
+资格恢复后可用显式 CoreDevice ID 构建、安装并启动真机 App（脚本不会猜设备；资格检查失败时不会构建或安装）：
+
+```bash
+DEVICE_ID='你的 iPhone CoreDevice ID' PLATFORM=ios ./scripts/run_physical_preview.sh
+DEVICE_ID='你的 Apple Watch CoreDevice ID' PLATFORM=watchos ./scripts/run_physical_preview.sh
+```
+
+该脚本使用项目的 Automatic Signing；如需覆盖团队，可额外传入 `DEVELOPMENT_TEAM`。它只在 Developer Mode、DDI 服务和 tunnel 均就绪后执行安装与启动。
+
 依赖与制作工具登记规则见 [依赖清单](docs/DEPENDENCIES.md)，状态结构见 [架构说明](docs/ARCHITECTURE.md)。
 
 ## 下一轮

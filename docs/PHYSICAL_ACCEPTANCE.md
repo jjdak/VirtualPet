@@ -9,6 +9,15 @@
 3. 关闭或开启 Reduce Motion 各验一次；安静模式需要单独记录声音关闭但动作仍保留。
 4. 先运行 `./scripts/check_physical_acceptance.sh`；它只读检查 iPhone/Watch destination、iPhone/Watch Developer Mode/DDI/tunnel 和 Mac 显示器状态。退出码为 `1` 只表示尚未具备真机验收资格，不会修改设备或桌面状态，并会打印针对当前状态的手动下一步。
 
+资格通过后，使用显式 CoreDevice ID 启动部署脚本：
+
+```bash
+DEVICE_ID='你的 iPhone CoreDevice ID' PLATFORM=ios ./scripts/run_physical_preview.sh
+DEVICE_ID='你的 Apple Watch CoreDevice ID' PLATFORM=watchos ./scripts/run_physical_preview.sh
+```
+
+脚本会再次检查目标设备；门禁失败时不会构建、安装或启动。部署需要 Xcode Automatic Signing 和可用的个人开发团队。
+
 ## Apple Watch 真机资格恢复
 
 当前连接的 Series 11（`Watch7,18`、watchOS 26.2.1、`arm64e`）已经配对且 CoreDevice 显示 `available (paired)`，但 `xcodebuild` 仍标记为 `ineligible`。`devicectl device info details` 的直接原因是 Developer Mode 为 `disabled`、DDI services 不可用、网络 tunnel 为 `disconnected`。部署前需要在手表/配对 iPhone 上开启 Developer Mode，保持手表解锁并重新连接到 Mac；然后重新运行 `xcodebuild -showdestinations`，只有出现可选的物理 watch destination 后才开始签名部署。

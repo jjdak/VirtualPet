@@ -51,6 +51,7 @@
 | `scripts/verify_watch_motion.sh` | 随项目 | 在 40/42/44/46mm Watch 模拟器连续截取角色区域，验证 SwiftUI 轻量运动持续变化 | 无需安装；依赖 Xcode `xcodebuild`、`simctl`、系统 Python 3 与 macOS `sips` | 否 | 项目脚本 |
 | `scripts/run_macos_preview.sh` | 随项目 | 构建、启动并截屏 macOS 当前 App | 无需安装；依赖 Xcode `xcodebuild`、macOS `open`、`screencapture` | 否 | 项目脚本 |
 | `scripts/check_physical_acceptance.sh` | 随项目 | 只读检查 iPhone/Watch 真机 destination、iPhone/Watch Developer Mode/DDI/tunnel 与 Mac 显示器状态 | 无需安装；依赖 Xcode `xcodebuild`、`devicectl`、`rg` 与 `system_profiler` | 否 | 项目脚本 |
+| `scripts/run_physical_preview.sh` | 随项目 | 在显式 CoreDevice ID 通过 Developer Mode/DDI/tunnel 门禁后，构建、安装并启动 iOS 或 watchOS 真机 App | 无需安装；依赖 Xcode `xcodebuild`、`devicectl`；需要项目签名资格 | 否 | 项目脚本 |
 | `scripts/stage_private_artwork_resources.sh` | 随项目 | 将本地忽略的四张 PNG 姿势图复制为明确 Bundle 资源，避免 SpriteKit 冷启动名称缓存问题 | 无需安装；由 Xcode Build Phase 调用 `bash`；缺失私有图时保留公开占位后备 | 否 | 项目脚本 |
 | `scripts/stage_private_audio_resources.sh` | 随项目 | 将本地忽略的三条 Q 版音频复制到 iOS/macOS/watchOS Bundle 的 `PrivateAudio/` 目录 | 无需安装；由各 App target 的 Xcode Build Phase 调用 `bash`；缺失私有音频时运行时保持静默 | 否 | 项目脚本 |
 | `scripts/verify_private_audio_bundle.sh` | 随项目 | 构建后检查各 App Bundle 的三条私有音频是否存在且为 44.1 kHz AAC | 无需安装；依赖 macOS 内置 `afinfo` | 否 | 项目脚本 |
