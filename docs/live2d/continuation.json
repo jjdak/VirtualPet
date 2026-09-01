@@ -108,6 +108,7 @@
     "2026-09-02 Mac display is online and the app-level Computer Use interaction path is available, but no audible speaker result is inferred; the paired iPhone 15 Pro is unavailable with Developer Mode disabled, DDI services unavailable and tunnel unavailable, while the paired Series 11 watch remains ineligible with Developer Mode disabled, DDI services unavailable and tunnel disconnected",
     "2026-09-02 Apple Watch SE 3 (44mm) Simulator preview builds, installs, launches and screenshots successfully; the compact title, Phoebe artwork, two-line message and 啾比 button remain inside the viewport at .runtime/watch-preview-44-current.png",
     "2026-09-02 CompanionAudioPlayer prepares an iOS ambient AVAudioSession with mixWithOthers and continues to attempt AVAudioPlayer playback if session activation is rejected; current-source iOS Simulator, watchOS Simulator and macOS arm64 builds pass, and macOS arm64 VirtualPetTests reports 12 tests passed",
+    "2026-09-02 no-private-assets public archive build and regression pass after the iOS audio-session routing change; iOS Simulator, macOS arm64 and generic watchOS builds succeed, macOS Swift Testing reports 12 tests and iPhone 17 iOS 26.2 UI regression reports 7 tests with 0 failures",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
