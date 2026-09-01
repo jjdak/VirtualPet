@@ -126,6 +126,7 @@
     "2026-09-02 fresh run_ios_preview.sh and Apple Watch SE 3 (44mm) run_watch_preview.sh builds both succeeded and captured the current sleepy-state layout; screenshots are .runtime/ios-preview.png and .runtime/watch-preview-44-refresh.png",
     "2026-09-02 run_physical_preview.sh also refuses the paired Apple Watch before build/install/launch when Developer Mode is disabled and tunnel is disconnected",
     "2026-09-02 check_physical_acceptance.sh now prints paired iPhone/Apple Watch CoreDevice IDs and scope-specific run_physical_preview.sh commands; the current preflight remains read-only and refuses before build/install/launch",
+    "2026-09-02 run_physical_preview.sh was exercised with the current paired iPhone and Apple Watch CoreDevice IDs; both report Developer Mode/DDI/tunnel not ready and exit before build, install or launch",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
