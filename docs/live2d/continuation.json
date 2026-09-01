@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-08-31",
+  "updatedAt": "2026-09-02",
   "activeTrack": "spritekit-mainline",
   "decision": {
     "live2dStatus": "paused",
@@ -104,6 +104,8 @@
     "2026-08-31 remote GitHub tree audit of jjdak/VirtualPet main finds 94 tracked paths and no private asset/audio/model files, Cubism SDK, xcuserdata, Sunling artifact or removed legacy documents; main points to a3d3460",
     "2026-08-31 check_physical_acceptance.sh preflight is reproducible and read-only: no physical iPhone destination, one ineligible physical Watch destination, Watch Developer Mode disabled with DDI false/tunnel disconnected, and Mac display asleep; exit 1 correctly preserves the physical acceptance gate",
     "2026-08-31 physical preflight parser now accepts short CoreDevice IDs while excluding Xcode ineligible entries; the same current machine state reports Watch available=0/ineligible=1 without changing the gate",
+    "2026-09-02 macOS Preview was re-opened from the current explicit app path and visually inspected: the night idle state, Phoebe artwork, speech bubble and bottom controls render; 叫她一声 and 啾比 produce the expected happy mood/message/reaction changes, and the quiet toggle enters and exits the silent UI state",
+    "2026-09-02 Mac display is online and the app-level Computer Use interaction path is available, but no audible speaker result is inferred; physical iPhone remains unavailable and the paired Series 11 watch remains ineligible with Developer Mode disabled, DDI services unavailable and tunnel disconnected",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {

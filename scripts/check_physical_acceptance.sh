@@ -79,11 +79,19 @@ else
   echo "Apple Watch tunnel: unavailable"
 fi
 
-display_state="$(system_profiler SPDisplaysDataType 2>/dev/null | sed -nE 's/.*Display Asleep: (Yes|No).*/\1/p' | head -n 1)"
+display_info="$(system_profiler SPDisplaysDataType 2>/dev/null || true)"
+display_state="$(printf '%s\n' "$display_info" | sed -nE 's/.*Display Asleep: (Yes|No).*/\1/p' | head -n 1)"
+if [[ -z "$display_state" ]]; then
+  if printf '%s\n' "$display_info" | rg -q '^\s*Online: Yes\s*$'; then
+    display_state="Online"
+  elif printf '%s\n' "$display_info" | rg -q '^\s*Online: No\s*$'; then
+    display_state="Offline"
+  fi
+fi
 echo "Mac display: ${display_state:-unknown}"
 
 exit_code=0
-if [[ "$physical_iphone_count" -eq 0 || "$physical_watch_count" -eq 0 || "$watch_ready" != true || "$display_state" != "No" ]]; then
+if [[ "$physical_iphone_count" -eq 0 || "$physical_watch_count" -eq 0 || "$watch_ready" != true || ( "$display_state" != "No" && "$display_state" != "Online" ) ]]; then
   exit_code=1
   echo "physical acceptance is not ready; no device or desktop state was changed" >&2
 else
