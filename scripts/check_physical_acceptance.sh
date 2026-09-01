@@ -56,6 +56,25 @@ echo "iPhone destination: $([[ "$physical_iphone_count" -gt 0 ]] && echo ready |
 echo "Apple Watch destination: $([[ "$physical_watch_count" -gt 0 ]] && echo ready || echo unavailable) (available=$physical_watch_count, ineligible=$watch_ineligible_count)"
 echo "iOS Simulator destinations: $simulator_count"
 
+iphone_id="$(awk '/iPhone/ && $0 !~ /Apple Watch/ && $0 ~ /[0-9A-Fa-f]{8}-[0-9A-Fa-f-]{27}/ { match($0, /[0-9A-Fa-f]{8}-[0-9A-Fa-f-]{27}/); print substr($0, RSTART, RLENGTH); exit }' "$devices_log")"
+if [[ -n "$iphone_id" && -x "$DEVICETool" ]]; then
+  iphone_details="$check_root/iphone-details.log"
+  DEVELOPER_DIR="$DEVELOPER_DIR_VALUE" "$DEVICETool" device info details --device "$iphone_id" > "$iphone_details" 2>&1 || true
+  iphone_developer_mode="$(sed -nE 's/.*developerModeStatus: ([^[:space:]]+).*/\1/p' "$iphone_details" | tail -n 1)"
+  iphone_ddi_services="$(sed -nE 's/.*ddiServicesAvailable: ([^[:space:]]+).*/\1/p' "$iphone_details" | tail -n 1)"
+  iphone_tunnel_state="$(sed -nE 's/.*tunnelState: ([^[:space:]]+).*/\1/p' "$iphone_details" | tail -n 1)"
+  iphone_pairing_state="$(sed -nE 's/.*pairingState: ([^[:space:]]+).*/\1/p' "$iphone_details" | tail -n 1)"
+  echo "iPhone pairing: ${iphone_pairing_state:-unknown}"
+  echo "iPhone Developer Mode: ${iphone_developer_mode:-unknown}"
+  echo "iPhone DDI services: ${iphone_ddi_services:-unknown}"
+  echo "iPhone tunnel: ${iphone_tunnel_state:-unknown}"
+else
+  echo "iPhone pairing: unavailable"
+  echo "iPhone Developer Mode: unavailable"
+  echo "iPhone DDI services: unavailable"
+  echo "iPhone tunnel: unavailable"
+fi
+
 watch_id="$(awk '/Apple Watch/ && $0 ~ /[0-9A-Fa-f]{8}-[0-9A-Fa-f-]{27}/ { match($0, /[0-9A-Fa-f]{8}-[0-9A-Fa-f-]{27}/); print substr($0, RSTART, RLENGTH); exit }' "$devices_log")"
 watch_ready=false
 if [[ -n "$watch_id" && -x "$DEVICETool" ]]; then

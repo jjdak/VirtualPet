@@ -139,7 +139,7 @@ Watch 脚本默认等待 2 秒；可用同名环境变量覆盖设备、构建�
 
 默认截图写入 `.runtime/macos-preview.png`；设置 `CAPTURE_SCREENSHOT=0` 可只构建并启动，不抓取桌面。
 
-开始真机验收前可运行 `./scripts/check_physical_acceptance.sh`，只读汇总 iPhone/Watch destination、Watch Developer Mode/DDI/tunnel 和 Mac 显示器状态；退出码为 `1` 时不会改变设备或桌面状态。
+开始真机验收前可运行 `./scripts/check_physical_acceptance.sh`，只读汇总 iPhone/Watch destination、iPhone/Watch Developer Mode/DDI/tunnel 和 Mac 显示器状态；退出码为 `1` 时不会改变设备或桌面状态。
 
 依赖与制作工具登记规则见 [依赖清单](docs/DEPENDENCIES.md)，状态结构见 [架构说明](docs/ARCHITECTURE.md)。
 

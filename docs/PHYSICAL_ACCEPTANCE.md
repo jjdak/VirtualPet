@@ -54,7 +54,7 @@
 - iPhone、iPad、Apple Watch 40/42/46mm 和 macOS 模拟器验收已完成。
 - 2026-09-02 当前 macOS Preview（显式路径 `.runtime/macOSPreviewDerivedData/Build/Products/Debug/VirtualPet.app`）已由 Computer Use 重新检查：启动时显示夜间渐变、菲比角色、困倦台词和“啾比/叫她一声/安静陪伴”控件；当前截图为 `.runtime/macos-current-20260902.jpeg`。
 - 2026-09-02 macOS 运行时交互通过：点击“叫她一声”切换到 `开心`、台词“菲比啾比！这声招呼还算有精神。”、音符反馈；点击“啾比”切换到另一条开心台词；安静模式开启后切换为 `平静`、静音图标和安静台词，再次点击恢复正常模式。此次记录只证明 UI/状态/动作路径，不把 Computer Use 的可见反馈当作扬声器听感。
-- 2026-09-02 当前 Mac 显示器已在线且桌面可操作；预检脚本兼容新版 `system_profiler` 的 `Online: Yes` 字段并报告 `Mac display: Online`。脚本仍报告无可用物理 iPhone、Apple Watch Developer Mode disabled/DDI false/tunnel disconnected，因此真机部署门禁仍未通过。
+- 2026-09-02 当前 Mac 显示器已在线且桌面可操作；预检脚本兼容新版 `system_profiler` 的 `Online: Yes` 字段并报告 `Mac display: Online`。iPhone 15 Pro 已配对但仍是 unavailable（Developer Mode disabled、DDI false、tunnel unavailable）；Apple Watch 仍是 Developer Mode disabled/DDI false/tunnel disconnected，因此真机部署门禁仍未通过。
 - 2026-08-31 `My Mac` 已完成默认窗口、缩窄/放宽、叫她一声、帽子/头部/身体鼠标触摸和安静模式 UI 验收；基线截图保存在 `.runtime/macos-physical-acceptance.png`。
 - 2026-08-31 `My Mac` 正常模式点击“啾比”后，界面出现开心姿势、音符和对应台词；按钮到 `CompanionAudioPlayer` 的调用路径已触发，但扬声器是否实际出声仍待项目所有者确认。
 - 2026-08-31 在 Mac 上实际执行 `./scripts/play_audio_ab.sh all`，01/02/03 三条 A→静音→B 连续试听均正常退出；最终听感选择仍由项目所有者决定。
@@ -67,5 +67,5 @@
 - 2026-08-31 当前代码版本再次完成 macOS arm64 无截图冷编译，生成的 `VirtualPet.app` 也通过三条 `PrivateAudio/*.m4a` Bundle 校验；桌面锁屏期间不把该结果当作 Mac 视觉或听感验收。
 - 2026-08-31 iPhone 17 iOS 26.2 模拟器 UI 回归实际执行 7 项且 0 失败：回应、重复呼叫、启动性能，以及四种明暗/横竖屏启动配置。
 - 2026-08-31 检查发现主显示器处于休眠；无破坏唤醒后显示 macOS 登录窗口，未输入凭据，也未进行 Computer Use 或 App 视觉/听感验收。
-- 当前没有可用的物理 iPhone destination；连接的 Apple Watch 仍因架构未知且缺少 provisioning profile 而不可用。
+- 当前没有可用的物理 iPhone destination；已配对的 iPhone 15 Pro 与 Apple Watch 都因开发者模式/DDI/tunnel 状态未就绪而不可部署，Apple Watch 另外在 Xcode 中显示为架构未知/ineligible。
 - 因此本清单暂不勾选真机通过，也不把模拟器结果表述为发布资格。
