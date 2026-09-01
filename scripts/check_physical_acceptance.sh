@@ -107,7 +107,12 @@ else
 fi
 
 display_info="$(system_profiler SPDisplaysDataType 2>/dev/null || true)"
-display_state="$(printf '%s\n' "$display_info" | sed -nE 's/.*Display Asleep: (Yes|No).*/\1/p' | head -n 1)"
+display_state_raw="$(printf '%s\n' "$display_info" | sed -nE 's/.*Display Asleep: (Yes|No).*/\1/p' | head -n 1)"
+case "$display_state_raw" in
+  Yes) display_state="Asleep" ;;
+  No) display_state="Awake" ;;
+  *) display_state="" ;;
+esac
 if [[ -z "$display_state" ]]; then
   if printf '%s\n' "$display_info" | rg -q '^\s*Online: Yes\s*$'; then
     display_state="Online"
@@ -118,7 +123,7 @@ fi
 echo "Mac display: ${display_state:-unknown}"
 
 exit_code=0
-if [[ "$physical_iphone_count" -eq 0 || "$physical_watch_count" -eq 0 || "$watch_ready" != true || ( "$display_state" != "No" && "$display_state" != "Online" ) ]]; then
+if [[ "$physical_iphone_count" -eq 0 || "$physical_watch_count" -eq 0 || "$watch_ready" != true || ( "$display_state" != "Awake" && "$display_state" != "Online" ) ]]; then
   exit_code=1
   echo "physical acceptance is not ready; no device or desktop state was changed" >&2
   echo "manual next steps:" >&2
@@ -128,7 +133,7 @@ if [[ "$physical_iphone_count" -eq 0 || "$physical_watch_count" -eq 0 || "$watch
   if [[ "$physical_watch_count" -eq 0 || "$watch_ready" != true ]]; then
     echo "- Apple Watch: keep it unlocked and near the paired iPhone/Mac, enable Developer Mode, then reconnect it." >&2
   fi
-  if [[ "$display_state" != "No" && "$display_state" != "Online" ]]; then
+  if [[ "$display_state" != "Awake" && "$display_state" != "Online" ]]; then
     echo "- Mac: unlock or wake the display before visual and speaker acceptance." >&2
   fi
 else
