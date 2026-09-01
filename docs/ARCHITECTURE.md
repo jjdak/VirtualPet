@@ -63,6 +63,8 @@ sleepy
 - iOS/macOS：SpriteKit 切换透明关键姿势，并执行连续轻微漂浮和短过渡
 - watchOS：SwiftUI 切换同一组透明关键姿势并应用相同动作参数；仅在明显改善体验时使用 `TimelineView` 播放小尺寸动作图集
 
+`scripts/verify_watch_motion.sh` 会截取同一 Watch 模拟器的两个时刻，只比较角色区域的哈希，排除状态栏时钟和台词变化。当前连续截图已确认轻量漂浮/缩放持续产生变化，因此 watchOS 仍保留 SwiftUI 关键姿态后备，不为当前版本引入额外动作图集资源。
+
 Live2D 现在是条件分支：只有人工在隔离 checkpoint 中制作出一个可见嘴型或眼睛 keyform，且 `scripts/verify_live2d_model3_motion.sh` 返回 0 并报告 Drawable 顶点变化后，iOS/macOS 才恢复 Native Metal host。门禁通过前不安装 Cubism MCP、不自研 GUI/画布自动化，也不让 Live2D 阻塞当前版本。watchOS 始终不链接 Cubism Core。虽然 SpriteKit 框架支持 watchOS，但 SwiftUI `SpriteView` 在 watchOS 不可用，因此本项目不为播放图集倒退到旧式 WatchKit storyboard。模型发现规则、暂停原因和恢复门禁见 `docs/LIVE2D_PIPELINE.md`。
 
 ## Assets

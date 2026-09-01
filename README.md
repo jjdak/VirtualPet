@@ -131,6 +131,14 @@ xcodebuild -project VirtualPet.xcodeproj \
 
 Watch 脚本默认等待 2 秒；可用同名环境变量覆盖设备、构建目录、截图路径和等待时间。
 
+验证 Watch 角色区域在连续截图间确实发生轻量运动（默认 Apple Watch SE 3 44mm，不把时钟或台词变化计入比较）：
+
+```bash
+./scripts/verify_watch_motion.sh
+```
+
+可用 `DEVICE_NAME`、`DEVICE_UDID`、`DERIVED_DATA`、`CAPTURE_DIR`、`PREVIEW_WAIT` 和 `MOTION_WAIT` 覆盖目标与采样间隔；截图写入被 Git 忽略的 `.runtime/`。当前结果支持继续采用 SwiftUI 关键姿态与变换，透明动作图集仅在后续实测有明显收益时再加入。
+
 在 Mac 上构建、启动并截取当前 App：
 
 ```bash
