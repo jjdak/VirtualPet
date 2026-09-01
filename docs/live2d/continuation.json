@@ -119,6 +119,7 @@
     "2026-09-02 current-source iPhone 17 iOS 26.2 target-level UI regression executes 8 tests with 0 failures; testCharacterTouchZonesRespond now exercises the hat, head and body coordinate regions in the rendered interface",
     "2026-09-02 no-private-assets public archive regression after the touch-zone test executes 12 macOS Swift tests and 8 iPhone 17 UI tests with 0 failures; target-level filtering avoids the known method-filter 0-test false positive",
     "2026-09-02 run_physical_preview.sh was added with an explicit CoreDevice ID and a target-specific Developer Mode/DDI/tunnel gate; current iPhone preflight correctly refuses before build/install/launch and exits 1",
+    "2026-09-02 current-source iPhone 17 iOS 26.2 target-level UI regression executes 9 tests with 0 failures; testCharacterLongPressSquashes verifies the rendered accessibility character responds to a 0.75 second press",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {

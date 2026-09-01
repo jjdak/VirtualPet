@@ -83,6 +83,21 @@ final class VirtualPetUITests: XCTestCase {
     }
 
     @MainActor
+    func testCharacterLongPressSquashes() throws {
+#if os(iOS)
+        XCUIDevice.shared.orientation = .portrait
+#endif
+        let app = XCUIApplication()
+        app.launch()
+
+        let character = app.buttons["菲比"]
+        XCTAssertTrue(character.waitForExistence(timeout: 3))
+        character.press(forDuration: 0.75)
+
+        XCTAssertEqual(character.value as? String, "被按扁了")
+    }
+
+    @MainActor
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.
         measure(metrics: [XCTApplicationLaunchMetric()]) {
