@@ -27,7 +27,7 @@
 - [x] 完成首轮 idle、greet、pat、sleep 的动作节奏调优和状态切换验收
 - [x] 完成 iOS 26.2 与 watchOS 26.2 模拟器视觉验收，修正 watchOS 台词换行与按钮裁切
 - [x] 补充 iPadOS 26.2 regular-size 模拟器视觉验收，确认居中内容宽度与角色比例稳定
-- [x] 补充 Apple Watch SE 3 40mm、Series 11 42mm 与 46mm 模拟器视觉验收，按表壳安全区自适应紧凑布局
+- [x] 补充 Apple Watch SE 3 40mm、44mm、Series 11 42mm 与 46mm 模拟器视觉验收，按表壳安全区自适应紧凑布局
 - [x] 为 watchOS 反应图标增加小屏尺寸，避免 `zzz` 等反馈遮挡角色脸部
 - [x] 复跑 iPhone 17 Simulator 6 项 UI 测试与 macOS arm64 11 项单元测试，修正跨平台 UI 测试编译条件
 - [x] 为三条用户确认的 Q 版语音生成原始 A 与轻降噪 B 私人试听候选，暂不替换当前 App 音频

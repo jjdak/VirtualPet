@@ -106,6 +106,7 @@
     "2026-08-31 physical preflight parser now accepts short CoreDevice IDs while excluding Xcode ineligible entries; the same current machine state reports Watch available=0/ineligible=1 without changing the gate",
     "2026-09-02 macOS Preview was re-opened from the current explicit app path and visually inspected: the night idle state, Phoebe artwork, speech bubble and bottom controls render; 叫她一声 and 啾比 produce the expected happy mood/message/reaction changes, and the quiet toggle enters and exits the silent UI state",
     "2026-09-02 Mac display is online and the app-level Computer Use interaction path is available, but no audible speaker result is inferred; the paired iPhone 15 Pro is unavailable with Developer Mode disabled, DDI services unavailable and tunnel unavailable, while the paired Series 11 watch remains ineligible with Developer Mode disabled, DDI services unavailable and tunnel disconnected",
+    "2026-09-02 Apple Watch SE 3 (44mm) Simulator preview builds, installs, launches and screenshots successfully; the compact title, Phoebe artwork, two-line message and 啾比 button remain inside the viewport at .runtime/watch-preview-44-current.png",
     "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
   ],
   "live2dResumeGate": {
