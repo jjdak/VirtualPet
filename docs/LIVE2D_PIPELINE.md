@@ -1,6 +1,10 @@
 # Live2D 与 watchOS 动画管线
 
-## 当前结论
+## 当前项目状态（2026-09-07）
+
+主线已转为 [庭院原型](COURTYARD_PROTOTYPE.md)，C2 浏览器点水片段已实现，等待体验反馈。旧 SpriteKit App 保留，Live2D 继续暂停，Cubism 自动化继续停止。本页以下是历史管线与恢复条件，不是当前执行队列；当前入口为 [继续工作卡](live2d/continuation.json)。
+
+## 旧版结论
 
 当前版本以 SpriteKit 作为 iOS/macOS 正式渲染主线，以 SwiftUI 关键姿态或透明动作图集作为 watchOS 主线。Live2D 不再是当前版本的交付前置条件，只保留一个有明确证据门槛的条件分支。
 

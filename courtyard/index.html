@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ece8db" />
+    <title>庭院 · 午后片刻</title>
+  </head>
+  <body>
+    <main id="app">
+      <header><h1>庭院</h1><span>午 后 片 刻</span></header>
+      <div id="scene" role="application" aria-label="安静的水边庭院。点击水面泛起涟漪，或按回车轻触水面。" tabindex="0"></div>
+      <div id="loading" role="status">光正落在水面上<span>正在准备庭院</span></div>
+      <footer><p id="hint">在水面，轻轻点一下</p><button id="pause" aria-pressed="false" aria-label="暂停庭院动画">暂停片刻</button></footer>
+      <div id="error" role="alert" hidden></div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

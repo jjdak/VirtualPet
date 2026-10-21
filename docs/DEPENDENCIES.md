@@ -1,5 +1,66 @@
 # 依赖与制作工具清单
 
+## Tripo 候选服务研究（2026-09-13）
+
+仅核对官方绑骨、预设动作、格式与价格文档，见 [研究记录](courtyard/TRIPO_RIGGING_RESEARCH.md)。尚未连接账户、安装插件、上传模型或执行付费任务，不属于已采用运行依赖。API 当前标价 Rig Check 免费、Auto Rig 25 credits、每动作 Retarget 10 credits，1 credit = 0.01 美元；实际账户计费与 Studio 网页套餐另核对。少女A脸与发型已获认可，用户文件身体绑定已通过，但缺失眨眼和独立视线数据；2026-09-14 用户接受该缺口，直接推进场景与身体动作，不默认重绑。
+
+## 用户提供少女A文件（2026-09-13）
+
+已接收并原样复制 `6309260419351179234.vrm.glb` 到 Git 忽略的 `PrivateAssets/Courtyard/Characters/GirlA/`。内嵌标题 GirlA、作者 Kutsushita；作者页面声明 CC0，内嵌许可为 VRoid Hub 的允许修改/再分发/商业使用条款链接，两者分别留存于 `SOURCE.json`，没有改写原文件许可。SHA256 `8ce09c753a14e2ad9d9a6ee46d00953637cead228bb27d9026765e94ec5533da`。用已有 Blender 内置 glTF 导入器检查，无新增插件、服务上传或费用；未进入庭院或 App。绑定结果见[实查](courtyard/GIRL_A_RIG_REVIEW.md)。
+
+## 现成人物候选（2026-09-13）
+
+用户随后否决 Rain 外观，下载文件仅留历史。当前短名单为「少女A」（くつした）和千駄ヶ谷渋（VRoid Project/pixiv）；作者/官方 CC0 页面已核对，完整来源见 [候选记录](courtyard/OPEN_CHARACTER_REVIEW.md)。前一轮只保存公开作者预览到 `PrivateAssets/Courtyard/Characters/ShortHairCandidates/`，当时未下载这两个模型，也未安装导入插件；不要把预览图当作实际集成证据。
+
+- **Rain / Blender Studio**：从[官方 v3 页面](https://studio.blender.org/characters/rain/v3/)下载原始 `rain-v33.zip`，保存于 `PrivateAssets/Courtyard/Characters/Rain/`。页面和原下载文件名保留；包内为 `Rain v3.3/rain_v3.2.blend`，不自行改称内部版本。
+- 许可：[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，署名 `Rain Rig (CC) Blender Foundation | studio.blender.org`。来源、SHA256 和署名文本随资产保存在 `SOURCE.json` / `ATTRIBUTION.txt`。官方宣传图也只作候选展示并保留出处。
+- 已下载并解压，未修改作者网格，未引入主庭院。没有新增插件或付费依赖。官方自带脚本的 UI 和完整兼容性仍须实际检查；本轮基础打开检查关闭自动脚本运行。
+
+## 当前 Blender 制作环境（2026-09-12）
+
+- Blender **5.2.1 LTS / arm64** 已安装于 `/Applications/Blender.app`；本机核实为 Apple M4、16 GiB 内存、macOS 26.6.2。
+- 官方安装包：[blender-5.2.1-macos-arm64.dmg](https://download.blender.org/release/Blender5.2/blender-5.2.1-macos-arm64.dmg)。SHA-256：`6409e21de80994db5f4c4a34486b6fd43cea21085b912f7491c53e923acb65a3`，已与同目录官方 `.sha256` 文件匹配。
+- [Blender GPL 许可](https://www.blender.org/about/license/)，无购买费用。本轮使用内置 glTF 导入器和 Cycles；未安装 VRM Add-on、VRoid 或收费插件。
+- 迁移复用下列既有 Three.js、Playwright、VRM 示例和 CC0 贴图，未新增 npm 包或外部美术素材。GLB 与 `.blend` 含人物，均在 `PrivateAssets/` 保持 Git 忽略。源模型许可不因转换而改变。
+- 以下“未安装 Blender”等描述属于历史记录，以本节为当前状态。
+- B1 单帧美术沿用现有 Blender/Cycles；石块、冠层和水体由本地网格及原生节点制作，没有下载第三方美术资产或新增依赖。艺术家一手拆解仅作为方法参考，来源和采用范围见 [B1 美术记录](courtyard/B1_ART_PASS.md)。
+
+## 庭院原型状态（2026-09-07）
+
+当前主线为 `courtyard-prototype`。概念板由环境内置 imagegen 生成；C2 在独立 `courtyard/` 目录采用 Three.js + three-vrm。尚未集成 AIRI 或 TalkingHead 的应用运行时。Blender、VRoid 本轮未安装；庭院几何为项目代码生成，人物使用官方示例。以下新增依赖仅进入浏览器原型，不进入旧 Swift App。
+
+| 名称 | 锁定版本 | 用途 / 恢复 | 许可证与来源 |
+| --- | --- | --- | --- |
+| Three.js | 0.185.1 | WebGL 渲染、场景、点击命中；`cd courtyard && npm ci` | MIT；npm / https://github.com/mrdoob/three.js |
+| @pixiv/three-vrm | 3.5.5 | VRM 加载、归一化骨骼、表情和眼神；同上 | MIT；npm / https://github.com/pixiv/three-vrm |
+| Vite | 8.2.2 | 本机开发服务与构建；同上；不进入运行时 | MIT；npm / https://github.com/vitejs/vite |
+| Node.js / npm | 已有 24.13.0 / 11.6.2 | 开发与依赖管理；本轮未重装 | Node.js MIT 及组件许可；npm Artistic-2.0 |
+| VRM1_Constraint_Twist_Sample | v1.0.1，three-vrm v3.5.3 标签中的固定文件 | 临时坐姿人物；`npm run assets` 校验并恢复到忽略的 `courtyard/public/models/` | pixiv Inc.；[VRM Public License 1.0](https://vrm.dev/licenses/1.0/)；内嵌元数据允许再分发和修改后再分发，credit unnecessary，禁止反社会/仇恨使用 |
+
+人物来源：https://github.com/pixiv/three-vrm/blob/v3.5.3/packages/three-vrm/examples/models/VRM1_Constraint_Twist_Sample.vrm 。SHA-256：`12c2b97e95e700783a6a550dc0eee2d7880aeedccef9ae67bc4c5a2f0f2631a2`。二进制原件在 `PrivateAssets/Courtyard/` 保留；运行时副本仍 Git 忽略，下载脚本与许可说明可公开。未修改源模型文件；坐姿和材质色调在原型运行时调整。浏览器构建会带入已暂存的模型；最终发布资源和平台尚未决定。
+
+传递依赖以 `courtyard/package-lock.json` 固定（含 pixiv VRM 子模块、Vite/Rolldown 平台构建组件）；使用 `npm ci` 复现。安装结束 npm audit 报告 0 vulnerabilities，此结果只代表当时检查。
+
+2026-09-06 浏览器实际检查使用 Codex 内置浏览器。2026-09-07 续作时内置浏览器控制工具不再提供，已有 Edge 可执行文件无执行权限；没有修改用户浏览器权限，改用官方 Playwright 无界面浏览器完成最终检查。
+
+| QA 工具 | 版本 | 用途 / 恢复 | 许可证 / 范围 |
+| --- | --- | --- | --- |
+| Playwright | 环境已有 1.62.1 | `scripts/browser-check.cjs` 浏览器检查；通过 `PLAYWRIGHT_MODULE_PATH` 指向已有模块 | Apache-2.0；不进入运行时 |
+| Chrome Headless Shell | 151.0.7922.34 / Playwright build 1234 | 官方 `playwright install chromium --only-shell`；`PLAYWRIGHT_BROWSERS_PATH` 指向项目 `.runtime/courtyard/browsers`；下载约 94.7 MiB | Chromium BSD 及第三方组件许可；仅 QA |
+| Playwright FFmpeg | build 1011 | 上述安装自动下载约 1 MiB；仅 QA 工具支持文件 | FFmpeg LGPL/GPL 及构建组件许可，以分发包为准 |
+
+已有系统 FFmpeg 用于录屏转码，不进入原型。所有浏览器 QA 下载和产物均在 Git 忽略的 `.runtime/courtyard/`，不写入应用安装目录。
+
+
+## 2026-09-09 画面改进新增
+
+- **Stone Wall 05 / 1K diffuse**：Charlotte Baglioni / Poly Haven，CC0 1.0。原始素材来源与许可为 https://polyhaven.com/a/stone_wall_05 和 https://polyhaven.com/license 。用于浏览器庭院墙脚/台阶基础，约 818 KiB，会随浏览器构建进入资源包；可公开保留。
+- 路径：`courtyard/public/textures/stone_wall_05_diff_1k.jpg`。SHA-256：`0dbdc815a88f3f4365254fa5a927dfcac46031a28a9b6bdc01654b34a1d4ac7a`。精确恢复链接见同目录 `NOTICE.md`；没有下载网页预览图代替素材。
+- `surfaces.js` 的灰泥、石面、细叶和接触阴影纹理为项目内 Canvas 生成；使用已锁定 Three.js 的 RoundedBoxGeometry 与离屏反射目标，没有新增 npm 依赖。
+- Blender、ambientCG、Meshy 仅为研究候选，未安装、未下载候选资产或订阅服务。论证见 [画面评审](courtyard/ART_DIRECTION_REVIEW.md)。
+
+2026-09-11：人物支撑求解为项目代码，仅使用已锁定 Three.js；本轮无新增软件、npm 包或外部素材。源 VRM 不变，Blender 未安装。
+
 ## 约定
 
 项目允许新增或下载依赖，但必须在同一次变更中记录：
@@ -12,9 +73,9 @@
 
 新增依赖后未更新本文件，视为变更未完成。
 
-## App 运行时
+## 旧 Swift App 运行时
 
-当前没有第三方运行时依赖，也没有 Swift Package Manager、CocoaPods 或 Carthage 包。
+旧 Swift App 没有第三方运行时依赖，也没有 Swift Package Manager、CocoaPods 或 Carthage 包。
 
 本地构建会执行读取被 Git 忽略的私人资源的 Xcode Build Phase；项目 Debug/Release 配置已将 `ENABLE_USER_SCRIPT_SANDBOXING` 设为 `NO`，因此在 Xcode 中可直接运行。预览、回归脚本仍显式传入 `ENABLE_USER_SCRIPT_SANDBOXING=NO`，保证 CI/命令行环境不依赖用户默认设置。脚本只读取项目内被 Git 忽略的私人资源目录。
 
@@ -99,3 +160,11 @@ R5 Core 的二进制最低系统标记为 iOS 26.2、macOS 15.7。项目所有�
 R5 的 iOS 模拟器 Core 只提供 arm64，因此私人配置排除 `x86_64` 模拟器架构。Apple Silicon 模拟器、iPhone/iPad 真机和 arm64 macOS 均不受影响。
 
 不能只克隆公开的 `CubismNativeFramework`：它不包含加载模型所需的 Cubism Core。SDK、Core、官方示例构建产物和私人角色模型都由 `/PrivateAssets/` 规则排除，不会进入公开 Git。若将 App 分发或改变私人非商业用途，必须重新按官方 SDK Release License 流程判断发布许可。详细步骤见 `docs/LIVE2D_PIPELINE.md`。
+
+## 2026-09-14 果蝇行为研究与少女A入景
+
+研究 Google/Janelia 连接图、Eon 具身说明、NeuroMechFly/flybody 和作者公开稿，仅用于方法比较，见[研究文档](courtyard/FLY_BRAIN_BEHAVIOR_RESEARCH.md)。未下载连接组数据、未安装 MuJoCo/神经模拟器、未接入 exploreBrain 或 Tripo。少女A入景只复用用户已有文件、贴图和原骨架，未新增人物网格、外部资产或费用。
+
+## B2 原生短片制作（2026-09-14）
+
+复用 Blender 5.2.1 LTS 的 Cycles、Metal GPU 与原生关键帧；未安装额外动画插件或下载外部人物/贴图。系统已有 `/opt/homebrew/bin/ffmpeg` 与 `ffprobe`，本轮读取版本为 8.1.1，用于 PNG 序列封装成 H.264 MP4 和检查时长/帧数；仅为本地制作工具，不进入 App。无付费服务、模型上传、聊天或学习依赖。制作与验收见[八秒小样记录](courtyard/B2_LIGHT_MOTION_STUDY.md)。
