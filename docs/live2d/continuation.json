@@ -1,7 +1,13 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-09-02",
-  "activeTrack": "spritekit-mainline",
+  "updatedAt": "2026-10-21",
+  "latestOwnerFeedback": {
+    "date": "2026-10-21",
+    "quote": "先把之前的成果收束一下，该上传github的保存好。现在我们开启新的阶段，先搜索要达成这个效果需要实现哪些",
+    "interpretation": "Owner authorized B2 closeout, GitHub preservation and research for an observable, intervenable world with human/AI character control.",
+    "research": "docs/SIM_STAGE_PLAN.md"
+  },
+  "activeTrack": "courtyard-sim",
   "decision": {
     "live2dStatus": "paused",
     "customCubismAutomationStatus": "stopped",
@@ -11,12 +17,18 @@
       "The Core motion probe returns exit 2 because none of the 12 tested parameter extremes changes drawable vertex hashes.",
       "Cubism 5.4 Alpha External Application Integration does not expose ArtMesh vertex-coordinate editing, so MCP or GUI automation does not remove the real rigging bottleneck.",
       "A custom canvas automation layer is not economical for one character and must not block the app."
-    ]
+    ],
+    "productDirection": "A quiet small simulation world: observe, intervene, and take over a character; grounded actions and consequences.",
+    "legacyAppStatus": "preserved; physical acceptance and cross-device expansion deferred",
+    "courtyardRenderer": "Three.js 0.185.1 + three-vrm 3.5.5; independent fixed-camera browser prototype",
+    "learningStatus": "LLM action selection planned after deterministic world/control slice; no RL, fine-tuning or exploreBrain integration yet.",
+    "authoringDirection": "Blender remains the art source. B2 is archived; evaluate a separate real-time runtime without overwriting native art. Godot is the S1 recommendation, not yet installed or validated.",
+    "courtyardAuthoringSoftware": "Blender 5.2.1 LTS, macOS arm64"
   },
   "milestone": {
-    "id": "spritekit-animation-polish",
-    "status": "in_progress",
-    "nextAction": "Project owner enables Developer Mode on the paired iPhone and Apple Watch, reruns scripts/check_physical_acceptance.sh, then completes physical interaction and owner speaker listening; keep the current SwiftUI Watch fallback and do not reopen Cubism.",
+    "id": "SIM-S0",
+    "status": "research_and_archive_complete_S1_pending",
+    "nextAction": "S1: validate a separate Godot scene with a small courtyard section, existing GirlA skinned GLB and body animation, manual movement and observer/first-person camera switch. Record import and appearance limits before expanding or connecting an LLM.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -127,7 +139,21 @@
     "2026-09-02 run_physical_preview.sh also refuses the paired Apple Watch before build/install/launch when Developer Mode is disabled and tunnel is disconnected",
     "2026-09-02 check_physical_acceptance.sh now prints paired iPhone/Apple Watch CoreDevice IDs and scope-specific run_physical_preview.sh commands; the current preflight remains read-only and refuses before build/install/launch",
     "2026-09-02 run_physical_preview.sh was exercised with the current paired iPhone and Apple Watch CoreDevice IDs; both report Developer Mode/DDI/tunnel not ready and exit before build, install or launch",
-    "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible"
+    "local checkpoint fd359ed records the reduction-first SpriteKit/SwiftUI rebuild, private-asset ignore rules and verified preview scripts; no remote push was attempted because the configured GitHub repository is inaccessible",
+    "2026-09-12: Blender 5.2.1 LTS installed from SHA256-verified official arm64 image. Native courtyard.blend saved and reopened; 18 packed textures, 154 rig bones, actual blink/head vertex displacements 0.03532/0.05968 m verified. Approved overview camera scale corrected; rig display helper excluded from render. Cycles migration still inspected; aesthetics and native animation not accepted.",
+    "2026-09-12: B1 v3 saved, rendered and visually inspected. Stone silhouettes/palette, canopy volume/normals, wall dampness and closed shallow water edited in native Blender versions; v2 reversed leaf winding corrected in v3. Reopen verification passes with 17 packed images, 154 bones and actual blink/head deformation. B0 hash unchanged; static art owner feedback pending, B2 not started.",
+    "2026-09-13: User stopped bespoke character modeling. Rain official archive downloaded and ZIP checked; Blender 5.2.1 basic read-only load with embedded auto-scripts disabled finds RIG-rain with 2166 bones and 13 shape-key meshes. Source and CC-BY-4.0 credit recorded. Full UI/drivers, courtyard integration and visual choice remain unverified.",
+    "2026-09-13: Owner rejected Rain and requested the original East Asian short-haired girl style. Verified Girl A creator CC0 page and Sendagaya Shibu official CC0 documentation; downloaded and inspected public character preview images only. Neither candidate is approved, downloaded as a model, rig-tested or integrated.",
+    "2026-09-13: Owner approved Girl A face/hair direction and requested Tripo research. Official existing-model Auto Rig, v3 rig-check/rig/retarget API and pricing checked. VRM direct input not documented; body presets and GLB/FBX output confirmed from docs, no real model or service execution. B1 asset inspection next; B2 not started.",
+    "2026-09-13 Girl A official download UI checked in Safari: pixiv sign-in required. No original model found in project or Downloads; no rig inspection, character replacement, Tripo upload or animation performed.",
+    "2026-09-13 Owner GirlA GLB verified: title/author match, Blender 58 bones, real head/arm/knee/finger mesh displacement, 4 packed textures, zero shape keys and eye bones. Independent comparison render inspected; no courtyard replacement or Tripo task.",
+    "2026-09-14 GirlA scene v3 reopens with 58 active character bones, 21 packed images (including retained old character), actual head skinning delta 0.045527 m. Original environment v3 SHA256 unchanged; approved camera preserved. Static face accepted by owner for current scene-first progress; native short animation not authored.",
+    "2026-09-19 B2 light/motion project saved and reopened; source/camera/character meshes preserved; native loop endpoint identical. Delivered Cycles 1280x720 still and 960x540 H.264 movie: 192 frames, 24fps, 8.000s, full decode passed. Still and five decoded video frames inspected; subjective acceptance pending.",
+    "2026-10-02 B2 color v2 saved from existing B2 v1: camera, mesh vertex and action keyframe fingerprints unchanged; source hash preserved. Reopened and rendered 1280x720 Cycles96 still; inspected draft and final. Existing 8-second video retains v1 appearance, v2 movie not rendered.",
+    "2026-10-02 B2 shape v3 saved/reopened, source preserved. Camera/character/actions/seat surfaces unchanged, new canopy sample movement 0.024158m and endpoint error 0. Rendered and inspected Cycles96 1280x720 still; v1 remains only delivered movie. Owner art acceptance pending.",
+    "2026-10-02 Plan P1-P4 complete. V4 character-only rim via light linking, head/neck amplitude1.22 and wind1.18. Same saved scene rendered to 1280x720 Cycles128 still and 960x540 Cycles48 192-frame/24fps/8s movie. Source/mesh/camera preserved; reopen/contact/loop checks, full decode and 5-frame visual inspection passed. Real-time subjective playback remains unverified.",
+    "2026-10-02 Encoding audit compared original PNGs and five profiles. Selected CRF6 H264 review (1.24MB) and ProRes422HQ (52.9MB), both 192 frames/24fps/8s with full decode pass. Mean grayscale seam difference improved from .103125 to .049722/.027083. Native playback blocked by Mac lock; subjective and real-time visual acceptance not claimed.",
+    "2026-10-03 QuickTime loaded exact current review MP4. Loop playback remained on during timed34.475s window, timeline wrapped from5.934s to0.368s. Screenshots show head-pose changes and stable full layout. Paused after review; original loop setting restored. Lock blocker resolved. This is intermittent observation, not proof of zero local shimmer or owner aesthetic acceptance."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -138,7 +164,7 @@
       "The editable cmo3 and runtime export are saved outside temporary storage."
     ],
     "onPass": "Live2D runtime work may resume at the Native Metal host without building custom Cubism GUI automation.",
-    "onFailure": "Freeze Live2D for the current release and continue SpriteKit and watchOS atlas work.",
+    "onFailure": "Keep Live2D frozen. Follow the active courtyard milestone; do not resume old SpriteKit polish or Watch atlas work automatically.",
     "prohibitedUntilPass": [
       "Installing or enabling a Cubism MCP",
       "Building a custom Cubism keyform or canvas automation tool",
@@ -147,17 +173,331 @@
     ]
   },
   "nextActions": [
-    "Keep CompanionSpriteView as the iOS/macOS renderer for the current release.",
-    "Polish idle, greet, pat and sleep using the existing reaction and key-pose contract.",
-    "Keep the verified SwiftUI Watch motion fallback; build transparent motion atlases only if later device testing shows a material improvement.",
-    "Project owner: enable Developer Mode on the paired iPhone and Apple Watch, reconnect them, and rerun scripts/check_physical_acceptance.sh.",
-    "Complete physical iPhone, Apple Watch and Mac visual and device acceptance; no physical iPhone destination is currently connected, and the connected Apple Watch remains ineligible until its architecture/provisioning is resolved.",
-    "Reconsider Live2D only after the resume gate receives a human-authored moving model."
+    "S1: validate a separate Godot scene with a small courtyard section, existing GirlA skinned GLB and body animation, manual movement and observer/first-person camera switch. Record import and appearance limits before expanding or connecting an LLM."
   ],
   "preservedLive2DCheckpoint": {
     "baselineModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-imported.cmo3",
     "experimentalModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-5.4-alpha-test0.cmo3",
     "runtimeExport": "PrivateAssets/Live2D/Exports/PhoebeLive2D/",
     "temporaryStorageAllowed": false
+  },
+  "previousTrack": {
+    "id": "spritekit-mainline",
+    "status": "preserved_baseline_deferred",
+    "milestone": {
+      "id": "spritekit-animation-polish",
+      "status": "in_progress",
+      "nextAction": "Project owner enables Developer Mode on the paired iPhone and Apple Watch, reruns scripts/check_physical_acceptance.sh, then completes physical interaction and owner speaker listening; keep the current SwiftUI Watch fallback and do not reopen Cubism.",
+      "cubismActionRequired": false
+    },
+    "nextActions": [
+      "Keep CompanionSpriteView as the iOS/macOS renderer for the current release.",
+      "Polish idle, greet, pat and sleep using the existing reaction and key-pose contract.",
+      "Keep the verified SwiftUI Watch motion fallback; build transparent motion atlases only if later device testing shows a material improvement.",
+      "Project owner: enable Developer Mode on the paired iPhone and Apple Watch, reconnect them, and rerun scripts/check_physical_acceptance.sh.",
+      "Complete physical iPhone, Apple Watch and Mac visual and device acceptance; no physical iPhone destination is currently connected, and the connected Apple Watch remains ineligible until its architecture/provisioning is resolved.",
+      "Reconsider Live2D only after the resume gate receives a human-authored moving model."
+    ],
+    "verificationNote": "lastVerified entries dated through 2026-09-02 describe the old app; they do not validate the courtyard."
+  },
+  "courtyard": {
+    "brief": "docs/COURTYARD_PROTOTYPE.md",
+    "visualStatus": "seated_support_and_shading_pass_rendered_and_checked",
+    "implementationStatus": "c2_implemented_and_browser_checked",
+    "ownerVisualAcceptance": "combined_layout_and_atmosphere_direction_accepted_quality_needs_polish",
+    "engine": "Three.js browser prototype; final platform undecided",
+    "timeAndMoneyBudget": "not_set",
+    "conceptBoard": "docs/courtyard/concept-v1.png",
+    "prompt": "docs/courtyard/concept-v1-prompt.md",
+    "verification": [
+      "2026-09-06 built-in imagegen produced one main courtyard composition plus three interaction storyboard panels.",
+      "Visual inspection confirms consistent character, stone steps, water, wind chime, ripples and floating leaf. This is still concept art; timing, sound and interaction remain unverified.",
+      "2026-09-06 in-app browser visually verified seated pose after fixing stone occlusion, actual eyelid open/close, head turning and water rings after replacing an invisible ring material.",
+      "2026-09-07 npm test passes 3 attention cases and npm run build passes; 752 kB minified JS chunk warning remains.",
+      "2026-09-07 browser-check.cjs passes actual water input, left/right head and eye movement, stone rejection, 12 rapid inputs with 8 ripple cap, recovery, pause, recording and no console/page errors.",
+      "2026-09-07 final screenshots visually inspected; final canvas recording saved at 1280x720, about 11.4 seconds, approximately 3 fps in headless QA. This is not a performance or subjective acceptance pass.",
+      "2026-09-09: resuming the unfinished post-hair-reset regression. Prior run failed the head-turn threshold after fixed wall-time waits in low-frame-rate headless rendering; replacing wall waits with bounded waits for rendered simulation progress before evaluating the unchanged motion threshold.",
+      "2026-09-09: final post-hair-reset browser regression passes all 10 checks with unchanged motion thresholds. Left/right head yaw measured -0.3679 / +0.5254 rad after bounded waits for rendered time; rapid input recovery, pause and no runtime errors pass. Updated screenshots and canvas recording saved.",
+      "2026-09-09 art revision: npm build and 3 attention tests pass. Full browser regression passes 10 checks, head yaw -0.3675 / +0.5253 rad, no runtime or shader errors. Actual rendered screenshots inspected; subjective visual quality remains unaccepted.",
+      "After the full art regression, derived water geometry from shared bounds and extended the foreground. Narrow-view clipping was traced to the orthographic near plane, fixed by moving the camera backward along its view axis without changing composition and offsetting fog distances equally. Final build and targeted water-touch/390x844 resize capture verify the final view; no physical-device acceptance is inferred.",
+      "2026-09-10: restored original courtyard footprint and overview camera while retaining September 9 surfaces, lighting, fine leaves and static water reflection. Build and 8 targeted browser checks pass; screenshot inspected after limiting the tree crown to the original composition. Stillness/naturalness acceptance remains pending.",
+      "2026-09-11: 5 unit checks and build pass; full browser regression passes 10 checks after allowing additional wall time for slow software rendering to reach idle (state thresholds unchanged). Left/right yaw -0.3584/+0.5254. Support assertions over left/right/idle samples pass with wrist error below 2mm; same-camera before/after screenshots inspected. No runtime or shader errors; subjective pose/lighting acceptance remains pending."
+    ],
+    "ownerVisualFeedback": "2026-09-06 用户评价概念板「效果非常好」，随后认可工具方案并授权制定计划、记录进展和开始制作。浏览器 3D 用于 C2 原型；动态体验尚待用户验收。 2026-09-09：用户确认「动作有了」，但指出整体画面感与细节离插画很远，要求搜索改进工具/素材并继续。 2026-09-10：用户明确选择「上一个的场景布局，这一个的画面感受」；保留原始完整庭院的空间布局与整体视角，采用 9 月 9 日的材质、细叶树影和水面质感。 用户评价「感觉对了，目前的表现很差，还能从哪些方面去优化」：确认合并后的布局与氛围方向，实际美术完成度和自然度仍需提升。 2026-09-11：用户授权「可以继续」，开始人物支撑坐姿与材质受光改进。 2026-09-12 研究续接：用户再次指出「现在距离最初的效果图还差远了」，要求搜索最新知识和技巧。整体画质仍未认可，不能据此进入下一表演步骤。 2026-09-12：用户澄清不必回到浏览器适配，在专业软件中建模优化即可；当前选型和制作不再要求浏览器回传。",
+    "progressLog": "docs/courtyard/PROGRESS.md",
+    "startedAt": "2026-09-06T06:46:40.974701+00:00",
+    "ownerPlayableAcceptance": "motion_present_naturalness_and_finish_not_accepted",
+    "previewUrl": "http://127.0.0.1:4173/",
+    "runInstructions": "courtyard/README.md",
+    "checkedAt": "2026-09-10T16:57:28.620Z",
+    "screenshot": ".runtime/courtyard/pose-light/after-wide.png",
+    "recording": ".runtime/courtyard/pose-light/full/c2-final.webm",
+    "verificationReport": ".runtime/courtyard/pose-light/full/verification.json",
+    "limitations": [
+      "Temporary VRM hair, clothing, proportions and basic pose differ from the approved illustration.",
+      "Procedural geometry and materials still fall short of the illustrated reference; static environment reflection excludes the moving character.",
+      "No audio, chime interaction, leaf interaction or learning; Blender and paid asset tools have not been installed.",
+      "Headless capture is not a subjective timing or device-performance acceptance; owner review remains pending."
+    ],
+    "artReview": "docs/courtyard/ART_DIRECTION_REVIEW.md",
+    "poseLightReview": "docs/courtyard/POSE_LIGHT_PASS.md",
+    "supportVerificationReport": ".runtime/courtyard/pose-light/support-verification.json",
+    "illustrationGapResearch": "docs/courtyard/ILLUSTRATION_GAP_RESEARCH.md",
+    "dccSoftwareReview": "docs/courtyard/DCC_SOFTWARE_REVIEW.md"
+  },
+  "blender": {
+    "version": "5.2.1 LTS",
+    "application": "/Applications/Blender.app",
+    "project": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-reference-v6-focused.blend",
+    "preview": "PrivateAssets/Courtyard/Blender/B2/b2-reference-v6-focused.png",
+    "guide": "blender/README.md",
+    "status": "v6_reference_lighting_still_delivered_v5_motion_baseline",
+    "ownerVisualAcceptance": "v3 direction accepted for refinement; v5/v6 subjective acceptance pending",
+    "nativeAnimationStatus": "v5 body follow retained unchanged in v6; only v6 frames 1/101/193 rendered",
+    "verification": "PrivateAssets/Courtyard/Blender/B2/b2-reference-v6-review.json",
+    "sourceHash": "1c94af34f7a029aebf1626ae5f8c9eb4e9820a5d79842fe061402db3f58e47da",
+    "checks": {
+      "active_character_bones": 58,
+      "face_shape_keys": 0,
+      "camera_unchanged": true,
+      "character_meshes_unchanged": true,
+      "saved_reopened": true,
+      "packed_images": 21,
+      "max_wrist_drift_m": 6.529361695112778e-07,
+      "loop_endpoint_vertex_error_m": 0.0,
+      "head_body_max_displacement_m": 0.22360381195133733,
+      "video_frames": 192,
+      "video_fps": 24,
+      "video_duration_seconds": 8,
+      "full_video_decode": "pass",
+      "visual_review": "v6 formal frame1/frame101 and v5/v6 comparison inspected; v6 full movie not rendered",
+      "color_v2": {
+        "reopened": true,
+        "source_unchanged": true,
+        "camera_mesh_action_fingerprints_unchanged": true,
+        "still_resolution": [
+          1280,
+          720
+        ],
+        "still_samples": 96
+      },
+      "shapes_v3": {
+        "reopened": true,
+        "camera_character_actions_seats_unchanged": true,
+        "canopy_sample_motion_m": 0.024158142244746373,
+        "canopy_sample_loop_error_m": 0,
+        "stone_objects": 86
+      },
+      "presence_v4": {
+        "reopened": true,
+        "all_meshes_camera_unchanged": true,
+        "max_wrist_drift_m": 5.724839184373184e-07,
+        "loop_endpoint_vertex_error_m": 0.0,
+        "head_body_max_displacement_m": 0.15897413204431315,
+        "fps": 24,
+        "video_frames": 192,
+        "video_seconds": 8,
+        "video_decode": "pass",
+        "source_v3_unchanged": true,
+        "native_playback_evidence": "PrivateAssets/Courtyard/Blender/B2/v4-native-playback.json"
+      },
+      "encoding_review": {
+        "mp4_decode": "pass",
+        "prores_decode": "pass",
+        "mp4_seam_difference": 0.04972222222222222,
+        "prores_seam_difference": 0.027083333333333334,
+        "native_realtime_playback": "runtime checked with intermittent screenshots on 2026-10-03",
+        "scope": "Historical v4 only"
+      },
+      "reference_v6": {
+        "reopened": true,
+        "all_meshes_layout_camera_actions_preserved": true,
+        "source_v5_unchanged": true,
+        "still_resolution": [
+          1280,
+          720
+        ],
+        "still_samples": 128,
+        "rendered_frames": [
+          1,
+          101,
+          193
+        ],
+        "frame1_193_gray_difference": 0,
+        "full_movie_rendered": false
+      }
+    },
+    "baseline": {
+      "project": "PrivateAssets/Courtyard/Blender/courtyard.blend",
+      "preview": "PrivateAssets/Courtyard/Blender/migration-preview.png",
+      "sha256": "dfeddb81eaba7177a68914f8ff6cbab90f0b7938aa7160d838f85ef603f09c63",
+      "packed_images": 18
+    },
+    "artReport": "docs/courtyard/AI_BLENDER_COMMUNITY_RESEARCH.md",
+    "remainingArtGaps": [
+      "Miniature-model appearance and fragmented canopy remain",
+      "Full-view character remains small; static face accepted",
+      "v6 full movie not rendered; v5 movie appearance is older",
+      "Owner subjective quiet mood and naturalness acceptance pending"
+    ],
+    "characterPolicy": "Existing openly licensed models only; no self-modeled character, clothing or hairstyle.",
+    "characterExperimentStatus": "stopped_by_owner_2026-09-13; courtyard-b1-character-v1/v2 not current project",
+    "characterCandidate": {
+      "name": "少女A",
+      "creator": "Kutsushita",
+      "source": "https://hub.vroid.com/characters/5271108759876567944/models/9069514665234246177",
+      "license": "CC0 on author page; original embedded terms preserved",
+      "status": "owner_accepted_static_face_for_scene_first_progress",
+      "review": "docs/courtyard/GIRL_A_RIG_REVIEW.md"
+    },
+    "characterAppearance": "GirlA selected, owner accepts static face for current progress; original sailor clothing retained",
+    "characterShortlist": [
+      {
+        "name": "少女A",
+        "creator": "くつした",
+        "source": "https://hub.vroid.com/characters/5271108759876567944/models/9069514665234246177",
+        "license": "CC0-1.0",
+        "status": "owner_file_imported_body_skinning_pass; blink_and_independent_gaze_missing",
+        "ownerFeedback": "不错不错",
+        "downloadAttempt": {
+          "date": "2026-09-13",
+          "browser": "Safari",
+          "result": "Use this model displayed Sign in to your pixiv account to download models; opened Sign in",
+          "localAssetFound": false
+        },
+        "asset": "PrivateAssets/Courtyard/Characters/GirlA/6309260419351179234.vrm.glb",
+        "inspection": "PrivateAssets/Courtyard/Characters/GirlA/rig-verification.json"
+      },
+      {
+        "name": "千駄ヶ谷渋 / beta AvatarSample_1",
+        "creator": "VRoid Project / pixiv",
+        "source": "https://hub.vroid.com/characters/675572020956181239/models/4479743608263344465",
+        "license": "CC0-1.0",
+        "status": "source_and_preview_verified; model_not_downloaded_or_tested; school_uniform_differs_from_concept"
+      }
+    ],
+    "tripoResearch": {
+      "document": "docs/courtyard/TRIPO_RIGGING_RESEARCH.md",
+      "status": "official_docs_reviewed; no_account_connected; no_tasks_submitted; no_uploads",
+      "recommendation": "No rerig needed for current body movement. Missing face accepted; focus scene and body timing.",
+      "notProven": [
+        "preserving existing VRM expressions",
+        "facial/finger animation and cloth/hair simulation",
+        "natural seated performance and contact stability"
+      ]
+    },
+    "characterRigReview": {
+      "document": "docs/courtyard/GIRL_A_RIG_REVIEW.md",
+      "project": "PrivateAssets/Courtyard/Characters/GirlA/girl-a-rig-review.blend",
+      "preview": "PrivateAssets/Courtyard/Characters/GirlA/girl-a-rig-review.png",
+      "bones": 58,
+      "shape_keys": 0,
+      "eye_bones": 0,
+      "body_deformation": "pass",
+      "scene_integration": "completed_static_placement; owner_accepts_missing_face_data",
+      "file_origin": "owner_provided; original_download_vs_export_unconfirmed"
+    },
+    "environmentBaseline": {
+      "project": "PrivateAssets/Courtyard/Blender/courtyard-b1-v3.blend",
+      "sha256": "ec1a65ac8c7c4ddfff34fc0bb0525a19dc33c3ee149d7d529fbbd9c1e2a56349"
+    },
+    "previousCharacterCandidate": {
+      "name": "Rain",
+      "source": "https://studio.blender.org/characters/rain/v3/",
+      "license": "CC-BY-4.0",
+      "project": "PrivateAssets/Courtyard/Characters/Rain/Rain v3.3/rain_v3.2.blend",
+      "inspection": "PrivateAssets/Courtyard/Characters/Rain/inspection.json",
+      "review": "docs/courtyard/OPEN_CHARACTER_REVIEW.md",
+      "status": "rejected_by_owner_visual_style",
+      "ownerAcceptance": "rejected_2026-09-13"
+    },
+    "characterPlacementBaseline": {
+      "project": "PrivateAssets/Courtyard/Blender/courtyard-b1-girl-a-v3.blend",
+      "sha256": "ddd32be6b41dc0198863ae6bf3c743beb4ee10dc34016734ecb9f961ba797f86",
+      "verification": "PrivateAssets/Courtyard/Blender/girl-a-scene-verification.json"
+    },
+    "video": "PrivateAssets/Courtyard/Blender/B2/b2-body-v5-review.mp4",
+    "deliveryVerification": "PrivateAssets/Courtyard/Blender/B2/b2-body-v5-delivery.json",
+    "previousMotionProject": {
+      "project": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-light-motion-v1.blend",
+      "preview": "PrivateAssets/Courtyard/Blender/B2/b2-light-still-v1.png",
+      "verification": "PrivateAssets/Courtyard/Blender/B2/b2-verification.json",
+      "sha256": "d720f7e4409759fb44fc815c85509c82824bbc554a1e2b4eb5958bb26c2d6c57"
+    },
+    "videoAppearanceVersion": "v5 lighting; NOT current v6 lighting",
+    "comparison": "PrivateAssets/Courtyard/Blender/B2/b2-v5-v6-comparison.png",
+    "previousColorProject": {
+      "project": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-color-v2.blend",
+      "preview": "PrivateAssets/Courtyard/Blender/B2/b2-color-v2.png",
+      "verification": "PrivateAssets/Courtyard/Blender/B2/b2-color-v2-verification.json",
+      "sha256": "e9a73b2d3b9c53e8a15098a8de92e07b15b85a42e4a3e40a60292f0c387b43ac"
+    },
+    "previousShapeProject": {
+      "project": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-shapes-v3.blend",
+      "preview": "PrivateAssets/Courtyard/Blender/B2/b2-shapes-v3.png",
+      "verification": "PrivateAssets/Courtyard/Blender/B2/b2-shapes-v3-verification.json",
+      "sha256": "b6cdc7c527dca05aeb96f5e14d69014e6b458f8890eb6e7eb946ec39f52d43eb"
+    },
+    "plan": "docs/courtyard/B2_NEXT_PLAN.md",
+    "previousVideo": "PrivateAssets/Courtyard/Blender/B2/b2-presence-v4.mp4",
+    "masterVideo": "PrivateAssets/Courtyard/Blender/B2/b2-body-v5-master.mov",
+    "playbackAudit": "docs/courtyard/B2_PLAYBACK_AUDIT.md",
+    "previousPresenceProject": {
+      "project": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-presence-v4.blend",
+      "preview": "PrivateAssets/Courtyard/Blender/B2/b2-presence-v4.png",
+      "verification": "PrivateAssets/Courtyard/Blender/B2/b2-presence-v4-motion-verification.json",
+      "sourceHash": "6b1eedb34f5015ca50e82a575c46855357e9c2e2dfefdd7f7c1e69c70b3b4781",
+      "video": "PrivateAssets/Courtyard/Blender/B2/b2-presence-v4-review.mp4",
+      "masterVideo": "PrivateAssets/Courtyard/Blender/B2/b2-v4-master.mov",
+      "nativePlaybackVerification": "PrivateAssets/Courtyard/Blender/B2/v4-native-playback.json"
+    },
+    "previousBodyProject": {
+      "project": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-body-v5.blend",
+      "preview": "PrivateAssets/Courtyard/Blender/B2/b2-body-v5.png",
+      "verification": "PrivateAssets/Courtyard/Blender/B2/b2-body-v5-motion-verification.json",
+      "sha256": "7ffe5a1287af9d2f54d29f2d9abca04a267fb3b2346f35a4dd7eb9b32b32778f"
+    },
+    "artCandidate": {
+      "project": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-canopy-v7-balanced.blend",
+      "preview": "PrivateAssets/Courtyard/Blender/B2/b2-canopy-v7-balanced.png",
+      "comparison": "PrivateAssets/Courtyard/Blender/B2/b2-v6-v7-comparison.png",
+      "verification": "PrivateAssets/Courtyard/Blender/B2/b2-canopy-v7-review.json",
+      "sha256": "603d968e853d137c613a99d041a06cf6ce27fad02fe0e8b919b5e5e7a948b99f",
+      "report": "docs/courtyard/B2_CANOPY_STUDY.md",
+      "status": "candidate_delivered_not_owner_accepted"
+    }
+  },
+  "behaviorResearch": {
+    "document": "docs/courtyard/FLY_BRAIN_BEHAVIOR_RESEARCH.md",
+    "date": "2026-09-14",
+    "status": "primary_sources_reviewed_only",
+    "implementation": "none; exploreBrain untouched"
+  },
+  "reviewBlocker": {
+    "kind": "none_for_current_deliverable",
+    "latestEvidence": "v6 delivered through offline render and file checks; v5 native playback not claimed. Oct3 lock observation is historical, not a gate for continued art work.",
+    "consecutiveGoalTurns": 0
+  },
+  "communityResearch": {
+    "document": "docs/courtyard/AI_BLENDER_COMMUNITY_RESEARCH.md",
+    "date": "2026-10-09",
+    "applied": "two native lighting/material candidates and saved v6 focused; no new MCP, assets or model services"
+  },
+  "previousArtMilestone": {
+    "id": "B2-v7-canopy-study",
+    "status": "P8_candidate_delivered_visual_preference_pending",
+    "nextAction": "Compare delivered v6/v7 canopy images using owner feedback; retain v6 as baseline and v7 balanced as candidate. Do not repeat endless canopy variants. Selected look needs a same-version motion deliverable; current video is still v5.",
+    "cubismActionRequired": false
+  },
+  "simStage": {
+    "plan": "docs/SIM_STAGE_PLAN.md",
+    "status": "researched_not_implemented",
+    "runtimeRecommendation": "Godot 4 stable; exact version to pin during S1",
+    "archiveCommit": "68f43df9c46059abc4b29be9b74c532548f9a1b7",
+    "archiveTag": "courtyard-b2-archive-2026-10-21",
+    "privateSnapshot": "PrivateAssets/Archives/courtyard-b2-2026-10-21.zip",
+    "privateRemoteBackup": false,
+    "firstScenario": "Paper boat blocked by an obstacle; causal intervention and human/AI handoff",
+    "noPaidCallsThisTurn": true
   }
 }

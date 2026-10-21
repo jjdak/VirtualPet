@@ -12,3 +12,9 @@ build_output.log
 /SharedAssets/PrivateAudio/
 /SharedAssets/PrivateModels/
 /SharedAssets/PrivateMotionAtlases/
+/courtyard/node_modules/
+/courtyard/dist/
+/courtyard/public/models/*.vrm
+/courtyard/public/models/*metadata.json
+
+/blender/scripts/__pycache__/

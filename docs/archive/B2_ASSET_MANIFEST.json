@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-21",
+  "scope": "Selected B2 recovery checkpoint, not all historical renders",
+  "remoteAssetBackup": false,
+  "files": [
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-body-v5.blend",
+      "bytes": 10046446,
+      "sha256": "7ffe5a1287af9d2f54d29f2d9abca04a267fb3b2346f35a4dd7eb9b32b32778f"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-reference-v6-focused.blend",
+      "bytes": 10051394,
+      "sha256": "1c94af34f7a029aebf1626ae5f8c9eb4e9820a5d79842fe061402db3f58e47da"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-canopy-v7-balanced.blend",
+      "bytes": 10048226,
+      "sha256": "603d968e853d137c613a99d041a06cf6ce27fad02fe0e8b919b5e5e7a948b99f"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/b2-reference-v6-focused.png",
+      "bytes": 1226673,
+      "sha256": "6c92a8b847f9744e1e6caf8ac9f06f882619be6de450ee5fb57af8dd66443f7f"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/b2-canopy-v7-balanced.png",
+      "bytes": 1235666,
+      "sha256": "0a215233bb06d2476af2bd4d0329b83fca77c5b0aff1d9d4ee24daf3afbc6510"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/b2-v6-v7-comparison.png",
+      "bytes": 485619,
+      "sha256": "53d401666a7b2f1a2c9f471083d5d482a90f1bed38f7a476bb70dc1510b99acf"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/b2-body-v5-review.mp4",
+      "bytes": 1273178,
+      "sha256": "8ac9040f813966830a2a02a605073c88bdbb40f6ff40abcc1c61dd032ca1be04"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/b2-body-v5-master.mov",
+      "bytes": 52892535,
+      "sha256": "319724cd058219396b63da70e629bf8407baba0729cdc1117e12dcb0b8e53bb4"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/b2-reference-v6-review.json",
+      "bytes": 1351,
+      "sha256": "410e686d0f46844a79b4a71d7f5900a5d8911d7fa97aedad2fcabecf0a59131c"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Blender/B2/b2-canopy-v7-review.json",
+      "bytes": 1491,
+      "sha256": "ee79d4b9d3ab77724eb26586870d7843d11684c27590536ef5113ba76ebb5c0c"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Characters/GirlA/SOURCE.json",
+      "bytes": 811,
+      "sha256": "8d9f9ba2cee76854f238f812f8ba0a714acd0557be7706ea070609ad4652b928"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Characters/GirlA/rig-verification.json",
+      "bytes": 1646,
+      "sha256": "ae925b49d542967e304f5c2c48caccde170f61acd4397eb75947bf470a9d69da"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Characters/GirlA/6309260419351179234.vrm.glb",
+      "bytes": 2444204,
+      "sha256": "8ce09c753a14e2ad9d9a6ee46d00953637cead228bb27d9026765e94ec5533da"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Characters/GirlA/source-metadata.json",
+      "bytes": 74763,
+      "sha256": "7db12f57ce98aa7e1a9e4aa241fca0cd1f9f8302553e4d98dfd0c43df009eb6f"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Characters/GirlA/reopen-verification.json",
+      "bytes": 272,
+      "sha256": "58d9cc6f1713919e35b5cf00290a2615ba49068066f46bfeff37ffed1b58bb0a"
+    },
+    {
+      "path": "PrivateAssets/Courtyard/Characters/GirlA/import-inspection.json",
+      "bytes": 28109,
+      "sha256": "b363cbe61cbd7e1eacc6e6e67ed6333fc51957e752f3f176c4352c97ca5672dc"
+    }
+  ]
+}

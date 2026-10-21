@@ -1,10 +1,32 @@
 # VirtualPet
 
-一个以角色触摸反馈为核心的轻量陪伴 App 初稿，使用 SwiftUI 同时面向 iPhone、iPad、macOS 和 Apple Watch。
+## 当前阶段：小庭院仿真研究（2026-10-21）
 
-当前产品方向已经确定为：菲比同人原型、仅私人非商业测试、直接触摸与动作反馈、活泼吐槽。旧版的饥饿、健康、等级、进化、商店、任务、公会、战斗和排行榜均不再保留；角色不会因为用户离开而受罚。
+用户已认可“观察、干预、接管”的新方向，B2 美术阶段已收束并保存至 GitHub 归档标签 [`courtyard-b2-archive-2026-10-21`](https://github.com/jjdak/VirtualPet/tree/courtyard-b2-archive-2026-10-21)。当前完成研究，下一步是独立 Godot 迁移/接管验证；新 sim 尚未实现。
 
-## 当前体验
+[新阶段计划与一手来源](docs/SIM_STAGE_PLAN.md) · [旧成果收束及恢复](docs/archive/B2_CLOSEOUT.md) · [继续工作卡](docs/live2d/continuation.json)
+
+Blender 保留为美术源；v6/v7 工程与 v5 视频保留。私人模型、`.blend`、视频在本地忽略目录及校验快照中，**未上传 GitHub，不是异地备份**。下述制作状态与旧 App 描述为历史记录，当前下一步以新阶段计划为准。
+
+## 当前制作：Blender
+
+当前工程为 **B2 v6 focused**：社区 GPT/Opus 工作流调研已应用到两版原生光色小样，选出并交付正式静帧、同机位对照。保留完整庭院、相机、少女A和 v5 身体跟随动作。**当前 8 秒视频仍是 v5 光色，不能当作 v6 成片。**
+
+[制作入口与文件](blender/README.md) · [社区调研及实际应用](docs/courtyard/AI_BLENDER_COMMUNITY_RESEARCH.md) · [执行计划](docs/courtyard/B2_NEXT_PLAN.md) · [进度记录](docs/courtyard/PROGRESS.md)
+
+v6 保存重开、几何/动作/相机保持、正式关键帧检查通过；主观自然度与插画完成度待评价。以下为历史阶段记录。
+
+## 当前方向：庭院原型（2026-09-11）
+
+一个不用说话，也能感到彼此存在的安静小世界。以水边庭院、一个角色和三种轻互动（水面、风铃、叶子）验证微型独立游戏式的陪伴感。概念板已获认可；C2 点水片段已实现。用户已选择原版完整庭院布局与新版画面质感的组合，现已恢复整体视角、围墙和池沿，保留新版石阶、细叶树影与倒影；合并后的布局与氛围方向已获认可，已完成首轮人物支撑坐姿与材质受光调整，[同机位对照](docs/courtyard/POSE_LIGHT_PASS.md)已保留。用户再次指出整体画质仍远离概念图，当前讨论 [美术制作路线复评](docs/courtyard/ILLUSTRATION_GAP_RESEARCH.md)；静谧感与自然度尚未验收。
+
+执行与验收标准见 [庭院原型](docs/COURTYARD_PROTOTYPE.md)，计划和实际进度见 [执行记录](docs/courtyard/PROGRESS.md)，当前下一动作见 [继续工作卡](docs/live2d/continuation.json)。
+
+本地运行：`cd courtyard && npm ci && npm run assets && npm run dev`，打开 http://127.0.0.1:4173/ 。已安装依赖与素材时只需 `npm run dev`。详见 [运行说明](courtyard/README.md)。C2 使用 Three.js + three-vrm，临时角色能眨眼、看向点击位置、转头和恢复。当前无声音，外观与 [概念板 v1](docs/courtyard/concept-v1.png) 不同；最终人物和发布平台仍待定。
+
+现有 SwiftUI/SpriteKit App 保留为旧版基线。旧版真机交付和跨设备扩展暂缓，Live2D 继续暂停，自研 Cubism 自动化继续停止。以下功能与构建说明针对已实现的旧版，不代表庭院已经完成。
+
+## 已实现的旧版体验
 
 - 分区触摸：帽子、头部和身体分别触发不同反应
 - 连点识别：0.72 秒内连续三次触摸会触发专属吐槽
@@ -177,10 +199,6 @@ DEVICE_ID='你的 Apple Watch CoreDevice ID' PLATFORM=watchos ./scripts/run_phys
 
 ## 下一轮
 
-1. 读取 [`docs/live2d/continuation.json`](docs/live2d/continuation.json)，继续 `spritekit-mainline`；不要打开 Cubism 或继续 Metal host。
-2. 用现有反应和关键姿态契约继续做动作细节验收；首轮 idle、greet、pat、sleep 节奏已完成。
-3. 当前 Watch SwiftUI 轻量运动已通过 40/42/44/46mm 连续帧检查；仅在后续真机测试证明有明显收益时制作透明动作图集，并始终保留 SwiftUI 后备。
-4. iOS、iPadOS 与 watchOS 模拟器视觉验收已完成（含 Apple Watch 40mm/42mm/46mm 表壳）；下一步完成 iPhone、Apple Watch 和 Mac 的真机验收（当前连接的 Apple Watch 因架构/签名资格暂不可用）。
-5. 当前 iPhone 17 Simulator UI 9 项与 macOS arm64 单元 12 项均通过；UI 回归包含帽子、头部、身体坐标触摸和长按压扁，Live2D 只保留一次人工嘴型或眼睛 keyform 恢复门禁，动作探针返回 0 前不安装 MCP、不自研画布自动化、不扩展正式模型。
-6. 已生成三条语音的 A/B 本地试听候选；待听感确认后再决定是否把 B 替换进 App，记录见 [语音素材记录](docs/AUDIO_SOURCE.md)。
-7. 真机验收按 [真机验收清单](docs/PHYSICAL_ACCEPTANCE.md) 执行；当前设备资格不足时保留 `ineligible` 记录，不把模拟器结果冒充真机通过。
+1. 读取 [继续工作卡](docs/live2d/continuation.json) 与 [庭院原型](docs/COURTYARD_PROTOTYPE.md)。
+2. 讨论插画差距与美术样块建议，保持认可的完整布局；该路线尚未选定，不自动进入分层表演。
+3. 只有主观反馈支持后才扩展风铃、叶子。旧版真机交付、Watch、聊天和 exploreBrain 学习仍暂缓。

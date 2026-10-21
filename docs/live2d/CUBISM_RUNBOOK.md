@@ -2,7 +2,7 @@
 
 这份手册用于减少每轮重新扫描 Cubism 界面和项目文件的成本。开始工作前先读取 [`continuation.json`](continuation.json)，只验证与当前 `nextAction` 有关、可能已经变化的状态。
 
-> 当前状态（2026-08-28）：Live2D 已暂停，自研 Cubism MCP/GUI/画布自动化已停止。只要继续工作卡仍是 `spritekit-mainline`、`live2dStatus: paused`、`cubismActionRequired: false`，就不要打开 Cubism、扫描 UI 或继续 Native Metal host。本手册仅供人工恢复门禁通过后的未来会话使用。
+> 当前状态（2026-09-07）：项目主线是 `courtyard-prototype`，C2 浏览器点水片段已实现，等待体验反馈。Live2D 已暂停，自研 Cubism MCP/GUI/画布自动化已停止。只要 `live2dStatus` 为 `paused` 或 `cubismActionRequired` 为 `false`，就不要打开 Cubism、扫描 UI 或继续 Native Metal host。本手册仅保留历史恢复流程；庭院不要求启动该验证。
 
 ## 先选择工作轨道
 

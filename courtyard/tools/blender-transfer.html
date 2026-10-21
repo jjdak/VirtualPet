@@ -1,0 +1,57 @@
+<!doctype html><meta charset="utf-8"><title>Courtyard Blender transfer</title>
+<p>制作迁移页面。正常原型不加载此页面。</p>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
+import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {createEnvironment} from '../src/environment.js';
+import {createCharacter} from '../src/character.js';
+import {Attention} from '../src/attention.js';
+try {
+ const scene=new THREE.Scene();scene.name='Courtyard_Migration';
+ const env=await createEnvironment(scene);
+ const environmentObjects=[...scene.children];
+ const environment=new THREE.Group();environment.name='Environment';
+ scene.add(environment);environmentObjects.forEach(o=>environment.attach(o));
+ const character=await createCharacter(scene);character.root.name='Character';
+ character.setOverride({blink:0});character.update(0,1/60,new Attention(),true);
+ const camera=new THREE.OrthographicCamera(-4.25*16/9,4.25*16/9,4.25,-4.25,.1,60);
+ camera.name='Camera_Approved_Overview';camera.position.set(7.9,7.2,12);camera.lookAt(0,1.6,.3);
+ camera.position.addScaledVector(camera.getWorldDirection(new THREE.Vector3()),-12);camera.zoom=.95;camera.updateProjectionMatrix();scene.add(camera);
+ env.water.name='Water';
+ const materialCache=new Map();let serial=0;
+ scene.traverse(o=>{
+   if(!o.name)o.name=`Source_${String(serial++).padStart(3,'0')}`;
+   if(!o.isMesh)return;
+   const convert=m=>{
+     if(materialCache.has(m))return materialCache.get(m);
+     let result=m;
+     if(m.isShaderMaterial){
+       result=new THREE.MeshStandardMaterial({name:m.name||'Water_Transfer',color:m.color||'#74958b',map:m.map||null,roughness:m.isMToonMaterial ? .85 : .2,metalness:0,side:m.side,transparent:m.transparent,opacity:m.opacity,alphaTest:m.alphaTest||0});
+     }
+     if(!result.name)result.name=`Surface_${materialCache.size}`;
+     materialCache.set(m,result);return result;
+   };
+   o.material=Array.isArray(o.material)?o.material.map(convert):convert(o.material);
+ });
+ // Merge leaf instances into editable meshes, including their per-instance colors.
+ const points=[];scene.traverse(o=>{if(o.isPoints)points.push(o);});points.forEach(o=>o.removeFromParent());
+ const instances=[];scene.traverse(o=>{if(o.isInstancedMesh)instances.push(o);});
+ for(const inst of instances){
+   const geometries=[],matrix=new THREE.Matrix4(),color=new THREE.Color();
+   for(let i=0;i<inst.count;i++){
+     inst.getMatrixAt(i,matrix);const g=inst.geometry.clone().applyMatrix4(matrix);
+     if(inst.instanceColor){inst.getColorAt(i,color);const a=new Float32Array(g.attributes.position.count*3);for(let k=0;k<a.length;k+=3){a[k]=color.r;a[k+1]=color.g;a[k+2]=color.b;}g.setAttribute('color',new THREE.BufferAttribute(a,3));}
+     geometries.push(g);
+   }
+   const mat=inst.material.clone();mat.vertexColors=!!inst.instanceColor;
+   const mesh=new THREE.Mesh(mergeGeometries(geometries),mat);mesh.name=inst.count>500?'Tree_Leaf_Cards':'Ground_Leaf_Cards';
+   mesh.position.copy(inst.position);mesh.quaternion.copy(inst.quaternion);mesh.scale.copy(inst.scale);inst.parent.add(mesh);inst.removeFromParent();
+ }
+ scene.updateMatrixWorld(true);
+ window.transferMetadata={schema:1,source:'C2 pose-light',camera:{position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),verticalSpan:8.5/.95,aspect:16/9},pose:character.snapshot(),convertedShaderMaterials:[...materialCache].filter(([a,b])=>a!==b).map(([a])=>a.name),limitations:['MToon converted to Principled-compatible PBR; no pixel-identical lighting','Water shader will be rebuilt natively','JavaScript attention and spring physics are not Blender animation']};
+ const result=await new GLTFExporter().parseAsync(scene,{binary:true,onlyVisible:true});
+ window.transferURL=URL.createObjectURL(new Blob([result],{type:'model/gltf-binary'}));
+ window.transferReady=true;
+}catch(e){window.transferError=String(e.stack||e);console.error(e);}
+</script>
