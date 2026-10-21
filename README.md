@@ -1,5 +1,13 @@
 # VirtualPet
 
+## 当前阶段：小庭院仿真研究（2026-10-21）
+
+用户已认可“观察、干预、接管”的新方向，B2 美术阶段已收束并保存至 GitHub 归档标签 [`courtyard-b2-archive-2026-10-21`](https://github.com/jjdak/VirtualPet/tree/courtyard-b2-archive-2026-10-21)。当前完成研究，下一步是独立 Godot 迁移/接管验证；新 sim 尚未实现。
+
+[新阶段计划与一手来源](docs/SIM_STAGE_PLAN.md) · [旧成果收束及恢复](docs/archive/B2_CLOSEOUT.md) · [继续工作卡](docs/live2d/continuation.json)
+
+Blender 保留为美术源；v6/v7 工程与 v5 视频保留。私人模型、`.blend`、视频在本地忽略目录及校验快照中，**未上传 GitHub，不是异地备份**。下述制作状态与旧 App 描述为历史记录，当前下一步以新阶段计划为准。
+
 ## 当前制作：Blender
 
 当前工程为 **B2 v6 focused**：社区 GPT/Opus 工作流调研已应用到两版原生光色小样，选出并交付正式静帧、同机位对照。保留完整庭院、相机、少女A和 v5 身体跟随动作。**当前 8 秒视频仍是 v5 光色，不能当作 v6 成片。**

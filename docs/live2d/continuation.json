@@ -3,12 +3,11 @@
   "updatedAt": "2026-10-21",
   "latestOwnerFeedback": {
     "date": "2026-10-21",
-    "quote": "当前优化的已经不错了。参考最近社区的高热度建模方法，对于当前项目进展有什么启发",
-    "interpretation": "Positive feedback on the current overall visual optimization; no explicit v6/v7 selection or full motion acceptance.",
-    "research": "docs/courtyard/COMMUNITY_NEXT_STAGE_REVIEW.md",
-    "recommendation": "Prioritize a same-version 8-second shot and readable, quiet performance over further canopy variants. This turn records research and a recommendation; no Blender source was changed."
+    "quote": "先把之前的成果收束一下，该上传github的保存好。现在我们开启新的阶段，先搜索要达成这个效果需要实现哪些",
+    "interpretation": "Owner authorized B2 closeout, GitHub preservation and research for an observable, intervenable world with human/AI character control.",
+    "research": "docs/SIM_STAGE_PLAN.md"
   },
-  "activeTrack": "courtyard-blender",
+  "activeTrack": "courtyard-sim",
   "decision": {
     "live2dStatus": "paused",
     "customCubismAutomationStatus": "stopped",
@@ -19,17 +18,17 @@
       "Cubism 5.4 Alpha External Application Integration does not expose ArtMesh vertex-coordinate editing, so MCP or GUI automation does not remove the real rigging bottleneck.",
       "A custom canvas automation layer is not economical for one character and must not block the app."
     ],
-    "productDirection": "A quiet courtyard where a character and the environment respond without dialogue.",
+    "productDirection": "A quiet small simulation world: observe, intervene, and take over a character; grounded actions and consequences.",
     "legacyAppStatus": "preserved; physical acceptance and cross-device expansion deferred",
     "courtyardRenderer": "Three.js 0.185.1 + three-vrm 3.5.5; independent fixed-camera browser prototype",
-    "learningStatus": "future concept only; no exploreBrain integration",
-    "authoringDirection": "User selected Blender as the production source. Author, refine and render natively; no browser re-export required. Browser C2 and legacy apps are reference baselines.",
+    "learningStatus": "LLM action selection planned after deterministic world/control slice; no RL, fine-tuning or exploreBrain integration yet.",
+    "authoringDirection": "Blender remains the art source. B2 is archived; evaluate a separate real-time runtime without overwriting native art. Godot is the S1 recommendation, not yet installed or validated.",
     "courtyardAuthoringSoftware": "Blender 5.2.1 LTS, macOS arm64"
   },
   "milestone": {
-    "id": "B2-v7-canopy-study",
-    "status": "P8_candidate_delivered_visual_preference_pending",
-    "nextAction": "Compare delivered v6/v7 canopy images using owner feedback; retain v6 as baseline and v7 balanced as candidate. Do not repeat endless canopy variants. Selected look needs a same-version motion deliverable; current video is still v5.",
+    "id": "SIM-S0",
+    "status": "research_and_archive_complete_S1_pending",
+    "nextAction": "S1: validate a separate Godot scene with a small courtyard section, existing GirlA skinned GLB and body animation, manual movement and observer/first-person camera switch. Record import and appearance limits before expanding or connecting an LLM.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -174,7 +173,7 @@
     ]
   },
   "nextActions": [
-    "Compare delivered v6/v7 canopy images using owner feedback; retain v6 as baseline and v7 balanced as candidate. Do not repeat endless canopy variants. Selected look needs a same-version motion deliverable; current video is still v5."
+    "S1: validate a separate Godot scene with a small courtyard section, existing GirlA skinned GLB and body animation, manual movement and observer/first-person camera switch. Record import and appearance limits before expanding or connecting an LLM."
   ],
   "preservedLive2DCheckpoint": {
     "baselineModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-imported.cmo3",
@@ -483,5 +482,22 @@
     "document": "docs/courtyard/AI_BLENDER_COMMUNITY_RESEARCH.md",
     "date": "2026-10-09",
     "applied": "two native lighting/material candidates and saved v6 focused; no new MCP, assets or model services"
+  },
+  "previousArtMilestone": {
+    "id": "B2-v7-canopy-study",
+    "status": "P8_candidate_delivered_visual_preference_pending",
+    "nextAction": "Compare delivered v6/v7 canopy images using owner feedback; retain v6 as baseline and v7 balanced as candidate. Do not repeat endless canopy variants. Selected look needs a same-version motion deliverable; current video is still v5.",
+    "cubismActionRequired": false
+  },
+  "simStage": {
+    "plan": "docs/SIM_STAGE_PLAN.md",
+    "status": "researched_not_implemented",
+    "runtimeRecommendation": "Godot 4 stable; exact version to pin during S1",
+    "archiveCommit": "68f43df9c46059abc4b29be9b74c532548f9a1b7",
+    "archiveTag": "courtyard-b2-archive-2026-10-21",
+    "privateSnapshot": "PrivateAssets/Archives/courtyard-b2-2026-10-21.zip",
+    "privateRemoteBackup": false,
+    "firstScenario": "Paper boat blocked by an obstacle; causal intervention and human/AI handoff",
+    "noPaidCallsThisTurn": true
   }
 }

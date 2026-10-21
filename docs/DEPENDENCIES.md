@@ -1,5 +1,9 @@
 # 依赖与制作工具清单
 
+## SIM 阶段候选（2026-10-21，未安装/未集成）
+
+研究见 [SIM 计划](SIM_STAGE_PLAN.md)。推荐 Godot 4 稳定版（MIT；具体版本待 S1 固定），普通 GLB 优先；godot-vrm（MIT）仅为可选，Quaternius Universal Animation Library（CC0、免费包为部分内容）为动作候选。Generative Agents（Apache-2.0）和 Voyager（MIT）只借鉴架构，没有复制代码或素材。未新增依赖、素材下载、付费模型调用或账户连接。接入时逐项补版本、包内许可、SHA-256 和恢复方法。
+
 ## Tripo 候选服务研究（2026-09-13）
 
 仅核对官方绑骨、预设动作、格式与价格文档，见 [研究记录](courtyard/TRIPO_RIGGING_RESEARCH.md)。尚未连接账户、安装插件、上传模型或执行付费任务，不属于已采用运行依赖。API 当前标价 Rig Check 免费、Auto Rig 25 credits、每动作 Retarget 10 credits，1 credit = 0.01 美元；实际账户计费与 Studio 网页套餐另核对。少女A脸与发型已获认可，用户文件身体绑定已通过，但缺失眨眼和独立视线数据；2026-09-14 用户接受该缺口，直接推进场景与身体动作，不默认重绑。

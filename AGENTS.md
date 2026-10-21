@@ -1,5 +1,16 @@
 # VirtualPet 工作入口
 
+## 当前方向覆盖说明（2026-10-21）
+
+用户已授权收束 B2、保存 GitHub，并开启“观察、干预、接管”的小型 sim 阶段。每轮仍先读 continuation 和 COURTYARD_PROTOTYPE，再读 `docs/SIM_STAGE_PLAN.md`；以下旧方向与此处冲突时，以本段和 continuation 为准。
+
+- 主线 `courtyard-sim`，S0 归档与研究完成，下一步 S1：独立 Godot 小场景迁移/人工控制/第一视角验证。Godot 是推荐候选，尚未安装/实测；不宣称 sim 已存在。
+- Blender 继续作为美术源，B2 v6 主线/v7 候选及 v5 视频均归档。无需继续等 v6/v7 选择或补同版短片才研究 sim；不改写原 `.blend`。
+- 用户已允许研究 LLM 角色控制；旧“不得扩展交互/LLM”不阻止新阶段计划。先落实世界状态、有限技能、局部观察和人工接管，再在 S4 接真实 LLM。不自动扩展聊天、RL、训练或 exploreBrain。
+- 原角色、服装、头发/面部不得自行建模；动作优先找许可明确的现成素材并验证重定向。静态脸仍可用。
+- `docs/archive/B2_CLOSEOUT.md` 记录公开/私有边界。GitHub 保存源码和文档，私有文件继续忽略，快照只在本地；不得把公开归档称为完整资产云备份。
+- Live2D/Cubism 与旧 App 自动扩展继续暂停。每阶段交付可见结果，主观体验由用户评价。
+
 每轮先读 `docs/live2d/continuation.json` 和 `docs/COURTYARD_PROTOTYPE.md`。continuation 的位置沿用历史路径，但记录的是整个项目当前方向。
 
 ## 当前方向（2026-09-12）
