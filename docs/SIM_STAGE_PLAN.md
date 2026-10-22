@@ -36,6 +36,10 @@
 | [Voyager](https://github.com/MineDojo/Voyager) | 借鉴技能执行、环境反馈与修正的循环。 | MIT 代码，原实现依赖 Minecraft 环境；本项目采用预定义技能，不接自动生成代码执行。 |
 | [SIMA 2](https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/) | 第一视角观察与行动的长期研究参考。 | 未核实到本项目可直接使用的公开 SDK/权重，不能列作实现依赖。 |
 
+## 2026-10-23 已确认的反馈路线
+
+用户接受白板世界，要求记录并继续优化场景控制。第一版采用**角色局部结构化观察 + 引擎执行结果**；不依赖视觉模型，不把全局世界状态直接交给 LLM。先做 S3 的感知/控制接口，再在 S4 接模型，截图/混合输入后置；不是强化学习。具体信息边界、事件时机与纸船例子见 [LLM_FEEDBACK_DESIGN](sim/LLM_FEEDBACK_DESIGN.md)。当前只落实控制手感改进，感知/模型仍未接入。
+
 ## 需要实现的六块能力
 
 1. **世界状态**：物品 ID、位置、可操作范围、阻挡关系、纸船漂浮/卡住状态，由引擎持有。第一版沿简化水路移动，不做流体模拟。

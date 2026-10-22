@@ -3,9 +3,9 @@
   "updatedAt": "2026-10-23",
   "latestOwnerFeedback": {
     "date": "2026-10-23",
-    "quote": "继续优化 S2，先找合适的原地转身和停步动作，改善滑脚和脚底接触，让人物动作更自然，做好后记录进展。现在的画面整体感觉过爆，很亮，和之前的建模不一样，有什么改动吗？",
-    "interpretation": "Refine S2 with sourced turn/stop clips and bounded foot contact; explain and correct Godot exposure without modifying original Blender art.",
-    "progress": "docs/sim/S2_CONTACT_PASS.md"
+    "quote": "可以先记录下这个思路，继续优化场景的控制",
+    "interpretation": "Record local structured observation and action-result feedback first, optional vision later. Simplified art is acceptable; improve current controls without starting real LLM calls.",
+    "progress": "docs/sim/S2_CONTROL_PASS.md"
   },
   "activeTrack": "courtyard-sim",
   "decision": {
@@ -29,7 +29,7 @@
   "milestone": {
     "id": "SIM-S2",
     "status": "playable_technical_candidate_owner_naturalness_pending",
-    "nextAction": "Review the 23.83s S2 contact/light candidate. Remaining priorities are phase-matched stops, less segmented reversals and real-time material/soft-shadow parity; do not infer owner acceptance. S3/S4 remain unimplemented.",
+    "nextAction": "Proceed toward S3 local observation/action-result contracts per docs/sim/LLM_FEEDBACK_DESIGN.md. S2 interruption/stop controls verified; subjective feel and phase-matched feet remain pending. No real LLM or perception implementation yet.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -157,7 +157,8 @@
     "2026-10-03 QuickTime loaded exact current review MP4. Loop playback remained on during timed34.475s window, timeline wrapped from5.934s to0.368s. Screenshots show head-pose changes and stable full layout. Paused after review; original loop setting restored. Lock blocker resolved. This is intermittent observation, not proof of zero local shimmer or owner aesthetic acceptance.",
     "2026-10-22 S1: Godot 4.7.2 official download SHA512, codesign and notarization pass. v6 source hash unchanged; 289 environment meshes and 58 character bones exported. Headless and graphical checks exit 0: movement, grounded spawn, walls/pool boundary, camera switch, arrow look, original seated bone motion. Captured mouse event checked only in graphical mode. Native UI observed movement, first-person view, arrow look and seated preview. Natural gait, AI and B2 render parity remain absent.",
     "2026-10-22 S2: Quaternius CC0 Idle/Walk retargeted to GirlA; actual-speed animation, bounded turning, goal/failure/manual interrupt and causal boat collision tests pass in graphical/headless modes. Original blend hashes unchanged; docs/sim/S2_PROGRESS.md records remaining limitations.",
-    "2026-10-23: CMU turns/stopping retargeted; bounded SkeletonModifier3D foot locking; graphical/headless regression passed including both turn endpoints, stop selection, per-phase locked-foot displacement, unchanged leg lengths, goal/boat/collision/reset/cameras. Original Blender SHA unchanged; 23.83s engine video and light comparison delivered. See docs/sim/S2_CONTACT_VERIFICATION.json; subjective naturalness pending."
+    "2026-10-23: CMU turns/stopping retargeted; bounded SkeletonModifier3D foot locking; graphical/headless regression passed including both turn endpoints, stop selection, per-phase locked-foot displacement, unchanged leg lengths, goal/boat/collision/reset/cameras. Original Blender SHA unchanged; 23.83s engine video and light comparison delivered. See docs/sim/S2_CONTACT_VERIFICATION.json; subjective naturalness pending.",
+    "2026-10-23: Interruptible turn/stop, mid-action manual takeover, Space stop with held-key suppression, focus-loss/first-person Escape stop and seated-preview cleanup pass headless/graphical control checks. Full graphical S2 regression passes. Local structured LLM feedback design recorded only; no perception/LLM implementation."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -177,7 +178,7 @@
     ]
   },
   "nextActions": [
-    "Review the 23.83s S2 contact/light candidate. Remaining priorities are phase-matched stops, less segmented reversals and real-time material/soft-shadow parity; do not infer owner acceptance. S3/S4 remain unimplemented."
+    "Proceed toward S3 local observation/action-result contracts per docs/sim/LLM_FEEDBACK_DESIGN.md. S2 interruption/stop controls verified; subjective feel and phase-matched feet remain pending. No real LLM or perception implementation yet."
   ],
   "preservedLive2DCheckpoint": {
     "baselineModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-imported.cmo3",
@@ -479,7 +480,7 @@
   },
   "reviewBlocker": {
     "kind": "none_for_S2_contact_candidate_delivery",
-    "latestEvidence": "Graphical and headless turn/stop/contact regressions pass. 23.83s engine video and corrected light screenshots saved. Original Blender SHA unchanged. Owner naturalness/appearance/manual feel acceptance pending.",
+    "latestEvidence": "Control checks and full graphical S2 regression pass; current progress docs/sim/S2_CONTROL_PASS.md. Subjective feel pending.",
     "consecutiveGoalTurns": 0
   },
   "communityResearch": {
@@ -495,7 +496,7 @@
   },
   "simStage": {
     "plan": "docs/SIM_STAGE_PLAN.md",
-    "status": "S2_contact_light_candidate",
+    "status": "S2_interruptible_control_candidate",
     "runtimeRecommendation": "Godot 4.7.2 stable installed and S1 verified; Unity/Three remain alternatives only if new evidence warrants",
     "archiveCommit": "68f43df9c46059abc4b29be9b74c532548f9a1b7",
     "archiveTag": "courtyard-b2-archive-2026-10-21",
@@ -505,11 +506,12 @@
     "noPaidCallsThisTurn": true,
     "runtimeProject": "sim/project.godot",
     "launcher": "sim/run.command",
-    "progress": "docs/sim/S2_CONTACT_PASS.md",
-    "verification": "docs/sim/S2_CONTACT_VERIFICATION.json",
+    "progress": "docs/sim/S2_CONTROL_PASS.md",
+    "verification": "docs/sim/S2_CONTROL_VERIFICATION.json",
     "sourceBlendUnchanged": true,
     "ownerAcceptance": false,
-    "nextStage": "Review the 23.83s S2 contact/light candidate. Remaining priorities are phase-matched stops, less segmented reversals and real-time material/soft-shadow parity; do not infer owner acceptance. S3/S4 remain unimplemented.",
-    "research": "docs/sim/S2_RESEARCH_NOTES.md"
+    "nextStage": "Proceed toward S3 local observation/action-result contracts per docs/sim/LLM_FEEDBACK_DESIGN.md. S2 interruption/stop controls verified; subjective feel and phase-matched feet remain pending. No real LLM or perception implementation yet.",
+    "research": "docs/sim/S2_RESEARCH_NOTES.md",
+    "feedbackDesign": "docs/sim/LLM_FEEDBACK_DESIGN.md"
   }
 }

@@ -29,6 +29,10 @@ var close_view := false
 var move_speed := 0.0
 var auto_walk := false
 var auto_braking := false
+var control_action := false
+var action_heading := 0.0
+var transition_grace := 0.0
+var suppress_until_release := false
 var auto_target := Vector3(2.65, 0.0, -0.20)
 var auto_elapsed := 0.0
 var stuck_time := 0.0
@@ -37,7 +41,7 @@ var boat_button: Button
 
 func _ready() -> void:
     s2_test = "--s2-test" in OS.get_cmdline_user_args()
-    test_mode = s2_test
+    test_mode = s2_test or "--control-test" in OS.get_cmdline_user_args()
     _input_map()
     _ui()
     for required in ["migration.json","locomotion.json","courtyard-v6.glb","girl-a-idle.glb","girl-a-walk.glb","girl-a-seated.glb","transitions.json","girl-a-turnleft.glb","girl-a-turnright.glb","girl-a-stop.glb"]:
@@ -77,12 +81,16 @@ func _ready() -> void:
     _play_imported(seated)
     scene_ready = true
     _update_ui()
-    if test_mode:
+    if "--control-test" in OS.get_cmdline_user_args():
+        load("res://tests/control_checks.gd").run.call_deferred(self)
+    elif test_mode:
         call_deferred("_run_s2_checks")
     elif "--motion-check" in OS.get_cmdline_user_args():
         call_deferred("_motion_check")
     elif "--light-check" in OS.get_cmdline_user_args():
         call_deferred("_light_check")
+    elif "--control-film" in OS.get_cmdline_user_args():
+        load("res://tests/control_checks.gd").film.call_deferred(self)
     elif "--s2-film" in OS.get_cmdline_user_args():
         call_deferred("_run_s2_film")
 
@@ -240,8 +248,8 @@ func set_seated(enabled: bool) -> void:
         return
     if first_person:
         set_first_person(false)
-    auto_walk = false
-    move_speed = 0.0
+    _stop_control("")
+    locomotion.reset_motion()
     seated_preview = enabled
     avatar.visible = not enabled
     seated.visible = enabled
@@ -256,6 +264,8 @@ func reset_actor() -> void:
     actor.velocity = Vector3.ZERO
     move_speed = 0.0
     locomotion.reset_motion()
+    control_action = false
+    transition_grace = 0.0
     foot_contact.reset_contacts()
     auto_walk = false
     auto_braking = false
@@ -283,7 +293,11 @@ func _unhandled_input(event: InputEvent) -> void:
                 set_seated(not seated_preview)
             KEY_R:
                 reset_actor()
+            KEY_SPACE:
+                _stop_control()
             KEY_ESCAPE:
+                if first_person:
+                    _stop_control()
                 Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
                 _update_ui()
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and first_person:
@@ -301,15 +315,24 @@ func _input(event: InputEvent) -> void:
 func _notification(what: int) -> void:
     if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
         Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+        if scene_ready:
+            for action in ["left","right","forward","back","look_left","look_right","look_up","look_down"]:
+                Input.action_release(action)
+            _stop_control("已停下 · 窗口失去焦点")
 
 func _physics_process(delta: float) -> void:
     if not scene_ready or seated_preview:
         return
+    transition_grace = maxf(0.0,transition_grace-delta)
     if first_person:
         yaw -= Input.get_axis("look_left", "look_right") * delta * 1.4
         pitch = clampf(pitch - Input.get_axis("look_up", "look_down") * delta * 1.1, -1.15, 1.15)
         _look()
     var axes := Input.get_vector("left", "right", "forward", "back")
+    if suppress_until_release:
+        if axes.length()<0.01:
+            suppress_until_release = false
+        axes = Vector2.ZERO
     if first_person and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not test_mode:
         axes = Vector2.ZERO
     var basis := camera_pivot.global_basis if first_person else (follow_camera.global_basis if close_view else overview.global_basis)
@@ -322,7 +345,11 @@ func _physics_process(delta: float) -> void:
     var direction := (right * axes.x - forward * axes.y).normalized()
     if axes.length() > 0.01 and auto_walk:
         auto_walk = false
+        auto_braking = false
+        _cancel_motion()
         action_result = "已由你接管"
+    if axes.length()>0.01 and not auto_walk and (action_result.begins_with("已停下") or action_result == "已到池边" or action_result.begins_with("前方不可达")):
+        action_result = "你正在控制"
     if auto_walk:
         auto_elapsed += delta
         var offset := auto_target - actor.position
@@ -350,11 +377,17 @@ func _physics_process(delta: float) -> void:
     var has_direction := direction.length_squared()>0.01
     if has_direction:
         angle_error = wrapf(atan2(direction.x,direction.z)-avatar.rotation.y,-PI,PI)
-    if locomotion.special == "":
+    if control_action and locomotion.special != "":
+        var changed_direction := has_direction and absf(wrapf(atan2(direction.x,direction.z)-action_heading,-PI,PI))>0.65
+        var turn_cancel: bool = locomotion.special.begins_with("Turn") and (not has_direction or changed_direction or absf(angle_error)<0.15)
+        var stop_cancel: bool = locomotion.special == "Stop" and has_direction and locomotion.special_time>0.12
+        if turn_cancel or stop_cancel:
+            _cancel_motion()
+    if locomotion.special == "" and transition_grace <= 0.0:
         if move_speed > 0.35 and (not has_direction or absf(angle_error)>2.0):
-            locomotion.begin_action("Stop",avatar.rotation.y)
+            _begin_motion("Stop",direction)
         elif has_direction and absf(angle_error)>1.15 and move_speed < 0.12:
-            locomotion.begin_action("TurnLeft" if angle_error>0 else "TurnRight",avatar.rotation.y)
+            _begin_motion("TurnLeft" if angle_error>0 else "TurnRight",direction)
     if locomotion.special != "":
         var action: Dictionary = locomotion.advance_action(delta)
         avatar.rotation.y = action.angle
@@ -364,7 +397,7 @@ func _physics_process(delta: float) -> void:
     else:
         if has_direction:
             avatar.rotation.y = rotate_toward(avatar.rotation.y,atan2(direction.x,direction.z),delta*1.8)
-            target_speed = SPEED*clampf(cos(angle_error),0.35,1.0)
+            target_speed = SPEED*clampf(cos(angle_error),0.0,1.0)
         move_speed = move_toward(move_speed,target_speed,delta*(2.8 if target_speed>move_speed else 4.5))
         var facing := Vector3(sin(avatar.rotation.y),0,cos(avatar.rotation.y))
         actor.velocity.x = facing.x*move_speed
@@ -387,6 +420,29 @@ func _physics_process(delta: float) -> void:
     if actor.position.y < -2.0:
         reset_actor()
 
+func _begin_motion(name: String, direction: Vector3) -> void:
+    control_action = true
+    action_heading = atan2(direction.x,direction.z) if direction.length_squared()>0.01 else avatar.rotation.y
+    locomotion.begin_action(name,avatar.rotation.y)
+
+func _cancel_motion() -> void:
+    locomotion.cancel_action()
+    control_action = false
+    transition_grace = 0.18
+
+func _stop_control(message: String = "已停下") -> void:
+    if not scene_ready:
+        return
+    auto_walk = false
+    auto_braking = false
+    suppress_until_release = true
+    _cancel_motion()
+    move_speed = 0.0
+    actor.velocity.x = 0.0
+    actor.velocity.z = 0.0
+    action_result = message
+    _update_ui()
+
 func _toggle_branch() -> void:
     if scene_ready:
         boat_world.toggle_obstacle()
@@ -397,6 +453,7 @@ func _go_to_bank() -> void:
         return
     set_seated(false)
     auto_walk = true
+    suppress_until_release = false
     auto_elapsed = 0.0
     auto_braking = false
     stuck_time = 0.0
@@ -460,7 +517,7 @@ func _ui() -> void:
     var row := HBoxContainer.new()
     row.add_theme_constant_override("separation", 12)
     column.add_child(row)
-    for label in ["全景", "近看  C", "第一视角  F", "去池边  G", "移开树枝  B", "重置  R"]:
+    for label in ["全景", "近看  C", "第一视角  F", "去池边  G", "移开树枝  B", "停下  Space", "重置  R"]:
         var button := Button.new()
         button.text = label
         button.focus_mode = Control.FOCUS_NONE
@@ -478,6 +535,7 @@ func _ui() -> void:
             "全景": button.pressed.connect(func(): set_first_person(false))
             "近看  C": button.pressed.connect(_close_camera)
             "去池边  G": button.pressed.connect(_go_to_bank)
+            "停下  Space": button.pressed.connect(_stop_control)
             "移开树枝  B":
                 boat_button = button
                 button.pressed.connect(_toggle_branch)
@@ -496,7 +554,7 @@ func _update_ui() -> void:
     status.text = boat_text + ("  ·  " + action_result if action_result != "" else "")
     if boat_button:
         boat_button.text = "移开树枝  B" if boat_world.obstacle_present else "放回树枝  B"
-    hint.text = "WASD 走动 · C 近看 · F 第一视角 · Esc 释放鼠标 · B 导演移动树枝 · R 重置"
+    hint.text = "WASD 走动 · Space 停下 · C 近看 · F 第一视角 · Esc 释放鼠标 · R 重置"
     if seated_preview:
         hint.text = "原坐姿动画参考 · P 返回控制小样"
 

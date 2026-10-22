@@ -60,9 +60,11 @@ func setup(avatar: Node3D, walk_scene: PackedScene, measured_speed: float) -> vo
     action_node = AnimationNodeAnimation.new()
     action_node.animation = "Motion/Stop"
     graph.add_node("Action",action_node)
+    graph.add_node("ActionRate",AnimationNodeTimeScale.new())
     graph.add_node("Seek",AnimationNodeTimeSeek.new())
     graph.add_node("Final",AnimationNodeBlend2.new())
-    graph.connect_node("Seek",0,"Action")
+    graph.connect_node("ActionRate",0,"Action")
+    graph.connect_node("Seek",0,"ActionRate")
     graph.connect_node("Final",0,"Blend")
     graph.connect_node("Final",1,"Seek")
     graph.connect_node("output",0,"Final")
@@ -70,6 +72,8 @@ func setup(avatar: Node3D, walk_scene: PackedScene, measured_speed: float) -> vo
     tree.active = true
 
 func update_motion(speed: float, delta: float) -> void:
+    if special == "":
+        action_weight = move_toward(action_weight,0.0,delta/0.15)
     current_speed = speed
     blend = move_toward(blend, smoothstep(0.02,0.32,speed),delta*6.0)
     tree.set("parameters/Blend/blend_amount",blend)
@@ -82,6 +86,7 @@ func begin_action(name: String, angle: float) -> void:
     special_start_angle = angle
     last_root = Vector3.ZERO
     action_node.animation = "Motion/"+name
+    tree.set("parameters/ActionRate/scale",1.0)
     tree.set("parameters/Seek/seek_request",0.0)
 
 func advance_action(delta: float) -> Dictionary:
@@ -105,6 +110,11 @@ func advance_action(delta: float) -> Dictionary:
         completed_specials.append(special)
         special = ""
     return result
+
+func cancel_action() -> void:
+    # Stop root displacement immediately, retain the current pose while fading to locomotion.
+    special = ""
+    tree.set("parameters/ActionRate/scale",0.0)
 
 func reset_motion() -> void:
     special = ""

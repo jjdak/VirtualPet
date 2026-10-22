@@ -2,7 +2,7 @@
 
 ## 当前阶段变更（2026-10-23）
 
-S2 可玩技术候选已交付：[操作说明](../sim/README.md) · [进展与边界](sim/S2_PROGRESS.md) · [经验调研](sim/S2_RESEARCH_NOTES.md)。已接入现成待机/行走、纸船碰撞清障；新增左右转身、停步与有限脚部校正，修正 Godot 泛白，见[最新记录](sim/S2_CONTACT_PASS.md)。LLM 未实现，自然度待反馈。
+S2 可玩技术候选已交付：[操作说明](../sim/README.md) · [进展与边界](sim/S2_PROGRESS.md) · [经验调研](sim/S2_RESEARCH_NOTES.md)。已接入现成待机/行走、纸船碰撞清障；新增左右转身、停步与有限脚部校正，修正 Godot 泛白，见[最新记录](sim/S2_CONTACT_PASS.md)。新增[动作打断和停下控制](sim/S2_CONTROL_PASS.md)，并确认[局部观察＋动作反馈、视觉后置](sim/LLM_FEEDBACK_DESIGN.md)的方向。LLM 未实现，自然度待反馈。
 
 用户已授权进入小庭院 sim：观察、干预、接管角色。新执行入口为 [SIM 阶段计划](SIM_STAGE_PLAN.md)，B2 已[收束归档](archive/B2_CLOSEOUT.md)。本页旧 C0–C3 和“本轮之外”仅描述历史浏览器原型，不再禁止新阶段的交互/LLM 研究；保留安静气质、不自制人物和分阶段验收的原则。
 
