@@ -1,5 +1,12 @@
 # 依赖与制作工具清单
 
+## S1 已采用工具（2026-10-22）
+
+- **Godot 4.7.2 stable**（`4.7.2.stable.official.ed1daf0bf`），macOS Universal 非 .NET，安装于 `/Applications/Godot.app`；[官方来源](https://godotengine.org/download/macos/)，[MIT 许可](https://github.com/godotengine/godot/blob/4.7.2-stable/LICENSE.txt)。用于独立 `sim/` 运行时，不加入旧 Swift App。
+- 恢复：下载官方 `Godot_v4.7.2-stable_macos.universal.zip`，对照官方 SHA512 清单后解压；本轮已验证签名和公证。SHA256 `c58a24e31d720be9d62f60cb5627c4e695fb72f21b0cfe1bc9ccaa9a3b3ba63e`。详见 [验证回执](sim/S1_VERIFICATION.json)。
+- 美术导出沿用已有 Blender 5.2.1 LTS / 内置 glTF；原人物/场景许可不因转换改变。派生 GLB、图像、Godot 缓存和截图继续忽略；`prepare-assets.command` 可从原私人工程恢复。
+- 没有新增 VRM 插件、第三方动作包、模型服务或付费调用。下方 SIM 候选列表保留 S0 研究历史，Godot 的“未安装”状态已被本节取代；其余候选仍未采用。
+
 ## SIM 阶段候选（2026-10-21，未安装/未集成）
 
 研究见 [SIM 计划](SIM_STAGE_PLAN.md)。推荐 Godot 4 稳定版（MIT；具体版本待 S1 固定），普通 GLB 优先；godot-vrm（MIT）仅为可选，Quaternius Universal Animation Library（CC0、免费包为部分内容）为动作候选。Generative Agents（Apache-2.0）和 Voyager（MIT）只借鉴架构，没有复制代码或素材。未新增依赖、素材下载、付费模型调用或账户连接。接入时逐项补版本、包内许可、SHA-256 和恢复方法。

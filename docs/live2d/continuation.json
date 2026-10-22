@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-10-21",
+  "updatedAt": "2026-10-22",
   "latestOwnerFeedback": {
-    "date": "2026-10-21",
-    "quote": "先把之前的成果收束一下，该上传github的保存好。现在我们开启新的阶段，先搜索要达成这个效果需要实现哪些",
-    "interpretation": "Owner authorized B2 closeout, GitHub preservation and research for an observable, intervenable world with human/AI character control.",
-    "research": "docs/SIM_STAGE_PLAN.md"
+    "date": "2026-10-22",
+    "quote": "按计划开始 S1，安装 Godot，把现有庭院和人物迁进去，先做出可以控制角色、切换第一视角的小样，做好后记录进展。",
+    "interpretation": "Owner authorized S1 implementation and continuation. Technical checks and native UI observations are complete; subjective acceptance remains pending.",
+    "progress": "docs/sim/S1_PROGRESS.md"
   },
   "activeTrack": "courtyard-sim",
   "decision": {
@@ -22,13 +22,14 @@
     "legacyAppStatus": "preserved; physical acceptance and cross-device expansion deferred",
     "courtyardRenderer": "Three.js 0.185.1 + three-vrm 3.5.5; independent fixed-camera browser prototype",
     "learningStatus": "LLM action selection planned after deterministic world/control slice; no RL, fine-tuning or exploreBrain integration yet.",
-    "authoringDirection": "Blender remains the art source. B2 is archived; evaluate a separate real-time runtime without overwriting native art. Godot is the S1 recommendation, not yet installed or validated.",
-    "courtyardAuthoringSoftware": "Blender 5.2.1 LTS, macOS arm64"
+    "authoringDirection": "Blender remains the unchanged art source. Separate Godot 4.7.2 S1 runtime now imports the courtyard and GirlA for manual control, observer/first-person cameras and original seated animation preview.",
+    "courtyardAuthoringSoftware": "Blender 5.2.1 LTS, macOS arm64",
+    "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "SIM-S0",
-    "status": "research_and_archive_complete_S1_pending",
-    "nextAction": "S1: validate a separate Godot scene with a small courtyard section, existing GirlA skinned GLB and body animation, manual movement and observer/first-person camera switch. Record import and appearance limits before expanding or connecting an LLM.",
+    "id": "SIM-S1",
+    "status": "technical_demo_delivered_owner_experience_pending",
+    "nextAction": "Review the playable S1 via sim/run.command. Next bounded implementation is S2: existing locomotion animation retargeting, grounded movement and a paper-boat obstacle state. Do not claim AI, natural gait or B2 visual parity already exists.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -153,7 +154,8 @@
     "2026-10-02 B2 shape v3 saved/reopened, source preserved. Camera/character/actions/seat surfaces unchanged, new canopy sample movement 0.024158m and endpoint error 0. Rendered and inspected Cycles96 1280x720 still; v1 remains only delivered movie. Owner art acceptance pending.",
     "2026-10-02 Plan P1-P4 complete. V4 character-only rim via light linking, head/neck amplitude1.22 and wind1.18. Same saved scene rendered to 1280x720 Cycles128 still and 960x540 Cycles48 192-frame/24fps/8s movie. Source/mesh/camera preserved; reopen/contact/loop checks, full decode and 5-frame visual inspection passed. Real-time subjective playback remains unverified.",
     "2026-10-02 Encoding audit compared original PNGs and five profiles. Selected CRF6 H264 review (1.24MB) and ProRes422HQ (52.9MB), both 192 frames/24fps/8s with full decode pass. Mean grayscale seam difference improved from .103125 to .049722/.027083. Native playback blocked by Mac lock; subjective and real-time visual acceptance not claimed.",
-    "2026-10-03 QuickTime loaded exact current review MP4. Loop playback remained on during timed34.475s window, timeline wrapped from5.934s to0.368s. Screenshots show head-pose changes and stable full layout. Paused after review; original loop setting restored. Lock blocker resolved. This is intermittent observation, not proof of zero local shimmer or owner aesthetic acceptance."
+    "2026-10-03 QuickTime loaded exact current review MP4. Loop playback remained on during timed34.475s window, timeline wrapped from5.934s to0.368s. Screenshots show head-pose changes and stable full layout. Paused after review; original loop setting restored. Lock blocker resolved. This is intermittent observation, not proof of zero local shimmer or owner aesthetic acceptance.",
+    "2026-10-22 S1: Godot 4.7.2 official download SHA512, codesign and notarization pass. v6 source hash unchanged; 289 environment meshes and 58 character bones exported. Headless and graphical checks exit 0: movement, grounded spawn, walls/pool boundary, camera switch, arrow look, original seated bone motion. Captured mouse event checked only in graphical mode. Native UI observed movement, first-person view, arrow look and seated preview. Natural gait, AI and B2 render parity remain absent."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -173,7 +175,7 @@
     ]
   },
   "nextActions": [
-    "S1: validate a separate Godot scene with a small courtyard section, existing GirlA skinned GLB and body animation, manual movement and observer/first-person camera switch. Record import and appearance limits before expanding or connecting an LLM."
+    "Review the playable S1 via sim/run.command. Next bounded implementation is S2: existing locomotion animation retargeting, grounded movement and a paper-boat obstacle state. Do not claim AI, natural gait or B2 visual parity already exists."
   ],
   "preservedLive2DCheckpoint": {
     "baselineModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-imported.cmo3",
@@ -474,8 +476,8 @@
     "implementation": "none; exploreBrain untouched"
   },
   "reviewBlocker": {
-    "kind": "none_for_current_deliverable",
-    "latestEvidence": "v6 delivered through offline render and file checks; v5 native playback not claimed. Oct3 lock observation is historical, not a gate for continued art work.",
+    "kind": "none_for_S1_technical_delivery",
+    "latestEvidence": "Godot native window displayed and keyboard interactions observed. Subjective experience pending, no lock-screen blocker.",
     "consecutiveGoalTurns": 0
   },
   "communityResearch": {
@@ -491,13 +493,20 @@
   },
   "simStage": {
     "plan": "docs/SIM_STAGE_PLAN.md",
-    "status": "researched_not_implemented",
-    "runtimeRecommendation": "Godot 4 stable; exact version to pin during S1",
+    "status": "S1_implemented_and_verified",
+    "runtimeRecommendation": "Godot 4.7.2 stable installed and S1 verified; Unity/Three remain alternatives only if new evidence warrants",
     "archiveCommit": "68f43df9c46059abc4b29be9b74c532548f9a1b7",
     "archiveTag": "courtyard-b2-archive-2026-10-21",
     "privateSnapshot": "PrivateAssets/Archives/courtyard-b2-2026-10-21.zip",
     "privateRemoteBackup": false,
     "firstScenario": "Paper boat blocked by an obstacle; causal intervention and human/AI handoff",
-    "noPaidCallsThisTurn": true
+    "noPaidCallsThisTurn": true,
+    "runtimeProject": "sim/project.godot",
+    "launcher": "sim/run.command",
+    "progress": "docs/sim/S1_PROGRESS.md",
+    "verification": "docs/sim/S1_VERIFICATION.json",
+    "sourceBlendUnchanged": true,
+    "ownerAcceptance": false,
+    "nextStage": "S2 locomotion and causal world interaction; not implemented"
   }
 }

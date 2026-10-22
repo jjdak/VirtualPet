@@ -2,7 +2,7 @@
 
 ## 阶段收束（2026-10-21）
 
-B2 已归档，用户肯定当前整体优化并授权转向小型 sim。下述 v6/v7/v5 均保留为美术与动作来源；本页旧美术“下一步”不再是自动执行队列。新阶段见 [SIM 计划](../docs/SIM_STAGE_PLAN.md)，恢复见 [B2 收束](../docs/archive/B2_CLOSEOUT.md)。Godot 迁移须输出新文件，不能覆盖现有 Blender 工程；当前未完成运行时迁移。
+B2 已归档，用户肯定当前整体优化并授权转向小型 sim。下述 v6/v7/v5 均保留为美术与动作来源；本页旧美术“下一步”不再是自动执行队列。新阶段见 [SIM 计划](../docs/SIM_STAGE_PLAN.md)，恢复见 [B2 收束](../docs/archive/B2_CLOSEOUT.md)。Godot 迁移须输出新文件，不能覆盖现有 Blender 工程；S1 已完成独立运行时迁移验证，见 [Godot 入口](../sim/README.md)；不代表已还原 Cycles 画质。
 
 工具：Blender 5.2.1 LTS / Apple Silicon，`/Applications/Blender.app`。直接原生制作，无浏览器回传要求。
 

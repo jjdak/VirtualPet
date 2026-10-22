@@ -18,3 +18,8 @@ build_output.log
 /courtyard/public/models/*metadata.json
 
 /blender/scripts/__pycache__/
+
+# S1 runtime imports contain the existing private character and artwork.
+/sim/.godot/
+/sim/assets/private/
+/sim/evidence/
