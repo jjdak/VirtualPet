@@ -1,11 +1,11 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-10-22",
+  "updatedAt": "2026-10-23",
   "latestOwnerFeedback": {
-    "date": "2026-10-22",
-    "quote": "继续按计划推进 S2，先找合适的现成动作，让人物能自然走路和转身，再做纸船卡住和解除阻挡的交互，做好后记录进展。多去搜一下相关的经验吧，比如skill或者帖子，现在做的效果很粗糙。",
-    "interpretation": "S2 implementation authorized; deliver existing motion and causal boat interaction, record remaining naturalness limitations.",
-    "progress": "docs/sim/S2_PROGRESS.md"
+    "date": "2026-10-23",
+    "quote": "继续优化 S2，先找合适的原地转身和停步动作，改善滑脚和脚底接触，让人物动作更自然，做好后记录进展。现在的画面整体感觉过爆，很亮，和之前的建模不一样，有什么改动吗？",
+    "interpretation": "Refine S2 with sourced turn/stop clips and bounded foot contact; explain and correct Godot exposure without modifying original Blender art.",
+    "progress": "docs/sim/S2_CONTACT_PASS.md"
   },
   "activeTrack": "courtyard-sim",
   "decision": {
@@ -22,14 +22,14 @@
     "legacyAppStatus": "preserved; physical acceptance and cross-device expansion deferred",
     "courtyardRenderer": "Three.js 0.185.1 + three-vrm 3.5.5; independent fixed-camera browser prototype",
     "learningStatus": "LLM action selection planned after deterministic world/control slice; no RL, fine-tuning or exploreBrain integration yet.",
-    "authoringDirection": "Blender remains unchanged art source; separate Godot S2 runtime uses retargeted CC0 Idle/Walk, controlled movement/cameras and a causal boat/branch scene.",
+    "authoringDirection": "Original Blender art source unchanged. Godot S2 uses Quaternius Idle/Walk, CMU turn/stop recordings with collision-resolved root motion and bounded foot contact correction.",
     "courtyardAuthoringSoftware": "Blender 5.2.1 LTS, macOS arm64",
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
     "id": "SIM-S2",
     "status": "playable_technical_candidate_owner_naturalness_pending",
-    "nextAction": "Review S2 using C/G/B/R. Prioritize foot contact, dedicated turn/stop clips and readable reactions before scope expansion. S3 control/perception and S4 LLM remain unimplemented.",
+    "nextAction": "Review the 23.83s S2 contact/light candidate. Remaining priorities are phase-matched stops, less segmented reversals and real-time material/soft-shadow parity; do not infer owner acceptance. S3/S4 remain unimplemented.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -156,7 +156,8 @@
     "2026-10-02 Encoding audit compared original PNGs and five profiles. Selected CRF6 H264 review (1.24MB) and ProRes422HQ (52.9MB), both 192 frames/24fps/8s with full decode pass. Mean grayscale seam difference improved from .103125 to .049722/.027083. Native playback blocked by Mac lock; subjective and real-time visual acceptance not claimed.",
     "2026-10-03 QuickTime loaded exact current review MP4. Loop playback remained on during timed34.475s window, timeline wrapped from5.934s to0.368s. Screenshots show head-pose changes and stable full layout. Paused after review; original loop setting restored. Lock blocker resolved. This is intermittent observation, not proof of zero local shimmer or owner aesthetic acceptance.",
     "2026-10-22 S1: Godot 4.7.2 official download SHA512, codesign and notarization pass. v6 source hash unchanged; 289 environment meshes and 58 character bones exported. Headless and graphical checks exit 0: movement, grounded spawn, walls/pool boundary, camera switch, arrow look, original seated bone motion. Captured mouse event checked only in graphical mode. Native UI observed movement, first-person view, arrow look and seated preview. Natural gait, AI and B2 render parity remain absent.",
-    "2026-10-22 S2: Quaternius CC0 Idle/Walk retargeted to GirlA; actual-speed animation, bounded turning, goal/failure/manual interrupt and causal boat collision tests pass in graphical/headless modes. Original blend hashes unchanged; docs/sim/S2_PROGRESS.md records remaining limitations."
+    "2026-10-22 S2: Quaternius CC0 Idle/Walk retargeted to GirlA; actual-speed animation, bounded turning, goal/failure/manual interrupt and causal boat collision tests pass in graphical/headless modes. Original blend hashes unchanged; docs/sim/S2_PROGRESS.md records remaining limitations.",
+    "2026-10-23: CMU turns/stopping retargeted; bounded SkeletonModifier3D foot locking; graphical/headless regression passed including both turn endpoints, stop selection, per-phase locked-foot displacement, unchanged leg lengths, goal/boat/collision/reset/cameras. Original Blender SHA unchanged; 23.83s engine video and light comparison delivered. See docs/sim/S2_CONTACT_VERIFICATION.json; subjective naturalness pending."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -176,7 +177,7 @@
     ]
   },
   "nextActions": [
-    "Review S2 using C/G/B/R. Prioritize foot contact, dedicated turn/stop clips and readable reactions before scope expansion. S3 control/perception and S4 LLM remain unimplemented."
+    "Review the 23.83s S2 contact/light candidate. Remaining priorities are phase-matched stops, less segmented reversals and real-time material/soft-shadow parity; do not infer owner acceptance. S3/S4 remain unimplemented."
   ],
   "preservedLive2DCheckpoint": {
     "baselineModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-imported.cmo3",
@@ -477,8 +478,8 @@
     "implementation": "none; exploreBrain untouched"
   },
   "reviewBlocker": {
-    "kind": "none_for_S2_technical_delivery",
-    "latestEvidence": "Headless and graphical S2 checks pass; corrected skin grounding verified in screenshots. 19.67s engine recording produced. UI download tool timed out; official HTTP download succeeded. Naturalness and manual feel remain pending.",
+    "kind": "none_for_S2_contact_candidate_delivery",
+    "latestEvidence": "Graphical and headless turn/stop/contact regressions pass. 23.83s engine video and corrected light screenshots saved. Original Blender SHA unchanged. Owner naturalness/appearance/manual feel acceptance pending.",
     "consecutiveGoalTurns": 0
   },
   "communityResearch": {
@@ -494,7 +495,7 @@
   },
   "simStage": {
     "plan": "docs/SIM_STAGE_PLAN.md",
-    "status": "S2_playable_technical_candidate",
+    "status": "S2_contact_light_candidate",
     "runtimeRecommendation": "Godot 4.7.2 stable installed and S1 verified; Unity/Three remain alternatives only if new evidence warrants",
     "archiveCommit": "68f43df9c46059abc4b29be9b74c532548f9a1b7",
     "archiveTag": "courtyard-b2-archive-2026-10-21",
@@ -504,11 +505,11 @@
     "noPaidCallsThisTurn": true,
     "runtimeProject": "sim/project.godot",
     "launcher": "sim/run.command",
-    "progress": "docs/sim/S2_PROGRESS.md",
-    "verification": "docs/sim/S2_VERIFICATION.json",
+    "progress": "docs/sim/S2_CONTACT_PASS.md",
+    "verification": "docs/sim/S2_CONTACT_VERIFICATION.json",
     "sourceBlendUnchanged": true,
     "ownerAcceptance": false,
-    "nextStage": "S2 quality feedback and contact/turn refinements; S3 control/perception next, not implemented",
+    "nextStage": "Review the 23.83s S2 contact/light candidate. Remaining priorities are phase-matched stops, less segmented reversals and real-time material/soft-shadow parity; do not infer owner acceptance. S3/S4 remain unimplemented.",
     "research": "docs/sim/S2_RESEARCH_NOTES.md"
   }
 }

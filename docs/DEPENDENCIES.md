@@ -187,3 +187,9 @@ R5 的 iOS 模拟器 Core 只提供 arm64，因此私人配置排除 `x86_64` �
 - Blender 内置 glTF 导入/导出与 Python mathutils 用于离线重定向，Godot 原生 AnimationTree/TimeScale 与 CharacterBody3D 用于运行时。没有新增运行时插件或 Python 包。
 - `npx skills find godot animation` 用于公开工作流检索，没有安装全局 skill；选择与限制见 [S2 调研](sim/S2_RESEARCH_NOTES.md)。
 - 已有 ffmpeg 用于 Godot Movie Maker AVI 转 MP4，无新音频、纹理、云服务或付费模型调用。
+
+## S2 转身/停步与接触（2026-10-23）
+
+- 新增 CMU mocap 69_16 / 69_18 / 16_33 bones-only FBX；16_34 仅作比较未集成。CMU → cgspeed BVH → RancidMilk FBX → gbionics 镜像，**非 CC0**；允许使用/修改/再分发、用于商业产品，但不得直接转售动作数据，分发时传递条款。来源、裁剪、SHA-256 和恢复步骤见 [S2_CONTACT_PASS](sim/S2_CONTACT_PASS.md) / [验证 JSON](sim/S2_CONTACT_VERIFICATION.json)。
+- 素材、GirlA 衍生 GLB 和视频继续本地忽略；原 GirlA 模型许可单独保留。没有安装 Auto-Rig Pro，没有使用作者转换脚本，没有新增运行时包/付费调用。
+- 自有 Blender 重定向脚本与 Godot 原生 SkeletonModifier3D 实现有限脚部 IK；沿用现有 ffmpeg。原 Blender 美术工程未写入。

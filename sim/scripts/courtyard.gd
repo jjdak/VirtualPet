@@ -21,12 +21,14 @@ var colliders := 0
 var metadata: Dictionary
 var test_mode := false
 var s2_test := false
+var foot_contact: Node
 var locomotion: Node
 var boat_world: Node3D
 var follow_camera: Camera3D
 var close_view := false
 var move_speed := 0.0
 var auto_walk := false
+var auto_braking := false
 var auto_target := Vector3(2.65, 0.0, -0.20)
 var auto_elapsed := 0.0
 var stuck_time := 0.0
@@ -38,7 +40,7 @@ func _ready() -> void:
     test_mode = s2_test
     _input_map()
     _ui()
-    for required in ["migration.json","locomotion.json","courtyard-v6.glb","girl-a-idle.glb","girl-a-walk.glb","girl-a-seated.glb"]:
+    for required in ["migration.json","locomotion.json","courtyard-v6.glb","girl-a-idle.glb","girl-a-walk.glb","girl-a-seated.glb","transitions.json","girl-a-turnleft.glb","girl-a-turnright.glb","girl-a-stop.glb"]:
         if not FileAccess.file_exists(ASSET_ROOT + required):
             status.text = "缺少本地资产：" + required + "，请先运行准备脚本。"
             if test_mode:
@@ -77,6 +79,10 @@ func _ready() -> void:
     _update_ui()
     if test_mode:
         call_deferred("_run_s2_checks")
+    elif "--motion-check" in OS.get_cmdline_user_args():
+        call_deferred("_motion_check")
+    elif "--light-check" in OS.get_cmdline_user_args():
+        call_deferred("_light_check")
     elif "--s2-film" in OS.get_cmdline_user_args():
         call_deferred("_run_s2_film")
 
@@ -96,16 +102,18 @@ func _lighting() -> void:
     env.background_color = Color("c8d5ca")
     env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
     env.ambient_light_color = Color("cbd9d5")
-    env.ambient_light_energy = 0.36
-    env.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+    env.ambient_light_energy = 0.24
+    env.tonemap_mode = Environment.TONE_MAPPER_ACES
+    env.tonemap_exposure = 0.85
+    env.tonemap_white = 6.0
     world.environment = env
     add_child(world)
     var sun := DirectionalLight3D.new()
     sun.rotation_degrees = Vector3(-53, -32, 0)
-    sun.light_color = Color("fff5e7")
+    sun.light_color = Color("fff9f2")
     sun.light_energy = 0.55
     sun.shadow_enabled = true
-    sun.shadow_opacity = 0.72
+    sun.shadow_opacity = 0.86
     sun.directional_shadow_max_distance = 26.0
     add_child(sun)
     var floor_mesh := MeshInstance3D.new()
@@ -114,7 +122,7 @@ func _lighting() -> void:
     floor_mesh.mesh = plane
     floor_mesh.position.y = -0.37
     var mat := StandardMaterial3D.new()
-    mat.albedo_color = Color("d8d7c7")
+    mat.albedo_color = Color("b6b5a9")
     mat.roughness = 1.0
     floor_mesh.material_override = mat
     add_child(floor_mesh)
@@ -163,6 +171,10 @@ func _actor() -> void:
     avatar.add_child(locomotion)
     var motion_data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ASSET_ROOT + "locomotion.json"))
     locomotion.setup(avatar,load(ASSET_ROOT + "girl-a-walk.glb"),motion_data.clips.Walk.measured_stance_speed)
+    var skeleton: Skeleton3D = avatar.find_children("*","Skeleton3D",true,false)[0]
+    foot_contact = load("res://scripts/foot_contact.gd").new()
+    skeleton.add_child(foot_contact)
+    foot_contact.setup(actor,locomotion)
 
 func _play_imported(root: Node) -> void:
     for node in root.find_children("*", "AnimationPlayer", true, false):
@@ -243,7 +255,10 @@ func reset_actor() -> void:
     actor.position = SPAWN
     actor.velocity = Vector3.ZERO
     move_speed = 0.0
+    locomotion.reset_motion()
+    foot_contact.reset_contacts()
     auto_walk = false
+    auto_braking = false
     action_result = ""
     boat_world.reset()
     avatar.rotation.y = 0.0
@@ -312,7 +327,9 @@ func _physics_process(delta: float) -> void:
         auto_elapsed += delta
         var offset := auto_target - actor.position
         offset.y = 0.0
-        if offset.length() < 0.15:
+        if auto_braking and locomotion.special != "":
+            direction = Vector3.ZERO
+        elif offset.length() < 0.15 or (auto_braking and offset.length() < 0.25):
             auto_walk = false
             action_result = "已到池边"
             direction = Vector3.ZERO
@@ -321,17 +338,37 @@ func _physics_process(delta: float) -> void:
             action_result = "前方不可达，请手动绕行"
             direction = Vector3.ZERO
         else:
+            auto_braking = false
             direction = offset.normalized()
+            var stop_samples: Array = locomotion.transitions.Stop.root_samples
+            var stop_distance: float = stop_samples[-1].position[2]
+            if move_speed > 0.35 and offset.length() < stop_distance+0.035 and locomotion.special == "":
+                auto_braking = true
+                direction = Vector3.ZERO
     var target_speed := 0.0
-    if direction.length_squared() > 0.01:
-        var target_angle := atan2(direction.x,direction.z)
-        avatar.rotation.y = rotate_toward(avatar.rotation.y,target_angle,delta*2.8)
-        var angle := absf(wrapf(target_angle-avatar.rotation.y,-PI,PI))
-        target_speed = SPEED * lerpf(0.28,1.0,clampf(cos(angle),0.0,1.0))
-    move_speed = move_toward(move_speed,target_speed,delta*(2.8 if target_speed > move_speed else 4.5))
-    var facing := Vector3(sin(avatar.rotation.y),0,cos(avatar.rotation.y))
-    actor.velocity.x = facing.x * move_speed
-    actor.velocity.z = facing.z * move_speed
+    var angle_error := 0.0
+    var has_direction := direction.length_squared()>0.01
+    if has_direction:
+        angle_error = wrapf(atan2(direction.x,direction.z)-avatar.rotation.y,-PI,PI)
+    if locomotion.special == "":
+        if move_speed > 0.35 and (not has_direction or absf(angle_error)>2.0):
+            locomotion.begin_action("Stop",avatar.rotation.y)
+        elif has_direction and absf(angle_error)>1.15 and move_speed < 0.12:
+            locomotion.begin_action("TurnLeft" if angle_error>0 else "TurnRight",avatar.rotation.y)
+    if locomotion.special != "":
+        var action: Dictionary = locomotion.advance_action(delta)
+        avatar.rotation.y = action.angle
+        actor.velocity.x = action.velocity.x
+        actor.velocity.z = action.velocity.z
+        move_speed = 0.0
+    else:
+        if has_direction:
+            avatar.rotation.y = rotate_toward(avatar.rotation.y,atan2(direction.x,direction.z),delta*1.8)
+            target_speed = SPEED*clampf(cos(angle_error),0.35,1.0)
+        move_speed = move_toward(move_speed,target_speed,delta*(2.8 if target_speed>move_speed else 4.5))
+        var facing := Vector3(sin(avatar.rotation.y),0,cos(avatar.rotation.y))
+        actor.velocity.x = facing.x*move_speed
+        actor.velocity.z = facing.z*move_speed
     if not actor.is_on_floor():
         actor.velocity.y -= GRAVITY * delta
     else:
@@ -341,9 +378,9 @@ func _physics_process(delta: float) -> void:
     var actual := actor.position-before
     actual.y = 0
     var actual_speed := actual.length()/delta
-    locomotion.update_motion(actual_speed,delta)
+    locomotion.update_motion(0.0 if locomotion.special != "" else actual_speed,delta)
     if auto_walk:
-        stuck_time = stuck_time+delta if actual_speed < 0.04 else 0.0
+        stuck_time = stuck_time+delta if actual_speed < 0.04 and locomotion.special == "" else 0.0
     follow_camera.position = follow_camera.position.lerp(actor.position+Vector3(3.4,2.5,4.5),1-exp(-delta*4))
     follow_camera.look_at(actor.position+Vector3(0,0.95,0))
     _update_ui()
@@ -361,6 +398,7 @@ func _go_to_bank() -> void:
     set_seated(false)
     auto_walk = true
     auto_elapsed = 0.0
+    auto_braking = false
     stuck_time = 0.0
     action_result = "正走向池边 · WASD 随时接管"
 
@@ -483,6 +521,21 @@ func _run_s2_checks() -> void:
     report["clips"] = Array(locomotion.player.get_animation_list())
     _close_camera()
     await _capture("s2-idle")
+    # Both authored turns must finish with their measured yaw, without instant spinning.
+    var turn_results := {}
+    for turn_name in ["TurnLeft","TurnRight"]:
+        var old_heading := avatar.rotation.y
+        locomotion.begin_action(turn_name,old_heading)
+        await get_tree().create_timer(0.3).timeout
+        turn_results[turn_name+"_300ms"] = absf(wrapf(avatar.rotation.y-old_heading,-PI,PI))
+        await get_tree().create_timer(1.45).timeout
+        turn_results[turn_name+"_error"] = absf(wrapf(avatar.rotation.y-old_heading-float(locomotion.transitions[turn_name].yaw),-PI,PI))
+    report["turns"] = turn_results
+    reset_actor()
+    await get_tree().create_timer(0.5).timeout
+    # Start aligned so this measures walking rather than the new pre-walk turn.
+    var right := follow_camera.global_basis.x
+    avatar.rotation.y = atan2(right.x,right.z)
     var initial_pose := sk.get_bone_pose_rotation(leg)
     var start := actor.position
     Input.action_press("right")
@@ -492,15 +545,21 @@ func _run_s2_checks() -> void:
     report["walk_blend"] = locomotion.blend
     await _capture("s2-walk")
     Input.action_release("right")
-    Input.action_press("left")
-    var old_heading := avatar.rotation.y
-    await get_tree().create_timer(0.3).timeout
-    report["turn_in_300ms"] = absf(wrapf(avatar.rotation.y-old_heading,-PI,PI))
-    await _capture("s2-turn")
-    Input.action_release("left")
-    await get_tree().create_timer(0.6).timeout
+    await get_tree().create_timer(0.35).timeout
+    report["stop_clip_entered"] = locomotion.special == "Stop"
+    await _capture("s2-stop-contact")
+    await get_tree().create_timer(1.0).timeout
+    report["stop_clip_completed"] = "Stop" in locomotion.completed_specials
     report["stopped_speed"] = locomotion.current_speed
     report["idle_blend"] = locomotion.blend
+    # Opposite input must select a turn clip, then allow walking after it finishes.
+    Input.action_press("left")
+    await get_tree().create_timer(0.3).timeout
+    report["input_turn_entered"] = locomotion.special.begins_with("Turn")
+    await _capture("s2-turn")
+    Input.action_release("left")
+    await get_tree().create_timer(1.5).timeout
+    report["contacts"] = foot_contact.metrics.duplicate(true)
     reset_actor()
     set_first_person(false)
     _go_to_bank()
@@ -558,26 +617,52 @@ func _run_s2_checks() -> void:
     report["camera_look"] = absf(yaw-last_yaw)>0.2
     set_first_person(false)
     await _capture("s2-overview")
-    report["passed"] = report.grounded and absf(report.support_foot_height) < 0.12 and report.bone_count == 58 and report.walking_distance > 0.35 and report.leg_angle_change > 0.1 and report.stopped_speed < 0.05 and report.turn_in_300ms < 1.0 and report.bank_distance < 0.25 and report.boat_blocked and report.blocked_drift < 0.01 and report.boat_released and report.removed_before_arrival and report.wall_blocked and report.unreachable_result.contains("不可达") and report.manual_interrupt and report.reset_ok and report.first_person and report.camera_look and report.replaced_after_pass
+    report["passed"] = report.grounded and absf(report.support_foot_height) < 0.12 and report.bone_count == 58 and report.walking_distance > 0.35 and report.leg_angle_change > 0.1 and report.stopped_speed < 0.05 and report.turns.TurnLeft_300ms < 1.0 and report.turns.TurnRight_300ms < 1.0 and report.turns.TurnLeft_error < 0.05 and report.turns.TurnRight_error < 0.05 and report.stop_clip_entered and report.stop_clip_completed and report.input_turn_entered and report.bank_distance < 0.25 and report.boat_blocked and report.blocked_drift < 0.01 and report.boat_released and report.removed_before_arrival and report.wall_blocked and report.unreachable_result.contains("不可达") and report.manual_interrupt and report.reset_ok and report.first_person and report.camera_look and report.replaced_after_pass
+    var contact_checks := true
+    for phase in ["Walk","TurnLeft","TurnRight","Stop"]:
+        var m: Dictionary = report.contacts.phases.get(phase,{})
+        contact_checks = contact_checks and m.get("samples",0)>5 and m.get("corrected_slide_sum",1.0)<m.get("raw_slide_sum",0.0)*0.65
+    report["contact_checks"] = contact_checks and report.contacts.max_segment_error < 0.001
+    report.passed = report.passed and report.contact_checks
     FileAccess.open("res://evidence/s2-check-"+("graphical" if report.graphical else "headless")+".json",FileAccess.WRITE).store_string(JSON.stringify(report,"  "))
     print("S2_CHECK ",JSON.stringify(report))
     get_tree().quit(0 if report.passed else 1)
 
 func _run_s2_film() -> void:
-    await get_tree().create_timer(1.5).timeout
+    await get_tree().create_timer(1.0).timeout
     _close_camera()
-    await get_tree().create_timer(1.5).timeout
+    await get_tree().create_timer(1.0).timeout
     Input.action_press("right")
-    await get_tree().create_timer(1.5).timeout
+    await get_tree().create_timer(3.2).timeout
     Input.action_release("right")
+    await get_tree().create_timer(1.35).timeout
     Input.action_press("left")
-    await get_tree().create_timer(1.4).timeout
+    await get_tree().create_timer(4.2).timeout
     Input.action_release("left")
-    await get_tree().create_timer(0.8).timeout
+    await get_tree().create_timer(1.35).timeout
     _go_to_bank()
-    await get_tree().create_timer(4.5).timeout
+    await get_tree().create_timer(5.5).timeout
     set_first_person(false)
-    await get_tree().create_timer(3.3).timeout
+    await get_tree().create_timer(2.0).timeout
     _toggle_branch()
-    await get_tree().create_timer(5.0).timeout
+    await get_tree().create_timer(4.0).timeout
+    get_tree().quit()
+
+func _light_check() -> void:
+    await get_tree().create_timer(1.0).timeout
+    await _capture("s2-light-corrected")
+    get_tree().quit()
+
+func _motion_check() -> void:
+    await get_tree().create_timer(0.5).timeout
+    _close_camera()
+    locomotion.begin_action("TurnLeft",avatar.rotation.y)
+    await get_tree().create_timer(0.75).timeout
+    await _capture("s2-turn-contact")
+    await get_tree().create_timer(1.0).timeout
+    locomotion.begin_action("Stop",avatar.rotation.y)
+    await get_tree().create_timer(0.55).timeout
+    await _capture("s2-stop-contact")
+    await get_tree().create_timer(0.7).timeout
+    print("CONTACT ",JSON.stringify(foot_contact.metrics))
     get_tree().quit()

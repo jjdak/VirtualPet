@@ -1,6 +1,6 @@
 # 庭院 S2：脚步与纸船
 
-2026-10-22。Godot 4.7.2 stable / macOS Apple M4 / Compatibility。现成待机、行走动作已接入少女A；缓转、池边移动与纸船碰撞/清障已可体验。自然度仍待反馈，没有 LLM 或学习。
+2026-10-23。Godot 4.7.2 stable / macOS Apple M4 / Compatibility。现成待机、行走动作已接入少女A；新增 CMU 左右转身/停步与有限脚底校正；池边移动与纸船碰撞/清障可体验，运行时泛白已修正。自然度仍待反馈，没有 LLM 或学习。
 
 ## 启动与操作
 
@@ -24,11 +24,11 @@
 
 ## 本轮交付
 
-- GirlA 原 58 骨骼、网格和贴图，Quaternius 的 `Idle_Loop` / `Walk_Loop` 重定向，按实际移动速度播放；缓起停、急转减速，撞墙不继续踏步。
+- GirlA 原 58 骨骼、网格和贴图；Quaternius Idle/Walk 与 CMU TurnLeft/TurnRight/Stop，位移经过碰撞，低位脚部做有限 IK 校正。
 - 原完整庭院和 74 处建筑碰撞。去池边沿直接可行路线执行；受阻/超时有失败结果，**不是完整 NavMesh 绕路系统**。
 - 纸船沿简化水路推进，扫掠碰撞检测树枝；移开后继续，提前移开则不被挡住，漂过之后放回不会倒退。
-- 新近景、稍柔和的阴影和简化控制栏。原 B2 主工程没有改写。
-- [约 20 秒运行视频](evidence/s2-demo.mp4) · [进展及验收边界](../docs/sim/S2_PROGRESS.md) · [调研](../docs/sim/S2_RESEARCH_NOTES.md)。视频和截图仅本地可用。
+- 近景和简化控制栏；环境光/曝光重新收敛，修正泛白。原 B2 主工程没有改写。
+- [约 24 秒运行视频](evidence/s2-contact-demo.mp4) · [最新进展及验收边界](../docs/sim/S2_CONTACT_PASS.md) · [调研](../docs/sim/S2_RESEARCH_NOTES.md)。视频和截图仅本地可用。
 
 ## 恢复资产
 
@@ -36,7 +36,7 @@
 
 `PrivateAssets/Courtyard/Animations/Quaternius/Universal Animation Library[Standard]/`
 
-然后执行 `./sim/prepare-assets.command`，顺序为独立导出 S1 环境/站姿 → `blender/scripts/retarget-sim-s2.py` 生成 Idle/Walk → Godot 导入。已有资产可只执行重定向脚本，不必重导环境。脚本不保存原 `.blend`。
+另按 [CMU 来源/许可/哈希](../docs/sim/S2_CONTACT_PASS.md) 恢复三个 FBX 至 `PrivateAssets/Courtyard/Animations/CMU/`（非 CC0）。然后执行 `./sim/prepare-assets.command`，顺序为独立导出 S1 环境/站姿 → `retarget-sim-s2.py` 生成 Idle/Walk → `retarget-sim-s2-transitions.py` 生成转身/停步 → Godot 导入。已有资产可只执行重定向脚本，不必重导环境。脚本不保存原 `.blend`。
 
 工具：已有 Blender 5.2.1 LTS 和 `/Applications/Godot.app` 4.7.2 stable Universal 非 .NET。没有安装 VRM/MCP 插件、付费服务或全局 skill。
 
@@ -45,14 +45,14 @@
 ```sh
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path sim -- --s2-test
 /Applications/Godot.app/Contents/MacOS/Godot --path sim -- --s2-test
-/Applications/Godot.app/Contents/MacOS/Godot --path sim --fixed-fps 30 --write-movie "$PWD/sim/evidence/s2-demo.avi" -- --s2-film
+/Applications/Godot.app/Contents/MacOS/Godot --path sim --fixed-fps 30 --write-movie "$PWD/sim/evidence/s2-contact-demo.avi" -- --s2-film
 ```
 
-测试约 33 秒，成功输出 `S2_CHECK` / `passed: true` 并退出 0。图形模式额外保存画面，报告分别为 `evidence/s2-check-headless.json` 和 `s2-check-graphical.json`。旧 `--s1-test` 仅适用于 S1 历史提交。
+测试约 40 秒，成功输出 `S2_CHECK` / `passed: true` 并退出 0。图形模式额外保存画面，报告分别为 `evidence/s2-check-headless.json` 和 `s2-check-graphical.json`。旧 `--s1-test` 仅适用于 S1 历史提交。
 
 ## 限制与下一步
 
-- 目前转向是行走中的缓转；免费素材没有独立原地转身片段。无脚部 IK，急转、停步与台阶仍可能滑脚或出现脚掌接触不稳，尚不能称为成品自然动作。
+- 已有现成转身/停步和有限脚部 IK；180° 掉头仍分两段，Stop 未按支撑脚匹配，转身/停步播放中不能即时改向。台阶、碰撞与动作混合仍可能滑脚，不能称为成品自然动作。
 - 目标跟随只做直接路线和失败检测，不会绕开任意新增障碍。无自动上台阶、跳跃、游泳。
 - 面部静态、裙摆沿原权重；没有自制人物、布料或头发模拟。站/坐模式切换没有起身过渡。
 - 实时材质、静态树冠和水面仍简化，没有还原 Cycles/概念插画画质。影片不代表实时连续人工手感验收。

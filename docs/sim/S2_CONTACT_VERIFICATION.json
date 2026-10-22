@@ -1,0 +1,283 @@
+{
+  "date": "2026-10-23",
+  "stage": "S2 turn/stop/contact and light correction candidate; owner acceptance pending",
+  "checks": {
+    "headless": {
+      "bank_distance": 0.0638263896107674,
+      "bank_result": "已到池边",
+      "blocked_drift": 0.0,
+      "boat_blocked": true,
+      "boat_released": true,
+      "bone_count": 58,
+      "camera_look": true,
+      "clips": [
+        "GirlA - courtyard rig",
+        "Motion/Idle",
+        "Motion/Stop",
+        "Motion/TurnLeft",
+        "Motion/TurnRight",
+        "Motion/Walk"
+      ],
+      "contact_checks": true,
+      "contacts": {
+        "corrected_slide_sum": 0.503974624255477,
+        "max_correction": 0.220000013709068,
+        "max_segment_error": 1.19209289550781e-07,
+        "phases": {
+          "Idle": {
+            "corrected_slide_sum": 0.0121918624610089,
+            "raw_slide_sum": 0.201398539575166,
+            "samples": 658
+          },
+          "Stop": {
+            "corrected_slide_sum": 0.0598678820160217,
+            "raw_slide_sum": 1.10872632007667,
+            "samples": 178
+          },
+          "TurnLeft": {
+            "corrected_slide_sum": 0.122728702213919,
+            "raw_slide_sum": 1.89044752337941,
+            "samples": 422
+          },
+          "TurnRight": {
+            "corrected_slide_sum": 0.13425253391101,
+            "raw_slide_sum": 3.08350368143684,
+            "samples": 831
+          },
+          "Walk": {
+            "corrected_slide_sum": 0.174933643653517,
+            "raw_slide_sum": 1.33192370335746,
+            "samples": 173
+          }
+        },
+        "raw_slide_sum": 7.61599976782554,
+        "samples": 2262
+      },
+      "engine": "4.7.2-stable (official)",
+      "events": [
+        {
+          "boat_x": 1.9270087480545,
+          "event": "blocked",
+          "time": 11.6666666666668
+        },
+        {
+          "event": "branch_removed",
+          "time": 13.6166666666669
+        },
+        {
+          "boat_x": 1.9270087480545,
+          "event": "drifting",
+          "time": 14.0333333333336
+        }
+      ],
+      "first_person": true,
+      "graphical": false,
+      "grounded": true,
+      "idle_blend": 0.0,
+      "input_turn_entered": true,
+      "leg_angle_change": 1.05099892616272,
+      "manual_interrupt": true,
+      "passed": true,
+      "removed_before_arrival": true,
+      "replaced_after_pass": true,
+      "reset_ok": true,
+      "stop_clip_completed": true,
+      "stop_clip_entered": true,
+      "stopped_speed": 0.0,
+      "support_foot_height": 0.0230344533920288,
+      "turns": {
+        "TurnLeft_300ms": 0.581448435783386,
+        "TurnLeft_error": 2.34525012743347e-08,
+        "TurnRight_300ms": 0.235199928283691,
+        "TurnRight_error": 1.38277633787709e-09
+      },
+      "unreachable_result": "前方不可达，请手动绕行",
+      "walk_blend": 1.0,
+      "walking_distance": 1.04305171966553,
+      "wall_blocked": true
+    },
+    "graphical": {
+      "bank_distance": 0.0638263896107674,
+      "bank_result": "已到池边",
+      "blocked_drift": 0.0,
+      "boat_blocked": true,
+      "boat_released": true,
+      "bone_count": 58,
+      "camera_look": true,
+      "clips": [
+        "GirlA - courtyard rig",
+        "Motion/Idle",
+        "Motion/Stop",
+        "Motion/TurnLeft",
+        "Motion/TurnRight",
+        "Motion/Walk"
+      ],
+      "contact_checks": true,
+      "contacts": {
+        "corrected_slide_sum": 0.46422162967832,
+        "max_correction": 0.219999998807907,
+        "max_segment_error": 8.94069671630859e-08,
+        "phases": {
+          "Idle": {
+            "corrected_slide_sum": 0.0122309305979798,
+            "raw_slide_sum": 0.196604878825383,
+            "samples": 496
+          },
+          "Stop": {
+            "corrected_slide_sum": 0.0630020637478026,
+            "raw_slide_sum": 1.15622574315293,
+            "samples": 130
+          },
+          "TurnLeft": {
+            "corrected_slide_sum": 0.0979464031165946,
+            "raw_slide_sum": 1.8908722613487,
+            "samples": 327
+          },
+          "TurnRight": {
+            "corrected_slide_sum": 0.12334653359801,
+            "raw_slide_sum": 3.04301369226505,
+            "samples": 667
+          },
+          "Walk": {
+            "corrected_slide_sum": 0.167695698617933,
+            "raw_slide_sum": 1.20062316244002,
+            "samples": 140
+          }
+        },
+        "raw_slide_sum": 7.48733973803209,
+        "samples": 1760
+      },
+      "engine": "4.7.2-stable (official)",
+      "events": [
+        {
+          "boat_x": 1.9270087480545,
+          "event": "blocked",
+          "time": 11.6666666666668
+        },
+        {
+          "event": "branch_removed",
+          "time": 13.6166666666669
+        },
+        {
+          "boat_x": 1.9270087480545,
+          "event": "drifting",
+          "time": 14.0500000000003
+        }
+      ],
+      "first_person": true,
+      "graphical": true,
+      "grounded": true,
+      "idle_blend": 0.0,
+      "input_turn_entered": true,
+      "leg_angle_change": 1.03502643108368,
+      "manual_interrupt": true,
+      "passed": true,
+      "removed_before_arrival": true,
+      "replaced_after_pass": true,
+      "reset_ok": true,
+      "stop_clip_completed": true,
+      "stop_clip_entered": true,
+      "stopped_speed": 0.0,
+      "support_foot_height": 0.0230346322059631,
+      "turns": {
+        "TurnLeft_300ms": 0.581448435783386,
+        "TurnLeft_error": 2.34525012743347e-08,
+        "TurnRight_300ms": 0.216609716415405,
+        "TurnRight_error": 1.38277633787709e-09
+      },
+      "unreachable_result": "前方不可达，请手动绕行",
+      "walk_blend": 1.0,
+      "walking_distance": 1.04305171966553,
+      "wall_blocked": true
+    }
+  },
+  "clips": {
+    "TurnLeft": {
+      "source": "69_16",
+      "frames": [
+        1,
+        48
+      ],
+      "duration": 1.5666666666666667,
+      "yaw": 1.5047322746197986,
+      "sha256": "ac53ef2f4c308fd40f4a870e0c06f4f695da20c71dde197c95dc0dce6e8571a2"
+    },
+    "TurnRight": {
+      "source": "69_18",
+      "frames": [
+        31,
+        78
+      ],
+      "duration": 1.5666666666666667,
+      "yaw": -1.4402976049899539,
+      "sha256": "15202590597ba3ec52c4eceb0cd67a30957e6171551a141e7f79dfd042b4296c"
+    },
+    "Stop": {
+      "source": "16_33",
+      "frames": [
+        41,
+        72
+      ],
+      "duration": 1.0333333333333334,
+      "yaw": -0.09697996756774563,
+      "sha256": "2aef7169c4d41cafc916a57d0878ba3d7d4b14be0352d685b39473a2eee239d2"
+    }
+  },
+  "source_files": {
+    "69_16": {
+      "url": "https://huggingface.co/datasets/gbionics/cmu-fbx/resolve/main/animations/69_16.fbx",
+      "bytes": 206044,
+      "sha256": "074d281aba1861a63860c304d52136391bbfe27de632e29d079dc2496b575da3"
+    },
+    "69_18": {
+      "url": "https://huggingface.co/datasets/gbionics/cmu-fbx/resolve/main/animations/69_18.fbx",
+      "bytes": 200140,
+      "sha256": "d088ca3b32c2096444eae91a05caffb79d177a6f9655ec67dbe2cf2e0bf83cec"
+    },
+    "16_33": {
+      "url": "https://huggingface.co/datasets/gbionics/cmu-fbx/resolve/main/animations/16_33.fbx",
+      "bytes": 118252,
+      "sha256": "1ae8877eee28b582c9025960549706e1395967642680aa62587130fe43cac3ab"
+    },
+    "16_34": {
+      "url": "https://huggingface.co/datasets/gbionics/cmu-fbx/resolve/main/animations/16_34.fbx",
+      "bytes": 125244,
+      "sha256": "a6c794316935af59f7c0eb42a3352b964f07a9493a1c98fb32a9f0cc95170890"
+    },
+    "_license": {
+      "name": "CMU mocap terms (not CC0)",
+      "attribution": "CMU Graphics Lab, NSF EIA-0196217; BVH by cgspeed; FBX conversion by RancidMilk; mirror gbionics/cmu-fbx",
+      "terms": "May use, copy, modify and redistribute, including in commercial products; may not directly resell motion data, including conversions. Pass these terms along when redistributing. Character license is separate.",
+      "source": "https://rancidmilk.itch.io/free-character-animations",
+      "mirror": "https://huggingface.co/datasets/gbionics/cmu-fbx"
+    }
+  },
+  "source_blend_sha256": "1c94af34f7a029aebf1626ae5f8c9eb4e9820a5d79842fe061402db3f58e47da",
+  "source_blend_unchanged": true,
+  "video": {
+    "path": "sim/evidence/s2-contact-demo.mp4",
+    "fps": 30,
+    "frames": 715,
+    "seconds": 23.833333333333332,
+    "width": 1280,
+    "height": 800,
+    "sha256": "88161324a27e4113d4bdcc787fefb12010c99eba3d579695dc0dd8fb8e76b1f8"
+  },
+  "contact_metric_scope": "Horizontal ankle displacement on consecutive fully locked support samples, same frames before and after IK; excludes swing/blending/unlocked phases. Not an overall naturalness score.",
+  "visual_review": "Actual Godot screenshots and 10 decoded video frames inspected; no gross rig corruption; hard shadows, simple materials and segmented 180-degree turns remain. Continuous human playback/feel not accepted.",
+  "lighting": {
+    "ambient_before": 0.36,
+    "ambient_after": 0.24,
+    "shadow_opacity_before": 0.72,
+    "shadow_opacity_after": 0.86,
+    "tonemap_after": "ACES",
+    "exposure_after": 0.85
+  },
+  "limitations": [
+    "No phase-matched left/right stop alternatives; transitions can still pop",
+    "180-degree reversal uses two approximate 90-degree turns; committed clips delay input response",
+    "Foot IK bounded to 0.22m; no pelvic compensation or foot orientation/sole mesh constraints",
+    "Steps, collisions and blend phases may still slide or float; contact metric only covers locked intervals",
+    "No Cycles material/light parity, no hand interaction or NavMesh, no S3/S4 implementation"
+  ]
+}
