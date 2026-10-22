@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-22",
+  "stage": "S2 technical candidate; owner acceptance pending",
+  "checks": {
+    "headless": {
+      "bank_distance": 0.0182712450623512,
+      "bank_result": "已到池边",
+      "blocked_drift": 0.0,
+      "boat_blocked": true,
+      "boat_released": true,
+      "bone_count": 58,
+      "camera_look": true,
+      "clips": [
+        "GirlA - courtyard rig",
+        "Motion/Idle",
+        "Motion/Walk"
+      ],
+      "engine": "4.7.2-stable (official)",
+      "events": [
+        {
+          "boat_x": 1.9270087480545,
+          "event": "blocked",
+          "time": 11.6666666666668
+        },
+        {
+          "event": "branch_removed",
+          "time": 13.6166666666669
+        },
+        {
+          "boat_x": 1.9270087480545,
+          "event": "drifting",
+          "time": 14.0333333333336
+        }
+      ],
+      "first_person": true,
+      "graphical": false,
+      "grounded": true,
+      "idle_blend": 0.0,
+      "leg_angle_change": 0.380621284246445,
+      "manual_interrupt": true,
+      "passed": true,
+      "removed_before_arrival": true,
+      "replaced_after_pass": true,
+      "reset_ok": true,
+      "stopped_speed": 0.0,
+      "support_foot_height": 0.0230063199996948,
+      "turn_in_300ms": 0.839999198913574,
+      "unreachable_result": "前方不可达，请手动绕行",
+      "walk_blend": 1.0,
+      "walking_distance": 0.775684595108032,
+      "wall_blocked": true
+    },
+    "graphical": {
+      "bank_distance": 0.0182712450623512,
+      "bank_result": "已到池边",
+      "blocked_drift": 0.0,
+      "boat_blocked": true,
+      "boat_released": true,
+      "bone_count": 58,
+      "camera_look": true,
+      "clips": [
+        "GirlA - courtyard rig",
+        "Motion/Idle",
+        "Motion/Walk"
+      ],
+      "engine": "4.7.2-stable (official)",
+      "events": [
+        {
+          "boat_x": 1.9270087480545,
+          "event": "blocked",
+          "time": 11.6666666666668
+        },
+        {
+          "event": "branch_removed",
+          "time": 13.6000000000003
+        },
+        {
+          "boat_x": 1.9270087480545,
+          "event": "drifting",
+          "time": 14.0333333333336
+        }
+      ],
+      "first_person": true,
+      "graphical": true,
+      "grounded": true,
+      "idle_blend": 0.0,
+      "leg_angle_change": 0.453296661376953,
+      "manual_interrupt": true,
+      "passed": true,
+      "removed_before_arrival": true,
+      "replaced_after_pass": true,
+      "reset_ok": true,
+      "stopped_speed": 0.0,
+      "support_foot_height": 0.0230138897895813,
+      "turn_in_300ms": 0.839999198913574,
+      "unreachable_result": "前方不可达，请手动绕行",
+      "walk_blend": 1.0,
+      "walking_distance": 0.775684595108032,
+      "wall_blocked": true
+    }
+  },
+  "source_files_unchanged": {
+    "PrivateAssets/Courtyard/Animations/Quaternius/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb": true,
+    "sim/assets/private/girl-a-standing.glb": true,
+    "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-reference-v6-focused.blend": true
+  },
+  "clips": {
+    "Idle": {
+      "source_clip": "Idle_Loop",
+      "duration": 2.5,
+      "frames": 76,
+      "measured_stance_speed": 0
+    },
+    "Walk": {
+      "source_clip": "Walk_Loop",
+      "duration": 1.3333333333333333,
+      "frames": 41,
+      "measured_stance_speed": 1.0844667255878448
+    }
+  },
+  "exports": {
+    "girl-a-idle.glb": "c910ebbcf5711dddb516b793b1d5e0eac7cf14d557c8153ab081af1ebb576b60",
+    "girl-a-walk.glb": "dc02e626a5271f4e48428d4957d09a47cdbf63a655aa59997c8f72cdc02bd9d2"
+  },
+  "video": {
+    "path": "sim/evidence/s2-demo.mp4",
+    "frames": 590,
+    "fps": 30,
+    "seconds": 19.666666666666668,
+    "width": 1280,
+    "height": 800,
+    "sha256": "8a2f94a01bf55f61dcbad2b05e650f7275c730d0308d289a005acec808275d4c"
+  },
+  "limitations": [
+    "No independent turn-in-place clip or foot IK",
+    "Director-controlled obstacle, no character grasp",
+    "Direct goal following, no NavMesh detour",
+    "No LLM, local perception or learning",
+    "No subjective acceptance or Cycles visual parity"
+  ]
+}

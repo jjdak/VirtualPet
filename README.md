@@ -2,7 +2,7 @@
 
 ## 当前阶段：小庭院仿真研究（2026-10-21）
 
-用户已认可“观察、干预、接管”的新方向，B2 美术阶段已收束并保存至 GitHub 归档标签 [`courtyard-b2-archive-2026-10-21`](https://github.com/jjdak/VirtualPet/tree/courtyard-b2-archive-2026-10-21)。**S1 技术小样已完成**：Godot 4.7.2、现有庭院/少女A、键鼠移动、观察/第一视角切换及原坐姿预览。[启动小样](sim/run.command) · [操作说明](sim/README.md) · [S1 进展](docs/sim/S1_PROGRESS.md)。自然步态、AI 与纸船交互尚未实现；实时画质和手感待反馈。
+用户已认可“观察、干预、接管”的新方向，B2 美术阶段已收束并保存至 GitHub 归档标签 [`courtyard-b2-archive-2026-10-21`](https://github.com/jjdak/VirtualPet/tree/courtyard-b2-archive-2026-10-21)。**S2 可玩技术候选已交付**：现成待机/行走动作、缓转、去池边、纸船真实阻挡/清障，以及原控制/第一视角。[启动小样](sim/run.command) · [操作说明](sim/README.md) · [S2 进展](docs/sim/S2_PROGRESS.md)。独立原地转身、脚部 IK、角色手部清障、完整寻路与 LLM 尚未实现；自然度和体验待反馈。
 
 [新阶段计划与一手来源](docs/SIM_STAGE_PLAN.md) · [旧成果收束及恢复](docs/archive/B2_CLOSEOUT.md) · [继续工作卡](docs/live2d/continuation.json)
 

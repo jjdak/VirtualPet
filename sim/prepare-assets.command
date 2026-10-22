@@ -7,4 +7,10 @@ if [[ ! -f "$source_file" ]]; then
   exit 1
 fi
 /Applications/Blender.app/Contents/MacOS/Blender -b "$source_file" --python blender/scripts/export-sim-s1.py
+if [[ -f 'PrivateAssets/Courtyard/Animations/Quaternius/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb' ]]; then
+  /Applications/Blender.app/Contents/MacOS/Blender -b --python blender/scripts/retarget-sim-s2.py
+else
+  echo 'S2 需要 Quaternius Standard 免费动作包，见 sim/README.md。' >&2
+  exit 1
+fi
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path sim --editor --import

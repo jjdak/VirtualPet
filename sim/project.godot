@@ -1,8 +1,8 @@
-; S1: independent runtime. Private imported assets are intentionally not in Git.
+; S2: independent runtime. Private imported assets are intentionally not in Git.
 config_version=5
 
 [application]
-config/name="Quiet Courtyard · S1"
+config/name="Quiet Courtyard · S2"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 

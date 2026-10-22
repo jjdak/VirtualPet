@@ -1,54 +1,60 @@
-# 庭院 S1：Godot 控制与第一视角小样
+# 庭院 S2：脚步与纸船
 
-2026-10-22。Godot 4.7.2 stable，macOS / Apple M4，Compatibility 渲染。当前是可控制的迁移验证，尚无自然步态、智能行为或物品交互。
+2026-10-22。Godot 4.7.2 stable / macOS Apple M4 / Compatibility。现成待机、行走动作已接入少女A；缓转、池边移动与纸船碰撞/清障已可体验。自然度仍待反馈，没有 LLM 或学习。
 
-## 启动
+## 启动与操作
 
-双击本目录 [`run.command`](run.command)，或在仓库根目录运行 `./sim/run.command`。它先更新本地导入缓存，再打开小样。也可在 Godot 导入 [`project.godot`](project.godot) 后按 F6/F5 运行场景/项目。
+双击 [`run.command`](run.command)，或在仓库根目录运行 `./sim/run.command`。也可在 Godot 导入 `project.godot` 后按 F5。
+
+建议先按 **G** 看她走到池边，等待纸船碰到树枝，再按 **B** 移开树枝。按 **C** 近看步态，用 WASD 走动和转弯；按 **R** 重来，提前移开树枝也能改变结果。
 
 | 操作 | 效果 |
 | --- | --- |
-| W / A / S / D | 相对当前视角移动角色 |
-| F 或 Tab | 切换观察视角/第一视角 |
-| 鼠标移动 | 第一视角捕获鼠标后环顾 |
-| 方向键 | 第一视角环顾，鼠标释放时也可用 |
+| WASD | 相对当前镜头走动；打断“去池边” |
+| C | 全景 / 人物近景 |
+| F / Tab | 全景 / 第一视角 |
+| 鼠标 / 方向键 | 第一视角环顾 |
 | Esc | 释放鼠标；点击场景重新捕获 |
-| P | 原 B2 坐姿动画预览/返回控制 |
-| R | 回到起点，恢复初始朝向 |
+| G | 一次“去池边”规则指令；不可达时明确失败 |
+| B | **导演操作**：移动 / 放回水中树枝 |
+| R | 重置人物、纸船和树枝 |
+| P | 原 B2 坐姿参考 / 返回控制 |
 
-底栏也可点击切换视角、预览和重置。失去应用焦点自动释放鼠标。第一视角释放鼠标时暂停 WASD，避免操作其他窗口时继续走动。观察视角保留原 B2 相机构图；第一视角进入角色控制副本的眼高。
+失去焦点自动释放鼠标。第一视角释放鼠标时暂停 WASD。角色清障的手部接触动画尚未实现，B 不表示少女伸手搬物。
 
-## 已迁入什么
+## 本轮交付
 
-- 从 v6 focused 读取的 289 个可见环境网格，保留完整庭院布局。
-- 少女A原网格、贴图和 58 骨骼；独立站姿副本供移动/相机验证。
-- 原 B2 身体动画和原坐姿位置，以 P 独立预览。
-- 74 处建筑网格碰撞与明确池边/侧边控制边界。
+- GirlA 原 58 骨骼、网格和贴图，Quaternius 的 `Idle_Loop` / `Walk_Loop` 重定向，按实际移动速度播放；缓起停、急转减速，撞墙不继续踏步。
+- 原完整庭院和 74 处建筑碰撞。去池边沿直接可行路线执行；受阻/超时有失败结果，**不是完整 NavMesh 绕路系统**。
+- 纸船沿简化水路推进，扫掠碰撞检测树枝；移开后继续，提前移开则不被挡住，漂过之后放回不会倒退。
+- 新近景、稍柔和的阴影和简化控制栏。原 B2 主工程没有改写。
+- [约 20 秒运行视频](evidence/s2-demo.mp4) · [进展及验收边界](../docs/sim/S2_PROGRESS.md) · [调研](../docs/sim/S2_RESEARCH_NOTES.md)。视频和截图仅本地可用。
 
-站姿副本骨架缩放为 1.8，约 2.10 场景单位高，眼高 1.78；坐姿预览保留 B2 原缩放 2.25 和位置。两者是同一人物的不同验证模式，不是两个居民。未修改原人物网格，也未覆盖 `.blend`。
+## 恢复资产
 
-## 资产恢复与公开范围
+`assets/private/`、`.godot/`、`evidence/` 全部 Git 忽略，公开克隆不带私人模型或视频。先按 [B2 恢复](../docs/archive/B2_CLOSEOUT.md) 放回原工程，再从 [Quaternius 作者页面](https://quaternius.itch.io/universal-animation-library) 免费下载 **Standard**（CC0）并解压至：
 
-`assets/private/`、`.godot/`、`evidence/` 全部 Git 忽略。首次克隆只有代码，没有可公开分发的完整角色画面。先按 [B2 恢复记录](../docs/archive/B2_CLOSEOUT.md) 放回私人源工程，再运行 `./sim/prepare-assets.command`。它调用 `blender/scripts/export-sim-s1.py` 导出三个独立 GLB 和迁移清单，并由 Godot 导入。
+`PrivateAssets/Courtyard/Animations/Quaternius/Universal Animation Library[Standard]/`
 
-工具安装：从 [Godot 官方 macOS 页](https://godotengine.org/download/macos/) 获取 **4.7.2 stable / Universal / 非 .NET**，解压为 `/Applications/Godot.app`。本机已安装；校验和、签名和公证记录见 [验证回执](../docs/sim/S1_VERIFICATION.json)。Blender 使用原有 5.2.1 LTS。未安装 VRM 插件或额外动作包。
+然后执行 `./sim/prepare-assets.command`，顺序为独立导出 S1 环境/站姿 → `blender/scripts/retarget-sim-s2.py` 生成 Idle/Walk → Godot 导入。已有资产可只执行重定向脚本，不必重导环境。脚本不保存原 `.blend`。
 
-## 验证
+工具：已有 Blender 5.2.1 LTS 和 `/Applications/Godot.app` 4.7.2 stable Universal 非 .NET。没有安装 VRM/MCP 插件、付费服务或全局 skill。
+
+## 验证与录制
 
 ```sh
-/Applications/Godot.app/Contents/MacOS/Godot --headless --path sim --quit-after 1800 -- --s1-test
-/Applications/Godot.app/Contents/MacOS/Godot --path sim --quit-after 1800 -- --s1-test
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path sim -- --s2-test
+/Applications/Godot.app/Contents/MacOS/Godot --path sim -- --s2-test
+/Applications/Godot.app/Contents/MacOS/Godot --path sim --fixed-fps 30 --write-movie "$PWD/sim/evidence/s2-demo.avi" -- --s2-film
 ```
 
-检查完成后自动退出，以 `passed` 和退出码判断，不以“窗口打开”代替成功。两种模式分别输出 `evidence/s1-runtime-check-headless.json` 与 `evidence/s1-runtime-check-graphical.json`。无窗口模式无法捕获鼠标，此项只由图形模式验证；图形检查会暂时控制小样角色并切换相机。
+测试约 33 秒，成功输出 `S2_CHECK` / `passed: true` 并退出 0。图形模式额外保存画面，报告分别为 `evidence/s2-check-headless.json` 和 `s2-check-graphical.json`。旧 `--s1-test` 仅适用于 S1 历史提交。
 
-## 明确限制
+## 限制与下一步
 
-- 移动目前是站姿平移和转向，没有走路/起身动画；自然步态属于 S2。
-- 程序材质暂转换为主要色块；没有复制 Cycles 光照链接、合成与精细水体。实时版更硬、更平，不能称为还原 B2 画质。
-- 水面是简化的不透明动态 shader，没有流体仿真。树冠当前静态。
-- 第一视角隐藏自身完整模型，只保留影子，暂不显示身体和手。坐姿/站姿切换没有起身过渡。
-- 地形控制限于庭院台地与池沿前方，不包含游泳、跳跃或自动登阶。
-- 无表情、LLM、AI 接管、寻路、纸船交互或学习。
-
-下一阶段从现成走路/转身动作重定向和纸船世界状态开始，见 [SIM 计划](../docs/SIM_STAGE_PLAN.md)。
+- 目前转向是行走中的缓转；免费素材没有独立原地转身片段。无脚部 IK，急转、停步与台阶仍可能滑脚或出现脚掌接触不稳，尚不能称为成品自然动作。
+- 目标跟随只做直接路线和失败检测，不会绕开任意新增障碍。无自动上台阶、跳跃、游泳。
+- 面部静态、裙摆沿原权重；没有自制人物、布料或头发模拟。站/坐模式切换没有起身过渡。
+- 实时材质、静态树冠和水面仍简化，没有还原 Cycles/概念插画画质。影片不代表实时连续人工手感验收。
+- 第一视角隐藏自身模型，只保留影子；没有身体/手部第一视角表现。
+- S3 控制权协议、局部感知和 S4 LLM 尚未实施；先看本轮脚步与因果互动是否值得继续。

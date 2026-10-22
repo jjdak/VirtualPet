@@ -179,3 +179,11 @@ R5 的 iOS 模拟器 Core 只提供 arm64，因此私人配置排除 `x86_64` �
 ## B2 原生短片制作（2026-09-14）
 
 复用 Blender 5.2.1 LTS 的 Cycles、Metal GPU 与原生关键帧；未安装额外动画插件或下载外部人物/贴图。系统已有 `/opt/homebrew/bin/ffmpeg` 与 `ffprobe`，本轮读取版本为 8.1.1，用于 PNG 序列封装成 H.264 MP4 和检查时长/帧数；仅为本地制作工具，不进入 App。无付费服务、模型上传、聊天或学习依赖。制作与验收见[八秒小样记录](courtyard/B2_LIGHT_MOTION_STUDY.md)。
+
+## S2 现成动作（2026-10-22）
+
+- **Quaternius Universal Animation Library Standard v3.0**：[作者页面](https://quaternius.itch.io/universal-animation-library)，2026-06-16 更新；免费包内 `License.txt` 明确 CC0 1.0。实际 43 clips，使用 Idle_Loop、Walk_Loop；未购买 Pro/Source。
+- 下载 `standard.zip` SHA-256：`cc73fc4e495b82958207316596317a3f40b9fa38065bde1027937452da537724`。原包、解压数据和重定向 GirlA GLB 均在忽略目录；不改变 GirlA 自身来源与许可记录。
+- Blender 内置 glTF 导入/导出与 Python mathutils 用于离线重定向，Godot 原生 AnimationTree/TimeScale 与 CharacterBody3D 用于运行时。没有新增运行时插件或 Python 包。
+- `npx skills find godot animation` 用于公开工作流检索，没有安装全局 skill；选择与限制见 [S2 调研](sim/S2_RESEARCH_NOTES.md)。
+- 已有 ffmpeg 用于 Godot Movie Maker AVI 转 MP4，无新音频、纹理、云服务或付费模型调用。

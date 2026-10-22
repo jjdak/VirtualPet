@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/courtyard.gd" id="1"]
 
-[node name="CourtyardS1" type="Node3D"]
+[node name="CourtyardS2" type="Node3D"]
 script = ExtResource("1")
