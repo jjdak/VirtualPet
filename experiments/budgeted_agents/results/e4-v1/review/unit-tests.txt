@@ -1,0 +1,19 @@
+test_asynchronous_and_hidden_rewards (test_core.BudgetTests.test_asynchronous_and_hidden_rewards) ... ok
+test_auditor_rejects_budget_and_reward_corruption (test_core.BudgetTests.test_auditor_rejects_budget_and_reward_corruption) ... ok
+test_budget_bound_restore_and_independent_memory (test_core.BudgetTests.test_budget_bound_restore_and_independent_memory) ... ok
+test_cooldown_budget_and_request_expiry (test_core.BudgetTests.test_cooldown_budget_and_request_expiry) ... ok
+test_cost_account_and_interval (test_core.BudgetTests.test_cost_account_and_interval) ... ok
+test_event_recovery_censored_at_next_change (test_core.BudgetTests.test_event_recovery_censored_at_next_change) ... ok
+test_new_process_pending_request_restore (test_core.BudgetTests.test_new_process_pending_request_restore) ... ok
+test_no_hidden_background_random_or_world_schedule (test_core.BudgetTests.test_no_hidden_background_random_or_world_schedule) ... ok
+test_periodic_age_and_reserve (test_core.BudgetTests.test_periodic_age_and_reserve) ... ok
+test_random_attempt_same_target_is_charged (test_core.BudgetTests.test_random_attempt_same_target_is_charged) ... ok
+test_reference_rules_equal_e3 (test_core.BudgetTests.test_reference_rules_equal_e3) ... ok
+test_release_schedule_and_limit (test_core.BudgetTests.test_release_schedule_and_limit) ... ok
+test_trigger_priority_can_use_reserved_token (test_core.BudgetTests.test_trigger_priority_can_use_reserved_token) ... ok
+test_unknown_items_do_not_spend (test_core.BudgetTests.test_unknown_items_do_not_spend) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.673s
+
+OK

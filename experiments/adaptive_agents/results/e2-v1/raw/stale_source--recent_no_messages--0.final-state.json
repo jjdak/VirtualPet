@@ -1,0 +1,131 @@
+{
+  "config": {
+    "protocol": "e2-v1",
+    "client_date": "2026-11-01",
+    "rounds": 120,
+    "seeds": 20,
+    "flip_round": 40,
+    "fault_start": 20,
+    "fault_end": 80,
+    "epsilon": 0.12,
+    "alpha": 0.4,
+    "fixed_trust": 0.75,
+    "trust_prior": [
+      3.0,
+      1.0
+    ],
+    "trust_retention": 0.98,
+    "message_ttl": 5,
+    "message_decay": 6.0,
+    "scenarios": [
+      "stable",
+      "reversal",
+      "faulty_source",
+      "stale_source"
+    ],
+    "policies": [
+      "mean_fixed",
+      "recent_fixed",
+      "recent_trust",
+      "recent_no_messages"
+    ],
+    "trace_seeds": [
+      0
+    ]
+  },
+  "seed": 0,
+  "scenario": "stale_source",
+  "policy": "recent_no_messages",
+  "tick": 120,
+  "cached": {
+    "id": "A-39",
+    "source": "A",
+    "tick": 39,
+    "kind": "p",
+    "claim": 1
+  },
+  "positions": {
+    "A": [
+      3,
+      3
+    ],
+    "B": [
+      3,
+      3
+    ]
+  },
+  "health": {
+    "A": 100,
+    "B": 46
+  },
+  "agents": {
+    "A": {
+      "name": "A",
+      "policy": "recent_no_messages",
+      "config": {
+        "epsilon": 0.12,
+        "alpha": 0.4,
+        "fixed_trust": 0.75,
+        "trust_prior": [
+          3.0,
+          1.0
+        ],
+        "trust_retention": 0.98,
+        "message_ttl": 5,
+        "message_decay": 6.0
+      },
+      "values": {
+        "p": -0.9440128,
+        "q": 0.9999999999999999
+      },
+      "counts": {
+        "p": 44,
+        "q": 76
+      },
+      "trust_counts": [
+        3.0,
+        1.0
+      ],
+      "inbox": {},
+      "pending": {},
+      "seen": [],
+      "validated": [],
+      "validation_count": 0,
+      "matches": 0
+    },
+    "B": {
+      "name": "B",
+      "policy": "recent_no_messages",
+      "config": {
+        "epsilon": 0.12,
+        "alpha": 0.4,
+        "fixed_trust": 0.75,
+        "trust_prior": [
+          3.0,
+          1.0
+        ],
+        "trust_retention": 0.98,
+        "message_ttl": 5,
+        "message_decay": 6.0
+      },
+      "values": {
+        "p": -0.99999994269764,
+        "q": 0.9999999998752652
+      },
+      "counts": {
+        "p": 71,
+        "q": 49
+      },
+      "trust_counts": [
+        3.0,
+        1.0
+      ],
+      "inbox": {},
+      "pending": {},
+      "seen": [],
+      "validated": [],
+      "validation_count": 0,
+      "matches": 0
+    }
+  }
+}

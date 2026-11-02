@@ -1,0 +1,23 @@
+{
+  "backend": "value",
+  "started_utc": "2026-10-31T08:31:51.420456+00:00",
+  "client_date": "2026-10-31",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.15",
+  "source_sha256": {
+    "run.py": "d1b14944db0314778c7982466709402dab2f0226e16830963ac4d1bc7d328d22",
+    "world.py": "48502e3dcd6ba1b33315956079c79386d857223047347b7aad235b4079e171fc"
+  },
+  "protocol": "E1-v2-format-wrapper",
+  "cases": 12,
+  "probes_per_case": 8,
+  "temperature": 0,
+  "max_tokens": 48,
+  "thinking": false,
+  "concurrency": 1,
+  "shared_weights_separate_memories": true,
+  "llm_weights_trained": false,
+  "hardware": "unavailable",
+  "rss_highwater_gb": 0.02310144,
+  "completed_utc": "2026-10-31T08:31:51.451226+00:00"
+}

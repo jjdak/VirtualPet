@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "decisions_verified": 288,
+  "unique_probes": 96,
+  "checks": [
+    "same_observations_across_backends",
+    "source_fingerprints",
+    "strict_and_fenced_json_separate",
+    "setup_and_action_replay",
+    "actual_world_outcomes",
+    "no_hidden_effect_field_in_prompt"
+  ]
+}

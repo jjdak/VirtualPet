@@ -1,0 +1,14 @@
+// DOM logic doubles; actual browser evidence is saved separately.
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const html=fs.readFileSync(process.argv[2],'utf8'),payload=html.match(/<script id="payload" type="application\/json">([\s\S]*?)<\/script>/)[1],script=html.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
+class E{constructor(){this.children=[];this.value='';this.textContent='';this.innerHTML=''}append(...x){this.children.push(...x)}replaceChildren(...x){this.children=[...x]}}
+const ids=Object.fromEntries(['payload','scenario','comparator','play','jump','description','clock','round','lefttitle','leftbudget','rightbudget','leftmap','rightmap','leftactors','rightactors','leftevent','rightevent','curve','difference','summary','interval','allcases','events','raw'].map(k=>[k,new E()]));ids.payload.textContent=payload;ids.round.value='77';let cb;
+const ctx=vm.createContext({document:{getElementById:id=>ids[id],createElement:()=>new E()},setInterval:fn=>{cb=fn;return 1},clearInterval:()=>{}});vm.runInContext(script,ctx);const d=JSON.parse(payload);let profiles=0,cards=0;
+for(const scenario of d.config.trace_cases)for(const p of d.config.policies.filter(p=>p!=='adaptive')){ids.scenario.value=scenario;ids.comparator.value=p;ids.comparator.onchange();assert.equal(ids.summary.children.length,4);assert.equal(ids.allcases.children.length,26);
+ for(let t=0;t<180;t++){ids.round.value=String(t);ids.round.oninput();const raw=JSON.parse(ids.raw.textContent);for(const [prefix,mode] of [['left',p],['right','adaptive']]){const r=d.traces[scenario+'/'+mode][t];assert.deepEqual(raw[prefix],r);for(const [i,a] of ['A','B'].entries()){assert.ok(ids[prefix+'actors'].children[i].textContent.includes('累计真实收益 '+r.health[a].toFixed(2)));cards++}if(mode==='e3_reference')assert.ok(ids[prefix+'budget'].textContent.includes('不受统一预算'));else assert.ok(ids[prefix+'budget'].textContent.includes('已花 '+r.after.B.budget.used));}assert.ok(!ids.interval.textContent.includes('NaN'));assert.ok(ids.rightevent.textContent.includes('复查间隔：'+raw.right.after.B.frequency.before+' → '+raw.right.after.B.frequency.after));}
+ ids.round.value='0';ids.round.oninput();ids.jump.onclick();const next=d.traces[scenario+'/adaptive'].findIndex(r=>r.tick>0&&r.choices.B.probe);assert.equal(Number(ids.round.value),next<0?0:next);
+ ids.round.value='0';ids.round.oninput();ids.play.onclick();for(let i=0;i<10;i++)cb();assert.equal(ids.round.value,'0');cb();assert.equal(ids.round.value,'1');ids.play.onclick();profiles++;
+}
+console.log(JSON.stringify({passed:true,profiles,actor_cards_checked:cards,all_case_rows:26,playback_transitions:profiles,coverage:'DOM logic doubles, not browser layout or timing'}));
+
+assert.ok(html.includes('收益代理 ≥0.25 时减半（最低 6）'));

@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-02",
+  "scope": "Footer text only, no data/code/experiment changes; frozen template retained for batch provenance",
+  "before_sha256": "82c498064b951c430a21478dc592f13eba90f2281d08fcc2ea6baba3d1886620",
+  "after_sha256": "0c86e32ccf878782aadc19f6b46e992c911ccece0e38e3211bfff5a908c533b8",
+  "replacement": "固定策略使用 12 / 18 / 30 回合阈值；自适应初始 18 回合，收益代理 ≥0.25 时减半（最低 6），否则加 6（最高 42）。各策略均保留 1 次应急额度。收益代理是亲历结果减原优选估计，并非真实反事实收益。"
+}

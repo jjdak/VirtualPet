@@ -1,0 +1,523 @@
+{
+  "seeds_per_group": 20,
+  "aggregate": {
+    "stable": {
+      "mean_fixed": {
+        "A": {
+          "beneficial_all": 0.9266666666666666,
+          "beneficial_40_59": 0.9475,
+          "beneficial_fault_phase": 0.9366666666666666,
+          "total_reward": 102.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 113.4,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        },
+        "B": {
+          "beneficial_all": 0.9341666666666667,
+          "beneficial_40_59": 0.97,
+          "beneficial_fault_phase": 0.9483333333333333,
+          "total_reward": 104.2,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 112.65,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        }
+      },
+      "recent_fixed": {
+        "A": {
+          "beneficial_all": 0.9266666666666666,
+          "beneficial_40_59": 0.9475,
+          "beneficial_fault_phase": 0.9366666666666666,
+          "total_reward": 102.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 113.4,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        },
+        "B": {
+          "beneficial_all": 0.9341666666666667,
+          "beneficial_40_59": 0.97,
+          "beneficial_fault_phase": 0.9483333333333333,
+          "total_reward": 104.2,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 112.65,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        }
+      },
+      "recent_trust": {
+        "A": {
+          "beneficial_all": 0.9266666666666666,
+          "beneficial_40_59": 0.9475,
+          "beneficial_fault_phase": 0.9366666666666666,
+          "total_reward": 102.4,
+          "trust_before_fault": 0.9466680549387013,
+          "trust_end_fault": 0.9762071460534331,
+          "trust_end": 0.9789446502275521,
+          "trust_min_post_flip": 0.9668346222044154,
+          "validations": 113.4,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        },
+        "B": {
+          "beneficial_all": 0.9341666666666667,
+          "beneficial_40_59": 0.97,
+          "beneficial_fault_phase": 0.9483333333333333,
+          "total_reward": 104.2,
+          "trust_before_fault": 0.9466796584961545,
+          "trust_end_fault": 0.976006326983358,
+          "trust_end": 0.9787951717288798,
+          "trust_min_post_flip": 0.9667750583353963,
+          "validations": 112.65,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        }
+      },
+      "recent_no_messages": {
+        "A": {
+          "beneficial_all": 0.9266666666666666,
+          "beneficial_40_59": 0.9475,
+          "beneficial_fault_phase": 0.9366666666666666,
+          "total_reward": 102.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 0,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        },
+        "B": {
+          "beneficial_all": 0.9341666666666667,
+          "beneficial_40_59": 0.97,
+          "beneficial_fault_phase": 0.9483333333333333,
+          "total_reward": 104.2,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 0,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        }
+      }
+    },
+    "reversal": {
+      "mean_fixed": {
+        "A": {
+          "beneficial_all": 0.8604166666666666,
+          "beneficial_40_59": 0.535,
+          "beneficial_fault_phase": 0.8008333333333333,
+          "total_reward": 86.5,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 112.7,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 16.0
+        },
+        "B": {
+          "beneficial_all": 0.8658333333333333,
+          "beneficial_40_59": 0.5175,
+          "beneficial_fault_phase": 0.8008333333333333,
+          "total_reward": 87.8,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 112.3,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 15.5
+        }
+      },
+      "recent_fixed": {
+        "A": {
+          "beneficial_all": 0.8708333333333333,
+          "beneficial_40_59": 0.595,
+          "beneficial_fault_phase": 0.8216666666666667,
+          "total_reward": 89,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 112.95,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 11.5
+        },
+        "B": {
+          "beneficial_all": 0.8725,
+          "beneficial_40_59": 0.5575,
+          "beneficial_fault_phase": 0.8141666666666667,
+          "total_reward": 89.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 112.65,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 11.0
+        }
+      },
+      "recent_trust": {
+        "A": {
+          "beneficial_all": 0.87125,
+          "beneficial_40_59": 0.5975,
+          "beneficial_fault_phase": 0.8225,
+          "total_reward": 89.1,
+          "trust_before_fault": 0.9466680549387013,
+          "trust_end_fault": 0.9660072033498129,
+          "trust_end": 0.9751504833855148,
+          "trust_min_post_flip": 0.9372202728038076,
+          "validations": 112.9,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 11.0
+        },
+        "B": {
+          "beneficial_all": 0.8725,
+          "beneficial_40_59": 0.5575,
+          "beneficial_fault_phase": 0.8141666666666667,
+          "total_reward": 89.4,
+          "trust_before_fault": 0.9466796584961545,
+          "trust_end_fault": 0.9635292081967124,
+          "trust_end": 0.9738664681466933,
+          "trust_min_post_flip": 0.9288499665065002,
+          "validations": 112.7,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 11.0
+        }
+      },
+      "recent_no_messages": {
+        "A": {
+          "beneficial_all": 0.82375,
+          "beneficial_40_59": 0.4275,
+          "beneficial_fault_phase": 0.7416666666666667,
+          "total_reward": 77.7,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 0,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 17.5
+        },
+        "B": {
+          "beneficial_all": 0.7904166666666667,
+          "beneficial_40_59": 0.31,
+          "beneficial_fault_phase": 0.6583333333333333,
+          "total_reward": 69.7,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 0,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 24.0
+        }
+      }
+    },
+    "faulty_source": {
+      "mean_fixed": {
+        "A": {
+          "beneficial_all": 0.9266666666666666,
+          "beneficial_40_59": 0.9475,
+          "beneficial_fault_phase": 0.9366666666666666,
+          "total_reward": 102.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 104.85,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        },
+        "B": {
+          "beneficial_all": 0.8391666666666666,
+          "beneficial_40_59": 0.79,
+          "beneficial_fault_phase": 0.7616666666666666,
+          "total_reward": 81.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 114.75,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        }
+      },
+      "recent_fixed": {
+        "A": {
+          "beneficial_all": 0.9266666666666666,
+          "beneficial_40_59": 0.9475,
+          "beneficial_fault_phase": 0.9366666666666666,
+          "total_reward": 102.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 104.85,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        },
+        "B": {
+          "beneficial_all": 0.8391666666666666,
+          "beneficial_40_59": 0.79,
+          "beneficial_fault_phase": 0.7616666666666666,
+          "total_reward": 81.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 114.75,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        }
+      },
+      "recent_trust": {
+        "A": {
+          "beneficial_all": 0.9266666666666666,
+          "beneficial_40_59": 0.9475,
+          "beneficial_fault_phase": 0.9366666666666666,
+          "total_reward": 102.4,
+          "trust_before_fault": 0.9466680549387013,
+          "trust_end_fault": 0.9760128248415861,
+          "trust_end": 0.9788738872457432,
+          "trust_min_post_flip": 0.9659238738215047,
+          "validations": 112.4,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        },
+        "B": {
+          "beneficial_all": 0.9220833333333334,
+          "beneficial_40_59": 0.97,
+          "beneficial_fault_phase": 0.9241666666666667,
+          "total_reward": 101.3,
+          "trust_before_fault": 0.9466796584961545,
+          "trust_end_fault": 0.1847739555433134,
+          "trust_end": 0.6559757225034812,
+          "trust_min_post_flip": 0.27148170748860717,
+          "validations": 113,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        }
+      },
+      "recent_no_messages": {
+        "A": {
+          "beneficial_all": 0.9266666666666666,
+          "beneficial_40_59": 0.9475,
+          "beneficial_fault_phase": 0.9366666666666666,
+          "total_reward": 102.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 0,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        },
+        "B": {
+          "beneficial_all": 0.9341666666666667,
+          "beneficial_40_59": 0.97,
+          "beneficial_fault_phase": 0.9483333333333333,
+          "total_reward": 104.2,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 0,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 5.0
+        }
+      }
+    },
+    "stale_source": {
+      "mean_fixed": {
+        "A": {
+          "beneficial_all": 0.8358333333333333,
+          "beneficial_40_59": 0.43,
+          "beneficial_fault_phase": 0.7516666666666667,
+          "total_reward": 80.6,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 86.15,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 16.0
+        },
+        "B": {
+          "beneficial_all": 0.5266666666666666,
+          "beneficial_40_59": 0.030000000000000002,
+          "beneficial_fault_phase": 0.35333333333333333,
+          "total_reward": 6.4,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 37.7,
+          "recovered": 18,
+          "not_recovered": 2,
+          "median_recovery": 57.0
+        }
+      },
+      "recent_fixed": {
+        "A": {
+          "beneficial_all": 0.87125,
+          "beneficial_40_59": 0.5975,
+          "beneficial_fault_phase": 0.8225,
+          "total_reward": 89.1,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 105.45,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 11.0
+        },
+        "B": {
+          "beneficial_all": 0.7883333333333333,
+          "beneficial_40_59": 0.2975,
+          "beneficial_fault_phase": 0.6541666666666667,
+          "total_reward": 69.2,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 37.7,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 24.0
+        }
+      },
+      "recent_trust": {
+        "A": {
+          "beneficial_all": 0.87125,
+          "beneficial_40_59": 0.5975,
+          "beneficial_fault_phase": 0.8225,
+          "total_reward": 89.1,
+          "trust_before_fault": 0.9466680549387013,
+          "trust_end_fault": 0.9599445043975419,
+          "trust_end": 0.9737573848960088,
+          "trust_min_post_flip": 0.9364068235219617,
+          "validations": 105.45,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 11.0
+        },
+        "B": {
+          "beneficial_all": 0.7883333333333333,
+          "beneficial_40_59": 0.2975,
+          "beneficial_fault_phase": 0.6541666666666667,
+          "total_reward": 69.2,
+          "trust_before_fault": 0.9466796584961545,
+          "trust_end_fault": 0.9028892162230999,
+          "trust_end": 0.866573311997675,
+          "trust_min_post_flip": 0.9167794430310461,
+          "validations": 37.7,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 24.0
+        }
+      },
+      "recent_no_messages": {
+        "A": {
+          "beneficial_all": 0.82375,
+          "beneficial_40_59": 0.4275,
+          "beneficial_fault_phase": 0.7416666666666667,
+          "total_reward": 77.7,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 0,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 17.5
+        },
+        "B": {
+          "beneficial_all": 0.7904166666666667,
+          "beneficial_40_59": 0.31,
+          "beneficial_fault_phase": 0.6583333333333333,
+          "total_reward": 69.7,
+          "trust_before_fault": 0.75,
+          "trust_end_fault": 0.75,
+          "trust_end": 0.75,
+          "trust_min_post_flip": 0.75,
+          "validations": 0,
+          "recovered": 20,
+          "not_recovered": 0,
+          "median_recovery": 24.0
+        }
+      }
+    }
+  },
+  "paired_trust_vs_fixed": {
+    "stable": {
+      "metric": "B beneficial rate rounds 20..79",
+      "mean_difference": 0.0,
+      "better_seeds": 0,
+      "equal_seeds": 20,
+      "worse_seeds": 0
+    },
+    "reversal": {
+      "metric": "B beneficial rate rounds 20..79",
+      "mean_difference": 0.0,
+      "better_seeds": 1,
+      "equal_seeds": 18,
+      "worse_seeds": 1
+    },
+    "faulty_source": {
+      "metric": "B beneficial rate rounds 20..79",
+      "mean_difference": 0.1625,
+      "better_seeds": 20,
+      "equal_seeds": 0,
+      "worse_seeds": 0
+    },
+    "stale_source": {
+      "metric": "B beneficial rate rounds 20..79",
+      "mean_difference": 0.0,
+      "better_seeds": 0,
+      "equal_seeds": 20,
+      "worse_seeds": 0
+    }
+  }
+}

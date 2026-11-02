@@ -1,0 +1,51 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>旧经验会过时 · E2 行为实验</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#edf0e9;color:#263f39;font:16px/1.6 system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:32px}.eyebrow{font-size:12px;letter-spacing:3px;color:#64796f}h1{font-size:34px;font-weight:600;margin:8px 0}.muted{color:#61746b;font-size:14px}.controls{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:24px 0}select,button{font:inherit;border:1px solid #bccbc0;border-radius:8px;padding:8px 12px;background:#fffdf8;color:inherit}button{background:#2c594c;color:white;cursor:pointer}.panel{background:#fffdf8;border:1px solid #dce2d7;border-radius:16px;padding:22px;margin-bottom:20px}.scene{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}.actors{display:grid;grid-template-columns:1fr 1fr;gap:14px}.actor{padding:14px;background:#f1f4eb;border-radius:10px}h2{font-size:19px;margin:0 0 12px}h3{font-size:16px;margin:0 0 8px}svg{width:100%;display:block}#round{width:100%;accent-color:#366552}.timeline{display:flex;gap:18px;align-items:center}.timeline span{min-width:180px}.message{font-size:14px;white-space:pre-line;min-height:64px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:10px;text-align:left;border-bottom:1px solid #e3e8df;white-space:nowrap}.active{background:#edf3e4}pre{font-size:12px;max-height:320px;overflow:auto;white-space:pre-wrap}.banner{border-left:4px solid #b99b62;padding-left:14px}.fact{font-size:14px;white-space:pre-line}footer{font-size:13px;color:#60736a}@media(max-width:800px){main{padding:18px}.scene{grid-template-columns:1fr}h1{font-size:28px}.actors{grid-template-columns:1fr}}
+</style><main><div class="eyebrow">LOCAL AGENT LAB · E2</div><h1>旧经验会过时，信任也会改变</h1>
+<p>两个角色持续尝试、取食并交换经历。食物效果改变，或消息开始出错时，它们会怎样修正选择？</p>
+<p class="muted">本页是已保存的真实轨迹回放，不会实时调用模型。20 个种子的平均指标与预先选定的种子 0 回放分开展示。</p>
+<div class="controls"><label>情景 <select id="scenario"></select></label><label>策略 <select id="policy"></select></label><button id="play">播放动作</button></div>
+<div class="panel"><p id="description" class="banner"></p><div class="timeline"><span id="clock"></span><input id="round" type="range" min="0" max="119" value="0" aria-label="回合"></div></div>
+<div class="scene"><div class="panel"><h2>共同的小世界</h2><div id="map"></div><p class="muted">导演视角：绿点有益、红点有害；角色看不到这些隐藏效果。营地可交谈，灰格是障碍。回营分享由固定规则触发。</p><p id="message" class="message"></p></div>
+<div><div class="panel"><div id="actors" class="actors"></div></div><div class="panel"><h2>乙对甲的近期信息可靠度</h2><div id="chart"></div><p id="trustnote" class="muted"></p></div></div></div>
+<div class="panel"><h2>同情景四种策略 · 乙的 20 种子平均</h2><div class="tablewrap"><table><thead><tr><th>策略</th><th>整体有益选择</th><th>回合 40–59</th><th>回合 20–79</th><th>恢复中位回合数</th><th>结束时信任</th></tr></thead><tbody id="summary"></tbody></table></div><p class="muted">恢复＝变化后首次连续 5 次有益取食；只在效果变化情景显示。未恢复单独记录。随机探索仍可能选到有害食物。</p></div>
+<details class="panel"><summary>本回合原始记录</summary><pre id="raw"></pre></details>
+<footer>这验证的是预先设计的经验和可靠度更新机制；没有语言模型、神经网络训练、学习分享意愿或复杂身体模拟。错误转述由通信测试扰动产生，不代表角色自主撒谎。</footer></main>
+<script id="payload" type="application/json">__PAYLOAD__</script>
+<script>
+const DATA=JSON.parse(document.getElementById('payload').textContent);
+const scenarios={stable:'稳定世界 · 如实交流',reversal:'食物效果互换 · 如实交流',faulty_source:'甲的消息出错，之后恢复',stale_source:'效果互换 · 甲重复旧消息'};
+const policies={mean_fixed:'累计经验＋固定信任',recent_fixed:'近期经验＋固定信任',recent_trust:'近期经验＋更新信任',recent_no_messages:'近期经验 · 不收消息'};
+const descriptions={stable:'食物效果始终不变，两人如实交流。',reversal:'从回合 40 起，两种食物效果互换；角色不会收到变化通知。',faulty_source:'回合 20–79：甲发出的消息被测试程序反转；从回合 80 起恢复准确。',stale_source:'从回合 40 起食物效果互换，甲反复发送回合 39 的旧记录，保留原时间戳。'};
+const $=id=>document.getElementById(id);const pct=x=>(x*100).toFixed(1)+'%';
+for(const [value,label] of Object.entries(scenarios)){const o=document.createElement('option');o.value=value;o.textContent=label;$('scenario').append(o)}
+for(const [value,label] of Object.entries(policies)){const o=document.createElement('option');o.value=value;o.textContent=label;$('policy').append(o)}
+$('scenario').value='faulty_source';$('policy').value='recent_trust';$('round').value='20';
+let frame=9,timer=null;
+const actorName=x=>x==='A'?'甲':'乙';const foodName=x=>x==='p'?'青禾':'紫穗';
+function activeRows(){return DATA.traces[$('scenario').value+'/'+$('policy').value]}
+function render(){const tick=Number($('round').value),scenario=$('scenario').value,policy=$('policy').value,rows=activeRows(),row=rows[tick];
+$('description').textContent=descriptions[scenario];$('clock').textContent='回合 '+tick+' / 119 · '+(frame<0?'准备':frame<9?'行动 '+(frame+1)+'/10':'已回营并交谈');
+let svg='<svg viewBox="0 0 420 300" role="img" aria-label="角色行动网格">';
+for(let y=0;y<5;y++)for(let x=0;x<7;x++)svg+='<rect x="'+(x*60+2)+'" y="'+(y*60+2)+'" width="56" height="56" rx="7" fill="'+(x===3&&y===2?'#b7c0b4':'#eff2e8')+'"/>';
+svg+='<text x="210" y="245" text-anchor="middle" font-size="12" fill="#5a7061">营地</text>';
+const good=(scenario==='reversal'||scenario==='stale_source')&&tick>=DATA.config.flip_round?'q':'p';
+for(const [kind,pos] of Object.entries({p:[1,1],q:[5,1]})){const x=pos[0]*60+30,y=pos[1]*60+30;svg+='<circle cx="'+x+'" cy="'+y+'" r="14" fill="'+(kind===good?'#77a27b':'#c88971')+'"/><text x="'+x+'" y="'+(y+26)+'" text-anchor="middle" font-size="11">'+foodName(kind)+'</text>'}
+$('actors').replaceChildren();
+for(const actor of ['A','B']){const choice=row.choices[actor];let pos=[3,3],health=tick?rows[tick-1].health[actor]:0;for(let i=0;i<=frame&&i<choice.actions.length;i++){const a=choice.actions[i];if(a.action==='move')pos=a.to;if(a.action==='eat')health+=a.reward}
+const offset=actor==='A'?-8:8;svg+='<circle cx="'+(pos[0]*60+30+offset)+'" cy="'+(pos[1]*60+30)+'" r="12" fill="'+(actor==='A'?'#395f8c':'#9a6169')+'"/><text x="'+(pos[0]*60+30+offset)+'" y="'+(pos[1]*60+34)+'" text-anchor="middle" fill="white" font-size="11">'+actorName(actor)+'</text>';
+const card=document.createElement('div');card.className='actor';const h=document.createElement('h3');h.textContent=actorName(actor);const p=document.createElement('div');p.className='fact';const values=frame>=4?row.after[actor].values:choice.values_before;p.textContent='目标：'+foodName(choice.target)+'\n原因：'+({try_unknown:'尝试未知食物',explore:'主动探索',estimated_value:'按当前估计选择'}[choice.reason])+'\n累计收益：'+health+'\n青禾估计：'+values.p.toFixed(2)+'\n紫穗估计：'+values.q.toFixed(2);card.append(h,p);$('actors').append(card)}
+$('map').innerHTML=svg+'</svg>';
+const status={accepted:'收到',duplicate:'忽略重复消息',expired:'忽略过期消息',disabled:'不接收消息',older_than_known:'忽略较旧消息'};
+$('message').textContent=frame<9?'行动完成后，才会在营地交换经历。':row.delivery.map(d=>actorName(d.sender)+'→'+actorName(d.receiver)+'：'+foodName(d.message.kind)+' '+(d.message.claim>0?'有益':'有害')+'（记录于回合 '+d.message.tick+'），'+(status[d.status]||d.status)).join('\n');
+const path=rows.map((r,i)=>(i?'L':'M')+(10+i*3.2).toFixed(1)+','+(90-r.after.B.trust*75).toFixed(1)).join(' ');const x=10+tick*3.2;
+$('chart').innerHTML='<svg viewBox="0 0 405 110" aria-label="信任变化曲线"><text x="0" y="12" font-size="10">1.0</text><path d="M10 90 H394" stroke="#cad4c7"/><path d="'+path+'" fill="none" stroke="#866d9c" stroke-width="2.5"/><path d="M'+x+' 12 V95" stroke="#967d51" stroke-dasharray="4 3"/><text x="8" y="107" font-size="10">0</text><text x="370" y="107" font-size="10">119</text></svg>';
+$('trustnote').textContent=policy==='recent_no_messages'?'本策略不使用信任值。':policy==='recent_trust'?'本回合结束：'+row.after.B.trust.toFixed(3)+'。只有乙亲自验证后，才调整消息可靠度。':'本策略的信任固定为 0.75。';
+$('summary').replaceChildren();for(const [key,label] of Object.entries(policies)){const s=DATA.summary.aggregate[scenario][key].B,tr=document.createElement('tr');if(key===policy)tr.className='active';const recovery=['reversal','stale_source'].includes(scenario)?s.median_recovery+'（未恢复 '+s.not_recovered+'/20）':'—';for(const text of [label,pct(s.beneficial_all),pct(s.beneficial_40_59),pct(s.beneficial_fault_phase),recovery,key==='recent_no_messages'?'不使用':s.trust_end.toFixed(3)]){const td=document.createElement('td');td.textContent=text;tr.append(td)}$('summary').append(tr)}
+$('raw').textContent=JSON.stringify(row,null,2);}
+function stop(){if(timer!==null)clearInterval(timer);timer=null;$('play').textContent='播放动作'}
+for(const id of ['scenario','policy'])$(id).onchange=()=>{stop();frame=9;render()};$('round').oninput=()=>{stop();frame=9;render()};
+$('play').onclick=()=>{if(timer!==null){stop();return}frame=-1;$('play').textContent='暂停';render();timer=setInterval(()=>{frame++;if(frame>9){const next=Number($('round').value)+1;if(next>=120){stop();return}$('round').value=String(next);frame=0}render()},180)};
+render();
+</script></html>

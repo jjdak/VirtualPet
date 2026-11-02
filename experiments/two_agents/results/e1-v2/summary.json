@@ -1,0 +1,218 @@
+{
+  "value": {
+    "summary": {
+      "decisions": 96,
+      "valid": 96,
+      "strict_json": 96,
+      "beneficial_by_stage": {
+        "A_before": 6,
+        "B_before": 6,
+        "A_experienced": 12,
+        "B_isolated": 6,
+        "B_told": 12,
+        "A_cleared": 6,
+        "A_inverse_history": 12,
+        "A_relocated": 12
+      },
+      "case_count": 12,
+      "experience_choice_changes": 6,
+      "communication_choice_changes": 6,
+      "isolated_consistent": 12,
+      "cleared_consistent": 12,
+      "inverse_choice_changes": 12,
+      "relocated_identity_consistent": 12,
+      "median_seconds": 3.4580007195472717e-06,
+      "p95_seconds": 6.166752427816391e-06,
+      "total_decision_seconds": 0.00039516249671578407
+    },
+    "meta": {
+      "backend": "value",
+      "started_utc": "2026-10-31T08:31:51.420456+00:00",
+      "client_date": "2026-10-31",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.11.15",
+      "source_sha256": {
+        "run.py": "d1b14944db0314778c7982466709402dab2f0226e16830963ac4d1bc7d328d22",
+        "world.py": "48502e3dcd6ba1b33315956079c79386d857223047347b7aad235b4079e171fc"
+      },
+      "protocol": "E1-v2-format-wrapper",
+      "cases": 12,
+      "probes_per_case": 8,
+      "temperature": 0,
+      "max_tokens": 48,
+      "thinking": false,
+      "concurrency": 1,
+      "shared_weights_separate_memories": true,
+      "llm_weights_trained": false,
+      "hardware": "unavailable",
+      "rss_highwater_gb": 0.02310144,
+      "completed_utc": "2026-10-31T08:31:51.451226+00:00"
+    }
+  },
+  "0.6B": {
+    "summary": {
+      "decisions": 96,
+      "valid": 96,
+      "strict_json": 0,
+      "beneficial_by_stage": {
+        "A_before": 6,
+        "B_before": 6,
+        "A_experienced": 6,
+        "B_isolated": 6,
+        "B_told": 6,
+        "A_cleared": 6,
+        "A_inverse_history": 6,
+        "A_relocated": 6
+      },
+      "case_count": 12,
+      "experience_choice_changes": 2,
+      "communication_choice_changes": 0,
+      "isolated_consistent": 12,
+      "cleared_consistent": 12,
+      "inverse_choice_changes": 0,
+      "relocated_identity_consistent": 12,
+      "median_seconds": 0.19048162503167987,
+      "p95_seconds": 0.23129770811647177,
+      "total_decision_seconds": 18.03987022070214,
+      "median_generation_tps": 228.4370372003754,
+      "median_ttft_seconds": 0.13766983291134238,
+      "prompt_token_range": [
+        206,
+        259
+      ],
+      "peak_mlx_gb": 0.632210476
+    },
+    "meta": {
+      "backend": "0.6B",
+      "started_utc": "2026-10-31T08:31:50.286374+00:00",
+      "client_date": "2026-10-31",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.11.15",
+      "source_sha256": {
+        "run.py": "d1b14944db0314778c7982466709402dab2f0226e16830963ac4d1bc7d328d22",
+        "world.py": "48502e3dcd6ba1b33315956079c79386d857223047347b7aad235b4079e171fc"
+      },
+      "protocol": "E1-v2-format-wrapper",
+      "cases": 12,
+      "probes_per_case": 8,
+      "temperature": 0,
+      "max_tokens": 48,
+      "thinking": false,
+      "concurrency": 1,
+      "shared_weights_separate_memories": true,
+      "llm_weights_trained": false,
+      "hardware": [
+        "Apple M4",
+        "17179869184"
+      ],
+      "model": {
+        "size": "0.6B",
+        "repo": "mlx-community/Qwen3-0.6B-4bit",
+        "revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+        "path": "PrivateAssets/AgentLab/models/0.6B",
+        "license": "Apache-2.0"
+      },
+      "packages": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.20.2"
+      },
+      "load_seconds": 0.9581653750501573,
+      "warmup": {
+        "seconds": 0.21529920818284154,
+        "ttft_seconds": 0.16980162495747209,
+        "prompt_tokens": 206,
+        "generation_tokens": 11,
+        "generation_tps": 263.87993475991595,
+        "prompt_tps": 1233.1142059765712,
+        "mlx_peak_gb": 0.632210476,
+        "finish_reason": "stop"
+      },
+      "rss_highwater_gb": 0.708886528,
+      "completed_utc": "2026-10-31T08:32:11.214659+00:00"
+    }
+  },
+  "1.7B": {
+    "summary": {
+      "decisions": 96,
+      "valid": 96,
+      "strict_json": 96,
+      "beneficial_by_stage": {
+        "A_before": 6,
+        "B_before": 6,
+        "A_experienced": 6,
+        "B_isolated": 6,
+        "B_told": 6,
+        "A_cleared": 6,
+        "A_inverse_history": 6,
+        "A_relocated": 7
+      },
+      "case_count": 12,
+      "experience_choice_changes": 0,
+      "communication_choice_changes": 0,
+      "isolated_consistent": 12,
+      "cleared_consistent": 12,
+      "inverse_choice_changes": 0,
+      "relocated_identity_consistent": 11,
+      "median_seconds": 0.4450633954256773,
+      "p95_seconds": 0.5720460410229862,
+      "total_decision_seconds": 41.85056037083268,
+      "median_generation_tps": 110.54655284686788,
+      "median_ttft_seconds": 0.3818131040316075,
+      "prompt_token_range": [
+        206,
+        259
+      ],
+      "peak_mlx_gb": 1.361121548
+    },
+    "meta": {
+      "backend": "1.7B",
+      "started_utc": "2026-10-31T08:32:24.937228+00:00",
+      "client_date": "2026-10-31",
+      "platform": "macOS-26.6.2-arm64-arm-64bit",
+      "python": "3.11.15",
+      "source_sha256": {
+        "run.py": "d1b14944db0314778c7982466709402dab2f0226e16830963ac4d1bc7d328d22",
+        "world.py": "48502e3dcd6ba1b33315956079c79386d857223047347b7aad235b4079e171fc"
+      },
+      "protocol": "E1-v2-format-wrapper",
+      "cases": 12,
+      "probes_per_case": 8,
+      "temperature": 0,
+      "max_tokens": 48,
+      "thinking": false,
+      "concurrency": 1,
+      "shared_weights_separate_memories": true,
+      "llm_weights_trained": false,
+      "hardware": [
+        "Apple M4",
+        "17179869184"
+      ],
+      "model": {
+        "size": "1.7B",
+        "repo": "mlx-community/Qwen3-1.7B-4bit",
+        "revision": "3b1b1768f8f8cf8351c712464f906e86c2b8269e",
+        "path": "PrivateAssets/AgentLab/models/1.7B",
+        "license": "Apache-2.0"
+      },
+      "packages": {
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "transformers": "5.20.2"
+      },
+      "load_seconds": 1.4305882500484586,
+      "warmup": {
+        "seconds": 0.673036249820143,
+        "ttft_seconds": 0.6111494158394635,
+        "prompt_tokens": 206,
+        "generation_tokens": 6,
+        "generation_tps": 111.59529488828684,
+        "prompt_tps": 353.701275580672,
+        "mlx_peak_gb": 1.306250336,
+        "finish_reason": "stop"
+      },
+      "rss_highwater_gb": 1.23592704,
+      "completed_utc": "2026-10-31T08:33:10.422611+00:00"
+    }
+  }
+}

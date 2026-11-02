@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "episodes_recomputed": 320,
+  "choices_recomputed": 76800,
+  "sampled_traces_independently_audited": 16,
+  "physical_actions_independently_audited": 34560,
+  "checks": [
+    "world_reward_schedule",
+    "adjacent_moves_and_walls",
+    "food_reach",
+    "personal_evidence_before_trust_update",
+    "no_duplicate_validation",
+    "message_age_and_channel_faults",
+    "source_and_protocol_hashes"
+  ]
+}

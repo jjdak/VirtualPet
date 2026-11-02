@@ -1,0 +1,19 @@
+{
+  "protocol": "e2-v1",
+  "client_date": "2026-11-01",
+  "rounds": 120,
+  "seeds": 20,
+  "flip_round": 40,
+  "fault_start": 20,
+  "fault_end": 80,
+  "epsilon": 0.12,
+  "alpha": 0.4,
+  "fixed_trust": 0.75,
+  "trust_prior": [3.0, 1.0],
+  "trust_retention": 0.98,
+  "message_ttl": 5,
+  "message_decay": 6.0,
+  "scenarios": ["stable", "reversal", "faulty_source", "stale_source"],
+  "policies": ["mean_fixed", "recent_fixed", "recent_trust", "recent_no_messages"],
+  "trace_seeds": [0]
+}

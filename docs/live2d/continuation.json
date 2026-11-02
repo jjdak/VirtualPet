@@ -1,13 +1,12 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-10-23",
+  "updatedAt": "2026-11-02",
   "latestOwnerFeedback": {
-    "date": "2026-10-23",
-    "quote": "可以先记录下这个思路，继续优化场景的控制",
-    "interpretation": "Record local structured observation and action-result feedback first, optional vision later. Simplified art is acceptable; improve current controls without starting real LLM calls.",
-    "progress": "docs/sim/S2_CONTROL_PASS.md"
+    "date": "2026-11-02",
+    "quote": "继续推进下一轮，试试让角色根据复查的收益调整频率，稳定时少查，变化后及时发现，再和固定间隔复查对比。做好计划和进展记录，保持目录整洁。",
+    "interpretation": "Authorized bounded E5 outcome-adaptive frequency experiment against fixed intervals; implementation and evidence completed, no superiority claim or automatic E6."
   },
-  "activeTrack": "courtyard-sim",
+  "activeTrack": "two-agent-learning-lab",
   "decision": {
     "live2dStatus": "paused",
     "customCubismAutomationStatus": "stopped",
@@ -21,15 +20,15 @@
     "productDirection": "A quiet small simulation world: observe, intervene, and take over a character; grounded actions and consequences.",
     "legacyAppStatus": "preserved; physical acceptance and cross-device expansion deferred",
     "courtyardRenderer": "Three.js 0.185.1 + three-vrm 3.5.5; independent fixed-camera browser prototype",
-    "learningStatus": "LLM action selection planned after deterministic world/control slice; no RL, fine-tuning or exploreBrain integration yet.",
+    "learningStatus": "E5 complete: local proxy-gain adaptive frequency versus fixed12/18/30 under shared E4 hybrid budget. 5200 episodes / 1872000 choices. Stable cost reduced relative to18, but hidden changes delayed and fixed30 better in equal-case mean. No neural training/model calls; no exploreBrain edits.",
     "authoringDirection": "Original Blender art source unchanged. Godot S2 uses Quaternius Idle/Walk, CMU turn/stop recordings with collision-resolved root motion and bounded foot contact correction.",
     "courtyardAuthoringSoftware": "Blender 5.2.1 LTS, macOS arm64",
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "SIM-S2",
-    "status": "playable_technical_candidate_owner_naturalness_pending",
-    "nextAction": "Proceed toward S3 local observation/action-result contracts per docs/sim/LLM_FEEDBACK_DESIGN.md. S2 interruption/stop controls verified; subjective feel and phase-matched feet remain pending. No real LLM or perception implementation yet.",
+    "id": "E5-outcome-adaptive-frequency",
+    "status": "experiment_complete_owner_experience_pending",
+    "nextAction": "Review E5 tradeoffs. Do not promote adaptive interval as superior; retain fixed comparisons. Candidate E6: retain unresolved anomaly evidence instead of ephemeral stale-gated trigger, isolated ablation and new heldout timings. Not implemented.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -158,7 +157,16 @@
     "2026-10-22 S1: Godot 4.7.2 official download SHA512, codesign and notarization pass. v6 source hash unchanged; 289 environment meshes and 58 character bones exported. Headless and graphical checks exit 0: movement, grounded spawn, walls/pool boundary, camera switch, arrow look, original seated bone motion. Captured mouse event checked only in graphical mode. Native UI observed movement, first-person view, arrow look and seated preview. Natural gait, AI and B2 render parity remain absent.",
     "2026-10-22 S2: Quaternius CC0 Idle/Walk retargeted to GirlA; actual-speed animation, bounded turning, goal/failure/manual interrupt and causal boat collision tests pass in graphical/headless modes. Original blend hashes unchanged; docs/sim/S2_PROGRESS.md records remaining limitations.",
     "2026-10-23: CMU turns/stopping retargeted; bounded SkeletonModifier3D foot locking; graphical/headless regression passed including both turn endpoints, stop selection, per-phase locked-foot displacement, unchanged leg lengths, goal/boat/collision/reset/cameras. Original Blender SHA unchanged; 23.83s engine video and light comparison delivered. See docs/sim/S2_CONTACT_VERIFICATION.json; subjective naturalness pending.",
-    "2026-10-23: Interruptible turn/stop, mid-action manual takeover, Space stop with held-key suppression, focus-loss/first-person Escape stop and seated-preview cleanup pass headless/graphical control checks. Full graphical S2 regression passes. Local structured LLM feedback design recorded only; no perception/LLM implementation."
+    "2026-10-23: Interruptible turn/stop, mid-action manual takeover, Space stop with held-key suppression, focus-loss/first-person Escape stop and seated-preview cleanup pass headless/graphical control checks. Full graphical S2 regression passes. Local structured LLM feedback design recorded only; no perception/LLM implementation.",
+    "2026-10-31 E1-v2/v3: three backends each ran 96 probes per protocol; 576 decisions verified against independent world reconstruction, actual effects and source fingerprints. M4 16 GiB: v2 median 0.190s/0.445s for 0.6B/1.7B; v3 0.165s/0.370s. LLM weights unchanged; Godot/Blender unchanged. Actual browser replay not verified (webview timeout/queued).",
+    "2026-11-01 E2: 7 mechanism/save-restore tests pass, including fresh-process continuation; all 320 episodes and 76,800 choices recomputed, 16 sampled traces and 34,560 physical actions independently audited.",
+    "2026-11-01 E2 replay: DOM logic checks cover 16 profiles and 3,840 actor cards; actual in-app browser playback/pause, round slider and scenario selection verified. Seed 0 faulty-source trust moves from 0.188 at round 79 to 0.646 at round 119. No strict frame-rate or mobile-layout claim.",
+    "2026-11-01 E2 classified source/tests/protocols/results under experiments/adaptive_agents; records under docs/sim/experiments/e2. Browser evidence in results/e2-v1/review; no new dependencies or model calls.",
+    "2026-11-01 E3: 12 tests pass including pending-probe fresh-process restore and E2 baseline behavior equality. All 2400 episodes and 576000 decisions recomputed; 24 sampled traces / 51840 actions independently audited.",
+    "2026-11-01 E3: replay logic checks 18 profiles and 8640 actor cards. Actual browser verified first trigger at round41/probe42, noise false trigger101/probe102, hidden-improvement no-trigger case, play/pause, slider and three comparators. Screenshot in experiments/reinspection_agents/results/e3-v1/review.",
+    "2026-11-01 E3: 92 prior E1/E2 non-cache files unchanged by SHA256 audit. New classified directory, frozen protocol and research notes saved. No new framework dependency or GitHub push.",
+    "2026-11-01 E4: 14 tests; full 3500 episode / 1260000 choice recomputation; 15 traces / 48600 physical actions independently audited; 12 replay logic profiles and actual browser playback/controls checked; E1-E3 162 file hashes unchanged. See docs/sim/experiments/e4/PROGRESS.md. Subjective owner experience pending.",
+    "2026-11-02 E5: 12 tests, all5200 episodes/1872000 choices recomputed; 16 traces/51840 physical actions independently audited incl local scores/trust/frequency; 12 DOM profiles and real browser controls checked; E1-E4 214 experimental files unchanged. See docs/sim/experiments/e5/PROGRESS.md. Owner experience pending."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -178,7 +186,7 @@
     ]
   },
   "nextActions": [
-    "Proceed toward S3 local observation/action-result contracts per docs/sim/LLM_FEEDBACK_DESIGN.md. S2 interruption/stop controls verified; subjective feel and phase-matched feet remain pending. No real LLM or perception implementation yet."
+    "Discuss concrete enjoyable directions for an individual, including a companion inside an existing game or a bounded creative tool. Do not automatically advance exploreBrain experiments, merge repositories or resume courtyard demo expansion; no direction selected."
   ],
   "preservedLive2DCheckpoint": {
     "baselineModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-imported.cmo3",
@@ -510,8 +518,38 @@
     "verification": "docs/sim/S2_CONTROL_VERIFICATION.json",
     "sourceBlendUnchanged": true,
     "ownerAcceptance": false,
-    "nextStage": "Proceed toward S3 local observation/action-result contracts per docs/sim/LLM_FEEDBACK_DESIGN.md. S2 interruption/stop controls verified; subjective feel and phase-matched feet remain pending. No real LLM or perception implementation yet.",
+    "nextStage": "Godot expansion deferred; independent E5 frequency experiment complete. No E6 implementation or larger world/model training.",
     "research": "docs/sim/S2_RESEARCH_NOTES.md",
-    "feedbackDesign": "docs/sim/LLM_FEEDBACK_DESIGN.md"
+    "feedbackDesign": "docs/sim/LLM_FEEDBACK_DESIGN.md",
+    "reuseResearch": {
+      "document": "docs/sim/S3_REUSE_RESEARCH.md",
+      "date": "2026-10-25",
+      "status": "primary_sources_and_partial_source_review_only",
+      "runtimeTrials": "not_started",
+      "adoptionDecision": "demo_direction_rejected_by_owner_2026_10_26; no_new_direction_selected"
+    },
+    "exploreBrainResearch": {
+      "document": "docs/sim/EXPLOREBRAIN_RESEARCH_DIRECTION.md",
+      "date": "2026-10-26",
+      "status": "local_source_and_saved_results_reviewed_plus_primary_literature",
+      "experimentsRerun": false,
+      "exploreBrainModified": false,
+      "integrationImplemented": false,
+      "ownerAdoptedProposal": false
+    }
+  },
+  "twoAgentExperiment": {
+    "stage": "E5",
+    "plan": "docs/sim/experiments/e5/PLAN.md",
+    "research": "docs/sim/experiments/e3/RESEARCH.md",
+    "researchScope": "Prior research retained; no new external research this E5 turn",
+    "progress": "docs/sim/experiments/e5/PROGRESS.md",
+    "code": "experiments/frequency_agents",
+    "results": "experiments/frequency_agents/results/e5-v1",
+    "replay": "experiments/frequency_agents/results/e5-v1/replay.html",
+    "browserURL": "http://127.0.0.1:4191/e5-v1/replay.html",
+    "ownerExperienceAccepted": false,
+    "nextExperimentImplemented": false,
+    "priorStage": "docs/sim/experiments/e4/PROGRESS.md"
   }
 }

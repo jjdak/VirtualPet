@@ -1,5 +1,23 @@
 # 依赖与制作工具清单
 
+## E3 主动复查实验（2026-11-01）
+
+`experiments/reinspection_agents/` 只使用已有 Python 3.11.15 标准库，读用 E2 自有代码；Node 仅作 UI 逻辑核验。没有新增模型、包、素材或 API 依赖。Deep Agents / Harbor / PettingZoo 与近期论文仅作[研究参考](sim/experiments/e3/RESEARCH.md)，未安装、复制实现或宣称兼容。离线回放可直接打开，检查服务仅绑定 `127.0.0.1:4189`。
+
+## E2 连续行为实验（2026-11-01）
+
+- 复用本机 Python 3.11.15 标准库；没有新增包、权重、网络服务或模型调用。Node 24.13.0 仅运行页面逻辑测试替身，浏览器只需打开离线 HTML。
+- 可复现配置、源码、原始摘要和抽样完整轨迹位于 `experiments/adaptive_agents/`，分类见该目录 README；用户查看用临时 HTTP 服务只绑定 `127.0.0.1:4188`。不进入 Godot/Swift App，也不改变 E1 的隔离 MLX 环境。
+
+
+## E1 双角色本地实验（2026-10-31）
+
+- 独立 Python 3.11.15 环境：`PrivateAssets/Tools/agent-lab-venv/`，不改系统 Python、不进入旧 App 或 Godot。安装 `mlx-lm==0.32.2`（MIT）、`mlx==0.32.4` / `mlx-metal==0.32.4`；完整依赖版本见 [requirements-lock](../experiments/two_agents/requirements-lock.txt)。恢复方法见 [实验 README](../experiments/two_agents/README.md)。
+- `mlx-community/Qwen3-0.6B-4bit`，revision `73e3e38d981303bc594367cd910ea6eb48349da8`；`mlx-community/Qwen3-1.7B-4bit`，revision `3b1b1768f8f8cf8351c712464f906e86c2b8269e`。两者模型卡为 Apache-2.0，4-bit/group64；来源和固定版本见 [models-lock](../experiments/two_agents/models-lock.json)。
+- 权重、下载缓存与环境全部在 `PrivateAssets/`，继续忽略；数据文件大小与 SHA-256 见 [model-files](../experiments/two_agents/results/e1-v2/model-files.json)。公开源码/结果仅含合成世界，不含私人角色素材。下载后使用 `HF_HUB_OFFLINE=1`；不上传数据，不调用付费云模型，不训练模型权重。
+- 原先尝试 `uv venv` 在受限环境初始化失败，改用已有 Python 的 `venv` 建立隔离环境，再通过 uv 安装注册表包；未安装全局 MLX、未修改已有 Ollama 服务。实验进程结束后释放模型；回放服务仅绑定 `127.0.0.1:4187`。
+
+
 ## S1 已采用工具（2026-10-22）
 
 - **Godot 4.7.2 stable**（`4.7.2.stable.official.ed1daf0bf`），macOS Universal 非 .NET，安装于 `/Applications/Godot.app`；[官方来源](https://godotengine.org/download/macos/)，[MIT 许可](https://github.com/godotengine/godot/blob/4.7.2-stable/LICENSE.txt)。用于独立 `sim/` 运行时，不加入旧 Swift App。
@@ -193,3 +211,11 @@ R5 的 iOS 模拟器 Core 只提供 arm64，因此私人配置排除 `x86_64` �
 - 新增 CMU mocap 69_16 / 69_18 / 16_33 bones-only FBX；16_34 仅作比较未集成。CMU → cgspeed BVH → RancidMilk FBX → gbionics 镜像，**非 CC0**；允许使用/修改/再分发、用于商业产品，但不得直接转售动作数据，分发时传递条款。来源、裁剪、SHA-256 和恢复步骤见 [S2_CONTACT_PASS](sim/S2_CONTACT_PASS.md) / [验证 JSON](sim/S2_CONTACT_VERIFICATION.json)。
 - 素材、GirlA 衍生 GLB 和视频继续本地忽略；原 GirlA 模型许可单独保留。没有安装 Auto-Rig Pro，没有使用作者转换脚本，没有新增运行时包/付费调用。
 - 自有 Blender 重定向脚本与 Godot 原生 SkeletonModifier3D 实现有限脚部 IK；沿用现有 ffmpeg。原 Blender 美术工程未写入。
+
+## E4 有预算的混合复查（2026-11-01）
+
+复用本机 Python 3.11.15 标准库及只读的 E2/E3 原语；既有 Node 用于回放逻辑测试。回放为无外部资源的 HTML/CSS/JavaScript，`http.server` 仅绑定 127.0.0.1:4190。没有 pip/npm 安装、新素材、框架、权重下载或模型调用。见 [E4 记录](sim/experiments/e4/PROGRESS.md)。
+
+## E5 自适应复查频率（2026-11-02）
+
+复用 Python 3.11.15 标准库、既有 Node 验证工具、只读 E2–E4 原语。回放无外部资源；本地 HTTP 只绑定 127.0.0.1:4191。没有安装包、框架、权重、素材或模型调用。见 [E5 记录](sim/experiments/e5/PROGRESS.md)。

@@ -1,0 +1,23 @@
+{
+  "protocol": "e4-v1",
+  "client_date": "2026-11-01",
+  "finished_utc": "2026-11-01T13:34:59.444419+00:00",
+  "python": "3.11.15",
+  "episodes": 3500,
+  "choices": 1260000,
+  "elapsed_seconds": 116.27327416697517,
+  "source_sha256": {
+    "docs/sim/experiments/e4/PLAN.md": "ecb0bc3c8ac393da2e7d678140e5d409c3e6407d82441b3d40cde8984deb1454",
+    "experiments/adaptive_agents/src/core.py": "d9768ca00220666e0177c4531edc4c882d957143b786b3746fdd8bc8bedf4b48",
+    "experiments/budgeted_agents/src/core.py": "fac362f94a04d87e29b51348ea5bffa3439afacecf0fe758dbbafcd96762c6f6",
+    "experiments/budgeted_agents/src/replay.html": "30c10e656f52e3626045bf69b5a87c5905d47498011196fd34f83f38cad8c168",
+    "experiments/budgeted_agents/src/report.py": "99f9d6da28ff92d7c8f1eff7c1af66928eeb538f80bf4c870385f22a2a772176",
+    "experiments/budgeted_agents/src/run.py": "78f215e4de9b8f01f90e76958df5f7224cc6d56094a6a99a7368d683b3792da3",
+    "experiments/budgeted_agents/src/verify.py": "f06980380b7803803dee20efeadab688a5c083c535e128afca960baa63e6709d",
+    "experiments/budgeted_agents/tests/test_core.py": "0bbc1d2ccf5b65c69aecd5cafdbfa65d6c8f6acf63561d6f839eb17b2168eac9",
+    "experiments/reinspection_agents/src/core.py": "5fd3a60a47f9a0dc7520eddf446ee57a9cf81c29a6beb32ebc06c93f5eb70166"
+  },
+  "protocol_sha256": "b7dec3f10fce3b8064e8c3f9ec24fbe332352bc8b943bc7f0464f600e0a53313",
+  "dependencies": "Python standard library only",
+  "llm_calls": 0
+}

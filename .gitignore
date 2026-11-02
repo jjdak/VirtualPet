@@ -23,3 +23,14 @@ build_output.log
 /sim/.godot/
 /sim/assets/private/
 /sim/evidence/
+
+# Reproducible experiment source is public; weights and environments are private.
+/experiments/two_agents/__pycache__/
+/experiments/adaptive_agents/**/__pycache__/
+
+# E3 experiment Python cache
+/experiments/reinspection_agents/**/__pycache__/
+
+# E4 experiment Python cache
+/experiments/budgeted_agents/**/__pycache__/
+/experiments/frequency_agents/**/__pycache__/

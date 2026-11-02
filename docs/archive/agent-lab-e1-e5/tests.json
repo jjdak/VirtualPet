@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-02",
+  "suites": [
+    {
+      "stage": "E1",
+      "tests": 5,
+      "passed": true
+    },
+    {
+      "stage": "E2",
+      "tests": 7,
+      "passed": true
+    },
+    {
+      "stage": "E3",
+      "tests": 12,
+      "passed": true
+    },
+    {
+      "stage": "E4",
+      "tests": 14,
+      "passed": true
+    },
+    {
+      "stage": "E5",
+      "tests": 12,
+      "passed": true
+    }
+  ],
+  "total": 50
+}
