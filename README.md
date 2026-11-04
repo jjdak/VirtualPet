@@ -1,5 +1,9 @@
 # VirtualPet
 
+## 当前进展：E6 已完成（2026-11-04）
+
+E1–E5 已[归档到 GitHub](https://github.com/jjdak/VirtualPet/tree/agent-lab-e1-e5-2026-11-02)。E6 验证保留待核查事项：修复一个已知漏查，但在新变化时刻未优于同触发短期对照。[完整结果](docs/sim/experiments/e6/PROGRESS.md) · [运行与复现](experiments/unresolved_agents/README.md)。本轮收束，不自动开展下一实验。以下保留阶段历史。
+
 ## 当前阶段：双角色行为实验（2026-11-02）
 
 E1–E5 已完成并整理为 [GitHub 归档](https://github.com/jjdak/VirtualPet/tree/agent-lab-e1-e5-2026-11-02)：从小模型经验利用，到信任、主动复查、预算和复查频率对照。E5 未证明自适应优于简单固定间隔；成功与负结果均保留。[归档与恢复](docs/archive/agent-lab-e1-e5/README.md) · [实验索引](docs/sim/experiments/README.md)。旧庭院/建模保留，下述旧阶段说明为历史记录。用户已授权归档后开展一轮 E6，检验保留未解决异常；以 continuation 和最新实验记录为准。

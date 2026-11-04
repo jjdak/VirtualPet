@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-04",
+  "actual_browser_check_date": "2026-11-03",
+  "passed": true,
+  "url": "http://127.0.0.1:4192/e6-v1/replay.html",
+  "checks": [
+    "swap77 round80 left expired; right fresh-blocked ticket created78 expires90",
+    "jump reaches81; budget spent and personal sample resolves",
+    "play advances action2/10; pause",
+    "swap67 and fixed30 selection",
+    "noisy_stable88 false alarm sampling",
+    "hidden_gain107 selection",
+    "38case table expands and new timing labels visible"
+  ],
+  "screenshot": "waiting-vs-expired.jpg",
+  "screenshot_visually_inspected_date": "2026-11-04",
+  "limits": [
+    "No FPS or subjective acceptance",
+    "Actual browser samples separated from12 DOM logic profiles",
+    "2026-11-04 browser binding resume unavailable; no new interaction acceptance claimed on that date"
+  ]
+}

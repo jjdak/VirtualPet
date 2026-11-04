@@ -34,3 +34,4 @@ build_output.log
 # E4 experiment Python cache
 /experiments/budgeted_agents/**/__pycache__/
 /experiments/frequency_agents/**/__pycache__/
+/experiments/unresolved_agents/**/__pycache__/

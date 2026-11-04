@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "episodes_recomputed": 6080,
+  "choices_recomputed": 2188800,
+  "traces_independently_audited": 16,
+  "physical_actions_audited": 51840,
+  "checks": [
+    "source/config fingerprints",
+    "independent ticket creation expiry resolution and trigger priority",
+    "independent local scores/trust and frequency updates",
+    "independent budgets and priority/reservation",
+    "personal evidence and delayed request",
+    "asynchronous reward schedule/noise",
+    "movement and eating",
+    "messages",
+    "final snapshots",
+    "initial unknown count and horizon"
+  ]
+}

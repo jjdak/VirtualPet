@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-04",
   "latestOwnerFeedback": {
     "date": "2026-11-02",
-    "quote": "继续推进下一轮，试试让角色根据复查的收益调整频率，稳定时少查，变化后及时发现，再和固定间隔复查对比。做好计划和进展记录，保持目录整洁。",
-    "interpretation": "Authorized bounded E5 outcome-adaptive frequency experiment against fixed intervals; implementation and evidence completed, no superiority claim or automatic E6."
+    "quote": "好的，先把 E1–E5 的成果整理归档到 GitHub，再按你的思路做一轮 E6，验证保留未解决的异常能否改善行为，和简单策略对比。做好计划和进展记录，保持目录整洁。",
+    "interpretation": "E1-E5 archive published and verified; authorized one E6 experiment completed across Nov3-Nov4. No automatic E7; owner experience remains pending."
   },
   "activeTrack": "two-agent-learning-lab",
   "decision": {
@@ -20,15 +20,15 @@
     "productDirection": "A quiet small simulation world: observe, intervene, and take over a character; grounded actions and consequences.",
     "legacyAppStatus": "preserved; physical acceptance and cross-device expansion deferred",
     "courtyardRenderer": "Three.js 0.185.1 + three-vrm 3.5.5; independent fixed-camera browser prototype",
-    "learningStatus": "E5 complete: local proxy-gain adaptive frequency versus fixed12/18/30 under shared E4 hybrid budget. 5200 episodes / 1872000 choices. Stable cost reduced relative to18, but hidden changes delayed and fixed30 better in equal-case mean. No neural training/model calls; no exploreBrain edits.",
+    "learningStatus": "E6 complete: 6080 episodes /2188800 choices; matched oneshot/persistent investigations plus E5/fixed30. Known miss repaired; no new-timing advantage over matched oneshot; noise costs reported. E1-E5 GitHub tag verified. No models/training.",
     "authoringDirection": "Original Blender art source unchanged. Godot S2 uses Quaternius Idle/Walk, CMU turn/stop recordings with collision-resolved root motion and bounded foot contact correction.",
     "courtyardAuthoringSoftware": "Blender 5.2.1 LTS, macOS arm64",
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "E5-outcome-adaptive-frequency",
+    "id": "E6-unresolved-anomalies",
     "status": "experiment_complete_owner_experience_pending",
-    "nextAction": "Review E5 tradeoffs. Do not promote adaptive interval as superior; retain fixed comparisons. Candidate E6: retain unresolved anomaly evidence instead of ephemeral stale-gated trigger, isolated ablation and new heldout timings. Not implemented.",
+    "nextAction": "Review scoped E6 result: retained investigations fix known swap77 but no matched heldout benefit. Archive current evidence; no automatic E7, parameter tuning, model training or world expansion.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -166,7 +166,8 @@
     "2026-11-01 E3: replay logic checks 18 profiles and 8640 actor cards. Actual browser verified first trigger at round41/probe42, noise false trigger101/probe102, hidden-improvement no-trigger case, play/pause, slider and three comparators. Screenshot in experiments/reinspection_agents/results/e3-v1/review.",
     "2026-11-01 E3: 92 prior E1/E2 non-cache files unchanged by SHA256 audit. New classified directory, frozen protocol and research notes saved. No new framework dependency or GitHub push.",
     "2026-11-01 E4: 14 tests; full 3500 episode / 1260000 choice recomputation; 15 traces / 48600 physical actions independently audited; 12 replay logic profiles and actual browser playback/controls checked; E1-E3 162 file hashes unchanged. See docs/sim/experiments/e4/PROGRESS.md. Subjective owner experience pending.",
-    "2026-11-02 E5: 12 tests, all5200 episodes/1872000 choices recomputed; 16 traces/51840 physical actions independently audited incl local scores/trust/frequency; 12 DOM profiles and real browser controls checked; E1-E4 214 experimental files unchanged. See docs/sim/experiments/e5/PROGRESS.md. Owner experience pending."
+    "2026-11-02 E5: 12 tests, all5200 episodes/1872000 choices recomputed; 16 traces/51840 physical actions independently audited incl local scores/trust/frequency; 12 DOM profiles and real browser controls checked; E1-E4 214 experimental files unchanged. See docs/sim/experiments/e5/PROGRESS.md. Owner experience pending.",
+    "2026-11-04 E6 closeout: 14 tests; full6080-episode recomputation;16 traces/51840 physical actions independently audited;12 DOM profiles and Nov3 browser controls checked. E1-E5 271 experimental files unchanged. Archive tag verified at ac3c2fd4c895269e08f41be72159ee847b2afe32."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -518,7 +519,7 @@
     "verification": "docs/sim/S2_CONTROL_VERIFICATION.json",
     "sourceBlendUnchanged": true,
     "ownerAcceptance": false,
-    "nextStage": "Godot expansion deferred; independent E5 frequency experiment complete. No E6 implementation or larger world/model training.",
+    "nextStage": "Godot expansion deferred. E6 complete; retain scoped positive/negative results and discuss direction, do not automatically start E7.",
     "research": "docs/sim/S2_RESEARCH_NOTES.md",
     "feedbackDesign": "docs/sim/LLM_FEEDBACK_DESIGN.md",
     "reuseResearch": {
@@ -539,17 +540,16 @@
     }
   },
   "twoAgentExperiment": {
-    "stage": "E5",
-    "plan": "docs/sim/experiments/e5/PLAN.md",
-    "research": "docs/sim/experiments/e3/RESEARCH.md",
-    "researchScope": "Prior research retained; no new external research this E5 turn",
-    "progress": "docs/sim/experiments/e5/PROGRESS.md",
-    "code": "experiments/frequency_agents",
-    "results": "experiments/frequency_agents/results/e5-v1",
-    "replay": "experiments/frequency_agents/results/e5-v1/replay.html",
-    "browserURL": "http://127.0.0.1:4191/e5-v1/replay.html",
+    "stage": "E6",
+    "plan": "docs/sim/experiments/e6/PLAN.md",
+    "progress": "docs/sim/experiments/e6/PROGRESS.md",
+    "code": "experiments/unresolved_agents",
+    "results": "experiments/unresolved_agents/results/e6-v1",
     "ownerExperienceAccepted": false,
     "nextExperimentImplemented": false,
-    "priorStage": "docs/sim/experiments/e4/PROGRESS.md"
+    "priorStage": "docs/sim/experiments/e5/PROGRESS.md",
+    "priorArchive": "docs/archive/agent-lab-e1-e5/REMOTE_RECEIPT.json",
+    "replay": "experiments/unresolved_agents/results/e6-v1/replay.html",
+    "browserURL": "http://127.0.0.1:4192/e6-v1/replay.html"
   }
 }

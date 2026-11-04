@@ -9,4 +9,6 @@
 
 - E5：[计划](e5/PLAN.md) / [进展结果](e5/PROGRESS.md)，自适应复查频率与三档固定间隔。
 
+- E6：[计划](e6/PLAN.md) / [进展结果](e6/PROGRESS.md)，未解决异常的保留与短期事项对照。
+
 源码与原始结果入口见 [experiments 索引](../../../experiments/README.md)。这里保留决策、进度、解释边界；不存模型权重或依赖。

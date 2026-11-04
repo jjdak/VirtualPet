@@ -6,7 +6,8 @@
 | `adaptive_agents/` | E2，冻结 | 连续经验修正与来源信任；结果与源码保持。 |
 | `reinspection_agents/` | E3，冻结 | 意外触发复查与随机探索比较；包括噪声成本和隐蔽改善反例。 |
 | `budgeted_agents/` | E4，冻结 | 同预算上限下的随机、日常、意外和混合复查；不同变化时刻与非同步变化。 |
-| `frequency_agents/` | E5 | 依据亲历复查收益调整间隔，对照固定 12/18/30，保留旧情景并增加新变化时刻。 |
+| `frequency_agents/` | E5，冻结 | 依据亲历复查收益调整间隔，对照固定 12/18/30，保留旧情景并增加新变化时刻。 |
+| `unresolved_agents/` | E6 | 保留未解决异常，与同触发短期事项、E5 原策略和固定 30 对照。 |
 
 E2 起每阶段统一分为 `src/`、`tests/`、`protocols/`、`results/<run>/`；原始摘要和采样轨迹在 `raw/`，浏览器/验证证据在 `review/`。计划与人工解读统一放在 `docs/sim/experiments/`，E1 历史文档保留原路径。
 
