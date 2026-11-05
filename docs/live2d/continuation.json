@@ -568,9 +568,10 @@
     "ownerExperienceAccepted": false,
     "browserFileRoundtripVerified": true,
     "nextStageImplemented": false,
-    "publicRemoteSaved": false,
+    "publicRemoteSaved": true,
     "browserChecksPassed": 12,
     "browserEngine": "Playwright Chromium Headless Shell 151.0.7922.34",
-    "archiveBranch": "codex/w1-living-world-2026-11-06"
+    "archiveBranch": "codex/w1-living-world-2026-11-06",
+    "verifiedArchiveCommit": "564085bf2db9b31f9d13917ccad0378473d4e41b"
   }
 }
