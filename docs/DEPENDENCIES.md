@@ -1,5 +1,9 @@
 # 依赖与制作工具清单
 
+## W1 实时小世界（2026-11-05）
+
+`living_world/` 使用本机已有 Python 3.14.4 标准库（HTTP 服务、线程、JSON、文件存档）与浏览器原生 Canvas/HTML/CSS/JS。复用冻结的本仓库 `experiments/adaptive_agents/src/core.py`，不复制外部实现、不增加 pip/npm 包、模型、云 API 或素材。浏览器验收复用 Node 和 Playwright 1.62.1，通过官方安装器取得 Chromium Headless Shell 151.0.7922.34（build 1234）和 FFmpeg 1011，放在忽略的 `PrivateAssets/Tools/playwright-browsers/`。这些工具仅供开发验证。服务只监听 `127.0.0.1:4193`，个人存档在忽略的 `.runtime/living-world/`。UI 图形为抽象地图/标记，不是新人物模型。完整检查见 [W1 记录](sim/living-world/PROGRESS.md)。
+
 ## E3 主动复查实验（2026-11-01）
 
 `experiments/reinspection_agents/` 只使用已有 Python 3.11.15 标准库，读用 E2 自有代码；Node 仅作 UI 逻辑核验。没有新增模型、包、素材或 API 依赖。Deep Agents / Harbor / PettingZoo 与近期论文仅作[研究参考](sim/experiments/e3/RESEARCH.md)，未安装、复制实现或宣称兼容。离线回放可直接打开，检查服务仅绑定 `127.0.0.1:4189`。

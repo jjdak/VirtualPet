@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-05",
+  "url": "http://127.0.0.1:4193/",
+  "tool": "CUA in-app browser; AX observations plus one displayed screenshot",
+  "status": "partial",
+  "verified": [
+    "initial paused world and map rendered",
+    "hint only to A; B inspector has no player hint",
+    "play and real-time changes",
+    "4x speed selection",
+    "environment q effect changed to +1",
+    "switch resident inspector",
+    "manual save slot1 at tick11",
+    "step12 then restore slot1 to tick11; before-restore file tick12 and autosave tick11 verified",
+    "later explicit pause at tick222; reload preserved tick222 paused"
+  ],
+  "not_verified": [
+    "browser JSON download completion",
+    "browser file-chooser JSON import",
+    "full responsive/mobile coverage",
+    "consistent single-click handling across repeated control actions",
+    "user subjective interest/acceptance"
+  ],
+  "incidents": [
+    "one load click timed out, later UI and local save state confirmed restore",
+    "one pause click did not immediately apply; subsequent visible-button action confirmed pause",
+    "final download wait did not return and was interrupted; browser tool subsequently unavailable"
+  ],
+  "saved_screenshot": null,
+  "source_of_observations": "tool results in current conversation; no fabricated screenshot file",
+  "owner_accepted": false,
+  "post_interruption_service_check": {
+    "server_reachable": true,
+    "running": false,
+    "tick": 222,
+    "restored": true,
+    "error": null
+  }
+}

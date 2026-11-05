@@ -35,3 +35,6 @@ build_output.log
 /experiments/budgeted_agents/**/__pycache__/
 /experiments/frequency_agents/**/__pycache__/
 /experiments/unresolved_agents/**/__pycache__/
+
+# W1 realtime world: runtime saves already live under .runtime/.
+/living_world/**/__pycache__/

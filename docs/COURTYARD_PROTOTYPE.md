@@ -1,5 +1,9 @@
 # 庭院原型：一分钟的安静相处
 
+## W1 两角色实时小世界（2026-11-06）
+
+用户已授权第一阶段并要求先计划再实施。独立二维实时世界已实现：自行移动/取食/休息、环境供给与效果修改、单角色地点线索、独立记忆和存档。15 项核心/HTTP 检查及 12 项独立 Chromium 检查通过，涵盖 JSON 文件往返与控制稳定性。趣味性待反馈。[计划](sim/living-world/PLAN.md) · [进展与边界](sim/living-world/PROGRESS.md) · [启动说明](../living_world/README.md)。原 E1–E6 和 Godot/Blender 保留，不自动扩展第二阶段。
+
 ## E6 未解决异常收束（2026-11-04）
 
 E1–E5 已先保存 [GitHub 固定归档](https://github.com/jjdak/VirtualPet/tree/agent-lab-e1-e5-2026-11-02)，提交 `ac3c2fd`；见[远端回执](archive/agent-lab-e1-e5/REMOTE_RECEIPT.json)。E6 完成 6,080 组/218.88 万次选择、14 项测试、全量复算与浏览器检查。保留事项修复已知 swap@77 漏查（恢复中位 37→9），但新时刻未优于同触发短期对照，噪声下有额外成本。见[计划](sim/experiments/e6/PLAN.md)、[结果与限制](sim/experiments/e6/PROGRESS.md)。本轮收束，不自动开始 E7；主观体验待反馈。

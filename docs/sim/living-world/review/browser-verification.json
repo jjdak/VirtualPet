@@ -1,0 +1,42 @@
+{
+  "verified_at": "2026-11-04T16:53:02.080Z",
+  "status": "passed",
+  "engine": "isolated Playwright Chromium headless",
+  "checks": [
+    "single-recipient hint, environment change, and save during a journey",
+    "real JSON browser download equals the complete paused world",
+    "file chooser import cancelled without changing the world",
+    "downloaded file imported through chooser restores both memories and journey exactly",
+    "invalid JSON and invalid-schema imports leave state intact",
+    "oversize file rejected before world replacement",
+    "manual load cancellation and acceptance preserve expected state",
+    "ten play/pause cycles stop ticks, repeated single steps advance exactly once",
+    "pending-command controls reject duplicate pointer activation",
+    "eight-second command timeout releases controls and resumes state polling",
+    "new-world cancellation and confirmation keep manual save recoverable",
+    "desktop and narrow layout have no horizontal overflow; screenshot captured"
+  ],
+  "owner_accepted": false,
+  "browser_version": "151.0.7922.34",
+  "download": {
+    "filename": "world-w1-step-4.json",
+    "bytes": 4084,
+    "sha256": "ffded0691e1c02622d71dad1b3f83a484448def9404920da46fb3075d9c5468c",
+    "tick": 4
+  },
+  "page_errors": [],
+  "control_cycles": 10,
+  "not_claimed": [
+    "manual IAB download support (earlier tool blocked)",
+    "owner subjective acceptance",
+    "all-browser or mobile device compatibility"
+  ],
+  "user_saves_touched": false,
+  "source_sha256": {
+    "living_world/web/app.js": "5d9bf9315ce362d7321352ba97740d5e3e2b8eaead6d712cce5219eb19f87821",
+    "living_world/web/index.html": "4656f36b0cb0f4b006b610d821c028ea3d00629e402367e490242a3e83ae3354",
+    "living_world/web/style.css": "ba6299ec06b0317c0d3d77f68655a46cbeb0be04221ceb33f98f84417e40e316",
+    "living_world/src/server.py": "8715f0949a46c595a5659fdb2a0452819feb642a6120f2ac5e24102015a9478b",
+    "living_world/tests/browser-check.cjs": "914e24aee2eeddd748ace4bf34663b597ec6bf073d1dfe13e8337bc97c9a0aea"
+  }
+}

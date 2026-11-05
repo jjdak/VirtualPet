@@ -1,5 +1,11 @@
 # VirtualPet
 
+## 当前进展：W1 两角色实时小世界（2026-11-06）
+
+运行 `./living_world/run.command`，打开 <http://127.0.0.1:4193/>。两角色会自行移动、取食、休息和近距离分享亲历；玩家可改变环境、给单人地点建议，查看独立记忆并保存恢复。15 项核心/HTTP 检查与 12 项 Chromium 浏览器检查通过，导入后两人记忆和在途行动完整恢复。主观体验待反馈。
+
+[启动与操作](living_world/README.md) · [先行计划](docs/sim/living-world/PLAN.md) · [进展与证据](docs/sim/living-world/PROGRESS.md)。以下保留阶段历史，不自动重启 E7、Godot 美术或模型训练。
+
 ## 当前进展：E6 已完成（2026-11-04）
 
 E1–E5 已[归档到 GitHub](https://github.com/jjdak/VirtualPet/tree/agent-lab-e1-e5-2026-11-02)。E6 验证保留待核查事项：修复一个已知漏查，但在新变化时刻未优于同触发短期对照。[完整结果](docs/sim/experiments/e6/PROGRESS.md) · [运行与复现](experiments/unresolved_agents/README.md)。本轮收束，不自动开展下一实验。以下保留阶段历史。

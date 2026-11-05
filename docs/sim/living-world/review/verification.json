@@ -1,0 +1,29 @@
+{
+  "verified_at": "2026-11-05T00:53:31.372631+08:00",
+  "python": "3.14.4",
+  "tests_run": 15,
+  "failures": 0,
+  "errors": 0,
+  "checks": [
+    "3000-step movement/need/memory bounds with closures and reopen",
+    "400-step exact continuation after save and identical subsequent interventions",
+    "fresh Python process restores and reproduces 80 additional steps",
+    "loopback HTTP commands, export/import, bad saves, origin/host restrictions",
+    "real server clock advances, pause stops, restart restores paused",
+    "fixed causal example: separate experiences and proximity-limited transfer"
+  ],
+  "source_sha256": {
+    "living_world/src/server.py": "8715f0949a46c595a5659fdb2a0452819feb642a6120f2ac5e24102015a9478b",
+    "living_world/src/verify.py": "d14f537a4d01ac30796e30e79448cfb9d4d1b1b5d46e695afa4120867ba04c41",
+    "living_world/src/world.py": "874da83e55f28d9326c3dd90f3a526528a7179b70d68de2496a5a0322d57fab8",
+    "living_world/tests/test_http.py": "57f738adf9df5467e614c4b51d9eab3dbea2cba8bd601c985048c3da57d98dfd",
+    "living_world/tests/test_world.py": "e8caf45543dd2512d30ae064fffa48ecacac37be1e778985fec6b30367145cf8",
+    "living_world/web/app.js": "5d9bf9315ce362d7321352ba97740d5e3e2b8eaead6d712cce5219eb19f87821",
+    "living_world/web/index.html": "4656f36b0cb0f4b006b610d821c028ea3d00629e402367e490242a3e83ae3354",
+    "living_world/web/style.css": "ba6299ec06b0317c0d3d77f68655a46cbeb0be04221ceb33f98f84417e40e316",
+    "living_world/run.command": "9cef7bfa4991fc3cbee088e8f412dc6305855d06a4891667b56880305ad9ccf2",
+    "experiments/adaptive_agents/src/core.py": "d9768ca00220666e0177c4531edc4c882d957143b786b3746fdd8bc8bedf4b48"
+  },
+  "browser_verification": "Separate manual receipt; this runner does not inspect UI.",
+  "owner_experience_accepted": false
+}

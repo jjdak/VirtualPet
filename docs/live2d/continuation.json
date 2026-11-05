@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-06",
   "latestOwnerFeedback": {
-    "date": "2026-11-02",
-    "quote": "好的，先把 E1–E5 的成果整理归档到 GitHub，再按你的思路做一轮 E6，验证保留未解决的异常能否改善行为，和简单策略对比。做好计划和进展记录，保持目录整洁。",
-    "interpretation": "E1-E5 archive published and verified; authorized one E6 experiment completed across Nov3-Nov4. No automatic E7; owner experience remains pending."
+    "date": "2026-11-05",
+    "quote": "继续把第一阶段收尾，补齐存档导入导出和控制稳定性的验证，做好进展记录，再把成果保存到 GitHub，保持目录整洁。",
+    "interpretation": "Complete W1 verification and archive the reviewed deliverables on a dedicated GitHub branch."
   },
-  "activeTrack": "two-agent-learning-lab",
+  "activeTrack": "two-resident-living-world",
   "decision": {
     "live2dStatus": "paused",
     "customCubismAutomationStatus": "stopped",
@@ -20,15 +20,15 @@
     "productDirection": "A quiet small simulation world: observe, intervene, and take over a character; grounded actions and consequences.",
     "legacyAppStatus": "preserved; physical acceptance and cross-device expansion deferred",
     "courtyardRenderer": "Three.js 0.185.1 + three-vrm 3.5.5; independent fixed-camera browser prototype",
-    "learningStatus": "E6 complete: 6080 episodes /2188800 choices; matched oneshot/persistent investigations plus E5/fixed30. Known miss repaired; no new-timing advantage over matched oneshot; noise costs reported. E1-E5 GitHub tag verified. No models/training.",
+    "learningStatus": "W1 live experience-based decisions, separate memories, peer evidence sharing, player location hints and save/restore. Reuses frozen E2 Agent. No models, training or automatic E7.",
     "authoringDirection": "Original Blender art source unchanged. Godot S2 uses Quaternius Idle/Walk, CMU turn/stop recordings with collision-resolved root motion and bounded foot contact correction.",
     "courtyardAuthoringSoftware": "Blender 5.2.1 LTS, macOS arm64",
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "E6-unresolved-anomalies",
-    "status": "experiment_complete_owner_experience_pending",
-    "nextAction": "Review scoped E6 result: retained investigations fix known swap77 but no matched heldout benefit. Archive current evidence; no automatic E7, parameter tuning, model training or world expansion.",
+    "id": "W1-live-two-resident-world",
+    "status": "technically_verified_owner_experience_pending",
+    "nextAction": "Collect owner feedback on W1 before choosing the next stage.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -167,7 +167,9 @@
     "2026-11-01 E3: 92 prior E1/E2 non-cache files unchanged by SHA256 audit. New classified directory, frozen protocol and research notes saved. No new framework dependency or GitHub push.",
     "2026-11-01 E4: 14 tests; full 3500 episode / 1260000 choice recomputation; 15 traces / 48600 physical actions independently audited; 12 replay logic profiles and actual browser playback/controls checked; E1-E3 162 file hashes unchanged. See docs/sim/experiments/e4/PROGRESS.md. Subjective owner experience pending.",
     "2026-11-02 E5: 12 tests, all5200 episodes/1872000 choices recomputed; 16 traces/51840 physical actions independently audited incl local scores/trust/frequency; 12 DOM profiles and real browser controls checked; E1-E4 214 experimental files unchanged. See docs/sim/experiments/e5/PROGRESS.md. Owner experience pending.",
-    "2026-11-04 E6 closeout: 14 tests; full6080-episode recomputation;16 traces/51840 physical actions independently audited;12 DOM profiles and Nov3 browser controls checked. E1-E5 271 experimental files unchanged. Archive tag verified at ac3c2fd4c895269e08f41be72159ee847b2afe32."
+    "2026-11-04 E6 closeout: 14 tests; full6080-episode recomputation;16 traces/51840 physical actions independently audited;12 DOM profiles and Nov3 browser controls checked. E1-E5 271 experimental files unchanged. Archive tag verified at ac3c2fd4c895269e08f41be72159ee847b2afe32.",
+    "2026-11-05 W1: 15 core/HTTP tests passed; 3000-step audit, 400-step exact save continuation and fresh-process 80-step restore. Main browser controls and slot restore checked; browser JSON download/import incomplete after tool hang/interruption. Owner experience pending.",
+    "2026-11-06 W1 closeout: final source hashes match both receipts. 15 core/HTTP and 12 Chromium checks passed, including real file chooser import of downloaded JSON, 10 pause/step cycles and delayed command recovery."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -551,5 +553,24 @@
     "priorArchive": "docs/archive/agent-lab-e1-e5/REMOTE_RECEIPT.json",
     "replay": "experiments/unresolved_agents/results/e6-v1/replay.html",
     "browserURL": "http://127.0.0.1:4192/e6-v1/replay.html"
+  },
+  "livingWorld": {
+    "stage": "W1",
+    "plan": "docs/sim/living-world/PLAN.md",
+    "progress": "docs/sim/living-world/PROGRESS.md",
+    "code": "living_world",
+    "launcher": "living_world/run.command",
+    "url": "http://127.0.0.1:4193/",
+    "verification": "docs/sim/living-world/review/verification.json",
+    "browserVerification": "docs/sim/living-world/review/browser-verification.json",
+    "saveDirectory": ".runtime/living-world",
+    "testsPassed": 15,
+    "ownerExperienceAccepted": false,
+    "browserFileRoundtripVerified": true,
+    "nextStageImplemented": false,
+    "publicRemoteSaved": false,
+    "browserChecksPassed": 12,
+    "browserEngine": "Playwright Chromium Headless Shell 151.0.7922.34",
+    "archiveBranch": "codex/w1-living-world-2026-11-06"
   }
 }
