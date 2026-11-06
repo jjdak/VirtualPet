@@ -2,9 +2,9 @@
   "schemaVersion": 2,
   "updatedAt": "2026-11-06",
   "latestOwnerFeedback": {
-    "date": "2026-11-05",
-    "quote": "继续把第一阶段收尾，补齐存档导入导出和控制稳定性的验证，做好进展记录，再把成果保存到 GitHub，保持目录整洁。",
-    "interpretation": "Complete W1 verification and archive the reviewed deliverables on a dedicated GitHub branch."
+    "date": "2026-11-06",
+    "quote": "继续推进第二阶段，先试试让角色学会区分情境：同一个地方在不同条件下，经历能不能让两个人做出不同选择？保留玩家干预，先做好计划再推进，记录进展，保持目录整洁。",
+    "interpretation": "W2 bounded context-dependent learning with retained intervention and separate personal memories."
   },
   "activeTrack": "two-resident-living-world",
   "decision": {
@@ -20,15 +20,15 @@
     "productDirection": "A quiet small simulation world: observe, intervene, and take over a character; grounded actions and consequences.",
     "legacyAppStatus": "preserved; physical acceptance and cross-device expansion deferred",
     "courtyardRenderer": "Three.js 0.185.1 + three-vrm 3.5.5; independent fixed-camera browser prototype",
-    "learningStatus": "W1 live experience-based decisions, separate memories, peer evidence sharing, player location hints and save/restore. Reuses frozen E2 Agent. No models, training or automatic E7.",
+    "learningStatus": "W2 weather-indexed personal and social evidence. Fixed-context probes and autonomous comparison completed locally.",
     "authoringDirection": "Original Blender art source unchanged. Godot S2 uses Quaternius Idle/Walk, CMU turn/stop recordings with collision-resolved root motion and bounded foot contact correction.",
     "courtyardAuthoringSoftware": "Blender 5.2.1 LTS, macOS arm64",
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "W1-live-two-resident-world",
-    "status": "technically_verified_owner_experience_pending",
-    "nextAction": "Collect owner feedback on W1 before choosing the next stage.",
+    "id": "W2-weather-dependent-experience",
+    "status": "comparison_and_browser_verified_owner_experience_pending",
+    "nextAction": "Try the step-700 example and review how weather and individual histories affect choices.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -169,7 +169,8 @@
     "2026-11-02 E5: 12 tests, all5200 episodes/1872000 choices recomputed; 16 traces/51840 physical actions independently audited incl local scores/trust/frequency; 12 DOM profiles and real browser controls checked; E1-E4 214 experimental files unchanged. See docs/sim/experiments/e5/PROGRESS.md. Owner experience pending.",
     "2026-11-04 E6 closeout: 14 tests; full6080-episode recomputation;16 traces/51840 physical actions independently audited;12 DOM profiles and Nov3 browser controls checked. E1-E5 271 experimental files unchanged. Archive tag verified at ac3c2fd4c895269e08f41be72159ee847b2afe32.",
     "2026-11-05 W1: 15 core/HTTP tests passed; 3000-step audit, 400-step exact save continuation and fresh-process 80-step restore. Main browser controls and slot restore checked; browser JSON download/import incomplete after tool hang/interruption. Owner experience pending.",
-    "2026-11-06 W1 closeout: final source hashes match both receipts. 15 core/HTTP and 12 Chromium checks passed, including real file chooser import of downloaded JSON, 10 pause/step cycles and delayed command recovery."
+    "2026-11-06 W1 closeout: final source hashes match both receipts. 15 core/HTTP and 12 Chromium checks passed, including real file chooser import of downloaded JSON, 10 pause/step cycles and delayed command recovery.",
+    "W2 on 2026-11-06: 32 seeds per policy, paired context probes and 960-step worlds. Late mean beneficial meal rate 73.5% vs 44.6%. 21 Python and 15 browser checks passed."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -567,11 +568,24 @@
     "testsPassed": 15,
     "ownerExperienceAccepted": false,
     "browserFileRoundtripVerified": true,
-    "nextStageImplemented": false,
+    "nextStageImplemented": true,
     "publicRemoteSaved": true,
     "browserChecksPassed": 12,
     "browserEngine": "Playwright Chromium Headless Shell 151.0.7922.34",
     "archiveBranch": "codex/w1-living-world-2026-11-06",
     "verifiedArchiveCommit": "564085bf2db9b31f9d13917ccad0378473d4e41b"
+  },
+  "livingWorldW2": {
+    "stage": "W2",
+    "plan": "docs/sim/living-world/w2/PLAN.md",
+    "progress": "docs/sim/living-world/w2/PROGRESS.md",
+    "results": "docs/sim/living-world/w2/review/comparison.json",
+    "browserVerification": "docs/sim/living-world/w2/review/browser-verification.json",
+    "launcher": "living_world/w2.command",
+    "url": "http://127.0.0.1:4194/",
+    "pythonChecks": 21,
+    "browserChecks": 15,
+    "ownerExperienceAccepted": false,
+    "publicRemoteSaved": false
   }
 }

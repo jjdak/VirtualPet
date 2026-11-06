@@ -152,8 +152,12 @@ class World:
         r.hints = r.hints[-20:]
         r.remember(self.tick, 'hint', f'你建议去{FOOD_NAMES[kind]}看看；这还不是亲历结论。', kind=kind)
 
+    def before_actions(self):
+        pass
+
     def step(self):
         self.tick += 1
+        self.before_actions()
         # No same-tick message delivery until both agents have acted.
         for actor, r in self.residents.items():
             r.brain.begin_round(self.tick)
@@ -262,7 +266,7 @@ class World:
         return w
 
     def view(self):
-        result = self.snapshot()
+        result = World.snapshot(self)
         result['map'] = dict(width=WIDTH, height=HEIGHT, foods=FOODS, homes=HOMES, walls=sorted(WALLS))
         for k, r in self.residents.items():
             result['residents'][k]['trust'] = r.brain.trust()

@@ -1,4 +1,10 @@
-# W1 两个角色的实时小世界
+# 两个角色的实时小世界
+
+## W2 晴天和雨天
+
+运行 `./living_world/w2.command`，打开 <http://127.0.0.1:4194/>。默认从暂停状态开始。可从零观察，或点击“载入双人示例”进入第 700 步，看两人下一次如何选择。天气按 80 步交替，玩家可固定天气、恢复交替、改变当前天气的食物效果、修改共同供给或只给一个角色线索。W2 使用 `.runtime/living-world-w2/` 保存两套个人经验。W2 复核命令见[本阶段进展](../docs/sim/living-world/w2/PROGRESS.md)。
+
+## W1 基线
 
 [阶段计划](../docs/sim/living-world/PLAN.md) · [进展与证据](../docs/sim/living-world/PROGRESS.md)
 

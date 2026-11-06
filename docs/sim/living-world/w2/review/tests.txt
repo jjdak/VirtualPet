@@ -1,0 +1,26 @@
+test_bad_import_and_stale_intervention_preserve_state (test_context.ContextTests.test_bad_import_and_stale_intervention_preserve_state) ... ok
+test_changes_to_unvisited_quality_hidden_from_choice (test_context.ContextTests.test_changes_to_unvisited_quality_hidden_from_choice) ... ok
+test_meal_uses_weather_at_contact (test_context.ContextTests.test_meal_uses_weather_at_contact) ... ok
+test_reports_only_validated_against_matching_weather_experience (test_context.ContextTests.test_reports_only_validated_against_matching_weather_experience) ... ok
+test_saved_journey_and_schedule_continue_identically (test_context.ContextTests.test_saved_journey_and_schedule_continue_identically) ... ok
+test_weather_switch_alone_adds_no_values_and_effect_edits_are_local (test_context.ContextTests.test_weather_switch_alone_adds_no_values_and_effect_edits_are_local) ... ok
+test_local_origin_static_scope_and_response_headers (test_http.HTTPTests.test_local_origin_static_scope_and_response_headers) ... ok
+test_real_clock_pause_and_restart (test_http.HTTPTests.test_real_clock_pause_and_restart) ... ok
+test_roundtrip_and_rejected_requests_do_not_mutate (test_http.HTTPTests.test_roundtrip_and_rejected_requests_do_not_mutate) ... ok
+test_bad_snapshot_rejected_transactionally (test_world.WorldTests.test_bad_snapshot_rejected_transactionally) ... ok
+test_closed_supply_observed_locally_and_not_treated_as_bad_food (test_world.WorldTests.test_closed_supply_observed_locally_and_not_treated_as_bad_food) ... ok
+test_consumption_requires_contact_and_uses_current_truth (test_world.WorldTests.test_consumption_requires_contact_and_uses_current_truth) ... ok
+test_environment_does_not_leak_to_remote_memory_or_choice (test_world.WorldTests.test_environment_does_not_leak_to_remote_memory_or_choice) ... ok
+test_exact_save_continuation_mid_action (test_world.WorldTests.test_exact_save_continuation_mid_action) ... ok
+test_hint_not_forced_over_strong_experience_and_not_teleport (test_world.WorldTests.test_hint_not_forced_over_strong_experience_and_not_teleport) ... ok
+test_long_run_bounded_state_and_valid_movement (test_world.WorldTests.test_long_run_bounded_state_and_valid_movement) ... ok
+test_manual_and_auto_save_restore_paused (test_world.WorldTests.test_manual_and_auto_save_restore_paused) ... ok
+test_new_process_restore (test_world.WorldTests.test_new_process_restore) ... ok
+test_only_recipient_gets_hint_not_experience (test_world.WorldTests.test_only_recipient_gets_hint_not_experience) ... ok
+test_peer_sharing_requires_proximity_and_keeps_personal_counts (test_world.WorldTests.test_peer_sharing_requires_proximity_and_keeps_personal_counts) ... ok
+test_player_hint_not_relayed_as_peer_fact (test_world.WorldTests.test_player_hint_not_relayed_as_peer_fact) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 2.651s
+
+OK

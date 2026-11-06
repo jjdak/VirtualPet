@@ -17,12 +17,14 @@ DEFAULT_SAVES = ROOT / '.runtime/living-world'
 
 
 class Runtime:
+    world_type = World
+
     def __init__(self, save_dir=DEFAULT_SAVES):
         self.save_dir = Path(save_dir)
         self.save_dir.mkdir(parents=True, exist_ok=True)
         self.lock = threading.RLock()
         self.running, self.speed, self.error = False, 1, None
-        self.world = World()
+        self.world = self.world_type()
         self.restored = False
         if (self.save_dir / 'autosave.json').exists():
             self.world = self.read('autosave')
@@ -33,7 +35,7 @@ class Runtime:
         p = self.save_dir / f'{slot}.json'
         if p.stat().st_size > 1_000_000:
             raise ValueError('存档过大')
-        return World.restore(json.loads(p.read_text()))
+        return self.world_type.restore(json.loads(p.read_text()))
 
     def write(self, slot):
         path = self.save_dir / f'{slot}.json'
@@ -64,7 +66,7 @@ class Runtime:
                     raise ValueError('速度只支持 1、2、4')
                 self.speed = body['value']
             elif action == 'environment':
-                self.world.intervene(body.get('kind'), body.get('effect'), body.get('available'))
+                self.apply_environment(body)
             elif action == 'hint':
                 self.world.hint(body.get('actor'), body.get('kind'))
             elif action == 'save':
@@ -73,21 +75,27 @@ class Runtime:
                 if action == 'load':
                     candidate = self.read(self.slot(body))
                 elif action == 'import':
-                    candidate = World.restore(body.get('world'))
+                    candidate = self.world_type.restore(body.get('world'))
                 else:
                     seed = body.get('seed', 42)
                     if type(seed) is not int or not 0 <= seed <= 999999:
                         raise ValueError('种子需为 0–999999 的整数')
-                    candidate = World(seed)
+                    candidate = self.world_type(seed)
                 # Keep one recovery copy; never replace the current world on invalid input.
                 self.write('before-restore')
                 self.world, self.running = candidate, False
                 self.restored = action != 'new'
             else:
-                raise ValueError('未知操作')
+                self.additional_command(body)
             self.write('autosave')
             self.error = None
             return self.view()
+
+    def apply_environment(self, body):
+        self.world.intervene(body.get('kind'), body.get('effect'), body.get('available'))
+
+    def additional_command(self, body):
+        raise ValueError('未知操作')
 
     @staticmethod
     def slot(body):
@@ -183,17 +191,17 @@ def handler_for(runtime):
     return Handler
 
 
-def main():
+def main(runtime_type=Runtime, port=4193, saves=DEFAULT_SAVES, stage="W1"):
     parser = argparse.ArgumentParser()
-    parser.add_argument('--port', type=int, default=4193)
-    parser.add_argument('--save-dir', type=Path, default=DEFAULT_SAVES)
+    parser.add_argument('--port', type=int, default=port)
+    parser.add_argument('--save-dir', type=Path, default=saves)
     args = parser.parse_args()
-    runtime = Runtime(args.save_dir)
+    runtime = runtime_type(args.save_dir)
     server = ThreadingHTTPServer(('127.0.0.1', args.port), handler_for(runtime))
     thread = threading.Thread(target=runtime.loop, daemon=True)
     thread.start()
     atexit.register(runtime.close)
-    print(f'W1 小世界：http://127.0.0.1:{server.server_port}/ （初始暂停，存档：{args.save_dir}）', flush=True)
+    print(f'{stage} 小世界：http://127.0.0.1:{server.server_port}/ （初始暂停，存档：{args.save_dir}）', flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:

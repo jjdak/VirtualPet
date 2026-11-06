@@ -3,7 +3,11 @@ const path=require('node:path'), fs=require('node:fs/promises'), os=require('nod
 const assert=require('node:assert/strict'), {spawn}=require('node:child_process');
 const {createHash}=require('node:crypto');
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE_PATH||'playwright');
-const root=path.resolve(__dirname,'../..'), review=path.join(root,'docs/sim/living-world/review');
+const root=path.resolve(__dirname,'../..');
+const w2=process.argv.includes('--w2');
+const review=path.join(root,'docs/sim/living-world',w2?'w2/review':'review');
+const serverFile=w2?'living_world/src/context_server.py':'living_world/src/server.py';
+const tickOf=save=>w2?save.active.tick:save.tick;
 const delay=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
   const tmp=await fs.mkdtemp(path.join(os.tmpdir(),'w1-browser-'));
@@ -11,7 +15,7 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
   const check=async(name,fn)=>{await fn();checks.push(name);console.log('PASS '+name);};
   const receipt={verified_at:new Date().toISOString(),status:'running',engine:'isolated Playwright Chromium headless',checks,owner_accepted:false};
   try{
-    server=spawn(process.env.PYTHON||'python3',['living_world/src/server.py','--port','0','--save-dir',path.join(tmp,'saves')],{cwd:root});
+    server=spawn(process.env.PYTHON||'python3',[serverFile,'--port','0','--save-dir',path.join(tmp,'saves')],{cwd:root});
     server.stderr.on('data',d=>stderr+=d);
     const base=await new Promise((resolve,reject)=>{const timeout=setTimeout(()=>reject(Error('server startup timed out')),8000);server.stdout.on('data',d=>{const m=String(d).match(/http:\/\/127\.0\.0\.1:\d+/);if(m){clearTimeout(timeout);resolve(m[0]);}});server.on('error',reject);server.once('exit',()=>{clearTimeout(timeout);reject(Error('server exited: '+stderr));});});
     browser=await chromium.launch({headless:true});receipt.browser_version=browser.version();
@@ -41,7 +45,7 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
       saved=await snapshot();const wait=page.waitForEvent('download',{timeout:8000});await page.locator('#export').click();const download=await wait;
       await download.saveAs(exportedPath);assert.equal(await download.failure(),null);
       const bytes=await fs.readFile(exportedPath);assert.deepEqual(JSON.parse(bytes),saved);
-      receipt.download={filename:download.suggestedFilename(),bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex'),tick:saved.tick};
+      receipt.download={filename:download.suggestedFilename(),bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex'),tick:tickOf(saved)};
     });
     const chooseFile=async(filename)=>{const wait=page.waitForEvent('filechooser',{timeout:6000});await page.locator('#import').click();const chooser=await wait;await chooser.setFiles(filename);};
     await check('file chooser import cancelled without changing the world',async()=>{
@@ -95,21 +99,63 @@ const delay=ms=>new Promise(r=>setTimeout(r,ms));
     });
     await check('new-world cancellation and confirmation keep manual save recoverable',async()=>{
       const before=await snapshot();await page.locator('#new').click();await page.locator('#confirm-dialog').waitFor({state:'visible'});await page.locator('#confirm-cancel').click();assert.deepEqual(await snapshot(),before);
-      await confirmCommand('#new','new');assert.equal((await snapshot()).tick,0);assert.equal((await current()).running,false);
+      await confirmCommand('#new','new');assert.equal(tickOf(await snapshot()),0);assert.equal((await current()).running,false);
       await confirmCommand('#load','load');assert.deepEqual(await snapshot(),saved);
     });
+    if(w2){
+      await check('open a lived-in W2 sample and inspect both personal weather memories',async()=>{
+        await chooseFile(path.join(review,'seed0-step480.json'));
+        await clickCommand('#confirm-accept','import');
+        const state=await current();
+        assert.equal(state.world.tick,480);
+        for(const actor of ['B','A']){
+          await page.locator('#select-'+actor).click();
+          assert.match(await page.locator('#context-memory').innerText(),/晴天/);
+          for(const weather of ['sun','rain']){
+            const row=page.locator('#context-memory tr').filter({hasText:weather==='sun'?'晴天':'雨天'});
+            const memory=state.world.residents[actor].context_memory[weather];
+            for(const [index,food] of ['p','q'].entries()){
+              const cell=await row.locator('td').nth(index).innerText();
+              assert.equal(cell,memory.counts[food]?`${memory.values[food].toFixed(2)}（${memory.counts[food]} 次）`:'未尝过');
+            }
+          }
+        }
+      });
+      await check('weather controls isolate effect edits and preserve personal hints',async()=>{
+        const oldSun=(await current()).world.resources.q.effect;
+        await clickCommand('#weather-rain','weather');
+        assert.match(await page.locator('#weather-title').innerText(),/雨天/);
+        await page.locator('#q-effect').selectOption('-1');await clickCommand('#apply-q','environment');
+        await clickCommand('#hint','hint');
+        await clickCommand('#weather-sun','weather');
+        assert.equal((await current()).world.resources.q.effect,oldSun);
+        await clickCommand('#weather-rain','weather');assert.equal((await current()).world.resources.q.effect,-1);
+        await clickCommand('#weather-auto','weather');
+        const active=(await current()).world;
+        assert.equal(active.change_at,active.tick+80);
+        assert.equal(active.residents.A.hints.at(-1).source,'player');
+      });
+      await check('playable example restores known histories without giving the actors an action command',async()=>{
+        await confirmCommand('#weather-example','example');
+        const active=await current();
+        assert.equal(active.running,false);
+        assert.equal(active.world.tick,700);
+        assert.equal(active.world.weather,'sun');
+        assert(active.world.residents.A.brain.values.p>active.world.residents.B.brain.values.p);
+      });
+    }
     await check('desktop and narrow layout have no horizontal overflow; screenshot captured',async()=>{
-      await page.screenshot({path:path.join(review,'w1-desktop.png'),fullPage:true});
+      await page.screenshot({path:path.join(review,w2?'w2-desktop.png':'w1-desktop.png'),fullPage:true});
       await page.setViewportSize({width:390,height:844});await delay(600);
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));
       assert(await page.locator('#hint').isVisible());assert(await page.locator('#import').isVisible());
-      await page.screenshot({path:path.join(review,'w1-narrow.png'),fullPage:true});
+      await page.screenshot({path:path.join(review,w2?'w2-narrow.png':'w1-narrow.png'),fullPage:true});
       await page.setViewportSize({width:1280,height:960});
     });
     assert.deepEqual(errors,[]);receipt.status='passed';receipt.page_errors=errors;receipt.control_cycles=10;
     receipt.not_claimed=['manual IAB download support (earlier tool blocked)','owner subjective acceptance','all-browser or mobile device compatibility'];
     receipt.user_saves_touched=false;
-    receipt.source_sha256={};for(const f of ['living_world/web/app.js','living_world/web/index.html','living_world/web/style.css','living_world/src/server.py','living_world/tests/browser-check.cjs'])receipt.source_sha256[f]=createHash('sha256').update(await fs.readFile(path.join(root,f))).digest('hex');
+    receipt.source_sha256={};for(const f of ['living_world/web/app.js','living_world/web/index.html','living_world/web/style.css','living_world/src/server.py','living_world/tests/browser-check.cjs',...(w2?['living_world/src/context_world.py',serverFile]:[])])receipt.source_sha256[f]=createHash('sha256').update(await fs.readFile(path.join(root,f))).digest('hex');
   }catch(e){receipt.status='failed';receipt.error=e.stack;throw e;}
   finally{
     await fs.writeFile(path.join(review,'browser-verification.json'),JSON.stringify(receipt,null,2)+'\n');
