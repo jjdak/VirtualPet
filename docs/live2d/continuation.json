@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-09",
   "latestOwnerFeedback": {
-    "date": "2026-11-06",
-    "quote": "继续推进第二阶段，先试试让角色学会区分情境：同一个地方在不同条件下，经历能不能让两个人做出不同选择？保留玩家干预，先做好计划再推进，记录进展，保持目录整洁。",
-    "interpretation": "W2 bounded context-dependent learning with retained intervention and separate personal memories."
+    "date": "2026-11-09",
+    "quote": "先把 W2 的成果整理好保存到 GitHub，再推进第三阶段：从同一个存档分出两个世界，一个不干预，另一个只给其中一人线索，看看影响能持续多久、会不会传给另一个人。先做好计划再推进，记录进展，保持目录整洁。",
+    "interpretation": "Archive W2 then compare one private hint against autonomous continuation of the same W2 snapshot."
   },
   "activeTrack": "two-resident-living-world",
   "decision": {
@@ -26,9 +26,9 @@
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "W2-weather-dependent-experience",
-    "status": "comparison_and_browser_verified_owner_experience_pending",
-    "nextAction": "Try the step-700 example and review how weather and individual histories affect choices.",
+    "id": "W3-paired-worlds",
+    "status": "paired_comparisons_complete_owner_experience_pending",
+    "nextAction": "Inspect the baseline example and the reversal example, or fork a personal W2 save.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -170,7 +170,8 @@
     "2026-11-04 E6 closeout: 14 tests; full6080-episode recomputation;16 traces/51840 physical actions independently audited;12 DOM profiles and Nov3 browser controls checked. E1-E5 271 experimental files unchanged. Archive tag verified at ac3c2fd4c895269e08f41be72159ee847b2afe32.",
     "2026-11-05 W1: 15 core/HTTP tests passed; 3000-step audit, 400-step exact save continuation and fresh-process 80-step restore. Main browser controls and slot restore checked; browser JSON download/import incomplete after tool hang/interruption. Owner experience pending.",
     "2026-11-06 W1 closeout: final source hashes match both receipts. 15 core/HTTP and 12 Chromium checks passed, including real file chooser import of downloaded JSON, 10 pause/step cycles and delayed command recovery.",
-    "W2 on 2026-11-06: 32 seeds per policy, paired context probes and 960-step worlds. Late mean beneficial meal rate 73.5% vs 44.6%. 21 Python and 15 browser checks passed."
+    "W2 on 2026-11-06: 32 seeds per policy, paired context probes and 960-step worlds. Late mean beneficial meal rate 73.5% vs 44.6%. 21 Python and 15 browser checks passed.",
+    "2026-11-09 W3: W2 archive confirmed on GitHub. 384 primary paired conditions and 256 exploratory post-swap pairs with matched communication ablation. Primary hints changed recipients in 65 pairs; post-swap hints led to 18 peer choice changes."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -589,5 +590,21 @@
     "publicRemoteSaved": true,
     "verifiedArchiveCommit": "a689c86d251d13b8149a435687787d4b7fb5ff24",
     "archiveBranch": "codex/w2-context-learning-2026-11-06"
+  },
+  "livingWorldW3": {
+    "stage": "W3",
+    "plan": "docs/sim/living-world/w3/PLAN.md",
+    "progress": "docs/sim/living-world/w3/PROGRESS.md",
+    "launcher": "living_world/w3.command",
+    "url": "http://127.0.0.1:4195/",
+    "primaryPairs": 384,
+    "primaryPeerBehaviorChanged": 0,
+    "supplementaryPairs": 256,
+    "supplementaryCommunicationDependentPeerChanges": 18,
+    "horizon": 240,
+    "ownerExperienceAccepted": false,
+    "publicRemoteSaved": false,
+    "pythonChecks": 29,
+    "browserChecks": 12
   }
 }

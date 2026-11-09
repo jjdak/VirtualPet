@@ -1,0 +1,48 @@
+{
+  "verified_at": "2026-11-09T06:36:16.620Z",
+  "status": "passed",
+  "checks": [
+    "default fixed-grid example fingerprint agrees with the archived study",
+    "zero-effect suggestion reports zero post-hint differences rather than implying persistence",
+    "built-in W2 origin renders equal clocks and complete paired metrics",
+    "real JSON file chooser import produces the same original fork",
+    "invalid JSON, wrong schema, malformed W2 and oversize files preserve visible comparison",
+    "timeline scrubs both maps at the same absolute step and key jumps match data",
+    "play/pause, single-step and the +240 observation boundary are bounded",
+    "recipient/place changes only apply to a new fork from the original",
+    "pending calculation blocks duplicates, and failure releases controls with old result retained",
+    "HTTP rejects cross-site, wrong host, invalid inputs and excess body before comparing",
+    "reversal preset shows report divergence before the peer choice and silent replay evidence",
+    "desktop and narrow maps remain usable with no horizontal overflow"
+  ],
+  "engine": "isolated Playwright Chromium headless",
+  "user_saves_touched": false,
+  "owner_accepted": false,
+  "browser_version": "151.0.7922.34",
+  "study_example_sha256": "8b9f9317e81321774be72f4ae3d81fa1ca591e41985f4a3cea78d0e31981a53a",
+  "relay_example": {
+    "start": 480,
+    "actor": "A",
+    "kind": "q",
+    "origin_hash": "8d67ac9f9ade58b12dd10e88c37986d775ee57f96c6ea6e5ffc16901b926c153",
+    "message_first": 54,
+    "peer_first": 66,
+    "silent_peer_steps": 0
+  },
+  "page_errors": [],
+  "origin_sha256": "5ef5ca937a732fd2d49108e8fdf7af15fbc821edb116aadeba271952f73d2b7d",
+  "not_claimed": [
+    "owner subjective acceptance",
+    "animated character quality",
+    "physical device acceptance",
+    "all-browser compatibility"
+  ],
+  "source_sha256": {
+    "living_world/src/fork_server.py": "c5b7caf8bbb2632b9a4a75c7ea065e10306c1117cc82fa33abece15e5c900a1b",
+    "living_world/src/fork_study.py": "1e5590a94866d0fe3a56c70f4825662efff9abf5d2aed806f4a6f610f4b293de",
+    "living_world/web/w3/index.html": "7b7dc15575a3feb3a5cfce163ed59a1d19950bea8d320633b51b3e3400c8a26f",
+    "living_world/web/w3/style.css": "7a0511124fe3984d9f65b61d666ef595451cb83a973dc4221ac80984ac9713dc",
+    "living_world/web/w3/app.js": "3636179c82c330eef9ee2fccd060ee375bd69a78b532d4fa8840a7f0735dd4cc",
+    "living_world/tests/browser-w3.cjs": "69617387ab548eff8fff436c4a0e9d6897ceea42acaa7519f293a0ad659a6a4b"
+  }
+}

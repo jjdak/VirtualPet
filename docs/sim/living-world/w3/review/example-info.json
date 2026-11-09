@@ -1,0 +1,46 @@
+{
+  "seed": 0,
+  "age": 0,
+  "actor": "A",
+  "kind": "p",
+  "origin_hash": "8b9f9317e81321774be72f4ae3d81fa1ca591e41985f4a3cea78d0e31981a53a",
+  "hint_end": 7,
+  "hint_status": "visited",
+  "message_first": 12,
+  "relay": false,
+  "recipient": {
+    "first": 1,
+    "last": 74,
+    "steps": 58,
+    "at_end": false,
+    "after_hint": 51,
+    "choice_splits": 1,
+    "first_choice_split": 1,
+    "different_by_weather": {
+      "sun": 58,
+      "rain": 0
+    },
+    "splits_after_hint": 0,
+    "interval_count": 4
+  },
+  "peer": {
+    "first": null,
+    "last": null,
+    "steps": 0,
+    "at_end": false,
+    "after_hint": 0,
+    "choice_splits": 0,
+    "first_choice_split": null,
+    "different_by_weather": {
+      "sun": 0,
+      "rain": 0
+    },
+    "splits_after_hint": 0,
+    "interval_count": 0
+  },
+  "silent_peer_steps": 0,
+  "window_by_weather": {
+    "sun": 159,
+    "rain": 81
+  }
+}

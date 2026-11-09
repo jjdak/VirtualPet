@@ -1,0 +1,219 @@
+{
+  "version": 2,
+  "active": {
+    "version": 1,
+    "seed": 0,
+    "tick": 0,
+    "resources": {
+      "p": {
+        "available": true,
+        "effect": 1
+      },
+      "q": {
+        "available": true,
+        "effect": -1
+      }
+    },
+    "residents": {
+      "A": {
+        "name": "A",
+        "pos": [
+          4,
+          5
+        ],
+        "hunger": 44.0,
+        "energy": 100.0,
+        "phase": "rest",
+        "target": null,
+        "reason": "先在营地休息，饿了再出发。",
+        "observed": {},
+        "hints": [],
+        "history": [],
+        "latest": {},
+        "next_departure": 0,
+        "decisions": 0,
+        "last_choice": null,
+        "brain": {
+          "name": "A",
+          "policy": "recent_trust",
+          "config": {
+            "epsilon": 0.1,
+            "alpha": 0.4,
+            "fixed_trust": 0.6,
+            "trust_prior": [
+              3,
+              2
+            ],
+            "trust_retention": 0.999,
+            "message_ttl": 160,
+            "message_decay": 100
+          },
+          "values": {
+            "p": 0.0,
+            "q": 0.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 0
+          },
+          "trust_counts": [
+            3,
+            2
+          ],
+          "inbox": {},
+          "pending": {},
+          "seen": [],
+          "validated": [],
+          "validation_count": 0,
+          "matches": 0
+        }
+      },
+      "B": {
+        "name": "B",
+        "pos": [
+          6,
+          5
+        ],
+        "hunger": 34.0,
+        "energy": 100.0,
+        "phase": "rest",
+        "target": null,
+        "reason": "先在营地休息，饿了再出发。",
+        "observed": {},
+        "hints": [],
+        "history": [],
+        "latest": {},
+        "next_departure": 0,
+        "decisions": 0,
+        "last_choice": null,
+        "brain": {
+          "name": "B",
+          "policy": "recent_trust",
+          "config": {
+            "epsilon": 0.1,
+            "alpha": 0.4,
+            "fixed_trust": 0.6,
+            "trust_prior": [
+              3,
+              2
+            ],
+            "trust_retention": 0.999,
+            "message_ttl": 160,
+            "message_decay": 100
+          },
+          "values": {
+            "p": 0.0,
+            "q": 0.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 0
+          },
+          "trust_counts": [
+            3,
+            2
+          ],
+          "inbox": {},
+          "pending": {},
+          "seen": [],
+          "validated": [],
+          "validation_count": 0,
+          "matches": 0
+        }
+      }
+    },
+    "events": [
+      {
+        "id": 1,
+        "tick": 0,
+        "type": "world",
+        "text": "晴天 · 世界开始了。两个人知道地点，但还不知道食物的效果。",
+        "weather": "sun"
+      }
+    ],
+    "sequence": 1
+  },
+  "weather": "sun",
+  "auto": true,
+  "change_at": 80,
+  "other_effects": {
+    "p": -1,
+    "q": 1
+  },
+  "reserve": {
+    "A": {
+      "brain": {
+        "name": "A",
+        "policy": "recent_trust",
+        "config": {
+          "epsilon": 0.1,
+          "alpha": 0.4,
+          "fixed_trust": 0.6,
+          "trust_prior": [
+            3,
+            2
+          ],
+          "trust_retention": 0.999,
+          "message_ttl": 160,
+          "message_decay": 100
+        },
+        "values": {
+          "p": 0.0,
+          "q": 0.0
+        },
+        "counts": {
+          "p": 0,
+          "q": 0
+        },
+        "trust_counts": [
+          3,
+          2
+        ],
+        "inbox": {},
+        "pending": {},
+        "seen": [],
+        "validated": [],
+        "validation_count": 0,
+        "matches": 0
+      },
+      "latest": {}
+    },
+    "B": {
+      "brain": {
+        "name": "B",
+        "policy": "recent_trust",
+        "config": {
+          "epsilon": 0.1,
+          "alpha": 0.4,
+          "fixed_trust": 0.6,
+          "trust_prior": [
+            3,
+            2
+          ],
+          "trust_retention": 0.999,
+          "message_ttl": 160,
+          "message_decay": 100
+        },
+        "values": {
+          "p": 0.0,
+          "q": 0.0
+        },
+        "counts": {
+          "p": 0,
+          "q": 0
+        },
+        "trust_counts": [
+          3,
+          2
+        ],
+        "inbox": {},
+        "pending": {},
+        "seen": [],
+        "validated": [],
+        "validation_count": 0,
+        "matches": 0
+      },
+      "latest": {}
+    }
+  }
+}

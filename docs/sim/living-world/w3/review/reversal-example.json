@@ -1,0 +1,2174 @@
+{
+  "version": 2,
+  "active": {
+    "version": 1,
+    "seed": 4,
+    "tick": 480,
+    "resources": {
+      "p": {
+        "available": true,
+        "effect": -1
+      },
+      "q": {
+        "available": true,
+        "effect": 1
+      }
+    },
+    "residents": {
+      "A": {
+        "name": "A",
+        "pos": [
+          2,
+          3
+        ],
+        "hunger": 43.99999999999957,
+        "energy": 94.0,
+        "phase": "outbound",
+        "target": "p",
+        "reason": "雨天出发。偶尔换一个地方，检查旧经验是否还适用。",
+        "observed": {
+          "p": {
+            "available": true,
+            "tick": 389
+          },
+          "q": {
+            "available": true,
+            "tick": 438
+          }
+        },
+        "hints": [],
+        "history": [
+          {
+            "tick": 1,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。这里还没有亲自试过，去看看。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 0.0,
+              "q": 0.0
+            }
+          },
+          {
+            "tick": 6,
+            "type": "observe",
+            "text": "晴天 · 看到青禾地有食物。",
+            "weather": "sun",
+            "kind": "p"
+          },
+          {
+            "tick": 7,
+            "type": "experience",
+            "text": "晴天 · 亲自在青禾地取食：感觉不错。",
+            "weather": "sun",
+            "kind": "p",
+            "reward": 1,
+            "validated": []
+          },
+          {
+            "tick": 19,
+            "type": "message",
+            "text": "晴天 · 小岚说在紫穗地取食后感到不适；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "B:14",
+              "source": "B",
+              "tick": 14,
+              "kind": "q",
+              "claim": -1
+            }
+          },
+          {
+            "tick": 37,
+            "type": "message",
+            "text": "晴天 · 小岚说在青禾地取食后感觉不错；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "B:34",
+              "source": "B",
+              "tick": 34,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 43,
+            "type": "decision",
+            "text": "晴天 · 准备去紫穗地。这里还没有亲自试过，去看看。",
+            "weather": "sun",
+            "target": "q",
+            "scores": {
+              "p": 1.0,
+              "q": -0.4489581405471392
+            }
+          },
+          {
+            "tick": 50,
+            "type": "observe",
+            "text": "晴天 · 看到紫穗地有食物。",
+            "weather": "sun",
+            "kind": "q"
+          },
+          {
+            "tick": 51,
+            "type": "experience",
+            "text": "晴天 · 亲自在紫穗地取食：感到不适。",
+            "weather": "sun",
+            "kind": "q",
+            "reward": -1,
+            "validated": [
+              {
+                "id": "B:14",
+                "match": true,
+                "age": 37
+              }
+            ]
+          },
+          {
+            "tick": 63,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 1.0,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 69,
+            "type": "experience",
+            "text": "晴天 · 亲自在青禾地取食：感觉不错。",
+            "weather": "sun",
+            "kind": "p",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "B:34",
+                "match": true,
+                "age": 35
+              }
+            ]
+          },
+          {
+            "tick": 84,
+            "type": "message",
+            "text": "雨天 · 小岚说在青禾地取食后感到不适；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "B:81",
+              "source": "B",
+              "tick": 81,
+              "kind": "p",
+              "claim": -1
+            }
+          },
+          {
+            "tick": 104,
+            "type": "message",
+            "text": "雨天 · 小岚说在紫穗地取食后感觉不错；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "B:99",
+              "source": "B",
+              "tick": 99,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 108,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。这里还没有亲自试过，去看看。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -0.45802769660211184,
+              "q": 0.5483587111627369
+            }
+          },
+          {
+            "tick": 116,
+            "type": "experience",
+            "text": "雨天 · 亲自在紫穗地取食：感觉不错。",
+            "weather": "rain",
+            "kind": "q",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "B:99",
+                "match": true,
+                "age": 17
+              }
+            ]
+          },
+          {
+            "tick": 149,
+            "type": "message",
+            "text": "雨天 · 小岚说在紫穗地取食后感觉不错；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "B:144",
+              "source": "B",
+              "tick": 144,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 156,
+            "type": "decision",
+            "text": "雨天 · 准备去青禾地。这里还没有亲自试过，去看看。",
+            "weather": "rain",
+            "target": "p",
+            "scores": {
+              "p": -0.31387476861209607,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 162,
+            "type": "experience",
+            "text": "晴天 · 亲自在青禾地取食：感觉不错。",
+            "weather": "sun",
+            "kind": "p",
+            "reward": 1,
+            "validated": []
+          },
+          {
+            "tick": 197,
+            "type": "message",
+            "text": "晴天 · 小岚说在青禾地取食后感觉不错；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "B:194",
+              "source": "B",
+              "tick": 194,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 203,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 1.0,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 209,
+            "type": "experience",
+            "text": "晴天 · 亲自在青禾地取食：感觉不错。",
+            "weather": "sun",
+            "kind": "p",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "B:194",
+                "match": true,
+                "age": 15
+              }
+            ]
+          },
+          {
+            "tick": 244,
+            "type": "message",
+            "text": "雨天 · 小岚说在青禾地取食后感到不适；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "B:241",
+              "source": "B",
+              "tick": 241,
+              "kind": "p",
+              "claim": -1
+            }
+          },
+          {
+            "tick": 251,
+            "type": "decision",
+            "text": "雨天 · 准备去青禾地。这里还没有亲自试过，去看看。",
+            "weather": "rain",
+            "target": "p",
+            "scores": {
+              "p": -0.6005092784075988,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 257,
+            "type": "experience",
+            "text": "雨天 · 亲自在青禾地取食：感到不适。",
+            "weather": "rain",
+            "kind": "p",
+            "reward": -1,
+            "validated": [
+              {
+                "id": "B:241",
+                "match": true,
+                "age": 16
+              }
+            ]
+          },
+          {
+            "tick": 264,
+            "type": "message",
+            "text": "雨天 · 小岚说在紫穗地取食后感觉不错；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "B:259",
+              "source": "B",
+              "tick": 259,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 268,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -1.0,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 276,
+            "type": "experience",
+            "text": "雨天 · 亲自在紫穗地取食：感觉不错。",
+            "weather": "rain",
+            "kind": "q",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "B:144",
+                "match": true,
+                "age": 132
+              },
+              {
+                "id": "B:259",
+                "match": true,
+                "age": 17
+              }
+            ]
+          },
+          {
+            "tick": 309,
+            "type": "message",
+            "text": "雨天 · 小岚说在紫穗地取食后感觉不错；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "B:304",
+              "source": "B",
+              "tick": 304,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 316,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -1.0,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 324,
+            "type": "experience",
+            "text": "晴天 · 亲自在紫穗地取食：感到不适。",
+            "weather": "sun",
+            "kind": "q",
+            "reward": -1,
+            "validated": []
+          },
+          {
+            "tick": 336,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 1.0,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 342,
+            "type": "experience",
+            "text": "晴天 · 亲自在青禾地取食：感觉不错。",
+            "weather": "sun",
+            "kind": "p",
+            "reward": 1,
+            "validated": []
+          },
+          {
+            "tick": 357,
+            "type": "message",
+            "text": "晴天 · 小岚说在青禾地取食后感觉不错；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "B:354",
+              "source": "B",
+              "tick": 354,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 381,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 1.0,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 387,
+            "type": "experience",
+            "text": "晴天 · 亲自在青禾地取食：感觉不错。",
+            "weather": "sun",
+            "kind": "p",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "B:354",
+                "match": true,
+                "age": 33
+              }
+            ]
+          },
+          {
+            "tick": 404,
+            "type": "message",
+            "text": "雨天 · 小岚说在青禾地取食后感到不适；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "B:401",
+              "source": "B",
+              "tick": 401,
+              "kind": "p",
+              "claim": -1
+            }
+          },
+          {
+            "tick": 424,
+            "type": "message",
+            "text": "雨天 · 小岚说在紫穗地取食后感觉不错；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "B:419",
+              "source": "B",
+              "tick": 419,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 428,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -1.0,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 436,
+            "type": "experience",
+            "text": "雨天 · 亲自在紫穗地取食：感觉不错。",
+            "weather": "rain",
+            "kind": "q",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "B:304",
+                "match": true,
+                "age": 132
+              },
+              {
+                "id": "B:419",
+                "match": true,
+                "age": 17
+              }
+            ]
+          },
+          {
+            "tick": 469,
+            "type": "message",
+            "text": "雨天 · 小岚说在紫穗地取食后感觉不错；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "B:464",
+              "source": "B",
+              "tick": 464,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 476,
+            "type": "decision",
+            "text": "雨天 · 准备去青禾地。偶尔换一个地方，检查旧经验是否还适用。",
+            "weather": "rain",
+            "target": "p",
+            "scores": {
+              "p": -1.0,
+              "q": 1.0
+            }
+          }
+        ],
+        "latest": {
+          "p": {
+            "id": "A:387",
+            "source": "A",
+            "tick": 387,
+            "kind": "p",
+            "claim": 1
+          },
+          "q": {
+            "id": "A:324",
+            "source": "A",
+            "tick": 324,
+            "kind": "q",
+            "claim": -1
+          }
+        },
+        "next_departure": 448,
+        "decisions": 13,
+        "last_choice": {
+          "tick": 476,
+          "target": "p",
+          "scores": {
+            "p": -1.0,
+            "q": 1.0
+          },
+          "reason": "雨天出发。偶尔换一个地方，检查旧经验是否还适用。"
+        },
+        "brain": {
+          "name": "A",
+          "policy": "recent_trust",
+          "config": {
+            "epsilon": 0.1,
+            "alpha": 0.4,
+            "fixed_trust": 0.6,
+            "trust_prior": [
+              3,
+              2
+            ],
+            "trust_retention": 0.999,
+            "message_ttl": 160,
+            "message_decay": 100
+          },
+          "values": {
+            "p": 1.0,
+            "q": -1.0
+          },
+          "counts": {
+            "p": 6,
+            "q": 2
+          },
+          "trust_counts": [
+            6.552424462400707,
+            2.0
+          ],
+          "inbox": {
+            "q": {
+              "id": "B:14",
+              "source": "B",
+              "tick": 14,
+              "kind": "q",
+              "claim": -1
+            },
+            "p": {
+              "id": "B:354",
+              "source": "B",
+              "tick": 354,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          "pending": {},
+          "seen": [
+            "B:14",
+            "B:354"
+          ],
+          "validated": [
+            "B:14",
+            "B:354"
+          ],
+          "validation_count": 4,
+          "matches": 4
+        }
+      },
+      "B": {
+        "name": "B",
+        "pos": [
+          6,
+          5
+        ],
+        "hunger": 19.999999999999506,
+        "energy": 100.0,
+        "phase": "rest",
+        "target": null,
+        "reason": "回营休息；靠近同伴时交流最近的亲历。",
+        "observed": {
+          "q": {
+            "available": true,
+            "tick": 466
+          },
+          "p": {
+            "available": true,
+            "tick": 403
+          }
+        },
+        "hints": [],
+        "history": [
+          {
+            "tick": 8,
+            "type": "decision",
+            "text": "晴天 · 准备去紫穗地。这里还没有亲自试过，去看看。",
+            "weather": "sun",
+            "target": "q",
+            "scores": {
+              "p": 0.0,
+              "q": 0.0
+            }
+          },
+          {
+            "tick": 13,
+            "type": "observe",
+            "text": "晴天 · 看到紫穗地有食物。",
+            "weather": "sun",
+            "kind": "q"
+          },
+          {
+            "tick": 14,
+            "type": "experience",
+            "text": "晴天 · 亲自在紫穗地取食：感到不适。",
+            "weather": "sun",
+            "kind": "q",
+            "reward": -1,
+            "validated": []
+          },
+          {
+            "tick": 19,
+            "type": "message",
+            "text": "晴天 · 阿禾说在青禾地取食后感觉不错；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "A:7",
+              "source": "A",
+              "tick": 7,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 26,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。这里还没有亲自试过，去看看。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 0.49617548036601733,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 33,
+            "type": "observe",
+            "text": "晴天 · 看到青禾地有食物。",
+            "weather": "sun",
+            "kind": "p"
+          },
+          {
+            "tick": 34,
+            "type": "experience",
+            "text": "晴天 · 亲自在青禾地取食：感觉不错。",
+            "weather": "sun",
+            "kind": "p",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "A:7",
+                "match": true,
+                "age": 27
+              }
+            ]
+          },
+          {
+            "tick": 54,
+            "type": "message",
+            "text": "晴天 · 阿禾说在紫穗地取食后感到不适；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "A:51",
+              "source": "A",
+              "tick": 51,
+              "kind": "q",
+              "claim": -1
+            }
+          },
+          {
+            "tick": 73,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 1.0,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 74,
+            "type": "message",
+            "text": "晴天 · 阿禾说在青禾地取食后感觉不错；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "A:69",
+              "source": "A",
+              "tick": 69,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 81,
+            "type": "experience",
+            "text": "雨天 · 亲自在青禾地取食：感到不适。",
+            "weather": "rain",
+            "kind": "p",
+            "reward": -1,
+            "validated": []
+          },
+          {
+            "tick": 93,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。这里还没有亲自试过，去看看。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -1.0,
+              "q": 0.0
+            }
+          },
+          {
+            "tick": 99,
+            "type": "experience",
+            "text": "雨天 · 亲自在紫穗地取食：感觉不错。",
+            "weather": "rain",
+            "kind": "q",
+            "reward": 1,
+            "validated": []
+          },
+          {
+            "tick": 119,
+            "type": "message",
+            "text": "雨天 · 阿禾说在紫穗地取食后感觉不错；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "A:116",
+              "source": "A",
+              "tick": 116,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 138,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -1.0,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 144,
+            "type": "experience",
+            "text": "雨天 · 亲自在紫穗地取食：感觉不错。",
+            "weather": "rain",
+            "kind": "q",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "A:116",
+                "match": true,
+                "age": 28
+              }
+            ]
+          },
+          {
+            "tick": 167,
+            "type": "message",
+            "text": "晴天 · 阿禾说在青禾地取食后感觉不错；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "A:162",
+              "source": "A",
+              "tick": 162,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 186,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 1.0,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 194,
+            "type": "experience",
+            "text": "晴天 · 亲自在青禾地取食：感觉不错。",
+            "weather": "sun",
+            "kind": "p",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "A:69",
+                "match": true,
+                "age": 125
+              },
+              {
+                "id": "A:162",
+                "match": true,
+                "age": 32
+              }
+            ]
+          },
+          {
+            "tick": 214,
+            "type": "message",
+            "text": "晴天 · 阿禾说在青禾地取食后感觉不错；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "A:209",
+              "source": "A",
+              "tick": 209,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 233,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 1.0,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 241,
+            "type": "experience",
+            "text": "雨天 · 亲自在青禾地取食：感到不适。",
+            "weather": "rain",
+            "kind": "p",
+            "reward": -1,
+            "validated": []
+          },
+          {
+            "tick": 253,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -1.0,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 259,
+            "type": "experience",
+            "text": "雨天 · 亲自在紫穗地取食：感觉不错。",
+            "weather": "rain",
+            "kind": "q",
+            "reward": 1,
+            "validated": []
+          },
+          {
+            "tick": 264,
+            "type": "message",
+            "text": "雨天 · 阿禾说在青禾地取食后感到不适；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "A:257",
+              "source": "A",
+              "tick": 257,
+              "kind": "p",
+              "claim": -1
+            }
+          },
+          {
+            "tick": 279,
+            "type": "message",
+            "text": "雨天 · 阿禾说在紫穗地取食后感觉不错；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "A:276",
+              "source": "A",
+              "tick": 276,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 298,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -1.0,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 304,
+            "type": "experience",
+            "text": "雨天 · 亲自在紫穗地取食：感觉不错。",
+            "weather": "rain",
+            "kind": "q",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "A:276",
+                "match": true,
+                "age": 28
+              }
+            ]
+          },
+          {
+            "tick": 327,
+            "type": "message",
+            "text": "晴天 · 阿禾说在紫穗地取食后感到不适；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "A:324",
+              "source": "A",
+              "tick": 324,
+              "kind": "q",
+              "claim": -1
+            }
+          },
+          {
+            "tick": 346,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 1.0,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 347,
+            "type": "message",
+            "text": "晴天 · 阿禾说在青禾地取食后感觉不错；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "A:342",
+              "source": "A",
+              "tick": 342,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 354,
+            "type": "experience",
+            "text": "晴天 · 亲自在青禾地取食：感觉不错。",
+            "weather": "sun",
+            "kind": "p",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "A:209",
+                "match": true,
+                "age": 145
+              },
+              {
+                "id": "A:342",
+                "match": true,
+                "age": 12
+              }
+            ]
+          },
+          {
+            "tick": 392,
+            "type": "message",
+            "text": "晴天 · 阿禾说在青禾地取食后感觉不错；这是对方的经历。",
+            "weather": "sun",
+            "message": {
+              "id": "A:387",
+              "source": "A",
+              "tick": 387,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 393,
+            "type": "decision",
+            "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "sun",
+            "target": "p",
+            "scores": {
+              "p": 1.0,
+              "q": -1.0
+            }
+          },
+          {
+            "tick": 401,
+            "type": "experience",
+            "text": "雨天 · 亲自在青禾地取食：感到不适。",
+            "weather": "rain",
+            "kind": "p",
+            "reward": -1,
+            "validated": [
+              {
+                "id": "A:257",
+                "match": true,
+                "age": 144
+              }
+            ]
+          },
+          {
+            "tick": 413,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -1.0,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 419,
+            "type": "experience",
+            "text": "雨天 · 亲自在紫穗地取食：感觉不错。",
+            "weather": "rain",
+            "kind": "q",
+            "reward": 1,
+            "validated": []
+          },
+          {
+            "tick": 439,
+            "type": "message",
+            "text": "雨天 · 阿禾说在紫穗地取食后感觉不错；这是对方的经历。",
+            "weather": "rain",
+            "message": {
+              "id": "A:436",
+              "source": "A",
+              "tick": 436,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          {
+            "tick": 458,
+            "type": "decision",
+            "text": "雨天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "weather": "rain",
+            "target": "q",
+            "scores": {
+              "p": -1.0,
+              "q": 1.0
+            }
+          },
+          {
+            "tick": 464,
+            "type": "experience",
+            "text": "雨天 · 亲自在紫穗地取食：感觉不错。",
+            "weather": "rain",
+            "kind": "q",
+            "reward": 1,
+            "validated": [
+              {
+                "id": "A:436",
+                "match": true,
+                "age": 28
+              }
+            ]
+          }
+        ],
+        "latest": {
+          "q": {
+            "id": "B:14",
+            "source": "B",
+            "tick": 14,
+            "kind": "q",
+            "claim": -1
+          },
+          "p": {
+            "id": "B:354",
+            "source": "B",
+            "tick": 354,
+            "kind": "p",
+            "claim": 1
+          }
+        },
+        "next_departure": 474,
+        "decisions": 13,
+        "last_choice": {
+          "tick": 458,
+          "target": "q",
+          "scores": {
+            "p": -1.0,
+            "q": 1.0
+          },
+          "reason": "雨天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+        },
+        "brain": {
+          "name": "B",
+          "policy": "recent_trust",
+          "config": {
+            "epsilon": 0.1,
+            "alpha": 0.4,
+            "fixed_trust": 0.6,
+            "trust_prior": [
+              3,
+              2
+            ],
+            "trust_retention": 0.999,
+            "message_ttl": 160,
+            "message_decay": 100
+          },
+          "values": {
+            "p": 1.0,
+            "q": -1.0
+          },
+          "counts": {
+            "p": 3,
+            "q": 1
+          },
+          "trust_counts": [
+            7.486907703009256,
+            2.0
+          ],
+          "inbox": {
+            "p": {
+              "id": "A:387",
+              "source": "A",
+              "tick": 387,
+              "kind": "p",
+              "claim": 1
+            },
+            "q": {
+              "id": "A:324",
+              "source": "A",
+              "tick": 324,
+              "kind": "q",
+              "claim": -1
+            }
+          },
+          "pending": {
+            "A:324": {
+              "id": "A:324",
+              "source": "A",
+              "tick": 324,
+              "kind": "q",
+              "claim": -1
+            },
+            "A:387": {
+              "id": "A:387",
+              "source": "A",
+              "tick": 387,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          "seen": [
+            "A:324",
+            "A:387"
+          ],
+          "validated": [],
+          "validation_count": 5,
+          "matches": 5
+        }
+      }
+    },
+    "events": [
+      {
+        "id": 1,
+        "tick": 0,
+        "type": "world",
+        "text": "晴天 · 世界开始了。两个人知道地点，但还不知道食物的效果。",
+        "weather": "sun"
+      },
+      {
+        "id": 2,
+        "tick": 1,
+        "type": "decision",
+        "text": "晴天 · 阿禾决定去青禾地。",
+        "weather": "sun",
+        "actor": "A"
+      },
+      {
+        "id": 3,
+        "tick": 7,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了青禾地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "p",
+        "reward": 1
+      },
+      {
+        "id": 4,
+        "tick": 8,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去紫穗地。",
+        "weather": "sun",
+        "actor": "B"
+      },
+      {
+        "id": 5,
+        "tick": 14,
+        "type": "experience",
+        "text": "晴天 · 小岚尝了紫穗地的食物，感到不适。",
+        "weather": "sun",
+        "actor": "B",
+        "kind": "q",
+        "reward": -1
+      },
+      {
+        "id": 6,
+        "tick": 19,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 7
+      },
+      {
+        "id": 7,
+        "tick": 19,
+        "type": "message",
+        "text": "晴天 · 小岚向阿禾分享了紫穗地的亲历。",
+        "weather": "sun",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 14
+      },
+      {
+        "id": 8,
+        "tick": 26,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去青禾地。",
+        "weather": "sun",
+        "actor": "B"
+      },
+      {
+        "id": 9,
+        "tick": 34,
+        "type": "experience",
+        "text": "晴天 · 小岚尝了青禾地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "B",
+        "kind": "p",
+        "reward": 1
+      },
+      {
+        "id": 10,
+        "tick": 37,
+        "type": "message",
+        "text": "晴天 · 小岚向阿禾分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 34
+      },
+      {
+        "id": 11,
+        "tick": 43,
+        "type": "decision",
+        "text": "晴天 · 阿禾决定去紫穗地。",
+        "weather": "sun",
+        "actor": "A"
+      },
+      {
+        "id": 12,
+        "tick": 51,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了紫穗地的食物，感到不适。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "q",
+        "reward": -1
+      },
+      {
+        "id": 13,
+        "tick": 54,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了紫穗地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 51
+      },
+      {
+        "id": 14,
+        "tick": 63,
+        "type": "decision",
+        "text": "晴天 · 阿禾决定去青禾地。",
+        "weather": "sun",
+        "actor": "A"
+      },
+      {
+        "id": 15,
+        "tick": 69,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了青禾地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "p",
+        "reward": 1
+      },
+      {
+        "id": 16,
+        "tick": 73,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去青禾地。",
+        "weather": "sun",
+        "actor": "B"
+      },
+      {
+        "id": 17,
+        "tick": 74,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 69
+      },
+      {
+        "id": 18,
+        "tick": 80,
+        "type": "weather",
+        "text": "雨天 · 天气转为雨天。",
+        "weather": "rain"
+      },
+      {
+        "id": 19,
+        "tick": 81,
+        "type": "experience",
+        "text": "雨天 · 小岚尝了青禾地的食物，感到不适。",
+        "weather": "rain",
+        "actor": "B",
+        "kind": "p",
+        "reward": -1
+      },
+      {
+        "id": 20,
+        "tick": 84,
+        "type": "message",
+        "text": "雨天 · 小岚向阿禾分享了青禾地的亲历。",
+        "weather": "rain",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 81
+      },
+      {
+        "id": 21,
+        "tick": 93,
+        "type": "decision",
+        "text": "雨天 · 小岚决定去紫穗地。",
+        "weather": "rain",
+        "actor": "B"
+      },
+      {
+        "id": 22,
+        "tick": 99,
+        "type": "experience",
+        "text": "雨天 · 小岚尝了紫穗地的食物，感觉不错。",
+        "weather": "rain",
+        "actor": "B",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 23,
+        "tick": 104,
+        "type": "message",
+        "text": "雨天 · 小岚向阿禾分享了紫穗地的亲历。",
+        "weather": "rain",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 99
+      },
+      {
+        "id": 24,
+        "tick": 108,
+        "type": "decision",
+        "text": "雨天 · 阿禾决定去紫穗地。",
+        "weather": "rain",
+        "actor": "A"
+      },
+      {
+        "id": 25,
+        "tick": 116,
+        "type": "experience",
+        "text": "雨天 · 阿禾尝了紫穗地的食物，感觉不错。",
+        "weather": "rain",
+        "actor": "A",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 26,
+        "tick": 119,
+        "type": "message",
+        "text": "雨天 · 阿禾向小岚分享了紫穗地的亲历。",
+        "weather": "rain",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 116
+      },
+      {
+        "id": 27,
+        "tick": 138,
+        "type": "decision",
+        "text": "雨天 · 小岚决定去紫穗地。",
+        "weather": "rain",
+        "actor": "B"
+      },
+      {
+        "id": 28,
+        "tick": 144,
+        "type": "experience",
+        "text": "雨天 · 小岚尝了紫穗地的食物，感觉不错。",
+        "weather": "rain",
+        "actor": "B",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 29,
+        "tick": 149,
+        "type": "message",
+        "text": "雨天 · 小岚向阿禾分享了紫穗地的亲历。",
+        "weather": "rain",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 144
+      },
+      {
+        "id": 30,
+        "tick": 156,
+        "type": "decision",
+        "text": "雨天 · 阿禾决定去青禾地。",
+        "weather": "rain",
+        "actor": "A"
+      },
+      {
+        "id": 31,
+        "tick": 160,
+        "type": "weather",
+        "text": "晴天 · 天气转为晴天。",
+        "weather": "sun"
+      },
+      {
+        "id": 32,
+        "tick": 162,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了青禾地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "p",
+        "reward": 1
+      },
+      {
+        "id": 33,
+        "tick": 167,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 162
+      },
+      {
+        "id": 34,
+        "tick": 186,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去青禾地。",
+        "weather": "sun",
+        "actor": "B"
+      },
+      {
+        "id": 35,
+        "tick": 194,
+        "type": "experience",
+        "text": "晴天 · 小岚尝了青禾地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "B",
+        "kind": "p",
+        "reward": 1
+      },
+      {
+        "id": 36,
+        "tick": 197,
+        "type": "message",
+        "text": "晴天 · 小岚向阿禾分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 194
+      },
+      {
+        "id": 37,
+        "tick": 203,
+        "type": "decision",
+        "text": "晴天 · 阿禾决定去青禾地。",
+        "weather": "sun",
+        "actor": "A"
+      },
+      {
+        "id": 38,
+        "tick": 209,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了青禾地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "p",
+        "reward": 1
+      },
+      {
+        "id": 39,
+        "tick": 214,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 209
+      },
+      {
+        "id": 40,
+        "tick": 233,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去青禾地。",
+        "weather": "sun",
+        "actor": "B"
+      },
+      {
+        "id": 41,
+        "tick": 240,
+        "type": "weather",
+        "text": "雨天 · 天气转为雨天。",
+        "weather": "rain"
+      },
+      {
+        "id": 42,
+        "tick": 241,
+        "type": "experience",
+        "text": "雨天 · 小岚尝了青禾地的食物，感到不适。",
+        "weather": "rain",
+        "actor": "B",
+        "kind": "p",
+        "reward": -1
+      },
+      {
+        "id": 43,
+        "tick": 244,
+        "type": "message",
+        "text": "雨天 · 小岚向阿禾分享了青禾地的亲历。",
+        "weather": "rain",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 241
+      },
+      {
+        "id": 44,
+        "tick": 251,
+        "type": "decision",
+        "text": "雨天 · 阿禾决定去青禾地。",
+        "weather": "rain",
+        "actor": "A"
+      },
+      {
+        "id": 45,
+        "tick": 253,
+        "type": "decision",
+        "text": "雨天 · 小岚决定去紫穗地。",
+        "weather": "rain",
+        "actor": "B"
+      },
+      {
+        "id": 46,
+        "tick": 257,
+        "type": "experience",
+        "text": "雨天 · 阿禾尝了青禾地的食物，感到不适。",
+        "weather": "rain",
+        "actor": "A",
+        "kind": "p",
+        "reward": -1
+      },
+      {
+        "id": 47,
+        "tick": 259,
+        "type": "experience",
+        "text": "雨天 · 小岚尝了紫穗地的食物，感觉不错。",
+        "weather": "rain",
+        "actor": "B",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 48,
+        "tick": 264,
+        "type": "message",
+        "text": "雨天 · 阿禾向小岚分享了青禾地的亲历。",
+        "weather": "rain",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 257
+      },
+      {
+        "id": 49,
+        "tick": 264,
+        "type": "message",
+        "text": "雨天 · 小岚向阿禾分享了紫穗地的亲历。",
+        "weather": "rain",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 259
+      },
+      {
+        "id": 50,
+        "tick": 268,
+        "type": "decision",
+        "text": "雨天 · 阿禾决定去紫穗地。",
+        "weather": "rain",
+        "actor": "A"
+      },
+      {
+        "id": 51,
+        "tick": 276,
+        "type": "experience",
+        "text": "雨天 · 阿禾尝了紫穗地的食物，感觉不错。",
+        "weather": "rain",
+        "actor": "A",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 52,
+        "tick": 279,
+        "type": "message",
+        "text": "雨天 · 阿禾向小岚分享了紫穗地的亲历。",
+        "weather": "rain",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 276
+      },
+      {
+        "id": 53,
+        "tick": 298,
+        "type": "decision",
+        "text": "雨天 · 小岚决定去紫穗地。",
+        "weather": "rain",
+        "actor": "B"
+      },
+      {
+        "id": 54,
+        "tick": 304,
+        "type": "experience",
+        "text": "雨天 · 小岚尝了紫穗地的食物，感觉不错。",
+        "weather": "rain",
+        "actor": "B",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 55,
+        "tick": 309,
+        "type": "message",
+        "text": "雨天 · 小岚向阿禾分享了紫穗地的亲历。",
+        "weather": "rain",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 304
+      },
+      {
+        "id": 56,
+        "tick": 316,
+        "type": "decision",
+        "text": "雨天 · 阿禾决定去紫穗地。",
+        "weather": "rain",
+        "actor": "A"
+      },
+      {
+        "id": 57,
+        "tick": 320,
+        "type": "weather",
+        "text": "晴天 · 天气转为晴天。",
+        "weather": "sun"
+      },
+      {
+        "id": 58,
+        "tick": 324,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了紫穗地的食物，感到不适。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "q",
+        "reward": -1
+      },
+      {
+        "id": 59,
+        "tick": 327,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了紫穗地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 324
+      },
+      {
+        "id": 60,
+        "tick": 336,
+        "type": "decision",
+        "text": "晴天 · 阿禾决定去青禾地。",
+        "weather": "sun",
+        "actor": "A"
+      },
+      {
+        "id": 61,
+        "tick": 342,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了青禾地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "p",
+        "reward": 1
+      },
+      {
+        "id": 62,
+        "tick": 346,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去青禾地。",
+        "weather": "sun",
+        "actor": "B"
+      },
+      {
+        "id": 63,
+        "tick": 347,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 342
+      },
+      {
+        "id": 64,
+        "tick": 354,
+        "type": "experience",
+        "text": "晴天 · 小岚尝了青禾地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "B",
+        "kind": "p",
+        "reward": 1
+      },
+      {
+        "id": 65,
+        "tick": 357,
+        "type": "message",
+        "text": "晴天 · 小岚向阿禾分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 354
+      },
+      {
+        "id": 66,
+        "tick": 381,
+        "type": "decision",
+        "text": "晴天 · 阿禾决定去青禾地。",
+        "weather": "sun",
+        "actor": "A"
+      },
+      {
+        "id": 67,
+        "tick": 387,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了青禾地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "p",
+        "reward": 1
+      },
+      {
+        "id": 68,
+        "tick": 392,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 387
+      },
+      {
+        "id": 69,
+        "tick": 393,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去青禾地。",
+        "weather": "sun",
+        "actor": "B"
+      },
+      {
+        "id": 70,
+        "tick": 400,
+        "type": "weather",
+        "text": "雨天 · 天气转为雨天。",
+        "weather": "rain"
+      },
+      {
+        "id": 71,
+        "tick": 401,
+        "type": "experience",
+        "text": "雨天 · 小岚尝了青禾地的食物，感到不适。",
+        "weather": "rain",
+        "actor": "B",
+        "kind": "p",
+        "reward": -1
+      },
+      {
+        "id": 72,
+        "tick": 404,
+        "type": "message",
+        "text": "雨天 · 小岚向阿禾分享了青禾地的亲历。",
+        "weather": "rain",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 401
+      },
+      {
+        "id": 73,
+        "tick": 413,
+        "type": "decision",
+        "text": "雨天 · 小岚决定去紫穗地。",
+        "weather": "rain",
+        "actor": "B"
+      },
+      {
+        "id": 74,
+        "tick": 419,
+        "type": "experience",
+        "text": "雨天 · 小岚尝了紫穗地的食物，感觉不错。",
+        "weather": "rain",
+        "actor": "B",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 75,
+        "tick": 424,
+        "type": "message",
+        "text": "雨天 · 小岚向阿禾分享了紫穗地的亲历。",
+        "weather": "rain",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 419
+      },
+      {
+        "id": 76,
+        "tick": 428,
+        "type": "decision",
+        "text": "雨天 · 阿禾决定去紫穗地。",
+        "weather": "rain",
+        "actor": "A"
+      },
+      {
+        "id": 77,
+        "tick": 436,
+        "type": "experience",
+        "text": "雨天 · 阿禾尝了紫穗地的食物，感觉不错。",
+        "weather": "rain",
+        "actor": "A",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 78,
+        "tick": 439,
+        "type": "message",
+        "text": "雨天 · 阿禾向小岚分享了紫穗地的亲历。",
+        "weather": "rain",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 436
+      },
+      {
+        "id": 79,
+        "tick": 458,
+        "type": "decision",
+        "text": "雨天 · 小岚决定去紫穗地。",
+        "weather": "rain",
+        "actor": "B"
+      },
+      {
+        "id": 80,
+        "tick": 464,
+        "type": "experience",
+        "text": "雨天 · 小岚尝了紫穗地的食物，感觉不错。",
+        "weather": "rain",
+        "actor": "B",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 81,
+        "tick": 469,
+        "type": "message",
+        "text": "雨天 · 小岚向阿禾分享了紫穗地的亲历。",
+        "weather": "rain",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 464
+      },
+      {
+        "id": 82,
+        "tick": 476,
+        "type": "decision",
+        "text": "雨天 · 阿禾决定去青禾地。",
+        "weather": "rain",
+        "actor": "A"
+      },
+      {
+        "id": 83,
+        "tick": 480,
+        "type": "weather",
+        "text": "晴天 · 天气转为晴天。",
+        "weather": "sun"
+      },
+      {
+        "id": 84,
+        "tick": 480,
+        "type": "weather_control",
+        "text": "晴天 · 你固定了晴天。",
+        "weather": "sun"
+      },
+      {
+        "id": 85,
+        "tick": 480,
+        "type": "environment",
+        "text": "晴天 · 你改变了青禾地：开放，食物不适。角色尚未因此获知效果。",
+        "weather": "sun",
+        "kind": "p",
+        "effect": -1,
+        "available": true
+      },
+      {
+        "id": 86,
+        "tick": 480,
+        "type": "environment",
+        "text": "晴天 · 你改变了紫穗地：开放，食物有益。角色尚未因此获知效果。",
+        "weather": "sun",
+        "kind": "q",
+        "effect": 1,
+        "available": true
+      }
+    ],
+    "sequence": 86
+  },
+  "weather": "sun",
+  "auto": false,
+  "change_at": null,
+  "other_effects": {
+    "p": -1,
+    "q": 1
+  },
+  "reserve": {
+    "A": {
+      "brain": {
+        "name": "A",
+        "policy": "recent_trust",
+        "config": {
+          "epsilon": 0.1,
+          "alpha": 0.4,
+          "fixed_trust": 0.6,
+          "trust_prior": [
+            3,
+            2
+          ],
+          "trust_retention": 0.999,
+          "message_ttl": 160,
+          "message_decay": 100
+        },
+        "values": {
+          "p": -1.0,
+          "q": 1.0
+        },
+        "counts": {
+          "p": 1,
+          "q": 3
+        },
+        "trust_counts": [
+          8.367955008969165,
+          2.0
+        ],
+        "inbox": {
+          "p": {
+            "id": "B:401",
+            "source": "B",
+            "tick": 401,
+            "kind": "p",
+            "claim": -1
+          },
+          "q": {
+            "id": "B:464",
+            "source": "B",
+            "tick": 464,
+            "kind": "q",
+            "claim": 1
+          }
+        },
+        "pending": {
+          "B:401": {
+            "id": "B:401",
+            "source": "B",
+            "tick": 401,
+            "kind": "p",
+            "claim": -1
+          },
+          "B:464": {
+            "id": "B:464",
+            "source": "B",
+            "tick": 464,
+            "kind": "q",
+            "claim": 1
+          }
+        },
+        "seen": [
+          "B:401",
+          "B:464"
+        ],
+        "validated": [],
+        "validation_count": 6,
+        "matches": 6
+      },
+      "latest": {
+        "q": {
+          "id": "A:436",
+          "source": "A",
+          "tick": 436,
+          "kind": "q",
+          "claim": 1
+        },
+        "p": {
+          "id": "A:257",
+          "source": "A",
+          "tick": 257,
+          "kind": "p",
+          "claim": -1
+        }
+      }
+    },
+    "B": {
+      "brain": {
+        "name": "B",
+        "policy": "recent_trust",
+        "config": {
+          "epsilon": 0.1,
+          "alpha": 0.4,
+          "fixed_trust": 0.6,
+          "trust_prior": [
+            3,
+            2
+          ],
+          "trust_retention": 0.999,
+          "message_ttl": 160,
+          "message_decay": 100
+        },
+        "values": {
+          "p": -1.0,
+          "q": 1.0
+        },
+        "counts": {
+          "p": 3,
+          "q": 6
+        },
+        "trust_counts": [
+          6.658746109885355,
+          2.0
+        ],
+        "inbox": {
+          "q": {
+            "id": "A:436",
+            "source": "A",
+            "tick": 436,
+            "kind": "q",
+            "claim": 1
+          },
+          "p": {
+            "id": "A:257",
+            "source": "A",
+            "tick": 257,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        "pending": {},
+        "seen": [
+          "A:257",
+          "A:436"
+        ],
+        "validated": [
+          "A:257",
+          "A:436"
+        ],
+        "validation_count": 4,
+        "matches": 4
+      },
+      "latest": {
+        "p": {
+          "id": "B:401",
+          "source": "B",
+          "tick": 401,
+          "kind": "p",
+          "claim": -1
+        },
+        "q": {
+          "id": "B:464",
+          "source": "B",
+          "tick": 464,
+          "kind": "q",
+          "claim": 1
+        }
+      }
+    }
+  }
+}
