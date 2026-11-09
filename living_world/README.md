@@ -1,5 +1,9 @@
 # 两个角色的实时小世界
 
+## 第 240 步之后
+
+[打开离线出发记录](../docs/sim/living-world/w3-long/review/index.html)，选择配对和时段，观察两边是否重新常去同一处。[结果及复现命令](../docs/sim/living-world/w3-long/PROGRESS.md)。
+
 ## W3 同档分支
 
 运行 `./living_world/w3.command`，打开 <http://127.0.0.1:4195/>。选择起始示例后点“载入示例”，或导入 W2 导出的完整 JSON。左边自由生活，右边在起点收到一条建议。可切换收件人和地点后点“重新分支”，用同步回放和关键时刻按钮查看两人的行动。W3 使用本机内存计算 240 步，原有 W2 存档可继续在 W2 使用。[阶段结果与复现](../docs/sim/living-world/w3/PROGRESS.md)

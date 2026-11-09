@@ -1,5 +1,9 @@
 # VirtualPet
 
+## 当前阶段 · W3 延长观察
+
+从第 +240 步仍有行为差异的 45 对世界继续到 +2640。两个人在两边最终都常去相同地点，末步仍有 11 对出现行动差异。图中可以查看每次实际出发。[结果与复现](docs/sim/living-world/w3-long/PROGRESS.md) · [离线结果页](docs/sim/living-world/w3-long/review/index.html)。
+
 ## W3 同档分支 · 2026-11-09
 
 运行 `./living_world/w3.command` 后打开 <http://127.0.0.1:4195/>。从同一个 W2 存档同时观察自由生活与一条私下建议的后果，沿时间轴检查消息和选择。主比较 384 对中 65 对改变收件人行为，同伴改选 0 对。效果互换补充比较 256 对中 18 对出现依赖交流的同伴改选。[计划](docs/sim/living-world/w3/PLAN.md) · [进展与证据](docs/sim/living-world/w3/PROGRESS.md)。

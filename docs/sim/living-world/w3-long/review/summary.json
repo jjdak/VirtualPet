@@ -1,0 +1,371 @@
+{
+  "start": 240,
+  "end": 2640,
+  "window": 480,
+  "families": {
+    "primary": {
+      "original": 384,
+      "selected": 1,
+      "both_final_agreement": 1,
+      "both_same_final160": 0,
+      "either_different_at_end": 1,
+      "affected": {
+        "count": 1,
+        "first_target_realignment": {
+          "eligible": 0,
+          "aligned": 0,
+          "reopened": 0,
+          "delay_range": null
+        },
+        "latest_target_at_240": {
+          "unknown": 1
+        },
+        "window_verdicts": [
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          }
+        ],
+        "final_agreement": 1,
+        "ever_confirmed": 1,
+        "first_confirmed_median": 1200,
+        "later_opposite": 0,
+        "later_uncertain": 0,
+        "final_choices": {
+          "matched": 22,
+          "equal": 21,
+          "unpaired": 2,
+          "people_with_a_mismatch": 1
+        },
+        "behavior_same_final160": 0,
+        "behavior_different_at_end": 1
+      },
+      "others": {
+        "count": 1,
+        "first_target_realignment": {
+          "eligible": 0,
+          "aligned": 0,
+          "reopened": 0,
+          "delay_range": null
+        },
+        "latest_target_at_240": {
+          "unknown": 1
+        },
+        "window_verdicts": [
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          }
+        ],
+        "final_agreement": 1,
+        "ever_confirmed": 1,
+        "first_confirmed_median": 1200,
+        "later_opposite": 0,
+        "later_uncertain": 0,
+        "final_choices": {
+          "matched": 26,
+          "equal": 26,
+          "unpaired": 0,
+          "people_with_a_mismatch": 0
+        },
+        "behavior_same_final160": 1,
+        "behavior_different_at_end": 0
+      },
+      "recipient_at_240": {
+        "count": 1,
+        "first_target_realignment": {
+          "eligible": 0,
+          "aligned": 0,
+          "reopened": 0,
+          "delay_range": null
+        },
+        "latest_target_at_240": {
+          "unknown": 1
+        },
+        "window_verdicts": [
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          },
+          {
+            "agree": 1
+          }
+        ],
+        "final_agreement": 1,
+        "ever_confirmed": 1,
+        "first_confirmed_median": 1200,
+        "later_opposite": 0,
+        "later_uncertain": 0,
+        "final_choices": {
+          "matched": 22,
+          "equal": 21,
+          "unpaired": 2,
+          "people_with_a_mismatch": 1
+        },
+        "behavior_same_final160": 0,
+        "behavior_different_at_end": 1
+      },
+      "peer_at_240": {
+        "count": 0,
+        "first_target_realignment": {
+          "eligible": 0,
+          "aligned": 0,
+          "reopened": 0,
+          "delay_range": null
+        },
+        "latest_target_at_240": {},
+        "window_verdicts": [
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "final_agreement": 0,
+        "ever_confirmed": 0,
+        "first_confirmed_median": null,
+        "later_opposite": 0,
+        "later_uncertain": 0,
+        "final_choices": {
+          "matched": 0,
+          "equal": 0,
+          "unpaired": 0,
+          "people_with_a_mismatch": 0
+        },
+        "behavior_same_final160": 0,
+        "behavior_different_at_end": 0
+      }
+    },
+    "reversal": {
+      "original": 256,
+      "selected": 44,
+      "both_final_agreement": 44,
+      "both_same_final160": 28,
+      "either_different_at_end": 10,
+      "affected": {
+        "count": 51,
+        "first_target_realignment": {
+          "eligible": 26,
+          "aligned": 26,
+          "reopened": 14,
+          "delay_range": [
+            1,
+            11.0,
+            45
+          ]
+        },
+        "latest_target_at_240": {
+          "different": 26,
+          "same": 25
+        },
+        "window_verdicts": [
+          {
+            "agree": 51
+          },
+          {
+            "agree": 51
+          },
+          {
+            "agree": 51
+          },
+          {
+            "agree": 51
+          },
+          {
+            "agree": 51
+          }
+        ],
+        "final_agreement": 51,
+        "ever_confirmed": 51,
+        "first_confirmed_median": 1200,
+        "later_opposite": 0,
+        "later_uncertain": 0,
+        "final_choices": {
+          "matched": 1058,
+          "equal": 1012,
+          "unpaired": 20,
+          "people_with_a_mismatch": 19
+        },
+        "behavior_same_final160": 32,
+        "behavior_different_at_end": 10
+      },
+      "others": {
+        "count": 37,
+        "first_target_realignment": {
+          "eligible": 3,
+          "aligned": 3,
+          "reopened": 3,
+          "delay_range": [
+            1,
+            1,
+            18
+          ]
+        },
+        "latest_target_at_240": {
+          "same": 34,
+          "different": 3
+        },
+        "window_verdicts": [
+          {
+            "agree": 37
+          },
+          {
+            "agree": 37
+          },
+          {
+            "agree": 37
+          },
+          {
+            "agree": 37
+          },
+          {
+            "agree": 37
+          }
+        ],
+        "final_agreement": 37,
+        "ever_confirmed": 37,
+        "first_confirmed_median": 1200,
+        "later_opposite": 0,
+        "later_uncertain": 0,
+        "final_choices": {
+          "matched": 769,
+          "equal": 760,
+          "unpaired": 4,
+          "people_with_a_mismatch": 5
+        },
+        "behavior_same_final160": 31,
+        "behavior_different_at_end": 1
+      },
+      "recipient_at_240": {
+        "count": 38,
+        "first_target_realignment": {
+          "eligible": 18,
+          "aligned": 18,
+          "reopened": 7,
+          "delay_range": [
+            1,
+            11.0,
+            45
+          ]
+        },
+        "latest_target_at_240": {
+          "different": 18,
+          "same": 20
+        },
+        "window_verdicts": [
+          {
+            "agree": 38
+          },
+          {
+            "agree": 38
+          },
+          {
+            "agree": 38
+          },
+          {
+            "agree": 38
+          },
+          {
+            "agree": 38
+          }
+        ],
+        "final_agreement": 38,
+        "ever_confirmed": 38,
+        "first_confirmed_median": 1200.0,
+        "later_opposite": 0,
+        "later_uncertain": 0,
+        "final_choices": {
+          "matched": 788,
+          "equal": 759,
+          "unpaired": 12,
+          "people_with_a_mismatch": 13
+        },
+        "behavior_same_final160": 26,
+        "behavior_different_at_end": 7
+      },
+      "peer_at_240": {
+        "count": 13,
+        "first_target_realignment": {
+          "eligible": 8,
+          "aligned": 8,
+          "reopened": 7,
+          "delay_range": [
+            1,
+            11.0,
+            28
+          ]
+        },
+        "latest_target_at_240": {
+          "different": 8,
+          "same": 5
+        },
+        "window_verdicts": [
+          {
+            "agree": 13
+          },
+          {
+            "agree": 13
+          },
+          {
+            "agree": 13
+          },
+          {
+            "agree": 13
+          },
+          {
+            "agree": 13
+          }
+        ],
+        "final_agreement": 13,
+        "ever_confirmed": 13,
+        "first_confirmed_median": 1200,
+        "later_opposite": 0,
+        "later_uncertain": 0,
+        "final_choices": {
+          "matched": 270,
+          "equal": 253,
+          "unpaired": 8,
+          "people_with_a_mismatch": 6
+        },
+        "behavior_same_final160": 6,
+        "behavior_different_at_end": 3
+      }
+    }
+  },
+  "archive_commit": "ead23acbed8cdd83dafcbfcb4eb8008a3cf611bb",
+  "inputs_sha256": {
+    "pairs.jsonl": "4e600f60ba9e7c1a9b4d1bd81757e476f38ac0a7c854a48e87dec72e04f9cd3f",
+    "reversal.json": "756928d170fe646e06d35b17df7f88082911eff23728602499d51e4d0df07acb",
+    "summary.json": "77b505f1639788430c4221ba450f97e81745a6d3c4c184967dd1c2e691782754"
+  }
+}
