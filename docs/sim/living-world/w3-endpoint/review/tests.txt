@@ -1,0 +1,8 @@
+test_adjacent_trip_alignment_can_cross_the_endpoint (test_w3_endpoint.EndpointDiagnostics.test_adjacent_trip_alignment_can_cross_the_endpoint) ... ok
+test_all_cases_endpoint_targets_and_archived_departures (test_w3_endpoint.EndpointDiagnostics.test_all_cases_endpoint_targets_and_archived_departures) ... ok
+test_symmetric_shift_and_edge_disagreement (test_w3_endpoint.EndpointDiagnostics.test_symmetric_shift_and_edge_disagreement) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.021s
+
+OK

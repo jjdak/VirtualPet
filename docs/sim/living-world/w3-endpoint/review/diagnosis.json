@@ -1,0 +1,6583 @@
+{
+  "endpoint": 2640,
+  "radius": 80,
+  "max_lag": 60,
+  "stop": 2840,
+  "source_sha256": "d87fd4642bc1286cf9dbd7fbf874c2256f5976da86709a53a28f58cb04850c97",
+  "all": {
+    "pairs": 11,
+    "affected_people": 12,
+    "pair_patterns": {
+      "matched_sequence": 1,
+      "fixed_lag": 7,
+      "place_difference": 3
+    },
+    "latest_place_by_pair": {
+      "all_same": 11
+    },
+    "latest_same_people": 12,
+    "latest_full_trip_matches": 12,
+    "all_affected_single_common_place_last80": 10,
+    "person_classifications": {
+      "matched_sequence": 1,
+      "fixed_lag": 8,
+      "place_difference": 3
+    }
+  },
+  "by_family": {
+    "primary": {
+      "pairs": 1,
+      "affected_people": 1,
+      "pair_patterns": {
+        "matched_sequence": 1
+      },
+      "latest_place_by_pair": {
+        "all_same": 1
+      },
+      "latest_same_people": 1,
+      "latest_full_trip_matches": 1,
+      "all_affected_single_common_place_last80": 1,
+      "person_classifications": {
+        "matched_sequence": 1
+      }
+    },
+    "reversal": {
+      "pairs": 10,
+      "affected_people": 11,
+      "pair_patterns": {
+        "fixed_lag": 7,
+        "place_difference": 3
+      },
+      "latest_place_by_pair": {
+        "all_same": 10
+      },
+      "latest_same_people": 11,
+      "latest_full_trip_matches": 11,
+      "all_affected_single_common_place_last80": 9,
+      "person_classifications": {
+        "fixed_lag": 8,
+        "place_difference": 3
+      }
+    }
+  },
+  "cases": [
+    {
+      "family": "primary",
+      "seed": 19,
+      "age": 0,
+      "actor": "A",
+      "kind": "q",
+      "origin_hash": "f1e6b9e98066e6792ca74e0ad97845bfab5ec558f3e93cc312e88ad248144902",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -15,
+          "latest_home_lag": -15,
+          "last80_destinations": {
+            "control": {
+              "p": 2
+            },
+            "hinted": {
+              "p": 2
+            }
+          },
+          "affected": true,
+          "classification": "matched_sequence",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "outbound",
+              "pos": [
+                2,
+                5
+              ],
+              "outbound_target": "p",
+              "weather": "rain"
+            },
+            "latest_trip": {
+              "depart": 2638,
+              "place": "p",
+              "weather": "sun",
+              "eat": 2644,
+              "eat_weather": "rain",
+              "reward": -1,
+              "home": 2649,
+              "rest": 2650
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "rain"
+            },
+            "latest_trip": {
+              "depart": 2623,
+              "place": "p",
+              "weather": "sun",
+              "eat": 2629,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2634,
+              "rest": 2635
+            }
+          },
+          "exact_lags": [],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 15,
+            "total_lag": 43,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2591,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2597,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2602,
+                  "rest": 2603
+                },
+                "hinted": {
+                  "depart": 2578,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2584,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2589,
+                  "rest": 2590
+                },
+                "delta": {
+                  "depart": -13,
+                  "eat": -13,
+                  "home": -13,
+                  "rest": -13
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2638,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2644,
+                  "eat_weather": "rain",
+                  "reward": -1,
+                  "home": 2649,
+                  "rest": 2650
+                },
+                "hinted": {
+                  "depart": 2623,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2629,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2634,
+                  "rest": 2635
+                },
+                "delta": {
+                  "depart": -15,
+                  "eat": -15,
+                  "home": -15,
+                  "rest": -15
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2656,
+                  "place": "q",
+                  "weather": "rain",
+                  "eat": 2664,
+                  "eat_weather": "rain",
+                  "reward": 1,
+                  "home": 2671,
+                  "rest": 2672
+                },
+                "hinted": {
+                  "depart": 2671,
+                  "place": "q",
+                  "weather": "rain",
+                  "eat": 2679,
+                  "eat_weather": "rain",
+                  "reward": 1,
+                  "home": 2686,
+                  "rest": 2687
+                },
+                "delta": {
+                  "depart": 15,
+                  "eat": 15,
+                  "home": 15,
+                  "rest": 15
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2543,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2551,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2558,
+                "rest": 2559
+              },
+              {
+                "depart": 2591,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2597,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2602,
+                "rest": 2603
+              },
+              {
+                "depart": 2638,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2644,
+                "eat_weather": "rain",
+                "reward": -1,
+                "home": 2649,
+                "rest": 2650
+              },
+              {
+                "depart": 2656,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2664,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2671,
+                "rest": 2672
+              },
+              {
+                "depart": 2703,
+                "place": "p",
+                "weather": "rain",
+                "eat": 2709,
+                "eat_weather": "rain",
+                "reward": -1,
+                "home": 2714,
+                "rest": 2715
+              },
+              {
+                "depart": 2721,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2727,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2732,
+                "rest": 2733
+              },
+              {
+                "depart": 2768,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2774,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2779,
+                "rest": 2780
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2511,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2519,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2526,
+                "rest": 2527
+              },
+              {
+                "depart": 2558,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2566,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2573,
+                "rest": 2574
+              },
+              {
+                "depart": 2578,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2584,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2589,
+                "rest": 2590
+              },
+              {
+                "depart": 2623,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2629,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2634,
+                "rest": 2635
+              },
+              {
+                "depart": 2671,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2679,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2686,
+                "rest": 2687
+              },
+              {
+                "depart": 2718,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2726,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2733,
+                "rest": 2734
+              },
+              {
+                "depart": 2738,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2744,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2749,
+                "rest": 2750
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": 0,
+          "latest_home_lag": 0,
+          "last80_destinations": {
+            "control": {
+              "p": 2
+            },
+            "hinted": {
+              "p": 2
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "outbound",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": "p",
+              "weather": "rain"
+            },
+            "latest_trip": {
+              "depart": 2638,
+              "place": "p",
+              "weather": "sun",
+              "eat": 2646,
+              "eat_weather": "rain",
+              "reward": -1,
+              "home": 2653,
+              "rest": 2654
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "outbound",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": "p",
+              "weather": "rain"
+            },
+            "latest_trip": {
+              "depart": 2638,
+              "place": "p",
+              "weather": "sun",
+              "eat": 2646,
+              "eat_weather": "rain",
+              "reward": -1,
+              "home": 2653,
+              "rest": 2654
+            }
+          },
+          "exact_lags": [
+            0
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 0,
+            "total_lag": 0,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2591,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2599,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2606,
+                  "rest": 2607
+                },
+                "hinted": {
+                  "depart": 2591,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2599,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2606,
+                  "rest": 2607
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2638,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2646,
+                  "eat_weather": "rain",
+                  "reward": -1,
+                  "home": 2653,
+                  "rest": 2654
+                },
+                "hinted": {
+                  "depart": 2638,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2646,
+                  "eat_weather": "rain",
+                  "reward": -1,
+                  "home": 2653,
+                  "rest": 2654
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2658,
+                  "place": "q",
+                  "weather": "rain",
+                  "eat": 2664,
+                  "eat_weather": "rain",
+                  "reward": 1,
+                  "home": 2669,
+                  "rest": 2670
+                },
+                "hinted": {
+                  "depart": 2658,
+                  "place": "q",
+                  "weather": "rain",
+                  "eat": 2664,
+                  "eat_weather": "rain",
+                  "reward": 1,
+                  "home": 2669,
+                  "rest": 2670
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2543,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2549,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2554,
+                "rest": 2555
+              },
+              {
+                "depart": 2591,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2599,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2606,
+                "rest": 2607
+              },
+              {
+                "depart": 2638,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2646,
+                "eat_weather": "rain",
+                "reward": -1,
+                "home": 2653,
+                "rest": 2654
+              },
+              {
+                "depart": 2658,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2664,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2669,
+                "rest": 2670
+              },
+              {
+                "depart": 2703,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2709,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2714,
+                "rest": 2715
+              },
+              {
+                "depart": 2751,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2759,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2766,
+                "rest": 2767
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2543,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2549,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2554,
+                "rest": 2555
+              },
+              {
+                "depart": 2591,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2599,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2606,
+                "rest": 2607
+              },
+              {
+                "depart": 2638,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2646,
+                "eat_weather": "rain",
+                "reward": -1,
+                "home": 2653,
+                "rest": 2654
+              },
+              {
+                "depart": 2658,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2664,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2669,
+                "rest": 2670
+              },
+              {
+                "depart": 2703,
+                "place": "q",
+                "weather": "rain",
+                "eat": 2709,
+                "eat_weather": "rain",
+                "reward": 1,
+                "home": 2714,
+                "rest": 2715
+              },
+              {
+                "depart": 2751,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2759,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2766,
+                "rest": 2767
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 4,
+      "age": 480,
+      "actor": "A",
+      "kind": "q",
+      "origin_hash": "8d67ac9f9ade58b12dd10e88c37986d775ee57f96c6ea6e5ffc16901b926c153",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -20,
+          "latest_home_lag": -20,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": true,
+          "classification": "fixed_lag",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "outbound",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": "q",
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2638,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2646,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2653,
+              "rest": 2654
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2618,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2626,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2633,
+              "rest": 2634
+            }
+          },
+          "exact_lags": [
+            -20
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 20,
+            "total_lag": 60,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2591,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2599,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2606,
+                  "rest": 2607
+                },
+                "hinted": {
+                  "depart": 2571,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2579,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2586,
+                  "rest": 2587
+                },
+                "delta": {
+                  "depart": -20,
+                  "eat": -20,
+                  "home": -20,
+                  "rest": -20
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2638,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2646,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2653,
+                  "rest": 2654
+                },
+                "hinted": {
+                  "depart": 2618,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2626,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2633,
+                  "rest": 2634
+                },
+                "delta": {
+                  "depart": -20,
+                  "eat": -20,
+                  "home": -20,
+                  "rest": -20
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2686,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2694,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2701,
+                  "rest": 2702
+                },
+                "hinted": {
+                  "depart": 2666,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2674,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2681,
+                  "rest": 2682
+                },
+                "delta": {
+                  "depart": -20,
+                  "eat": -20,
+                  "home": -20,
+                  "rest": -20
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2543,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2551,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2558,
+                "rest": 2559
+              },
+              {
+                "depart": 2591,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2599,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2606,
+                "rest": 2607
+              },
+              {
+                "depart": 2638,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2646,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2653,
+                "rest": 2654
+              },
+              {
+                "depart": 2686,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2694,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2701,
+                "rest": 2702
+              },
+              {
+                "depart": 2733,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2741,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2748,
+                "rest": 2749
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2523,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2531,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2538,
+                "rest": 2539
+              },
+              {
+                "depart": 2571,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2579,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2586,
+                "rest": 2587
+              },
+              {
+                "depart": 2618,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2626,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2633,
+                "rest": 2634
+              },
+              {
+                "depart": 2666,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2674,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2681,
+                "rest": 2682
+              },
+              {
+                "depart": 2713,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2721,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2728,
+                "rest": 2729
+              },
+              {
+                "depart": 2761,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2769,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2776,
+                "rest": 2777
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": 7,
+          "latest_home_lag": 7,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2611,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2617,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2622,
+              "rest": 2623
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2618,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2624,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2629,
+              "rest": 2630
+            }
+          },
+          "exact_lags": [
+            -40,
+            55
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 8,
+            "total_lag": 23,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2563,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2569,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2574,
+                  "rest": 2575
+                },
+                "hinted": {
+                  "depart": 2571,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2577,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2582,
+                  "rest": 2583
+                },
+                "delta": {
+                  "depart": 8,
+                  "eat": 8,
+                  "home": 8,
+                  "rest": 8
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2611,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2617,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2622,
+                  "rest": 2623
+                },
+                "hinted": {
+                  "depart": 2618,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2624,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2629,
+                  "rest": 2630
+                },
+                "delta": {
+                  "depart": 7,
+                  "eat": 7,
+                  "home": 7,
+                  "rest": 7
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2658,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2664,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2669,
+                  "rest": 2670
+                },
+                "hinted": {
+                  "depart": 2666,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2672,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2677,
+                  "rest": 2678
+                },
+                "delta": {
+                  "depart": 8,
+                  "eat": 8,
+                  "home": 8,
+                  "rest": 8
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2516,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2522,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2527,
+                "rest": 2528
+              },
+              {
+                "depart": 2563,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2569,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2574,
+                "rest": 2575
+              },
+              {
+                "depart": 2611,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2617,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2622,
+                "rest": 2623
+              },
+              {
+                "depart": 2658,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2664,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2669,
+                "rest": 2670
+              },
+              {
+                "depart": 2706,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2712,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2717,
+                "rest": 2718
+              },
+              {
+                "depart": 2753,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2759,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2764,
+                "rest": 2765
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2523,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2529,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2534,
+                "rest": 2535
+              },
+              {
+                "depart": 2571,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2577,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2582,
+                "rest": 2583
+              },
+              {
+                "depart": 2618,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2624,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2629,
+                "rest": 2630
+              },
+              {
+                "depart": 2666,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2672,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2677,
+                "rest": 2678
+              },
+              {
+                "depart": 2713,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2719,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2724,
+                "rest": 2725
+              },
+              {
+                "depart": 2761,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2767,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2772,
+                "rest": 2773
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 4,
+      "age": 480,
+      "actor": "B",
+      "kind": "q",
+      "origin_hash": "8d67ac9f9ade58b12dd10e88c37986d775ee57f96c6ea6e5ffc16901b926c153",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -20,
+          "latest_home_lag": -20,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": true,
+          "classification": "fixed_lag",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "outbound",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": "q",
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2638,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2646,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2653,
+              "rest": 2654
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2618,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2626,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2633,
+              "rest": 2634
+            }
+          },
+          "exact_lags": [
+            -20
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 20,
+            "total_lag": 60,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2591,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2599,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2606,
+                  "rest": 2607
+                },
+                "hinted": {
+                  "depart": 2571,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2579,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2586,
+                  "rest": 2587
+                },
+                "delta": {
+                  "depart": -20,
+                  "eat": -20,
+                  "home": -20,
+                  "rest": -20
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2638,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2646,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2653,
+                  "rest": 2654
+                },
+                "hinted": {
+                  "depart": 2618,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2626,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2633,
+                  "rest": 2634
+                },
+                "delta": {
+                  "depart": -20,
+                  "eat": -20,
+                  "home": -20,
+                  "rest": -20
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2686,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2694,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2701,
+                  "rest": 2702
+                },
+                "hinted": {
+                  "depart": 2666,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2674,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2681,
+                  "rest": 2682
+                },
+                "delta": {
+                  "depart": -20,
+                  "eat": -20,
+                  "home": -20,
+                  "rest": -20
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2543,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2551,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2558,
+                "rest": 2559
+              },
+              {
+                "depart": 2591,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2599,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2606,
+                "rest": 2607
+              },
+              {
+                "depart": 2638,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2646,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2653,
+                "rest": 2654
+              },
+              {
+                "depart": 2686,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2694,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2701,
+                "rest": 2702
+              },
+              {
+                "depart": 2733,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2741,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2748,
+                "rest": 2749
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2523,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2531,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2538,
+                "rest": 2539
+              },
+              {
+                "depart": 2571,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2579,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2586,
+                "rest": 2587
+              },
+              {
+                "depart": 2618,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2626,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2633,
+                "rest": 2634
+              },
+              {
+                "depart": 2666,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2674,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2681,
+                "rest": 2682
+              },
+              {
+                "depart": 2713,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2721,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2728,
+                "rest": 2729
+              },
+              {
+                "depart": 2761,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2769,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2776,
+                "rest": 2777
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -15,
+          "latest_home_lag": -15,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 1
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2611,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2617,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2622,
+              "rest": 2623
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2596,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2602,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2607,
+              "rest": 2608
+            }
+          },
+          "exact_lags": [
+            -15
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 15,
+            "total_lag": 45,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2563,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2569,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2574,
+                  "rest": 2575
+                },
+                "hinted": {
+                  "depart": 2548,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2554,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2559,
+                  "rest": 2560
+                },
+                "delta": {
+                  "depart": -15,
+                  "eat": -15,
+                  "home": -15,
+                  "rest": -15
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2611,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2617,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2622,
+                  "rest": 2623
+                },
+                "hinted": {
+                  "depart": 2596,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2602,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2607,
+                  "rest": 2608
+                },
+                "delta": {
+                  "depart": -15,
+                  "eat": -15,
+                  "home": -15,
+                  "rest": -15
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2658,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2664,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2669,
+                  "rest": 2670
+                },
+                "hinted": {
+                  "depart": 2643,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2649,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2654,
+                  "rest": 2655
+                },
+                "delta": {
+                  "depart": -15,
+                  "eat": -15,
+                  "home": -15,
+                  "rest": -15
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2516,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2522,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2527,
+                "rest": 2528
+              },
+              {
+                "depart": 2563,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2569,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2574,
+                "rest": 2575
+              },
+              {
+                "depart": 2611,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2617,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2622,
+                "rest": 2623
+              },
+              {
+                "depart": 2658,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2664,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2669,
+                "rest": 2670
+              },
+              {
+                "depart": 2706,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2712,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2717,
+                "rest": 2718
+              },
+              {
+                "depart": 2753,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2759,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2764,
+                "rest": 2765
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2501,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2507,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2512,
+                "rest": 2513
+              },
+              {
+                "depart": 2548,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2554,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2559,
+                "rest": 2560
+              },
+              {
+                "depart": 2596,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2602,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2607,
+                "rest": 2608
+              },
+              {
+                "depart": 2643,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2649,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2654,
+                "rest": 2655
+              },
+              {
+                "depart": 2691,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2697,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2702,
+                "rest": 2703
+              },
+              {
+                "depart": 2738,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2744,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2749,
+                "rest": 2750
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 6,
+      "age": 480,
+      "actor": "B",
+      "kind": "q",
+      "origin_hash": "4856a22e17ae43ae1dc50cc2e7a7cabbf92cbcdcb7030c8569988bcb62574181",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": 2,
+          "latest_home_lag": 2,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2616,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2624,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2631,
+              "rest": 2632
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2618,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2626,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2633,
+              "rest": 2634
+            }
+          },
+          "exact_lags": [
+            -45,
+            50
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 3,
+            "total_lag": 8,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2568,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2576,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2583,
+                  "rest": 2584
+                },
+                "hinted": {
+                  "depart": 2571,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2579,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2586,
+                  "rest": 2587
+                },
+                "delta": {
+                  "depart": 3,
+                  "eat": 3,
+                  "home": 3,
+                  "rest": 3
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2616,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2624,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2631,
+                  "rest": 2632
+                },
+                "hinted": {
+                  "depart": 2618,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2626,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2633,
+                  "rest": 2634
+                },
+                "delta": {
+                  "depart": 2,
+                  "eat": 2,
+                  "home": 2,
+                  "rest": 2
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2663,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2671,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2678,
+                  "rest": 2679
+                },
+                "hinted": {
+                  "depart": 2666,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2674,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2681,
+                  "rest": 2682
+                },
+                "delta": {
+                  "depart": 3,
+                  "eat": 3,
+                  "home": 3,
+                  "rest": 3
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2521,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2529,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2536,
+                "rest": 2537
+              },
+              {
+                "depart": 2568,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2576,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2583,
+                "rest": 2584
+              },
+              {
+                "depart": 2616,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2624,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2631,
+                "rest": 2632
+              },
+              {
+                "depart": 2663,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2671,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2678,
+                "rest": 2679
+              },
+              {
+                "depart": 2711,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2719,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2726,
+                "rest": 2727
+              },
+              {
+                "depart": 2758,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2766,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2773,
+                "rest": 2774
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2523,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2531,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2538,
+                "rest": 2539
+              },
+              {
+                "depart": 2571,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2579,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2586,
+                "rest": 2587
+              },
+              {
+                "depart": 2618,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2626,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2633,
+                "rest": 2634
+              },
+              {
+                "depart": 2666,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2674,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2681,
+                "rest": 2682
+              },
+              {
+                "depart": 2713,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2721,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2728,
+                "rest": 2729
+              },
+              {
+                "depart": 2761,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2769,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2776,
+                "rest": 2777
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -23,
+          "latest_home_lag": -23,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": true,
+          "classification": "fixed_lag",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "outbound",
+              "pos": [
+                8,
+                3
+              ],
+              "outbound_target": "q",
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2636,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2642,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2647,
+              "rest": 2648
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2613,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2619,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2624,
+              "rest": 2625
+            }
+          },
+          "exact_lags": [
+            25
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 23,
+            "total_lag": 67,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2588,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2594,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2599,
+                  "rest": 2600
+                },
+                "hinted": {
+                  "depart": 2566,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2572,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2577,
+                  "rest": 2578
+                },
+                "delta": {
+                  "depart": -22,
+                  "eat": -22,
+                  "home": -22,
+                  "rest": -22
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2636,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2642,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2647,
+                  "rest": 2648
+                },
+                "hinted": {
+                  "depart": 2613,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2619,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2624,
+                  "rest": 2625
+                },
+                "delta": {
+                  "depart": -23,
+                  "eat": -23,
+                  "home": -23,
+                  "rest": -23
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2683,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2689,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2694,
+                  "rest": 2695
+                },
+                "hinted": {
+                  "depart": 2661,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2667,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2672,
+                  "rest": 2673
+                },
+                "delta": {
+                  "depart": -22,
+                  "eat": -22,
+                  "home": -22,
+                  "rest": -22
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2541,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2547,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2552,
+                "rest": 2553
+              },
+              {
+                "depart": 2588,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2594,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2599,
+                "rest": 2600
+              },
+              {
+                "depart": 2636,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2642,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2647,
+                "rest": 2648
+              },
+              {
+                "depart": 2683,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2689,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2694,
+                "rest": 2695
+              },
+              {
+                "depart": 2731,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2737,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2742,
+                "rest": 2743
+              },
+              {
+                "depart": 2778,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2784,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2789,
+                "rest": 2790
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2518,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2524,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2529,
+                "rest": 2530
+              },
+              {
+                "depart": 2566,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2572,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2577,
+                "rest": 2578
+              },
+              {
+                "depart": 2613,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2619,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2624,
+                "rest": 2625
+              },
+              {
+                "depart": 2661,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2667,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2672,
+                "rest": 2673
+              },
+              {
+                "depart": 2708,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2714,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2719,
+                "rest": 2720
+              },
+              {
+                "depart": 2756,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2762,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2767,
+                "rest": 2768
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 7,
+      "age": 700,
+      "actor": "A",
+      "kind": "q",
+      "origin_hash": "04ee0a2ed1417ed170a0e27449950d016835c7afb6c2fe68a2e172fb6ff94502",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -18,
+          "latest_home_lag": -18,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": true,
+          "classification": "fixed_lag",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "homebound",
+              "pos": [
+                7,
+                2
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2631,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2639,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2646,
+              "rest": 2647
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2613,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2621,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2628,
+              "rest": 2629
+            }
+          },
+          "exact_lags": [
+            30
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 18,
+            "total_lag": 52,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2583,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2591,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2598,
+                  "rest": 2599
+                },
+                "hinted": {
+                  "depart": 2566,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2574,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2581,
+                  "rest": 2582
+                },
+                "delta": {
+                  "depart": -17,
+                  "eat": -17,
+                  "home": -17,
+                  "rest": -17
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2631,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2639,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2646,
+                  "rest": 2647
+                },
+                "hinted": {
+                  "depart": 2613,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2621,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2628,
+                  "rest": 2629
+                },
+                "delta": {
+                  "depart": -18,
+                  "eat": -18,
+                  "home": -18,
+                  "rest": -18
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2678,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2686,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2693,
+                  "rest": 2694
+                },
+                "hinted": {
+                  "depart": 2661,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2669,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2676,
+                  "rest": 2677
+                },
+                "delta": {
+                  "depart": -17,
+                  "eat": -17,
+                  "home": -17,
+                  "rest": -17
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2536,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2544,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2551,
+                "rest": 2552
+              },
+              {
+                "depart": 2583,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2591,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2598,
+                "rest": 2599
+              },
+              {
+                "depart": 2631,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2639,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2646,
+                "rest": 2647
+              },
+              {
+                "depart": 2678,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2686,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2693,
+                "rest": 2694
+              },
+              {
+                "depart": 2726,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2734,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2741,
+                "rest": 2742
+              },
+              {
+                "depart": 2773,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2781,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2788,
+                "rest": 2789
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2518,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2526,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2533,
+                "rest": 2534
+              },
+              {
+                "depart": 2566,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2574,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2581,
+                "rest": 2582
+              },
+              {
+                "depart": 2613,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2621,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2628,
+                "rest": 2629
+              },
+              {
+                "depart": 2661,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2669,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2676,
+                "rest": 2677
+              },
+              {
+                "depart": 2708,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2716,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2723,
+                "rest": 2724
+              },
+              {
+                "depart": 2756,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2764,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2771,
+                "rest": 2772
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": 0,
+          "latest_home_lag": 0,
+          "last80_destinations": {
+            "control": {
+              "q": 1
+            },
+            "hinted": {
+              "q": 1
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2601,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2607,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2612,
+              "rest": 2613
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2601,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2607,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2612,
+              "rest": 2613
+            }
+          },
+          "exact_lags": [
+            0
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 0,
+            "total_lag": 0,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2553,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2559,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2564,
+                  "rest": 2565
+                },
+                "hinted": {
+                  "depart": 2553,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2559,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2564,
+                  "rest": 2565
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2601,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2607,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2612,
+                  "rest": 2613
+                },
+                "hinted": {
+                  "depart": 2601,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2607,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2612,
+                  "rest": 2613
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2648,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2654,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2659,
+                  "rest": 2660
+                },
+                "hinted": {
+                  "depart": 2648,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2654,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2659,
+                  "rest": 2660
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2506,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2512,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2517,
+                "rest": 2518
+              },
+              {
+                "depart": 2553,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2559,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2564,
+                "rest": 2565
+              },
+              {
+                "depart": 2601,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2607,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2612,
+                "rest": 2613
+              },
+              {
+                "depart": 2648,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2654,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2659,
+                "rest": 2660
+              },
+              {
+                "depart": 2696,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2702,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2707,
+                "rest": 2708
+              },
+              {
+                "depart": 2743,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2749,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2754,
+                "rest": 2755
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2506,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2512,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2517,
+                "rest": 2518
+              },
+              {
+                "depart": 2553,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2559,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2564,
+                "rest": 2565
+              },
+              {
+                "depart": 2601,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2607,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2612,
+                "rest": 2613
+              },
+              {
+                "depart": 2648,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2654,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2659,
+                "rest": 2660
+              },
+              {
+                "depart": 2696,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2702,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2707,
+                "rest": 2708
+              },
+              {
+                "depart": 2743,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2749,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2754,
+                "rest": 2755
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 11,
+      "age": 480,
+      "actor": "A",
+      "kind": "q",
+      "origin_hash": "67e0bfa4605c47a546250cf27b5e9ceb8722a19286b81919367ca7473f645618",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -37,
+          "latest_home_lag": -37,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 1
+            }
+          },
+          "affected": true,
+          "classification": "fixed_lag",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "outbound",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": "q",
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2638,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2646,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2653,
+              "rest": 2654
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2601,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2609,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2616,
+              "rest": 2617
+            }
+          },
+          "exact_lags": [
+            10
+          ],
+          "best_alignment": {
+            "offset": 1,
+            "mismatches": 0,
+            "max_lag": 10,
+            "total_lag": 40,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2543,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2551,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2558,
+                  "rest": 2559
+                },
+                "hinted": {
+                  "depart": 2553,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2561,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2568,
+                  "rest": 2569
+                },
+                "delta": {
+                  "depart": 10,
+                  "eat": 10,
+                  "home": 10,
+                  "rest": 10
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2591,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2599,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2606,
+                  "rest": 2607
+                },
+                "hinted": {
+                  "depart": 2601,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2609,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2616,
+                  "rest": 2617
+                },
+                "delta": {
+                  "depart": 10,
+                  "eat": 10,
+                  "home": 10,
+                  "rest": 10
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2638,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2646,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2653,
+                  "rest": 2654
+                },
+                "hinted": {
+                  "depart": 2648,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2656,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2663,
+                  "rest": 2664
+                },
+                "delta": {
+                  "depart": 10,
+                  "eat": 10,
+                  "home": 10,
+                  "rest": 10
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2686,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2694,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2701,
+                  "rest": 2702
+                },
+                "hinted": {
+                  "depart": 2696,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2704,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2711,
+                  "rest": 2712
+                },
+                "delta": {
+                  "depart": 10,
+                  "eat": 10,
+                  "home": 10,
+                  "rest": 10
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2543,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2551,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2558,
+                "rest": 2559
+              },
+              {
+                "depart": 2591,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2599,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2606,
+                "rest": 2607
+              },
+              {
+                "depart": 2638,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2646,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2653,
+                "rest": 2654
+              },
+              {
+                "depart": 2686,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2694,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2701,
+                "rest": 2702
+              },
+              {
+                "depart": 2733,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2741,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2748,
+                "rest": 2749
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2506,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2514,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2521,
+                "rest": 2522
+              },
+              {
+                "depart": 2553,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2561,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2568,
+                "rest": 2569
+              },
+              {
+                "depart": 2601,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2609,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2616,
+                "rest": 2617
+              },
+              {
+                "depart": 2648,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2656,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2663,
+                "rest": 2664
+              },
+              {
+                "depart": 2696,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2704,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2711,
+                "rest": 2712
+              },
+              {
+                "depart": 2743,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2751,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2758,
+                "rest": 2759
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": 25,
+          "latest_home_lag": 25,
+          "last80_destinations": {
+            "control": {
+              "q": 1
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": true,
+          "classification": "fixed_lag",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2606,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2612,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2617,
+              "rest": 2618
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "homebound",
+              "pos": [
+                6,
+                3
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2631,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2637,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2642,
+              "rest": 2643
+            }
+          },
+          "exact_lags": [
+            25
+          ],
+          "best_alignment": {
+            "offset": -1,
+            "mismatches": 0,
+            "max_lag": 23,
+            "total_lag": 90,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2558,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2564,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2569,
+                  "rest": 2570
+                },
+                "hinted": {
+                  "depart": 2536,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2542,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2547,
+                  "rest": 2548
+                },
+                "delta": {
+                  "depart": -22,
+                  "eat": -22,
+                  "home": -22,
+                  "rest": -22
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2606,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2612,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2617,
+                  "rest": 2618
+                },
+                "hinted": {
+                  "depart": 2583,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2589,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2594,
+                  "rest": 2595
+                },
+                "delta": {
+                  "depart": -23,
+                  "eat": -23,
+                  "home": -23,
+                  "rest": -23
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2653,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2659,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2664,
+                  "rest": 2665
+                },
+                "hinted": {
+                  "depart": 2631,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2637,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2642,
+                  "rest": 2643
+                },
+                "delta": {
+                  "depart": -22,
+                  "eat": -22,
+                  "home": -22,
+                  "rest": -22
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2701,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2707,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2712,
+                  "rest": 2713
+                },
+                "hinted": {
+                  "depart": 2678,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2684,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2689,
+                  "rest": 2690
+                },
+                "delta": {
+                  "depart": -23,
+                  "eat": -23,
+                  "home": -23,
+                  "rest": -23
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2511,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2517,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2522,
+                "rest": 2523
+              },
+              {
+                "depart": 2558,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2564,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2569,
+                "rest": 2570
+              },
+              {
+                "depart": 2606,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2612,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2617,
+                "rest": 2618
+              },
+              {
+                "depart": 2653,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2659,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2664,
+                "rest": 2665
+              },
+              {
+                "depart": 2701,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2707,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2712,
+                "rest": 2713
+              },
+              {
+                "depart": 2748,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2754,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2759,
+                "rest": 2760
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2536,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2542,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2547,
+                "rest": 2548
+              },
+              {
+                "depart": 2583,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2589,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2594,
+                "rest": 2595
+              },
+              {
+                "depart": 2631,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2637,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2642,
+                "rest": 2643
+              },
+              {
+                "depart": 2678,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2684,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2689,
+                "rest": 2690
+              },
+              {
+                "depart": 2726,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2732,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2737,
+                "rest": 2738
+              },
+              {
+                "depart": 2773,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2779,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2784,
+                "rest": 2785
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 11,
+      "age": 480,
+      "actor": "B",
+      "kind": "q",
+      "origin_hash": "67e0bfa4605c47a546250cf27b5e9ceb8722a19286b81919367ca7473f645618",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -37,
+          "latest_home_lag": -37,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 1
+            }
+          },
+          "affected": true,
+          "classification": "fixed_lag",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "outbound",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": "q",
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2638,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2646,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2653,
+              "rest": 2654
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2601,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2609,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2616,
+              "rest": 2617
+            }
+          },
+          "exact_lags": [
+            10
+          ],
+          "best_alignment": {
+            "offset": 1,
+            "mismatches": 0,
+            "max_lag": 10,
+            "total_lag": 40,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2543,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2551,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2558,
+                  "rest": 2559
+                },
+                "hinted": {
+                  "depart": 2553,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2561,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2568,
+                  "rest": 2569
+                },
+                "delta": {
+                  "depart": 10,
+                  "eat": 10,
+                  "home": 10,
+                  "rest": 10
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2591,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2599,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2606,
+                  "rest": 2607
+                },
+                "hinted": {
+                  "depart": 2601,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2609,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2616,
+                  "rest": 2617
+                },
+                "delta": {
+                  "depart": 10,
+                  "eat": 10,
+                  "home": 10,
+                  "rest": 10
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2638,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2646,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2653,
+                  "rest": 2654
+                },
+                "hinted": {
+                  "depart": 2648,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2656,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2663,
+                  "rest": 2664
+                },
+                "delta": {
+                  "depart": 10,
+                  "eat": 10,
+                  "home": 10,
+                  "rest": 10
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2686,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2694,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2701,
+                  "rest": 2702
+                },
+                "hinted": {
+                  "depart": 2696,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2704,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2711,
+                  "rest": 2712
+                },
+                "delta": {
+                  "depart": 10,
+                  "eat": 10,
+                  "home": 10,
+                  "rest": 10
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2543,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2551,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2558,
+                "rest": 2559
+              },
+              {
+                "depart": 2591,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2599,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2606,
+                "rest": 2607
+              },
+              {
+                "depart": 2638,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2646,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2653,
+                "rest": 2654
+              },
+              {
+                "depart": 2686,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2694,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2701,
+                "rest": 2702
+              },
+              {
+                "depart": 2733,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2741,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2748,
+                "rest": 2749
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2506,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2514,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2521,
+                "rest": 2522
+              },
+              {
+                "depart": 2553,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2561,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2568,
+                "rest": 2569
+              },
+              {
+                "depart": 2601,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2609,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2616,
+                "rest": 2617
+              },
+              {
+                "depart": 2648,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2656,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2663,
+                "rest": 2664
+              },
+              {
+                "depart": 2696,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2704,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2711,
+                "rest": 2712
+              },
+              {
+                "depart": 2743,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2751,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2758,
+                "rest": 2759
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -10,
+          "latest_home_lag": -10,
+          "last80_destinations": {
+            "control": {
+              "q": 1
+            },
+            "hinted": {
+              "q": 1
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2606,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2612,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2617,
+              "rest": 2618
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2596,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2602,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2607,
+              "rest": 2608
+            }
+          },
+          "exact_lags": [
+            -10
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 10,
+            "total_lag": 30,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2558,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2564,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2569,
+                  "rest": 2570
+                },
+                "hinted": {
+                  "depart": 2548,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2554,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2559,
+                  "rest": 2560
+                },
+                "delta": {
+                  "depart": -10,
+                  "eat": -10,
+                  "home": -10,
+                  "rest": -10
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2606,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2612,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2617,
+                  "rest": 2618
+                },
+                "hinted": {
+                  "depart": 2596,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2602,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2607,
+                  "rest": 2608
+                },
+                "delta": {
+                  "depart": -10,
+                  "eat": -10,
+                  "home": -10,
+                  "rest": -10
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2653,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2659,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2664,
+                  "rest": 2665
+                },
+                "hinted": {
+                  "depart": 2643,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2649,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2654,
+                  "rest": 2655
+                },
+                "delta": {
+                  "depart": -10,
+                  "eat": -10,
+                  "home": -10,
+                  "rest": -10
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2511,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2517,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2522,
+                "rest": 2523
+              },
+              {
+                "depart": 2558,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2564,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2569,
+                "rest": 2570
+              },
+              {
+                "depart": 2606,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2612,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2617,
+                "rest": 2618
+              },
+              {
+                "depart": 2653,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2659,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2664,
+                "rest": 2665
+              },
+              {
+                "depart": 2701,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2707,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2712,
+                "rest": 2713
+              },
+              {
+                "depart": 2748,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2754,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2759,
+                "rest": 2760
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2501,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2507,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2512,
+                "rest": 2513
+              },
+              {
+                "depart": 2548,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2554,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2559,
+                "rest": 2560
+              },
+              {
+                "depart": 2596,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2602,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2607,
+                "rest": 2608
+              },
+              {
+                "depart": 2643,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2649,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2654,
+                "rest": 2655
+              },
+              {
+                "depart": 2691,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2697,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2702,
+                "rest": 2703
+              },
+              {
+                "depart": 2738,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2744,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2749,
+                "rest": 2750
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 15,
+      "age": 480,
+      "actor": "B",
+      "kind": "q",
+      "origin_hash": "188aa8099b413d03605a32a48872ad08fc4b83b50e6fb1de4f51206a416e1097",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": 0,
+          "latest_home_lag": 0,
+          "last80_destinations": {
+            "control": {
+              "q": 1
+            },
+            "hinted": {
+              "q": 1
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2596,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2604,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2611,
+              "rest": 2612
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2596,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2604,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2611,
+              "rest": 2612
+            }
+          },
+          "exact_lags": [
+            0
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 0,
+            "total_lag": 0,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2548,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2556,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2563,
+                  "rest": 2564
+                },
+                "hinted": {
+                  "depart": 2548,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2556,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2563,
+                  "rest": 2564
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2596,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2604,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2611,
+                  "rest": 2612
+                },
+                "hinted": {
+                  "depart": 2596,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2604,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2611,
+                  "rest": 2612
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2643,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2651,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2658,
+                  "rest": 2659
+                },
+                "hinted": {
+                  "depart": 2643,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2651,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2658,
+                  "rest": 2659
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2501,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2509,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2516,
+                "rest": 2517
+              },
+              {
+                "depart": 2548,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2556,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2563,
+                "rest": 2564
+              },
+              {
+                "depart": 2596,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2604,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2611,
+                "rest": 2612
+              },
+              {
+                "depart": 2643,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2651,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2658,
+                "rest": 2659
+              },
+              {
+                "depart": 2691,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2697,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2702,
+                "rest": 2703
+              },
+              {
+                "depart": 2708,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2716,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2723,
+                "rest": 2724
+              },
+              {
+                "depart": 2756,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2764,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2771,
+                "rest": 2772
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2501,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2509,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2516,
+                "rest": 2517
+              },
+              {
+                "depart": 2548,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2556,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2563,
+                "rest": 2564
+              },
+              {
+                "depart": 2596,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2604,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2611,
+                "rest": 2612
+              },
+              {
+                "depart": 2643,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2651,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2658,
+                "rest": 2659
+              },
+              {
+                "depart": 2691,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2697,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2702,
+                "rest": 2703
+              },
+              {
+                "depart": 2708,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2716,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2723,
+                "rest": 2724
+              },
+              {
+                "depart": 2756,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2764,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2771,
+                "rest": 2772
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -33,
+          "latest_home_lag": -33,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "p": 1,
+              "q": 1
+            }
+          },
+          "affected": true,
+          "classification": "place_difference",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "homebound",
+              "pos": [
+                6,
+                3
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2631,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2637,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2642,
+              "rest": 2643
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2598,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2604,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2609,
+              "rest": 2610
+            }
+          },
+          "exact_lags": [],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 1,
+            "max_lag": 35,
+            "total_lag": 73,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2583,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2589,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2594,
+                  "rest": 2595
+                },
+                "hinted": {
+                  "depart": 2578,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2586,
+                  "eat_weather": "sun",
+                  "reward": -1,
+                  "home": 2593,
+                  "rest": 2594
+                },
+                "delta": {
+                  "depart": -5,
+                  "eat": -3,
+                  "home": -1,
+                  "rest": -1
+                },
+                "same_place": false
+              },
+              {
+                "control": {
+                  "depart": 2631,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2637,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2642,
+                  "rest": 2643
+                },
+                "hinted": {
+                  "depart": 2598,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2604,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2609,
+                  "rest": 2610
+                },
+                "delta": {
+                  "depart": -33,
+                  "eat": -33,
+                  "home": -33,
+                  "rest": -33
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2678,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2684,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2689,
+                  "rest": 2690
+                },
+                "hinted": {
+                  "depart": 2643,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2649,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2654,
+                  "rest": 2655
+                },
+                "delta": {
+                  "depart": -35,
+                  "eat": -35,
+                  "home": -35,
+                  "rest": -35
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 1,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2536,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2542,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2547,
+                "rest": 2548
+              },
+              {
+                "depart": 2583,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2589,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2594,
+                "rest": 2595
+              },
+              {
+                "depart": 2631,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2637,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2642,
+                "rest": 2643
+              },
+              {
+                "depart": 2678,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2684,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2689,
+                "rest": 2690
+              },
+              {
+                "depart": 2726,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2732,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2737,
+                "rest": 2738
+              },
+              {
+                "depart": 2773,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2779,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2784,
+                "rest": 2785
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2531,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2537,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2542,
+                "rest": 2543
+              },
+              {
+                "depart": 2578,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2586,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2593,
+                "rest": 2594
+              },
+              {
+                "depart": 2598,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2604,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2609,
+                "rest": 2610
+              },
+              {
+                "depart": 2643,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2649,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2654,
+                "rest": 2655
+              },
+              {
+                "depart": 2691,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2697,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2702,
+                "rest": 2703
+              },
+              {
+                "depart": 2738,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2744,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2749,
+                "rest": 2750
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 16,
+      "age": 480,
+      "actor": "B",
+      "kind": "q",
+      "origin_hash": "04ac77d9e8757dd890bf70221051167b9ca1be0fea7a639937d419f88ebb1fcd",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": 0,
+          "latest_home_lag": 0,
+          "last80_destinations": {
+            "control": {
+              "p": 1,
+              "q": 2
+            },
+            "hinted": {
+              "p": 1,
+              "q": 2
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "homebound",
+              "pos": [
+                7,
+                2
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2631,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2639,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2646,
+              "rest": 2647
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "homebound",
+              "pos": [
+                7,
+                2
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2631,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2639,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2646,
+              "rest": 2647
+            }
+          },
+          "exact_lags": [
+            0
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 0,
+            "total_lag": 0,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2583,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2591,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2598,
+                  "rest": 2599
+                },
+                "hinted": {
+                  "depart": 2583,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2591,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2598,
+                  "rest": 2599
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2631,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2639,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2646,
+                  "rest": 2647
+                },
+                "hinted": {
+                  "depart": 2631,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2639,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2646,
+                  "rest": 2647
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2678,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2686,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2693,
+                  "rest": 2694
+                },
+                "hinted": {
+                  "depart": 2678,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2686,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2693,
+                  "rest": 2694
+                },
+                "delta": {
+                  "depart": 0,
+                  "eat": 0,
+                  "home": 0,
+                  "rest": 0
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2518,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2526,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2533,
+                "rest": 2534
+              },
+              {
+                "depart": 2566,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2572,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2577,
+                "rest": 2578
+              },
+              {
+                "depart": 2583,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2591,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2598,
+                "rest": 2599
+              },
+              {
+                "depart": 2631,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2639,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2646,
+                "rest": 2647
+              },
+              {
+                "depart": 2678,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2686,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2693,
+                "rest": 2694
+              },
+              {
+                "depart": 2726,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2734,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2741,
+                "rest": 2742
+              },
+              {
+                "depart": 2773,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2781,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2788,
+                "rest": 2789
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2518,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2526,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2533,
+                "rest": 2534
+              },
+              {
+                "depart": 2566,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2572,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2577,
+                "rest": 2578
+              },
+              {
+                "depart": 2583,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2591,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2598,
+                "rest": 2599
+              },
+              {
+                "depart": 2631,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2639,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2646,
+                "rest": 2647
+              },
+              {
+                "depart": 2678,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2686,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2693,
+                "rest": 2694
+              },
+              {
+                "depart": 2726,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2734,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2741,
+                "rest": 2742
+              },
+              {
+                "depart": 2773,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2781,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2788,
+                "rest": 2789
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -5,
+          "latest_home_lag": -5,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": true,
+          "classification": "fixed_lag",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "outbound",
+              "pos": [
+                8,
+                3
+              ],
+              "outbound_target": "q",
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2636,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2642,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2647,
+              "rest": 2648
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "homebound",
+              "pos": [
+                6,
+                3
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2631,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2637,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2642,
+              "rest": 2643
+            }
+          },
+          "exact_lags": [
+            -5
+          ],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 5,
+            "total_lag": 15,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2588,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2594,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2599,
+                  "rest": 2600
+                },
+                "hinted": {
+                  "depart": 2583,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2589,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2594,
+                  "rest": 2595
+                },
+                "delta": {
+                  "depart": -5,
+                  "eat": -5,
+                  "home": -5,
+                  "rest": -5
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2636,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2642,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2647,
+                  "rest": 2648
+                },
+                "hinted": {
+                  "depart": 2631,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2637,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2642,
+                  "rest": 2643
+                },
+                "delta": {
+                  "depart": -5,
+                  "eat": -5,
+                  "home": -5,
+                  "rest": -5
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2683,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2689,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2694,
+                  "rest": 2695
+                },
+                "hinted": {
+                  "depart": 2678,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2684,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2689,
+                  "rest": 2690
+                },
+                "delta": {
+                  "depart": -5,
+                  "eat": -5,
+                  "home": -5,
+                  "rest": -5
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2541,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2547,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2552,
+                "rest": 2553
+              },
+              {
+                "depart": 2588,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2594,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2599,
+                "rest": 2600
+              },
+              {
+                "depart": 2636,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2642,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2647,
+                "rest": 2648
+              },
+              {
+                "depart": 2683,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2689,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2694,
+                "rest": 2695
+              },
+              {
+                "depart": 2731,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2737,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2742,
+                "rest": 2743
+              },
+              {
+                "depart": 2778,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2784,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2789,
+                "rest": 2790
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2536,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2542,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2547,
+                "rest": 2548
+              },
+              {
+                "depart": 2583,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2589,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2594,
+                "rest": 2595
+              },
+              {
+                "depart": 2631,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2637,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2642,
+                "rest": 2643
+              },
+              {
+                "depart": 2678,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2684,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2689,
+                "rest": 2690
+              },
+              {
+                "depart": 2726,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2732,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2737,
+                "rest": 2738
+              },
+              {
+                "depart": 2773,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2779,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2784,
+                "rest": 2785
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 19,
+      "age": 480,
+      "actor": "A",
+      "kind": "q",
+      "origin_hash": "71a05fd3259927114e678a617ccadab3b6d5ec98e3db19a0c30cabc5ed7c49d4",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -8,
+          "latest_home_lag": -8,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": true,
+          "classification": "place_difference",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "homebound",
+              "pos": [
+                4,
+                4
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2626,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2634,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2641,
+              "rest": 2642
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2618,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2626,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2633,
+              "rest": 2634
+            }
+          },
+          "exact_lags": [],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 1,
+            "max_lag": 8,
+            "total_lag": 22,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2578,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2586,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2593,
+                  "rest": 2594
+                },
+                "hinted": {
+                  "depart": 2571,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2579,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2586,
+                  "rest": 2587
+                },
+                "delta": {
+                  "depart": -7,
+                  "eat": -7,
+                  "home": -7,
+                  "rest": -7
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2626,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2634,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2641,
+                  "rest": 2642
+                },
+                "hinted": {
+                  "depart": 2618,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2626,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2633,
+                  "rest": 2634
+                },
+                "delta": {
+                  "depart": -8,
+                  "eat": -8,
+                  "home": -8,
+                  "rest": -8
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2673,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2681,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2688,
+                  "rest": 2689
+                },
+                "hinted": {
+                  "depart": 2666,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2672,
+                  "eat_weather": "sun",
+                  "reward": -1,
+                  "home": 2677,
+                  "rest": 2678
+                },
+                "delta": {
+                  "depart": -7,
+                  "eat": -9,
+                  "home": -11,
+                  "rest": -11
+                },
+                "same_place": false
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 1,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2531,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2539,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2546,
+                "rest": 2547
+              },
+              {
+                "depart": 2578,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2586,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2593,
+                "rest": 2594
+              },
+              {
+                "depart": 2626,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2634,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2641,
+                "rest": 2642
+              },
+              {
+                "depart": 2673,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2681,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2688,
+                "rest": 2689
+              },
+              {
+                "depart": 2721,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2729,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2736,
+                "rest": 2737
+              },
+              {
+                "depart": 2768,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2776,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2783,
+                "rest": 2784
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2523,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2531,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2538,
+                "rest": 2539
+              },
+              {
+                "depart": 2571,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2579,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2586,
+                "rest": 2587
+              },
+              {
+                "depart": 2618,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2626,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2633,
+                "rest": 2634
+              },
+              {
+                "depart": 2666,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2672,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2677,
+                "rest": 2678
+              },
+              {
+                "depart": 2683,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2691,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2698,
+                "rest": 2699
+              },
+              {
+                "depart": 2731,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2737,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2742,
+                "rest": 2743
+              },
+              {
+                "depart": 2748,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2756,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2763,
+                "rest": 2764
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": 2,
+          "latest_home_lag": 2,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2616,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2622,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2627,
+              "rest": 2628
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2618,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2624,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2629,
+              "rest": 2630
+            }
+          },
+          "exact_lags": [],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 0,
+            "max_lag": 3,
+            "total_lag": 8,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2568,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2574,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2579,
+                  "rest": 2580
+                },
+                "hinted": {
+                  "depart": 2571,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2577,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2582,
+                  "rest": 2583
+                },
+                "delta": {
+                  "depart": 3,
+                  "eat": 3,
+                  "home": 3,
+                  "rest": 3
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2616,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2622,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2627,
+                  "rest": 2628
+                },
+                "hinted": {
+                  "depart": 2618,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2624,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2629,
+                  "rest": 2630
+                },
+                "delta": {
+                  "depart": 2,
+                  "eat": 2,
+                  "home": 2,
+                  "rest": 2
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2663,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2669,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2674,
+                  "rest": 2675
+                },
+                "hinted": {
+                  "depart": 2666,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2672,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2677,
+                  "rest": 2678
+                },
+                "delta": {
+                  "depart": 3,
+                  "eat": 3,
+                  "home": 3,
+                  "rest": 3
+                },
+                "same_place": true
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 0,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2503,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2511,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2518,
+                "rest": 2519
+              },
+              {
+                "depart": 2523,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2529,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2534,
+                "rest": 2535
+              },
+              {
+                "depart": 2568,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2574,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2579,
+                "rest": 2580
+              },
+              {
+                "depart": 2616,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2622,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2627,
+                "rest": 2628
+              },
+              {
+                "depart": 2663,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2669,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2674,
+                "rest": 2675
+              },
+              {
+                "depart": 2711,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2717,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2722,
+                "rest": 2723
+              },
+              {
+                "depart": 2758,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2764,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2769,
+                "rest": 2770
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2506,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2514,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2521,
+                "rest": 2522
+              },
+              {
+                "depart": 2526,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2532,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2537,
+                "rest": 2538
+              },
+              {
+                "depart": 2571,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2577,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2582,
+                "rest": 2583
+              },
+              {
+                "depart": 2618,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2624,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2629,
+                "rest": 2630
+              },
+              {
+                "depart": 2666,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2672,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2677,
+                "rest": 2678
+              },
+              {
+                "depart": 2713,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2719,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2724,
+                "rest": 2725
+              },
+              {
+                "depart": 2761,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2769,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2776,
+                "rest": 2777
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "family": "reversal",
+      "seed": 19,
+      "age": 480,
+      "actor": "B",
+      "kind": "q",
+      "origin_hash": "71a05fd3259927114e678a617ccadab3b6d5ec98e3db19a0c30cabc5ed7c49d4",
+      "people": {
+        "A": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -8,
+          "latest_home_lag": -8,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 2
+            }
+          },
+          "affected": true,
+          "classification": "place_difference",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "homebound",
+              "pos": [
+                4,
+                4
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2626,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2634,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2641,
+              "rest": 2642
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                4,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2618,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2626,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2633,
+              "rest": 2634
+            }
+          },
+          "exact_lags": [],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 1,
+            "max_lag": 8,
+            "total_lag": 22,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2578,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2586,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2593,
+                  "rest": 2594
+                },
+                "hinted": {
+                  "depart": 2571,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2579,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2586,
+                  "rest": 2587
+                },
+                "delta": {
+                  "depart": -7,
+                  "eat": -7,
+                  "home": -7,
+                  "rest": -7
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2626,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2634,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2641,
+                  "rest": 2642
+                },
+                "hinted": {
+                  "depart": 2618,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2626,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2633,
+                  "rest": 2634
+                },
+                "delta": {
+                  "depart": -8,
+                  "eat": -8,
+                  "home": -8,
+                  "rest": -8
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2673,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2681,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2688,
+                  "rest": 2689
+                },
+                "hinted": {
+                  "depart": 2666,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2672,
+                  "eat_weather": "sun",
+                  "reward": -1,
+                  "home": 2677,
+                  "rest": 2678
+                },
+                "delta": {
+                  "depart": -7,
+                  "eat": -9,
+                  "home": -11,
+                  "rest": -11
+                },
+                "same_place": false
+              }
+            ]
+          },
+          "candidate_count": 3,
+          "min_mismatches": 1,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2531,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2539,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2546,
+                "rest": 2547
+              },
+              {
+                "depart": 2578,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2586,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2593,
+                "rest": 2594
+              },
+              {
+                "depart": 2626,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2634,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2641,
+                "rest": 2642
+              },
+              {
+                "depart": 2673,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2681,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2688,
+                "rest": 2689
+              },
+              {
+                "depart": 2721,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2729,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2736,
+                "rest": 2737
+              },
+              {
+                "depart": 2768,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2776,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2783,
+                "rest": 2784
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2523,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2531,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2538,
+                "rest": 2539
+              },
+              {
+                "depart": 2571,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2579,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2586,
+                "rest": 2587
+              },
+              {
+                "depart": 2618,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2626,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2633,
+                "rest": 2634
+              },
+              {
+                "depart": 2666,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2672,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2677,
+                "rest": 2678
+              },
+              {
+                "depart": 2683,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2691,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2698,
+                "rest": 2699
+              },
+              {
+                "depart": 2731,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2737,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2742,
+                "rest": 2743
+              },
+              {
+                "depart": 2748,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2756,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2763,
+                "rest": 2764
+              }
+            ]
+          }
+        },
+        "B": {
+          "latest_route_equal": true,
+          "latest_departure_lag": -15,
+          "latest_home_lag": -15,
+          "last80_destinations": {
+            "control": {
+              "q": 2
+            },
+            "hinted": {
+              "q": 1
+            }
+          },
+          "affected": false,
+          "classification": "same_endpoint",
+          "latest_same": true,
+          "control": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2616,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2622,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2627,
+              "rest": 2628
+            }
+          },
+          "hinted": {
+            "endpoint": {
+              "phase": "rest",
+              "pos": [
+                6,
+                5
+              ],
+              "outbound_target": null,
+              "weather": "sun"
+            },
+            "latest_trip": {
+              "depart": 2601,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2607,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2612,
+              "rest": 2613
+            }
+          },
+          "exact_lags": [],
+          "best_alignment": {
+            "offset": 0,
+            "mismatches": 1,
+            "max_lag": 15,
+            "total_lag": 42,
+            "trips": [
+              {
+                "control": {
+                  "depart": 2568,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2574,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2579,
+                  "rest": 2580
+                },
+                "hinted": {
+                  "depart": 2556,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2562,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2567,
+                  "rest": 2568
+                },
+                "delta": {
+                  "depart": -12,
+                  "eat": -12,
+                  "home": -12,
+                  "rest": -12
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2616,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2622,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2627,
+                  "rest": 2628
+                },
+                "hinted": {
+                  "depart": 2601,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2607,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2612,
+                  "rest": 2613
+                },
+                "delta": {
+                  "depart": -15,
+                  "eat": -15,
+                  "home": -15,
+                  "rest": -15
+                },
+                "same_place": true
+              },
+              {
+                "control": {
+                  "depart": 2663,
+                  "place": "q",
+                  "weather": "sun",
+                  "eat": 2669,
+                  "eat_weather": "sun",
+                  "reward": 1,
+                  "home": 2674,
+                  "rest": 2675
+                },
+                "hinted": {
+                  "depart": 2648,
+                  "place": "p",
+                  "weather": "sun",
+                  "eat": 2656,
+                  "eat_weather": "sun",
+                  "reward": -1,
+                  "home": 2663,
+                  "rest": 2664
+                },
+                "delta": {
+                  "depart": -15,
+                  "eat": -13,
+                  "home": -11,
+                  "rest": -11
+                },
+                "same_place": false
+              }
+            ]
+          },
+          "candidate_count": 2,
+          "min_mismatches": 1,
+          "nearby": {
+            "control": [
+              {
+                "depart": 2503,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2511,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2518,
+                "rest": 2519
+              },
+              {
+                "depart": 2523,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2529,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2534,
+                "rest": 2535
+              },
+              {
+                "depart": 2568,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2574,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2579,
+                "rest": 2580
+              },
+              {
+                "depart": 2616,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2622,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2627,
+                "rest": 2628
+              },
+              {
+                "depart": 2663,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2669,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2674,
+                "rest": 2675
+              },
+              {
+                "depart": 2711,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2717,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2722,
+                "rest": 2723
+              },
+              {
+                "depart": 2758,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2764,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2769,
+                "rest": 2770
+              }
+            ],
+            "hinted": [
+              {
+                "depart": 2536,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2544,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2551,
+                "rest": 2552
+              },
+              {
+                "depart": 2556,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2562,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2567,
+                "rest": 2568
+              },
+              {
+                "depart": 2601,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2607,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2612,
+                "rest": 2613
+              },
+              {
+                "depart": 2648,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2656,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2663,
+                "rest": 2664
+              },
+              {
+                "depart": 2668,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2674,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2679,
+                "rest": 2680
+              },
+              {
+                "depart": 2713,
+                "place": "q",
+                "weather": "sun",
+                "eat": 2719,
+                "eat_weather": "sun",
+                "reward": 1,
+                "home": 2724,
+                "rest": 2725
+              },
+              {
+                "depart": 2761,
+                "place": "p",
+                "weather": "sun",
+                "eat": 2769,
+                "eat_weather": "sun",
+                "reward": -1,
+                "home": 2776,
+                "rest": 2777
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

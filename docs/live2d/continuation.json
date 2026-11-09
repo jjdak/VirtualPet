@@ -3,8 +3,8 @@
   "updatedAt": "2026-11-09",
   "latestOwnerFeedback": {
     "date": "2026-11-09",
-    "quote": "先把 W3 的成果整理好保存到 GitHub，再把观察时间拉长，看看第 240 步还不同的那些世界，后来两个人的选择会不会重新趋同。先做好计划再推进，记录进展，保持目录整洁。",
-    "interpretation": "Archive W3, then follow the union of endpoint-divergent paired worlds using actual subsequent choices."
+    "quote": "先把这轮延长观察的结果整理好保存到 GitHub，再看看第 2640 步还不同的那 11 对世界：是两边选的地方还有差异，还是只是出发和回营的时间错开了？先做好计划再推进，记录进展，保持目录整洁。",
+    "interpretation": "Archive extended observation, then diagnose actual trips and timing for all remaining endpoint-divergent pairs."
   },
   "activeTrack": "two-resident-living-world",
   "decision": {
@@ -26,9 +26,9 @@
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "W3-extended-observation",
-    "status": "follow_up_complete_owner_experience_pending",
-    "nextAction": "Inspect the continued departure records and decide the next question with the owner.",
+    "id": "W3-endpoint-trips",
+    "status": "endpoint_diagnosis_complete_owner_experience_pending",
+    "nextAction": "Inspect the paired excursion ledgers for the +2640 endpoint.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -172,7 +172,8 @@
     "2026-11-06 W1 closeout: final source hashes match both receipts. 15 core/HTTP and 12 Chromium checks passed, including real file chooser import of downloaded JSON, 10 pause/step cycles and delayed command recovery.",
     "W2 on 2026-11-06: 32 seeds per policy, paired context probes and 960-step worlds. Late mean beneficial meal rate 73.5% vs 44.6%. 21 Python and 15 browser checks passed.",
     "2026-11-09 W3: W2 archive confirmed on GitHub. 384 primary paired conditions and 256 exploratory post-swap pairs with matched communication ablation. Primary hints changed recipients in 65 pairs; post-swap hints led to 18 peer choice changes.",
-    "W3 archive verified on GitHub. 45 endpoint-divergent pairs reproduced and continued to +2640. Both residents met sustained dominant-choice agreement in all 45; 11 pairs still differed physically at endpoint."
+    "W3 archive verified on GitHub. 45 endpoint-divergent pairs reproduced and continued to +2640. Both residents met sustained dominant-choice agreement in all 45; 11 pairs still differed physically at endpoint.",
+    "W3 extended observation archived on GitHub. All 11 pairs with physical differences at +2640 reproduced. All 12 affected residents made same-place latest excursions with matching departure-relative paths through return."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -623,5 +624,18 @@
     "publicRemoteSaved": true,
     "verifiedArchiveCommit": "06c0c1a55d752e743a87338b2baf9ad78cf9fd77",
     "archiveBranch": "codex/w3-extended-observation-2026-11-09"
+  },
+  "livingWorldW3Endpoint": {
+    "plan": "docs/sim/living-world/w3-endpoint/PLAN.md",
+    "progress": "docs/sim/living-world/w3-endpoint/PROGRESS.md",
+    "result": "docs/sim/living-world/w3-endpoint/review/index.html",
+    "pairs": 11,
+    "affectedPeople": 12,
+    "latestTripRoutesMatched": 12,
+    "fullWindowFixedLagPairs": 7,
+    "localSequenceMatchesWithoutFixedLagPairs": 1,
+    "localChoiceDifferencePairs": 3,
+    "ownerExperienceAccepted": false,
+    "publicRemoteSaved": false
   }
 }

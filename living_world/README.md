@@ -1,5 +1,9 @@
 # 两个角色的实时小世界
 
+## 第 +2640 步的游程对照
+
+[逐案查看出发与回营](../docs/sim/living-world/w3-endpoint/review/index.html) · [诊断方法及结果](../docs/sim/living-world/w3-endpoint/PROGRESS.md)
+
 ## 第 240 步之后
 
 [打开离线出发记录](../docs/sim/living-world/w3-long/review/index.html)，选择配对和时段，观察两边是否重新常去同一处。[结果及复现命令](../docs/sim/living-world/w3-long/PROGRESS.md)。

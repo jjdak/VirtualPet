@@ -1,6 +1,10 @@
 # 庭院原型：一分钟的安静相处
 
-## 当前阶段 · W3 延长观察
+## 第 +2640 步的 11 对世界
+
+12 名状态有差异的角色最近一趟在两侧都选同地。7 对可用固定时差对齐，1 对邻近三趟同地但时差变化，3 对邻近游程有地点分歧。[游程图](sim/living-world/w3-endpoint/review/index.html) · [计划与结果](sim/living-world/w3-endpoint/PROGRESS.md)。
+
+## W3 延长观察
 
 从第 +240 步仍有行为差异的 45 对世界继续到 +2640。两个人在两边最终都常去相同地点，末步仍有 11 对出现行动差异。图中可以查看每次实际出发。[结果与复现](sim/living-world/w3-long/PROGRESS.md) · [离线结果页](sim/living-world/w3-long/review/index.html)。
 
