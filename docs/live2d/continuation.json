@@ -603,8 +603,10 @@
     "supplementaryCommunicationDependentPeerChanges": 18,
     "horizon": 240,
     "ownerExperienceAccepted": false,
-    "publicRemoteSaved": false,
+    "publicRemoteSaved": true,
     "pythonChecks": 29,
-    "browserChecks": 12
+    "browserChecks": 12,
+    "verifiedArchiveCommit": "ead23acbed8cdd83dafcbfcb4eb8008a3cf611bb",
+    "archiveBranch": "codex/w3-paired-worlds-2026-11-09"
   }
 }

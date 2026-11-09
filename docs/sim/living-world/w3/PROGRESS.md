@@ -57,3 +57,7 @@ W2 已于本轮开始时保存到 GitHub。远端 W2 归档分支读回的成果
 - 从仓库根目录运行 `python3 living_world/studies/w3_influence.py` 与 `python3 living_world/studies/w3_reversal.py` 可重建两组证据。主比较和补充比较分别保存。浏览器和 Python 使用相同的存档内容指纹，归一化 JSON 中数值相同的整数与浮点写法。
 - 运行 `python3 -m unittest discover -s living_world/tests -v` 检查 W1–W3 核心和 HTTP。29 项通过，其中 8 项覆盖 W3。传播判定的单元测试使用专设状态，报告中的 18 对来自从零运行的世界。[测试记录](review/tests.txt)
 - 12 项独立 Chromium 检查通过，覆盖真实文件选择器导入、零差异、同步回放、案例关键时刻和窄屏。按 W2 开发说明设置 Playwright 路径后，执行 `node living_world/tests/browser-w3.cjs`。[浏览器验证记录](review/browser-verification.json) · [同伴改选截图](review/w3-relay.png)
+
+## GitHub 归档
+
+已核验源码指纹、29 项 Python 检查与 12 项浏览器检查的既有记录。远端 `codex/w3-paired-worlds-2026-11-09` 分支读回的成果提交与本地一致。归档包含两个实验族的逐对记录、可复现实验及合成存档。[固定版本](https://github.com/jjdak/VirtualPet/tree/ead23acbed8cdd83dafcbfcb4eb8008a3cf611bb)
