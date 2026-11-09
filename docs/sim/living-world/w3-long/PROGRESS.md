@@ -40,3 +40,7 @@
 - 运行 `python3 living_world/studies/w3_long.py` 生成本目录的结果。逐案例明细含两份 +240 状态指纹、后续每次出发、天气区间、行为差异区间和分窗统计。[逐案例记录](review/cases.jsonl) · [分组汇总及原始文件指纹](review/summary.json)
 - 运行 `python3 -m unittest discover -s living_world/tests -p test_w3_long.py -v`。4 项针对性检查通过，覆盖全量入组去重、样本不足和阈值边界、天气切换以及从序列化的 +240 双侧状态重新载入。独立续跑主比较样例和 W3 传播样例，逐项复核新增的出发记录与行为区间。[测试日志](review/tests.txt)
 - 结果页可离线打开，也可在仓库根目录执行 `python3 -m http.server 4196 --bind 127.0.0.1 --directory docs/sim/living-world/w3-long/review`。已有 Playwright 环境下运行 `node living_world/tests/browser-w3-long.cjs` 可复核案例选择、时间窗、绘图次数、原始表和窄屏。报告和脚本保存在本地延长观察分支。
+
+## GitHub 归档
+
+延长观察的计划、45 对逐次出发记录、离线图、脚本与验证日志已保存到独立分支 `codex/w3-extended-observation-2026-11-09`。已通过 `git ls-remote` 核对远端成果提交。[固定版本](https://github.com/jjdak/VirtualPet/tree/06c0c1a55d752e743a87338b2baf9ad78cf9fd77)

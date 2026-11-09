@@ -620,6 +620,8 @@
     "bothFinalPreferenceAgreement": 45,
     "pairsWithBodyDifferenceAtEnd": 11,
     "ownerExperienceAccepted": false,
-    "publicRemoteSaved": false
+    "publicRemoteSaved": true,
+    "verifiedArchiveCommit": "06c0c1a55d752e743a87338b2baf9ad78cf9fd77",
+    "archiveBranch": "codex/w3-extended-observation-2026-11-09"
   }
 }
