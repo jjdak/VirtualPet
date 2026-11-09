@@ -50,4 +50,4 @@ W2 使用 v2 格式和独立目录 `.runtime/living-world-w2/`。存档保存两
 - 21 项 Python 检查通过，含 15 项既有检查及 6 项天气边界检查。覆盖途中变天、同伴报告验证、环境信息隔离、两种记忆存取、180 步精确续跑、坏档和过时环境编辑拒绝。[测试日志](review/tests.txt)
 - 隔离 Chromium 的 15 项交互检查通过，包含实际 JSON 下载和导回、暂停与单步、两个角色两种天气的亲历面板、定向提示、天气控制和第 700 步示例。桌面和窄屏各留一张图。[浏览器回执](review/browser-verification.json) · [窄屏](review/w2-narrow.png)
 - 从仓库根目录运行 `python3 living_world/studies/w2_context.py` 复现两组比较与示例存档，运行 `python3 -m unittest discover -s living_world/tests -v` 复核核心与 HTTP。按[运行说明](../../../../living_world/README.md)设置 Playwright 路径，再运行 `node living_world/tests/browser-check.cjs --w2` 复核界面。研究脚本只写 W2 的 review 目录。
-- 代码与文档保存在本地 W2 分支。后续决策留给实际体验反馈。
+- 2026-11-09 已在 GitHub 的 `codex/w2-context-learning-2026-11-06` 分支保存 W2。远端读回的成果提交与本地一致。归档包含代码、计划、实验生成的示例和验证证据。[固定成果提交](https://github.com/jjdak/VirtualPet/tree/a689c86d251d13b8149a435687787d4b7fb5ff24)

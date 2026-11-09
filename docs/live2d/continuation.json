@@ -586,6 +586,8 @@
     "pythonChecks": 21,
     "browserChecks": 15,
     "ownerExperienceAccepted": false,
-    "publicRemoteSaved": false
+    "publicRemoteSaved": true,
+    "verifiedArchiveCommit": "a689c86d251d13b8149a435687787d4b7fb5ff24",
+    "archiveBranch": "codex/w2-context-learning-2026-11-06"
   }
 }
