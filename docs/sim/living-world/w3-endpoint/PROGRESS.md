@@ -48,3 +48,7 @@ python3 -m unittest discover -s living_world/tests -p test_w3_endpoint.py -v
 3 项针对性检查通过，包含对称时间平移、跨截点的游程配对、全部入组案例与存档出发记录比对，以及按地图最短路独立核对取食和回营时刻。隔离 Chromium 检查了 12 个角色条目、种子 4 和 15 的实际时刻、展开表格与窄屏布局。[测试日志](review/tests.txt)
 
 本轮诊断在独立本地分支保存。可直接打开离线 HTML，也可用 `python3 -m http.server 4197 --bind 127.0.0.1 --directory docs/sim/living-world/w3-endpoint/review` 查看。
+
+## GitHub 归档
+
+2026-11-10 已将游程诊断、逐案明细、离线图、脚本与验证日志保存到分支 `codex/w3-endpoint-trips-2026-11-09`。远端读回的成果提交与本地一致。[固定版本](https://github.com/jjdak/VirtualPet/tree/e78101452c9efe0edc471362d2600efdf4dd6fcc)
