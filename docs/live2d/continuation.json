@@ -1,10 +1,10 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-11-10",
+  "updatedAt": "2026-11-11",
   "latestOwnerFeedback": {
-    "date": "2026-11-09",
-    "quote": "先把这轮延长观察的结果整理好保存到 GitHub，再看看第 2640 步还不同的那 11 对世界：是两边选的地方还有差异，还是只是出发和回营的时间错开了？先做好计划再推进，记录进展，保持目录整洁。",
-    "interpretation": "Archive extended observation, then diagnose actual trips and timing for all remaining endpoint-divergent pairs."
+    "date": "2026-11-11",
+    "quote": "先把这轮游程诊断整理好保存到 GitHub，再看看那 3 对确实选过不同地点的世界：当时为什么会改选，是亲历、同伴消息，还是偶尔探索？先做好计划再推进，记录进展，保持目录整洁。",
+    "interpretation": "Archive the previous endpoint diagnosis, then attribute the registered three destination mismatches to pre-choice evidence and exploration."
   },
   "activeTrack": "two-resident-living-world",
   "decision": {
@@ -26,9 +26,9 @@
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "W3-endpoint-trips",
-    "status": "endpoint_diagnosis_complete_owner_experience_pending",
-    "nextAction": "Inspect the paired excursion ledgers for the +2640 endpoint.",
+    "id": "W3-choice-attribution",
+    "status": "choice_attribution_complete_locally",
+    "nextAction": "Review the three departure explanations. A separate decision-indexed random coupling comparison is proposed but not started.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -638,6 +638,24 @@
     "ownerExperienceAccepted": false,
     "publicRemoteSaved": true,
     "verifiedArchiveCommit": "e78101452c9efe0edc471362d2600efdf4dd6fcc",
-    "archiveBranch": "codex/w3-endpoint-trips-2026-11-09"
+    "archiveBranch": "codex/w3-endpoint-trips-2026-11-09",
+    "archiveReceiptCommit": "6639ec31ebbed62becce9836e9afe04383d801d2"
+  },
+  "livingWorldW3Attribution": {
+    "plan": "docs/sim/living-world/w3-attribution/PLAN.md",
+    "progress": "docs/sim/living-world/w3-attribution/PROGRESS.md",
+    "result": "docs/sim/living-world/w3-attribution/review/attribution.json",
+    "pairs": 3,
+    "decisions": 6,
+    "uniqueRandomInputKeys": 4,
+    "uniqueInputStates": 5,
+    "ablationProbes": 48,
+    "swappedDrawProbes": 6,
+    "hintedDestinationChangesFromExploration": 3,
+    "testsPassed": 4,
+    "publicRemoteSaved": false,
+    "ownerExperienceAccepted": false,
+    "branch": "codex/w3-choice-attribution-2026-11-10",
+    "interpretation": "At the sampled departures, personal and social estimates favor q on both branches. Turning off exploration sends all to q; swapping only RNG draws swaps destinations. This does not remove historical social effects on departure timing."
   }
 }

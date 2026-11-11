@@ -1,5 +1,9 @@
 # 两个角色的实时小世界
 
+## 三次改选的直接原因 · 2026-11-11
+
+三对邻近游程中的改选均触发偶尔探索。六次出发的亲历和有效消息都偏向紫穗；只关闭本次探索，六次均选紫穗。种子 19 的两对共享抽样，不能算作独立重复。[逐次证据与反事实](../docs/sim/living-world/w3-attribution/PROGRESS.md)。上一轮游程诊断已保存到 GitHub，本轮分析保存在本地独立分支。
+
 ## 第 +2640 步的游程对照
 
 [逐案查看出发与回营](../docs/sim/living-world/w3-endpoint/review/index.html) · [诊断方法及结果](../docs/sim/living-world/w3-endpoint/PROGRESS.md)
