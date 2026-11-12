@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-11-12T17:44:52.765Z",
+  "status": "passed",
+  "checks": [
+    "initial preparation sends no hint; maps equal and playback waits for player",
+    "explicit hint starts at zero; future outcome and metrics are not narrated",
+    "guided playback stops at actual +56 experience, +59 delivery, +66 choice",
+    "cards rewind exact events; delivery is distinct from first differing message",
+    "play pause single-step guide-speed changes and end boundary remain bounded",
+    "pending selectors never relabel old intervention and apply only on success",
+    "calculation and example failures retain current story and restore controls",
+    "zero-effect example does not claim a causal intervention or forced success",
+    "valid W2 import works; invalid oversized and malformed saves retain story",
+    "expired hint ends at missing experience without inventing downstream events",
+    "HTTP rejects cross-site wrong-host invalid payload and excessive body",
+    "390px layout has no horizontal overflow and all four steps remain reachable",
+    "no uncaught browser exceptions"
+  ],
+  "engine": "isolated Playwright Chromium headless",
+  "user_saves_touched": false,
+  "owner_accepted": false,
+  "browser_version": "151.0.7922.34",
+  "page_errors": []
+}

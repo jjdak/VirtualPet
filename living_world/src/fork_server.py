@@ -1,4 +1,4 @@
-"""Read-only W3 paired replay service. Never opens or replaces personal saves."""
+"""Read-only paired replay and W4 intervention story service. Never opens or replaces personal saves."""
 import argparse
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
@@ -7,7 +7,7 @@ import threading
 from urllib.parse import parse_qs, urlsplit
 
 from context_world import ContextWorld
-from fork_study import compare
+from intervention_story import explain
 
 ROOT = Path(__file__).resolve().parents[2]
 WEB = ROOT / 'living_world/web/w3'
@@ -25,7 +25,7 @@ def example(kind):
     elif kind == 'reversal':
         snapshot = json.loads((REVIEW / 'reversal-example.json').read_text())
         info = json.loads((REVIEW / 'reversal.json').read_text())['first_relay']
-        label = '效果互换 · 同伴改选示例'
+        label = '食物效果互换 · 机制示例'
     else:
         snapshot = json.loads((ROOT / 'docs/sim/living-world/w2/review/step700-example.json').read_text())
         info, label = {'actor': 'A', 'kind': 'q'}, 'W2 第 700 步示例'
@@ -34,7 +34,7 @@ def example(kind):
 
 
 def handler_for():
-    # Bound concurrent CPU work. Each comparison restores two independent worlds.
+    # Bound concurrent CPU work. Each request restores its own independent worlds.
     gate = threading.BoundedSemaphore(2)
 
     class Handler(BaseHTTPRequestHandler):
@@ -110,7 +110,7 @@ def handler_for():
                 if not gate.acquire(blocking=False):
                     return self.send(429, {'error': '正在计算，请稍后重试'})
                 try:
-                    result = compare(snapshot, body['actor'], body['kind'], horizon=240, frames=True)
+                    result = explain(snapshot, body['actor'], body['kind'], horizon=240)
                 finally:
                     gate.release()
                 return self.send(200, result)
@@ -128,7 +128,7 @@ def main():
     args = parser.parse_args()
     server = ThreadingHTTPServer(('127.0.0.1', args.port), handler_for())
     server.daemon_threads = True
-    print(f'W3 同档分支：http://127.0.0.1:{server.server_port}/ （独立对照，不读写个人存档）', flush=True)
+    print(f'一条线索的后来：http://127.0.0.1:{server.server_port}/ （独立对照，不读写个人存档）', flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
