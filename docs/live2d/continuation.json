@@ -666,7 +666,7 @@
     "progress": "docs/sim/living-world/w3-coupling/PROGRESS.md",
     "result": "docs/sim/living-world/w3-coupling/review/summary.json",
     "branch": "codex/w3-departure-coupling-2026-11-12",
-    "publicRemoteSaved": false,
+    "publicRemoteSaved": true,
     "ownerExperienceAccepted": false,
     "pairs": 640,
     "worldTrajectories": 5120,
@@ -691,6 +691,7 @@
     "departureTailUnpairedChoices": 71,
     "departureTailCrossBoundaryPairs": 76,
     "finalGreedyDifferentPeople": 0,
-    "interpretation": "Intervention still changes early experiences and peer choices with coupled draws. Late matched destinations agree, while memory counts, estimates and timing may remain different. The two modes also change control trajectories; their difference is coupling sensitivity, not an isolated historical timing effect."
+    "interpretation": "Intervention still changes early experiences and peer choices with coupled draws. Late matched destinations agree, while memory counts, estimates and timing may remain different. The two modes also change control trajectories; their difference is coupling sensitivity, not an isolated historical timing effect.",
+    "verifiedArchiveCommit": "5448c80e8be58983410da895e8a36d5ae2ce4d6f"
   }
 }

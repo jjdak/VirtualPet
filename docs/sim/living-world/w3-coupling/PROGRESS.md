@@ -96,4 +96,4 @@ python3 -m unittest discover -s living_world/tests -p test_w3_coupling.py -v
 
 [6 项检查](review/tests.txt)通过，包括检查点冻结、随机输入与出发计数、存档和天气切换、空供给、无干预一致性、窗口边界、全部 640 行汇总与文件指纹。独立重放原三对、首个传播例子和首个主比较条件，共 5 条件，逐字段匹配结果与明细。未改变运行时，不需要新增界面验收。
 
-本轮脚本、结果和进展保存在本地独立分支，尚未推送 GitHub。[机器汇总](review/summary.json) · [逐条件数据](review/cases.jsonl)。
+2026-11-12 本轮脚本、结果和进展已保存到 GitHub，远端读回与本地一致。[随机配对固定归档](https://github.com/jjdak/VirtualPet/tree/5448c80e8be58983410da895e8a36d5ae2ce4d6f)。[机器汇总](review/summary.json) · [逐条件数据](review/cases.jsonl)。
