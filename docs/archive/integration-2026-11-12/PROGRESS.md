@@ -29,3 +29,13 @@ PR #2 原来包含后续 S1/S2、E1–E6、W1–W3 至随机配对实验。本�
 - 旧分支清理完成时，远端只保留 main，本地 main 与远端一致且工作区干净。随后创建本次短期回执分支；其文档 PR 合入后按相同规则删除，不作为新的长期归档分支。
 
 [合并回执](review/merge-receipt.json) · [标签回执](review/tag-receipt.json) · [旧分支清理明细](review/cleanup-receipt.json)。回执中的 main SHA 是 PR #2 完成时的快照，后续文档 PR 会使 main 正常前进。
+
+## 2026-11-13 最后收尾
+
+回执 [PR #3](https://github.com/jjdak/VirtualPet/pull/3) 已合入 `2cd5d2aec69faaaf0639397f1e2f815b6c409a52`。上轮最后清理因自动审批服务额度耗尽未执行；本轮重新走正常审批并核对远端状态，没有绕过审批。
+
+已确认 `codex/integration-receipt-2026-11-12` 的头提交仍为 `18f4ee4496c70414973cecae97e69ebef6758297`，且被 main 包含。使用精确提交租约删除远端分支，本地切回 main、仅快进同步，再安全删除本地临时分支并清除失效远端引用。
+
+清理后本地与远端均仅剩 main，两者提交一致，工作区干净。[机器回执](review/receipt-branch-cleanup.json)记录的是本次清理完成、发布这段文档之前的快照。此收尾记录仍按约定走一次性文档 PR；合入后同步 main 并删除其临时分支，不再为临时分支清理递归新建回执 PR。最终检查结果在任务回复与本机运行记录中报告。
+
+本轮仅更新进展与状态文档，JSON 解析和 diff 检查通过；业务代码未改，未重复运行上一轮已通过的完整回归。
