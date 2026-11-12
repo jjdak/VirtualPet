@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-02",
+  "passed": true,
+  "url": "http://127.0.0.1:4191/e5-v1/replay.html",
+  "method": "Actual CUA browser controls and accessibility observations; final screenshot visually inspected",
+  "checks": [
+    "play advances physical action frame; pause",
+    "jump hidden_gain@77 reaches B round109",
+    "stable round19 B interval18->24",
+    "hidden_gain round109 B interval36->18; proxy approximately0.34",
+    "noisy_stable round111 B trigger36->42",
+    "staggered@119 change events119/142 separate",
+    "fixed12,18,30 controls",
+    "26case table expanded and collapsed; new timing labels",
+    "footer corrected and checked after reload"
+  ],
+  "screenshots": [
+    "stable-backoff.jpg",
+    "frequency-comparison.jpg"
+  ],
+  "final_view": {
+    "scenario": "hidden_gain@77",
+    "comparator": "fixed_30",
+    "round": 109
+  },
+  "limits": [
+    "No FPS or subjective acceptance claim",
+    "All12 profiles checked via separate DOM doubles; actual browser sampled stated controls"
+  ]
+}

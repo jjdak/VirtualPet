@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第 240 步之后 · 双世界出发记录</title>
+<style>
+*{box-sizing:border-box}body{font:15px/1.7 system-ui,"PingFang SC",sans-serif;color:#263c39;background:#f2f5ee;margin:0}main{max-width:1060px;margin:auto;padding:28px 16px}h1,h2,p{margin:0 0 10px}h1{font-size:26px}h2{font-size:18px}section{background:#fffef8;padding:20px;border:1px solid #d0dacf;border-radius:12px;margin:16px 0}.form{display:flex;flex-wrap:wrap;gap:14px}label{display:grid;font-weight:600;gap:4px}select{font:inherit;max-width:100%;border:1px solid #98aea2;border-radius:6px;padding:5px;color:inherit;background:white}.note{font-size:13px;color:#536660}.scroll{overflow:auto}svg{width:100%;min-width:660px;height:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:6px 10px;border-bottom:1px solid #dce3dc}summary{cursor:pointer}.trips{max-height:280px;overflow:auto}.dot{color:#397448}.diamond{color:#814b96}.data{font-variant-numeric:tabular-nums}#interpretation{margin-top:12px}@media(max-width:550px){section{padding:12px}select{font-size:13px}}
+</style>
+<main><h1>第 240 步之后，两人后来分别去了哪里？</h1><p>选择 W3 中仍有行为差异的一对世界。左边沿用无干预分支，右边沿用单人线索分支。时间以原始分支时刻为零点。</p>
+<section class="form"><label>原始配对<select id="cases"></select></label><label>观察时段<select id="period"><option value="-1">全部新增 2400 步</option></select></label></section>
+<section><h2>两人每次实际出发</h2><p class="note"><b class="dot">● 青禾地</b>　<b class="diamond">◆ 紫穗地</b>　浅蓝底为雨天。每个标记对应一次出发，可在下方表格核对具体时刻。</p><div class="scroll"><svg viewBox="0 0 1000 190" id="plot" role="img" aria-label="两名角色在两个分支的实际出发时刻与目的地"></svg></div><p id="origin" class="note"></p></section>
+<section><h2>同一人跨分支的选择</h2><p>每 480 步按天气统计。两边在该天气各有至少 3 次出发，且各自至少三分之二选同一地点，才判为该天气下偏好一致。</p><div class="scroll"><table><thead><tr><th>天气／角色</th><th>无干预（青禾／紫穗）</th><th>有线索（青禾／紫穗）</th><th>判断</th></tr></thead><tbody id="counts"></tbody></table></div><p id="interpretation" class="note"></p></section>
+<section><details><summary>逐次出发记录</summary><div class="trips"><table><thead><tr><th>分支后</th><th>天气</th><th>人物</th><th>无干预</th><th>有线索</th></tr></thead><tbody id="raw"></tbody></table></div></details></section></main>
+<script>
+const data=/*CASES*/;
+const $=id=>document.getElementById(id);
+const names={A:'阿禾',B:'小岚'}, food={p:'青禾地',q:'紫穗地'}, sky={sun:'晴',rain:'雨'};
+const labels={agree:'偏好一致',mixed:'偏好不明',opposite:'偏好相反',sparse:'出发太少'};
+const sides=['control','hinted'];
+const ns='http://www.w3.org/2000/svg';
+function draw(tag,attrs,text){const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(text)e.textContent=text;$('plot').append(e);return e;}
+function row(parent,values){const tr=document.createElement('tr');for(const v of values){const td=document.createElement('td');td.textContent=v;tr.append(td)}parent.append(tr)}
+for(const [i,c] of data.entries())$('cases').add(new Option(`${c.family==='primary'?'天气交替':'效果互换'} · 种子 ${c.seed} · 原步 ${c.age} · ${names[c.actor]}去${food[c.kind]}`,i));
+for(let i=0;i<5;i++)$('period').add(new Option(`+${241+i*480} 至 +${720+i*480}`,i));
+$('cases').value=data.findIndex(c=>c.family==='reversal'&&c.seed===4&&c.age===480&&c.actor==='A'&&c.kind==='q');
+function render(){
+ const c=data[+$('cases').value],i=+$('period').value,lo=i<0?241:241+i*480,hi=i<0?2640:720+i*480;
+ const x=t=>105+(t-lo)/(hi-lo)*865; $('plot').replaceChildren();$('raw').replaceChildren();$('counts').replaceChildren();
+ for(const [a,b,w] of c.weather){if(w==='rain'&&a<=hi&&b>=lo)draw('rect',{x:x(Math.max(a,lo)),y:10,width:Math.max(1,x(Math.min(b,hi))-x(Math.max(a,lo))),height:147,fill:'#dfedf1'})}
+ for(let j=0;j<=4;j++){const t=Math.round(lo+(hi-lo)*j/4);draw('text',{x:x(t),y:181,'text-anchor':'middle','font-size':12,fill:'#52635a'},'+'+t)}
+ const trips=new Map();let lane=0;
+ for(const [who,p] of Object.entries(c.people)){
+  for(const side of sides){const y=29+lane++*36;draw('line',{x1:105,y1:y,x2:970,y2:y,stroke:'#d7dfd4'});draw('text',{x:0,y:y+4,'font-size':13,fill:'#344b40'},names[who]+' · '+(side==='control'?'左':'右'));
+   for(const [t,w,k] of p.events[side]){if(t<lo||t>hi)continue;
+    if(k==='p')draw('circle',{cx:x(t),cy:y,r:3.5,fill:'#397448'});else draw('path',{d:`M ${x(t)} ${y-5} l 5 5 -5 5 -5 -5 z`,fill:'#814b96'});
+    const key=t+who,v=trips.get(key)||{t,w,who};v[side]=food[k];trips.set(key,v);
+   }
+  }
+  for(const [j,b] of p.windows.entries()){if(i>=0&&i!==j)continue;
+    for(const [w,cell] of Object.entries(b.weather)){const counts=s=>(cell.counts[s].p||0)+' ／ '+(cell.counts[s].q||0);row($('counts'),[`+${b.begin}…${b.end} · ${sky[w]} · ${names[who]}`,counts('control'),counts('hinted'),labels[cell.verdict]])}
+  }
+ }
+ for(const v of [...trips.values()].sort((a,b)=>a.t-b.t))row($('raw'),['+'+v.t,sky[v.w],names[v.who],v.control||'—',v.hinted||'—']);
+ $('origin').textContent='第 +240 步行为仍有差异的人：'+Object.keys(c.people).filter(n=>c.people[n].at_240).map(n=>names[n]).join('、')+'。';
+ $('interpretation').textContent=Object.entries(c.people).map(([n,p])=>names[n]+'最后一次观察到行动差异：'+(p.last_behavior_difference===null?'新增时段内无差异':'+'+p.last_behavior_difference+(p.behavior_different_at_end?'（观察到此截止）':''))).join('。')+'。';
+}
+$('cases').onchange=render;$('period').onchange=render;render();
+</script></html>

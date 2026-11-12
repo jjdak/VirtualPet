@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-22",
+  "stage": "S1",
+  "status": "technical_demo_delivered_owner_experience_pending",
+  "runtime": "Godot 4.7.2.stable.official.ed1daf0bf",
+  "download": "https://downloads.godotengine.org/?flavor=stable&platform=macos.universal&slug=macos.universal.zip&version=4.7.2",
+  "download_sha256": "c58a24e31d720be9d62f60cb5627c4e695fb72f21b0cfe1bc9ccaa9a3b3ba63e",
+  "official_sha512_verified": true,
+  "system_signature_and_notarization": "codesign --verify --deep --strict succeeded outside sandbox; spctl accepted Notarized Developer ID",
+  "source": "PrivateAssets/Courtyard/Blender/B2/courtyard-b2-reference-v6-focused.blend",
+  "source_sha256": "1c94af34f7a029aebf1626ae5f8c9eb4e9820a5d79842fe061402db3f58e47da",
+  "source_unchanged": true,
+  "environment_meshes": 289,
+  "exported_assets": {
+    "courtyard-v6.glb": {
+      "bytes": 3482060,
+      "sha256": "eda736fe79cf6b48a93e2ad1e53dec0fff80d1fa90a9c907393159f87d169dff"
+    },
+    "girl-a-seated.glb": {
+      "bytes": 2407612,
+      "sha256": "ee45f72e006c0d7225b16cd7f6244503e6035bc1807242bad319d605705a68f0"
+    },
+    "girl-a-standing.glb": {
+      "bytes": 2371204,
+      "sha256": "fbdd6e8da66a11bebbfb5b94616570b896aa1ddf74bd6fbe0ba886c34d039759"
+    }
+  },
+  "standing_height": 2.1009855817537755,
+  "standing_eye_height": 1.782740707397461,
+  "graphical_checks": {
+    "colliders": 74,
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "eye_height": 1.78274071216583,
+    "first_person_current": true,
+    "graphical": true,
+    "imported_bones": 58,
+    "look_angle_changed": true,
+    "mouse_capture_mode": 2,
+    "mouse_check_note": "Captured pointer + InputEventMouseMotion",
+    "mouse_look_changed": true,
+    "moved_distance": 1.15533113479614,
+    "overview_current": true,
+    "passed": true,
+    "pool_blocked": true,
+    "reset_position": [
+      1.35000002384186,
+      0.901484370231628,
+      -2.09999990463257
+    ],
+    "seated_clips": [
+      {
+        "animation": "GirlA - courtyard rig",
+        "playing": true,
+        "time": 1.88466
+      }
+    ],
+    "seated_head_change_radians": 0.299913793802261,
+    "seated_mode": true,
+    "source": "1c94af34f7a029aebf1626ae5f8c9eb4e9820a5d79842fe061402db3f58e47da",
+    "spawn_grounded": true,
+    "wall_blocked": true,
+    "wall_stop_x": 4.17749977111816
+  },
+  "headless_checks": {
+    "colliders": 74,
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "eye_height": 1.78274071216583,
+    "first_person_current": true,
+    "graphical": false,
+    "imported_bones": 58,
+    "look_angle_changed": true,
+    "mouse_capture_mode": 0,
+    "mouse_check_note": "Headless display cannot capture pointer; checked in graphical run",
+    "mouse_look_changed": null,
+    "moved_distance": 1.15533113479614,
+    "overview_current": true,
+    "passed": true,
+    "pool_blocked": true,
+    "reset_position": [
+      1.35000002384186,
+      0.901484370231628,
+      -2.09999990463257
+    ],
+    "seated_clips": [
+      {
+        "animation": "GirlA - courtyard rig",
+        "playing": true,
+        "time": 1.86204244444444
+      }
+    ],
+    "seated_head_change_radians": 0.28910705447197,
+    "seated_mode": true,
+    "source": "1c94af34f7a029aebf1626ae5f8c9eb4e9820a5d79842fe061402db3f58e47da",
+    "spawn_grounded": true,
+    "wall_blocked": true,
+    "wall_stop_x": 4.17749977111816
+  },
+  "screenshots_private": [
+    "sim/evidence/s1-overview.png",
+    "sim/evidence/s1-moved.png",
+    "sim/evidence/s1-first-person.png",
+    "sim/evidence/s1-seated.png",
+    "sim/evidence/s1-first-person-turned.png"
+  ],
+  "limitations": [
+    "No locomotion clips; controlled standing pose translates and turns",
+    "No LLM/AI handoff/navigation/learning",
+    "Procedural environment ramps flattened, Cycles lighting/compositing not preserved",
+    "Simplified opaque realtime water; no fluid physics",
+    "Entire local avatar hidden in first person except shadows",
+    "Seated and standing modes switch without a get-up transition",
+    "Character face remains static",
+    "Terrain walking restricted to terrace; pool boundary explicit"
+  ],
+  "native_ui_observations": [
+    "WASD changed visible character position",
+    "F switched to eye camera",
+    "P showed original seated character in the existing placement",
+    "Right arrow rotated first-person view toward the tree/wall; screenshot saved; returned to overview and reset"
+  ],
+  "owner_accepted": false
+}

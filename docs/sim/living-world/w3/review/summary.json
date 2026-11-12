@@ -1,0 +1,1245 @@
+{
+  "protocol": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "fork_ages": [
+      0,
+      60,
+      180
+    ],
+    "horizon": 240,
+    "order": [
+      "seed",
+      "fork age",
+      "actor A/B",
+      "place p/q"
+    ]
+  },
+  "all": {
+    "pairs": 384,
+    "different_reports": 65,
+    "supported_relay": 0,
+    "silent_peer_changed": 0,
+    "window_by_weather": {
+      "sun": 50816,
+      "rain": 41344
+    },
+    "hint_end_status": {
+      "visited": 381,
+      "expired": 3
+    },
+    "recipient": {
+      "changed": 65,
+      "unchanged": 319,
+      "after_hint": 65,
+      "same_tick_split_after_hint": 0,
+      "different_by_weather": {
+        "sun": 3302,
+        "rain": 106
+      },
+      "different_at_240": 1,
+      "multiple_intervals": 65,
+      "same_tick_different_choice": 65,
+      "first_given_change": {
+        "min": 1,
+        "median": 8,
+        "max": 23
+      },
+      "last_given_change": {
+        "min": 67,
+        "median": 74,
+        "max": 240
+      },
+      "different_steps_given_change": {
+        "min": 44,
+        "median": 44,
+        "max": 158
+      },
+      "different_steps_after_hint_given_change": {
+        "min": 35,
+        "median": 37,
+        "max": 149
+      }
+    },
+    "peer": {
+      "changed": 0,
+      "unchanged": 384,
+      "after_hint": 0,
+      "same_tick_split_after_hint": 0,
+      "different_by_weather": {
+        "sun": 0,
+        "rain": 0
+      },
+      "different_at_240": 0,
+      "multiple_intervals": 0,
+      "same_tick_different_choice": 0,
+      "first_given_change": null,
+      "last_given_change": null,
+      "different_steps_given_change": null,
+      "different_steps_after_hint_given_change": null
+    }
+  },
+  "by_age": {
+    "0": {
+      "pairs": 128,
+      "different_reports": 64,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 20352,
+        "rain": 10368
+      },
+      "hint_end_status": {
+        "visited": 128
+      },
+      "recipient": {
+        "changed": 64,
+        "unchanged": 64,
+        "after_hint": 64,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 3302,
+          "rain": 62
+        },
+        "different_at_240": 1,
+        "multiple_intervals": 64,
+        "same_tick_different_choice": 64,
+        "first_given_change": {
+          "min": 1,
+          "median": 4.5,
+          "max": 8
+        },
+        "last_given_change": {
+          "min": 67,
+          "median": 70.5,
+          "max": 240
+        },
+        "different_steps_given_change": {
+          "min": 44,
+          "median": 51.0,
+          "max": 158
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 35,
+          "median": 43.0,
+          "max": 149
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 128,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "60": {
+      "pairs": 128,
+      "different_reports": 1,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 12672,
+        "rain": 18048
+      },
+      "hint_end_status": {
+        "visited": 128
+      },
+      "recipient": {
+        "changed": 1,
+        "unchanged": 127,
+        "after_hint": 1,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 44
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 1,
+        "same_tick_different_choice": 1,
+        "first_given_change": {
+          "min": 23,
+          "median": 23,
+          "max": 23
+        },
+        "last_given_change": {
+          "min": 77,
+          "median": 77,
+          "max": 77
+        },
+        "different_steps_given_change": {
+          "min": 44,
+          "median": 44,
+          "max": 44
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 37,
+          "median": 37,
+          "max": 37
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 128,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "180": {
+      "pairs": 128,
+      "different_reports": 0,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 17792,
+        "rain": 12928
+      },
+      "hint_end_status": {
+        "visited": 125,
+        "expired": 3
+      },
+      "recipient": {
+        "changed": 0,
+        "unchanged": 128,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 128,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    }
+  },
+  "by_actor_and_place": {
+    "Ap": {
+      "pairs": 96,
+      "different_reports": 18,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 12704,
+        "rain": 10336
+      },
+      "hint_end_status": {
+        "visited": 96
+      },
+      "recipient": {
+        "changed": 18,
+        "unchanged": 78,
+        "after_hint": 18,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 986,
+          "rain": 44
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 18,
+        "same_tick_different_choice": 18,
+        "first_given_change": {
+          "min": 1,
+          "median": 1.0,
+          "max": 23
+        },
+        "last_given_change": {
+          "min": 74,
+          "median": 74.0,
+          "max": 77
+        },
+        "different_steps_given_change": {
+          "min": 44,
+          "median": 58.0,
+          "max": 58
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 37,
+          "median": 51.0,
+          "max": 51
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 96,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "Aq": {
+      "pairs": 96,
+      "different_reports": 15,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 12704,
+        "rain": 10336
+      },
+      "hint_end_status": {
+        "visited": 93,
+        "expired": 3
+      },
+      "recipient": {
+        "changed": 15,
+        "unchanged": 81,
+        "after_hint": 15,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 908,
+          "rain": 62
+        },
+        "different_at_240": 1,
+        "multiple_intervals": 15,
+        "same_tick_different_choice": 15,
+        "first_given_change": {
+          "min": 1,
+          "median": 1,
+          "max": 1
+        },
+        "last_given_change": {
+          "min": 74,
+          "median": 74,
+          "max": 240
+        },
+        "different_steps_given_change": {
+          "min": 58,
+          "median": 58,
+          "max": 158
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 49,
+          "median": 49,
+          "max": 149
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 96,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "Bp": {
+      "pairs": 96,
+      "different_reports": 17,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 12704,
+        "rain": 10336
+      },
+      "hint_end_status": {
+        "visited": 96
+      },
+      "recipient": {
+        "changed": 17,
+        "unchanged": 79,
+        "after_hint": 17,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 748,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 17,
+        "same_tick_different_choice": 17,
+        "first_given_change": {
+          "min": 8,
+          "median": 8,
+          "max": 8
+        },
+        "last_given_change": {
+          "min": 67,
+          "median": 67,
+          "max": 67
+        },
+        "different_steps_given_change": {
+          "min": 44,
+          "median": 44,
+          "max": 44
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 35,
+          "median": 35,
+          "max": 35
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 96,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "Bq": {
+      "pairs": 96,
+      "different_reports": 15,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 12704,
+        "rain": 10336
+      },
+      "hint_end_status": {
+        "visited": 96
+      },
+      "recipient": {
+        "changed": 15,
+        "unchanged": 81,
+        "after_hint": 15,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 660,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 15,
+        "same_tick_different_choice": 15,
+        "first_given_change": {
+          "min": 8,
+          "median": 8,
+          "max": 8
+        },
+        "last_given_change": {
+          "min": 67,
+          "median": 67,
+          "max": 67
+        },
+        "different_steps_given_change": {
+          "min": 44,
+          "median": 44,
+          "max": 44
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 37,
+          "median": 37,
+          "max": 37
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 96,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    }
+  },
+  "by_age_actor_place": {
+    "0/A/p": {
+      "pairs": 32,
+      "different_reports": 17,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 5088,
+        "rain": 2592
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 17,
+        "unchanged": 15,
+        "after_hint": 17,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 986,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 17,
+        "same_tick_different_choice": 17,
+        "first_given_change": {
+          "min": 1,
+          "median": 1,
+          "max": 1
+        },
+        "last_given_change": {
+          "min": 74,
+          "median": 74,
+          "max": 74
+        },
+        "different_steps_given_change": {
+          "min": 58,
+          "median": 58,
+          "max": 58
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 51,
+          "median": 51,
+          "max": 51
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "0/A/q": {
+      "pairs": 32,
+      "different_reports": 15,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 5088,
+        "rain": 2592
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 15,
+        "unchanged": 17,
+        "after_hint": 15,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 908,
+          "rain": 62
+        },
+        "different_at_240": 1,
+        "multiple_intervals": 15,
+        "same_tick_different_choice": 15,
+        "first_given_change": {
+          "min": 1,
+          "median": 1,
+          "max": 1
+        },
+        "last_given_change": {
+          "min": 74,
+          "median": 74,
+          "max": 240
+        },
+        "different_steps_given_change": {
+          "min": 58,
+          "median": 58,
+          "max": 158
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 49,
+          "median": 49,
+          "max": 149
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "0/B/p": {
+      "pairs": 32,
+      "different_reports": 17,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 5088,
+        "rain": 2592
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 17,
+        "unchanged": 15,
+        "after_hint": 17,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 748,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 17,
+        "same_tick_different_choice": 17,
+        "first_given_change": {
+          "min": 8,
+          "median": 8,
+          "max": 8
+        },
+        "last_given_change": {
+          "min": 67,
+          "median": 67,
+          "max": 67
+        },
+        "different_steps_given_change": {
+          "min": 44,
+          "median": 44,
+          "max": 44
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 35,
+          "median": 35,
+          "max": 35
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "0/B/q": {
+      "pairs": 32,
+      "different_reports": 15,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 5088,
+        "rain": 2592
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 15,
+        "unchanged": 17,
+        "after_hint": 15,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 660,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 15,
+        "same_tick_different_choice": 15,
+        "first_given_change": {
+          "min": 8,
+          "median": 8,
+          "max": 8
+        },
+        "last_given_change": {
+          "min": 67,
+          "median": 67,
+          "max": 67
+        },
+        "different_steps_given_change": {
+          "min": 44,
+          "median": 44,
+          "max": 44
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 37,
+          "median": 37,
+          "max": 37
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "60/A/p": {
+      "pairs": 32,
+      "different_reports": 1,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 3168,
+        "rain": 4512
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 1,
+        "unchanged": 31,
+        "after_hint": 1,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 44
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 1,
+        "same_tick_different_choice": 1,
+        "first_given_change": {
+          "min": 23,
+          "median": 23,
+          "max": 23
+        },
+        "last_given_change": {
+          "min": 77,
+          "median": 77,
+          "max": 77
+        },
+        "different_steps_given_change": {
+          "min": 44,
+          "median": 44,
+          "max": 44
+        },
+        "different_steps_after_hint_given_change": {
+          "min": 37,
+          "median": 37,
+          "max": 37
+        }
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "60/A/q": {
+      "pairs": 32,
+      "different_reports": 0,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 3168,
+        "rain": 4512
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "60/B/p": {
+      "pairs": 32,
+      "different_reports": 0,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 3168,
+        "rain": 4512
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "60/B/q": {
+      "pairs": 32,
+      "different_reports": 0,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 3168,
+        "rain": 4512
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "180/A/p": {
+      "pairs": 32,
+      "different_reports": 0,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 4448,
+        "rain": 3232
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "180/A/q": {
+      "pairs": 32,
+      "different_reports": 0,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 4448,
+        "rain": 3232
+      },
+      "hint_end_status": {
+        "visited": 29,
+        "expired": 3
+      },
+      "recipient": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "180/B/p": {
+      "pairs": 32,
+      "different_reports": 0,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 4448,
+        "rain": 3232
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    },
+    "180/B/q": {
+      "pairs": 32,
+      "different_reports": 0,
+      "supported_relay": 0,
+      "silent_peer_changed": 0,
+      "window_by_weather": {
+        "sun": 4448,
+        "rain": 3232
+      },
+      "hint_end_status": {
+        "visited": 32
+      },
+      "recipient": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      },
+      "peer": {
+        "changed": 0,
+        "unchanged": 32,
+        "after_hint": 0,
+        "same_tick_split_after_hint": 0,
+        "different_by_weather": {
+          "sun": 0,
+          "rain": 0
+        },
+        "different_at_240": 0,
+        "multiple_intervals": 0,
+        "same_tick_different_choice": 0,
+        "first_given_change": null,
+        "last_given_change": null,
+        "different_steps_given_change": null,
+        "different_steps_after_hint_given_change": null
+      }
+    }
+  },
+  "example": {
+    "seed": 0,
+    "age": 0,
+    "actor": "A",
+    "kind": "p",
+    "origin_hash": "8b9f9317e81321774be72f4ae3d81fa1ca591e41985f4a3cea78d0e31981a53a",
+    "hint_end": 7,
+    "hint_status": "visited",
+    "message_first": 12,
+    "relay": false,
+    "recipient": {
+      "first": 1,
+      "last": 74,
+      "steps": 58,
+      "at_end": false,
+      "after_hint": 51,
+      "choice_splits": 1,
+      "first_choice_split": 1,
+      "different_by_weather": {
+        "sun": 58,
+        "rain": 0
+      },
+      "splits_after_hint": 0,
+      "interval_count": 4
+    },
+    "peer": {
+      "first": null,
+      "last": null,
+      "steps": 0,
+      "at_end": false,
+      "after_hint": 0,
+      "choice_splits": 0,
+      "first_choice_split": null,
+      "different_by_weather": {
+        "sun": 0,
+        "rain": 0
+      },
+      "splits_after_hint": 0,
+      "interval_count": 0
+    },
+    "silent_peer_steps": 0,
+    "window_by_weather": {
+      "sun": 159,
+      "rain": 81
+    }
+  },
+  "source_sha256": {
+    "living_world/studies/w3_influence.py": "7ba7860f696abacc6711d82fff5145ea1933c20e291358d30cd822a56c71192f",
+    "living_world/src/fork_study.py": "1e5590a94866d0fe3a56c70f4825662efff9abf5d2aed806f4a6f610f4b293de",
+    "living_world/src/context_world.py": "587880cf74131815c95c4baae12bd853add9e98f08cbcb12d367c99942f49273",
+    "living_world/src/world.py": "6b66005639722bb3ffec1daf50c0d90cfd103eb085da5e15f57ce47b4d551fac",
+    "experiments/adaptive_agents/src/core.py": "d9768ca00220666e0177c4531edc4c882d957143b786b3746fdd8bc8bedf4b48"
+  }
+}

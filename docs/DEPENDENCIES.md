@@ -1,5 +1,34 @@
 # 依赖与制作工具清单
 
+## W1 实时小世界（2026-11-05）
+
+`living_world/` 使用本机已有 Python 3.14.4 标准库（HTTP 服务、线程、JSON、文件存档）与浏览器原生 Canvas/HTML/CSS/JS。复用冻结的本仓库 `experiments/adaptive_agents/src/core.py`，不复制外部实现、不增加 pip/npm 包、模型、云 API 或素材。浏览器验收复用 Node 和 Playwright 1.62.1，通过官方安装器取得 Chromium Headless Shell 151.0.7922.34（build 1234）和 FFmpeg 1011，放在忽略的 `PrivateAssets/Tools/playwright-browsers/`。这些工具仅供开发验证。服务只监听 `127.0.0.1:4193`，个人存档在忽略的 `.runtime/living-world/`。UI 图形为抽象地图/标记，不是新人物模型。完整检查见 [W1 记录](sim/living-world/PROGRESS.md)。
+
+## E3 主动复查实验（2026-11-01）
+
+`experiments/reinspection_agents/` 只使用已有 Python 3.11.15 标准库，读用 E2 自有代码；Node 仅作 UI 逻辑核验。没有新增模型、包、素材或 API 依赖。Deep Agents / Harbor / PettingZoo 与近期论文仅作[研究参考](sim/experiments/e3/RESEARCH.md)，未安装、复制实现或宣称兼容。离线回放可直接打开，检查服务仅绑定 `127.0.0.1:4189`。
+
+## E2 连续行为实验（2026-11-01）
+
+- 复用本机 Python 3.11.15 标准库；没有新增包、权重、网络服务或模型调用。Node 24.13.0 仅运行页面逻辑测试替身，浏览器只需打开离线 HTML。
+- 可复现配置、源码、原始摘要和抽样完整轨迹位于 `experiments/adaptive_agents/`，分类见该目录 README；用户查看用临时 HTTP 服务只绑定 `127.0.0.1:4188`。不进入 Godot/Swift App，也不改变 E1 的隔离 MLX 环境。
+
+
+## E1 双角色本地实验（2026-10-31）
+
+- 独立 Python 3.11.15 环境：`PrivateAssets/Tools/agent-lab-venv/`，不改系统 Python、不进入旧 App 或 Godot。安装 `mlx-lm==0.32.2`（MIT）、`mlx==0.32.4` / `mlx-metal==0.32.4`；完整依赖版本见 [requirements-lock](../experiments/two_agents/requirements-lock.txt)。恢复方法见 [实验 README](../experiments/two_agents/README.md)。
+- `mlx-community/Qwen3-0.6B-4bit`，revision `73e3e38d981303bc594367cd910ea6eb48349da8`；`mlx-community/Qwen3-1.7B-4bit`，revision `3b1b1768f8f8cf8351c712464f906e86c2b8269e`。两者模型卡为 Apache-2.0，4-bit/group64；来源和固定版本见 [models-lock](../experiments/two_agents/models-lock.json)。
+- 权重、下载缓存与环境全部在 `PrivateAssets/`，继续忽略；数据文件大小与 SHA-256 见 [model-files](../experiments/two_agents/results/e1-v2/model-files.json)。公开源码/结果仅含合成世界，不含私人角色素材。下载后使用 `HF_HUB_OFFLINE=1`；不上传数据，不调用付费云模型，不训练模型权重。
+- 原先尝试 `uv venv` 在受限环境初始化失败，改用已有 Python 的 `venv` 建立隔离环境，再通过 uv 安装注册表包；未安装全局 MLX、未修改已有 Ollama 服务。实验进程结束后释放模型；回放服务仅绑定 `127.0.0.1:4187`。
+
+
+## S1 已采用工具（2026-10-22）
+
+- **Godot 4.7.2 stable**（`4.7.2.stable.official.ed1daf0bf`），macOS Universal 非 .NET，安装于 `/Applications/Godot.app`；[官方来源](https://godotengine.org/download/macos/)，[MIT 许可](https://github.com/godotengine/godot/blob/4.7.2-stable/LICENSE.txt)。用于独立 `sim/` 运行时，不加入旧 Swift App。
+- 恢复：下载官方 `Godot_v4.7.2-stable_macos.universal.zip`，对照官方 SHA512 清单后解压；本轮已验证签名和公证。SHA256 `c58a24e31d720be9d62f60cb5627c4e695fb72f21b0cfe1bc9ccaa9a3b3ba63e`。详见 [验证回执](sim/S1_VERIFICATION.json)。
+- 美术导出沿用已有 Blender 5.2.1 LTS / 内置 glTF；原人物/场景许可不因转换改变。派生 GLB、图像、Godot 缓存和截图继续忽略；`prepare-assets.command` 可从原私人工程恢复。
+- 没有新增 VRM 插件、第三方动作包、模型服务或付费调用。下方 SIM 候选列表保留 S0 研究历史，Godot 的“未安装”状态已被本节取代；其余候选仍未采用。
+
 ## SIM 阶段候选（2026-10-21，未安装/未集成）
 
 研究见 [SIM 计划](SIM_STAGE_PLAN.md)。推荐 Godot 4 稳定版（MIT；具体版本待 S1 固定），普通 GLB 优先；godot-vrm（MIT）仅为可选，Quaternius Universal Animation Library（CC0、免费包为部分内容）为动作候选。Generative Agents（Apache-2.0）和 Voyager（MIT）只借鉴架构，没有复制代码或素材。未新增依赖、素材下载、付费模型调用或账户连接。接入时逐项补版本、包内许可、SHA-256 和恢复方法。
@@ -172,3 +201,29 @@ R5 的 iOS 模拟器 Core 只提供 arm64，因此私人配置排除 `x86_64` �
 ## B2 原生短片制作（2026-09-14）
 
 复用 Blender 5.2.1 LTS 的 Cycles、Metal GPU 与原生关键帧；未安装额外动画插件或下载外部人物/贴图。系统已有 `/opt/homebrew/bin/ffmpeg` 与 `ffprobe`，本轮读取版本为 8.1.1，用于 PNG 序列封装成 H.264 MP4 和检查时长/帧数；仅为本地制作工具，不进入 App。无付费服务、模型上传、聊天或学习依赖。制作与验收见[八秒小样记录](courtyard/B2_LIGHT_MOTION_STUDY.md)。
+
+## S2 现成动作（2026-10-22）
+
+- **Quaternius Universal Animation Library Standard v3.0**：[作者页面](https://quaternius.itch.io/universal-animation-library)，2026-06-16 更新；免费包内 `License.txt` 明确 CC0 1.0。实际 43 clips，使用 Idle_Loop、Walk_Loop；未购买 Pro/Source。
+- 下载 `standard.zip` SHA-256：`cc73fc4e495b82958207316596317a3f40b9fa38065bde1027937452da537724`。原包、解压数据和重定向 GirlA GLB 均在忽略目录；不改变 GirlA 自身来源与许可记录。
+- Blender 内置 glTF 导入/导出与 Python mathutils 用于离线重定向，Godot 原生 AnimationTree/TimeScale 与 CharacterBody3D 用于运行时。没有新增运行时插件或 Python 包。
+- `npx skills find godot animation` 用于公开工作流检索，没有安装全局 skill；选择与限制见 [S2 调研](sim/S2_RESEARCH_NOTES.md)。
+- 已有 ffmpeg 用于 Godot Movie Maker AVI 转 MP4，无新音频、纹理、云服务或付费模型调用。
+
+## S2 转身/停步与接触（2026-10-23）
+
+- 新增 CMU mocap 69_16 / 69_18 / 16_33 bones-only FBX；16_34 仅作比较未集成。CMU → cgspeed BVH → RancidMilk FBX → gbionics 镜像，**非 CC0**；允许使用/修改/再分发、用于商业产品，但不得直接转售动作数据，分发时传递条款。来源、裁剪、SHA-256 和恢复步骤见 [S2_CONTACT_PASS](sim/S2_CONTACT_PASS.md) / [验证 JSON](sim/S2_CONTACT_VERIFICATION.json)。
+- 素材、GirlA 衍生 GLB 和视频继续本地忽略；原 GirlA 模型许可单独保留。没有安装 Auto-Rig Pro，没有使用作者转换脚本，没有新增运行时包/付费调用。
+- 自有 Blender 重定向脚本与 Godot 原生 SkeletonModifier3D 实现有限脚部 IK；沿用现有 ffmpeg。原 Blender 美术工程未写入。
+
+## E4 有预算的混合复查（2026-11-01）
+
+复用本机 Python 3.11.15 标准库及只读的 E2/E3 原语；既有 Node 用于回放逻辑测试。回放为无外部资源的 HTML/CSS/JavaScript，`http.server` 仅绑定 127.0.0.1:4190。没有 pip/npm 安装、新素材、框架、权重下载或模型调用。见 [E4 记录](sim/experiments/e4/PROGRESS.md)。
+
+## E5 自适应复查频率（2026-11-02）
+
+复用 Python 3.11.15 标准库、既有 Node 验证工具、只读 E2–E4 原语。回放无外部资源；本地 HTTP 只绑定 127.0.0.1:4191。没有安装包、框架、权重、素材或模型调用。见 [E5 记录](sim/experiments/e5/PROGRESS.md)。
+
+## E6 未解决异常实验（2026-11-04 收束）
+
+复用 Python 3.11.15 标准库、既有 Node 与只读 E2–E5 原语。离线回放无外部资源，HTTP 只绑定 127.0.0.1:4192；未安装依赖、下载权重或资产、调用模型。见 [E6 记录](sim/experiments/e6/PROGRESS.md)。

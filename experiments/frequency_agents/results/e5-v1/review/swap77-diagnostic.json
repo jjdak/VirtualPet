@@ -1,0 +1,962 @@
+{
+  "scope": "Post-result failure diagnosis, not a new evaluation batch or selected showcase",
+  "seed": 200,
+  "scenario": "swap@77",
+  "policy": "adaptive",
+  "rows": [
+    {
+      "tick": 72,
+      "choice": {
+        "target": "p",
+        "reason": "estimated_value",
+        "scores": {
+          "p": 1.0,
+          "q": -1.0
+        },
+        "values_before": {
+          "p": 1.0,
+          "q": -1.0
+        },
+        "trust_before": 0.9758017214172113,
+        "base_target": "p",
+        "base_reason": "estimated_value",
+        "probe": null,
+        "budget_before": {
+          "released": 5,
+          "used": 2,
+          "available": 3,
+          "last_spend": 43,
+          "limit": 12
+        },
+        "requests": [],
+        "budget_after": {
+          "released": 5,
+          "used": 2,
+          "available": 3,
+          "last_spend": 43,
+          "limit": 12
+        },
+        "interval_before": 30,
+        "reward": 1,
+        "actions": [
+          {
+            "action": "move",
+            "from": [
+              3,
+              3
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              1,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              3
+            ],
+            "to": [
+              1,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              2
+            ],
+            "to": [
+              1,
+              1
+            ]
+          },
+          {
+            "action": "eat",
+            "kind": "p",
+            "reward": 1
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              1
+            ],
+            "to": [
+              2,
+              1
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              1
+            ],
+            "to": [
+              2,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              2
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              3,
+              3
+            ]
+          }
+        ],
+        "validated_messages": [
+          {
+            "id": "A-71",
+            "match": true,
+            "age": 1
+          }
+        ],
+        "monitor": {
+          "prediction": 1.0,
+          "residual": 0.0,
+          "prior_count": 69,
+          "unexpected": false,
+          "streak": 0,
+          "candidate": "q",
+          "candidate_age": 29,
+          "eligible": false,
+          "scheduled": false,
+          "blocked": null,
+          "request_proposed": false
+        }
+      },
+      "frequency": {
+        "before": 30,
+        "after": 30,
+        "proxy_gain": null,
+        "useful": null,
+        "evidence": null,
+        "observed": null
+      }
+    },
+    {
+      "tick": 77,
+      "choice": {
+        "target": "p",
+        "reason": "estimated_value",
+        "scores": {
+          "p": 1.0,
+          "q": -1.0
+        },
+        "values_before": {
+          "p": 1.0,
+          "q": -1.0
+        },
+        "trust_before": 0.9764411834867402,
+        "base_target": "p",
+        "base_reason": "estimated_value",
+        "probe": null,
+        "budget_before": {
+          "released": 6,
+          "used": 3,
+          "available": 3,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "requests": [],
+        "budget_after": {
+          "released": 6,
+          "used": 3,
+          "available": 3,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "interval_before": 36,
+        "reward": -1,
+        "actions": [
+          {
+            "action": "move",
+            "from": [
+              3,
+              3
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              1,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              3
+            ],
+            "to": [
+              1,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              2
+            ],
+            "to": [
+              1,
+              1
+            ]
+          },
+          {
+            "action": "eat",
+            "kind": "p",
+            "reward": -1
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              1
+            ],
+            "to": [
+              2,
+              1
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              1
+            ],
+            "to": [
+              2,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              2
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              3,
+              3
+            ]
+          }
+        ],
+        "validated_messages": [
+          {
+            "id": "A-76",
+            "match": false,
+            "age": 1
+          }
+        ],
+        "monitor": {
+          "prediction": 1.0,
+          "residual": 2.0,
+          "prior_count": 73,
+          "unexpected": true,
+          "streak": 1,
+          "candidate": "q",
+          "candidate_age": 4,
+          "eligible": false,
+          "scheduled": false,
+          "blocked": null,
+          "request_proposed": false
+        }
+      },
+      "frequency": {
+        "before": 36,
+        "after": 36,
+        "proxy_gain": null,
+        "useful": null,
+        "evidence": null,
+        "observed": null
+      }
+    },
+    {
+      "tick": 78,
+      "choice": {
+        "target": "p",
+        "reason": "estimated_value",
+        "scores": {
+          "p": -0.7686300583228356,
+          "q": -1.0
+        },
+        "values_before": {
+          "p": 0.19999999999999996,
+          "q": -1.0
+        },
+        "trust_before": 0.9535843380119498,
+        "base_target": "p",
+        "base_reason": "estimated_value",
+        "probe": null,
+        "budget_before": {
+          "released": 6,
+          "used": 3,
+          "available": 3,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "requests": [],
+        "budget_after": {
+          "released": 6,
+          "used": 3,
+          "available": 3,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "interval_before": 36,
+        "reward": -1,
+        "actions": [
+          {
+            "action": "move",
+            "from": [
+              3,
+              3
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              1,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              3
+            ],
+            "to": [
+              1,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              2
+            ],
+            "to": [
+              1,
+              1
+            ]
+          },
+          {
+            "action": "eat",
+            "kind": "p",
+            "reward": -1
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              1
+            ],
+            "to": [
+              2,
+              1
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              1
+            ],
+            "to": [
+              2,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              2
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              3,
+              3
+            ]
+          }
+        ],
+        "validated_messages": [
+          {
+            "id": "A-77",
+            "match": true,
+            "age": 1
+          }
+        ],
+        "monitor": {
+          "prediction": 0.19999999999999996,
+          "residual": 1.2,
+          "prior_count": 74,
+          "unexpected": true,
+          "streak": 2,
+          "candidate": "q",
+          "candidate_age": 5,
+          "eligible": false,
+          "scheduled": false,
+          "blocked": null,
+          "request_proposed": false
+        }
+      },
+      "frequency": {
+        "before": 36,
+        "after": 36,
+        "proxy_gain": null,
+        "useful": null,
+        "evidence": null,
+        "observed": null
+      }
+    },
+    {
+      "tick": 79,
+      "choice": {
+        "target": "p",
+        "reason": "estimated_value",
+        "scores": {
+          "p": -0.8615932189171269,
+          "q": -1.0
+        },
+        "values_before": {
+          "p": -0.28,
+          "q": -1.0
+        },
+        "trust_before": 0.9542655628052736,
+        "base_target": "p",
+        "base_reason": "estimated_value",
+        "probe": null,
+        "budget_before": {
+          "released": 6,
+          "used": 3,
+          "available": 3,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "requests": [],
+        "budget_after": {
+          "released": 6,
+          "used": 3,
+          "available": 3,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "interval_before": 36,
+        "reward": -1,
+        "actions": [
+          {
+            "action": "move",
+            "from": [
+              3,
+              3
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              1,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              3
+            ],
+            "to": [
+              1,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              2
+            ],
+            "to": [
+              1,
+              1
+            ]
+          },
+          {
+            "action": "eat",
+            "kind": "p",
+            "reward": -1
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              1
+            ],
+            "to": [
+              2,
+              1
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              1
+            ],
+            "to": [
+              2,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              2
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              3,
+              3
+            ]
+          }
+        ],
+        "validated_messages": [
+          {
+            "id": "A-78",
+            "match": true,
+            "age": 1
+          }
+        ],
+        "monitor": {
+          "prediction": -0.28,
+          "residual": 0.72,
+          "prior_count": 75,
+          "unexpected": false,
+          "streak": 0,
+          "candidate": "q",
+          "candidate_age": 6,
+          "eligible": false,
+          "scheduled": false,
+          "blocked": null,
+          "request_proposed": false
+        }
+      },
+      "frequency": {
+        "before": 36,
+        "after": 36,
+        "proxy_gain": null,
+        "useful": null,
+        "evidence": null,
+        "observed": null
+      }
+    },
+    {
+      "tick": 80,
+      "choice": {
+        "target": "p",
+        "reason": "estimated_value",
+        "scores": {
+          "p": -0.9171977380078409,
+          "q": -1.0
+        },
+        "values_before": {
+          "p": -0.5680000000000001,
+          "q": -1.0
+        },
+        "trust_before": 0.9549268146867884,
+        "base_target": "p",
+        "base_reason": "estimated_value",
+        "probe": null,
+        "budget_before": {
+          "released": 6,
+          "used": 3,
+          "available": 3,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "requests": [],
+        "budget_after": {
+          "released": 6,
+          "used": 3,
+          "available": 3,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "interval_before": 36,
+        "reward": -1,
+        "actions": [
+          {
+            "action": "move",
+            "from": [
+              3,
+              3
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              1,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              3
+            ],
+            "to": [
+              1,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              2
+            ],
+            "to": [
+              1,
+              1
+            ]
+          },
+          {
+            "action": "eat",
+            "kind": "p",
+            "reward": -1
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              1
+            ],
+            "to": [
+              2,
+              1
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              1
+            ],
+            "to": [
+              2,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              2
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              3,
+              3
+            ]
+          }
+        ],
+        "validated_messages": [
+          {
+            "id": "A-79",
+            "match": true,
+            "age": 1
+          }
+        ],
+        "monitor": {
+          "prediction": -0.5680000000000001,
+          "residual": 0.43199999999999994,
+          "prior_count": 76,
+          "unexpected": false,
+          "streak": 0,
+          "candidate": "q",
+          "candidate_age": 7,
+          "eligible": false,
+          "scheduled": false,
+          "blocked": null,
+          "request_proposed": false
+        }
+      },
+      "frequency": {
+        "before": 36,
+        "after": 36,
+        "proxy_gain": null,
+        "useful": null,
+        "evidence": null,
+        "observed": null
+      }
+    },
+    {
+      "tick": 108,
+      "choice": {
+        "target": "p",
+        "reason": "estimated_value",
+        "scores": {
+          "p": -0.9999999519967875,
+          "q": -1.0
+        },
+        "values_before": {
+          "p": -0.9999997347112963,
+          "q": -1.0
+        },
+        "trust_before": 0.9675967124870426,
+        "base_target": "p",
+        "base_reason": "estimated_value",
+        "probe": null,
+        "budget_before": {
+          "released": 8,
+          "used": 3,
+          "available": 5,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "requests": [],
+        "budget_after": {
+          "released": 8,
+          "used": 3,
+          "available": 5,
+          "last_spend": 73,
+          "limit": 12
+        },
+        "interval_before": 36,
+        "reward": -1,
+        "actions": [
+          {
+            "action": "move",
+            "from": [
+              3,
+              3
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              1,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              3
+            ],
+            "to": [
+              1,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              2
+            ],
+            "to": [
+              1,
+              1
+            ]
+          },
+          {
+            "action": "eat",
+            "kind": "p",
+            "reward": -1
+          },
+          {
+            "action": "move",
+            "from": [
+              1,
+              1
+            ],
+            "to": [
+              2,
+              1
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              1
+            ],
+            "to": [
+              2,
+              2
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              2
+            ],
+            "to": [
+              2,
+              3
+            ]
+          },
+          {
+            "action": "move",
+            "from": [
+              2,
+              3
+            ],
+            "to": [
+              3,
+              3
+            ]
+          }
+        ],
+        "validated_messages": [
+          {
+            "id": "A-107",
+            "match": true,
+            "age": 1
+          }
+        ],
+        "monitor": {
+          "prediction": -0.9999997347112963,
+          "residual": 2.652887036713736e-07,
+          "prior_count": 104,
+          "unexpected": false,
+          "streak": 0,
+          "candidate": "q",
+          "candidate_age": 35,
+          "eligible": false,
+          "scheduled": false,
+          "blocked": null,
+          "request_proposed": false
+        }
+      },
+      "frequency": {
+        "before": 36,
+        "after": 36,
+        "proxy_gain": null,
+        "useful": null,
+        "evidence": null,
+        "observed": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "verified_at": "2026-11-06T10:22:49.835Z",
+  "status": "passed",
+  "engine": "isolated Playwright Chromium headless",
+  "checks": [
+    "single-recipient hint, environment change, and save during a journey",
+    "real JSON browser download equals the complete paused world",
+    "file chooser import cancelled without changing the world",
+    "downloaded file imported through chooser restores both memories and journey exactly",
+    "invalid JSON and invalid-schema imports leave state intact",
+    "oversize file rejected before world replacement",
+    "manual load cancellation and acceptance preserve expected state",
+    "ten play/pause cycles stop ticks, repeated single steps advance exactly once",
+    "pending-command controls reject duplicate pointer activation",
+    "eight-second command timeout releases controls and resumes state polling",
+    "new-world cancellation and confirmation keep manual save recoverable",
+    "open a lived-in W2 sample and inspect both personal weather memories",
+    "weather controls isolate effect edits and preserve personal hints",
+    "playable example restores known histories without giving the actors an action command",
+    "desktop and narrow layout have no horizontal overflow; screenshot captured"
+  ],
+  "owner_accepted": false,
+  "browser_version": "151.0.7922.34",
+  "download": {
+    "filename": "world-w2-step-4.json",
+    "bytes": 6330,
+    "sha256": "a535bd51e21b35909efc769eea3dc4f23d2ab5c1b25f9bded2c3f10cfa30fa5d",
+    "tick": 4
+  },
+  "page_errors": [],
+  "control_cycles": 10,
+  "not_claimed": [
+    "manual IAB download support (earlier tool blocked)",
+    "owner subjective acceptance",
+    "all-browser or mobile device compatibility"
+  ],
+  "user_saves_touched": false,
+  "source_sha256": {
+    "living_world/web/app.js": "f9cfe73bd7cfa9794f0df3294947f4a73bf64d60a4e291c7d0a744388e0b5901",
+    "living_world/web/index.html": "d195dab387544c3aa962ad4fc24d9d8511b4aa015b586783b12a6a3828b78c23",
+    "living_world/web/style.css": "55b4fc716812a0e01df2d7d00d3086ed3dd31aecc935aa72e539e99164b94b26",
+    "living_world/src/server.py": "f8d7053d206105f25c9284d22090a07bcafe96478f1ff2c834eaf6d1f23d33ef",
+    "living_world/tests/browser-check.cjs": "2f942176f4cb3b03f05223336e80df291c03732fd0888b3e3de554d01d0682dd",
+    "living_world/src/context_world.py": "587880cf74131815c95c4baae12bd853add9e98f08cbcb12d367c99942f49273",
+    "living_world/src/context_server.py": "30e5716905349c0cf9a9f2820cc0f06832ce5c523fef11edd657dfc6f565d537"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-01",
+  "passed": true,
+  "method": "actual in-app browser interactions and full-page screenshot inspection",
+  "url": "http://127.0.0.1:4189/e3-v1/replay.html",
+  "observations": [
+    {
+      "scenario": "stale_source",
+      "seed": 0,
+      "first_trigger_round": 41,
+      "candidate_age": 28,
+      "probe_round": 42,
+      "B_baseline_food": "p",
+      "B_probe_food": "q",
+      "B_rewards": [
+        -1,
+        1
+      ],
+      "new_personal_q_value": -0.2
+    },
+    {
+      "check": "play/pause",
+      "observed": "round 42 action 2/10 while running; paused and scrubbed back to end of round 42"
+    },
+    {
+      "scenario": "noisy_stable",
+      "seed": 0,
+      "trigger_round": 101,
+      "probe_round": 102,
+      "B_cumulative_regret": [
+        9.6,
+        11.2
+      ],
+      "screenshot": "noise-cost.jpg"
+    },
+    {
+      "scenario": "hidden_improvement",
+      "seed": 0,
+      "observed": "no trigger message; random_24 comparison and summary visible"
+    },
+    {
+      "check": "comparators",
+      "observed": "random_12, random_24, surprise_random selections changed left panel and intervals"
+    }
+  ],
+  "delivery_screenshot": "reinspection-comparison.jpg",
+  "limits": [
+    "saved-trajectory replay, not live agent execution",
+    "desktop layout only",
+    "no strict FPS measurement",
+    "owner subjective acceptance pending"
+  ]
+}

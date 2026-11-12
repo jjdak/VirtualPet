@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>同一刻，两种后来 · W3</title><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script></head>
+<body><main>
+  <header><div><p class="eyebrow">两个人的小世界 / W3</p><h1>同一刻，两种后来</h1><p class="intro">左边继续生活，右边只多收到一条地点建议。<br>从同一份经历出发，看看差异在哪里出现，又留下多久。</p></div><span class="tag">本机 · 240 步观察窗</span></header>
+  <section class="setup" aria-label="设置同档分支">
+    <div class="source"><span class="label">从哪里开始</span><div class="row"><select id="example" aria-label="内置示例"><option value="study">固定网格筛选示例</option><option value="step700">W2 第 700 步</option><option value="reversal">效果互换 · 同伴改选</option></select><button id="load-example">载入示例</button><button id="import">导入 W2 存档</button><input id="file" type="file" accept=".json,application/json" hidden></div><p id="source-info">正在连接本机服务…</p></div>
+    <div><span class="label">右边只建议一次</span><div class="row"><label>告诉 <select id="actor"><option value="A">阿禾 A</option><option value="B">小岚 B</option></select></label><label>去 <select id="kind"><option value="p">青禾地 p</option><option value="q">紫穗地 q</option></select></label><button id="compare" class="primary">重新分支</button></div><p>建议不会强制掉头，也不会直接改变食物或经验。</p></div>
+  </section>
+  <p id="notice" role="status" aria-live="polite">准备示例中。</p>
+  <section class="playback" aria-label="同步回放">
+    <div class="row timeline-heading"><div><span class="label">看同一步</span><h2 id="clock">分支后 +0 步</h2><p id="absolute">两个世界同时暂停</p></div><div class="row"><button id="back" aria-label="后退一步">−1</button><button id="play" class="primary">播放</button><button id="next" aria-label="前进一步">+1</button><select id="speed" aria-label="回放速度"><option value="1">每秒 2 步</option><option value="4">每秒 8 步</option><option value="12">每秒 24 步</option></select></div></div>
+    <input id="timeline" type="range" min="0" max="240" value="0" aria-label="分支后步数"><div class="range-labels"><span>分支时刻 +0</span><span>观察结束 +240</span></div>
+    <div id="jumps" class="jumps" aria-label="关键时刻"></div>
+  </section>
+  <div class="worlds">
+    <section class="world"><div class="world-heading"><h2>继续生活</h2><span>左 / 不追加建议</span></div><canvas id="control-map" width="660" height="430" aria-label="左边世界地图"></canvas><div id="control-status" class="people"></div><div class="messages"><h3>这一步建议收件人送达给同伴的亲历报告</h3><ul id="control-deliveries"></ul></div></section>
+    <section class="world hinted"><div class="world-heading"><h2>听到你的建议</h2><span id="hint-summary">右 / 一条建议</span></div><canvas id="hinted-map" width="660" height="430" aria-label="右边世界地图"></canvas><div id="hinted-status" class="people"></div><div class="messages"><h3>这一步建议收件人送达给同伴的亲历报告</h3><ul id="hinted-deliveries"></ul></div></section>
+  </div>
+  <section class="findings"><div class="section-heading"><span class="label">对照后留下什么</span><h2>行为差异</h2></div><div id="metrics"></div><p id="hint-end"></p><p id="relay"></p></section>
+  <details class="method"><summary>怎样核对这个对照</summary><p>完整 W2 v2 存档分别恢复成两个独立世界，天气与随机选择规则同步。只在右侧分支时给指定角色追加一条建议；以后两边自行推进，没有连续干预。重新分支每次都回到同一原档，不接着上次的终点运行。</p><p>“行为不同”只比较同一步的位置、行动阶段、当前目的地；日志或收到建议本身不计入。首次与最后差异、差异步数都在 +0…+240 的窗口内。“最后差异”并不保证之后永远相同；末步仍不同表示观察截断。“建议结束后”从建议结束的下一步开始统计。</p><p>“同一步改选”指两边同一步出发、却选了不同地点的次数。亲历报告差异比较实际送达内容和时间；同伴受影响的传播证据还需关闭双方后续交流重复比较，保留原档已有消息。先后关系本身不能证明因果。</p><p>默认示例取固定网格顺序中首个有传播证据的案例；若没有则取首个直接行为改变案例。它用于查看机制，不能代表平均效果。也可以载入未按该规则筛选的 W2 第 700 步示例。“效果互换”来自单独的场景组：分支前已交换两处食物效果，两个分支从同一份变化后的存档开始；不是主网格的自然发生率。</p><p>本页上传只在本机内存中比较，不覆盖 W2 运行中世界，不写个人存档。导入上限 1 MB。</p><p id="provenance"></p></details>
+  <footer>A 阿禾 · 橙色　 B 小岚 · 蓝色　｜　圆点是位置，虚线指向当前目的地。简图不代表人物动画。</footer>
+</main></body></html>

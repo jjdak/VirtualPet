@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+cd "$(dirname "$0")"
+godot_bin='/Applications/Godot.app/Contents/MacOS/Godot'
+if [[ ! -x "$godot_bin" ]]; then
+  echo '请先安装 Godot 4.7.2，详见 sim/README.md。' >&2
+  exit 1
+fi
+if [[ ! -f assets/private/migration.json || ! -f assets/private/locomotion.json || ! -f assets/private/girl-a-idle.glb || ! -f assets/private/girl-a-walk.glb || ! -f assets/private/transitions.json || ! -f assets/private/girl-a-turnleft.glb || ! -f assets/private/girl-a-turnright.glb || ! -f assets/private/girl-a-stop.glb ]]; then
+  echo '缺少私人导出资产，请先运行 sim/prepare-assets.command。' >&2
+  exit 1
+fi
+"$godot_bin" --headless --path "$PWD" --editor --import
+exec "$godot_bin" --path "$PWD"

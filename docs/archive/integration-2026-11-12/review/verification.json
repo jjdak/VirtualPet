@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-12",
+  "livingWorldTests": 50,
+  "experimentTestsByStage": {
+    "E1": 5,
+    "E2": 7,
+    "E3": 12,
+    "E4": 14,
+    "E5": 12,
+    "E6": 14
+  },
+  "pythonTestsPassed": 114,
+  "godotControl": {
+    "escape_stops": true,
+    "focus_loss_stops": true,
+    "graphical": false,
+    "new_input_resumes": true,
+    "passed": true,
+    "redirect_cancels_old_turn": true,
+    "redirect_heading_delta": 0.181714057922363,
+    "release_cancels_turn": true,
+    "release_heading_drift": 0.0,
+    "resumed_status": true,
+    "seated_return_stable": true,
+    "stop_button_drift": 0.0,
+    "stop_interrupted": true,
+    "stop_started": true,
+    "takeover_cancels_action": true,
+    "turn_started": true,
+    "world_keeps_running": true
+  },
+  "godotHostErrorLines": 0,
+  "githubChecksConfigured": false,
+  "scope": "Python logic and HTTP regressions; headless Godot control. No new graphical, physical-device or subjective acceptance."
+}

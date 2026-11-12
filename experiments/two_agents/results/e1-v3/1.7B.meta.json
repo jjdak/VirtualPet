@@ -1,0 +1,50 @@
+{
+  "backend": "1.7B",
+  "started_utc": "2026-10-31T08:36:10.078819+00:00",
+  "client_date": "2026-10-31",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.11.15",
+  "source_sha256": {
+    "run_text.py": "bd5eec31b61c31cd39c8eb92983ccc20fdfff7f21a907eba4ba45c69f011b594",
+    "world.py": "48502e3dcd6ba1b33315956079c79386d857223047347b7aad235b4079e171fc"
+  },
+  "protocol": "E1-v3-natural-language",
+  "input_encoding": "natural_language",
+  "cases": 12,
+  "probes_per_case": 8,
+  "temperature": 0,
+  "max_tokens": 48,
+  "thinking": false,
+  "concurrency": 1,
+  "shared_weights_separate_memories": true,
+  "llm_weights_trained": false,
+  "hardware": [
+    "Apple M4",
+    "17179869184"
+  ],
+  "model": {
+    "size": "1.7B",
+    "repo": "mlx-community/Qwen3-1.7B-4bit",
+    "revision": "3b1b1768f8f8cf8351c712464f906e86c2b8269e",
+    "path": "PrivateAssets/AgentLab/models/1.7B",
+    "license": "Apache-2.0"
+  },
+  "packages": {
+    "mlx": "0.32.4",
+    "mlx-lm": "0.32.2",
+    "transformers": "5.20.2"
+  },
+  "load_seconds": 1.3621094999834895,
+  "warmup": {
+    "seconds": 0.39147987496107817,
+    "ttft_seconds": 0.32839370891451836,
+    "prompt_tokens": 191,
+    "generation_tokens": 6,
+    "generation_tps": 111.13915367144499,
+    "prompt_tps": 621.6614865778539,
+    "mlx_peak_gb": 1.28259178,
+    "finish_reason": "stop"
+  },
+  "rss_highwater_gb": 1.340719104,
+  "completed_utc": "2026-10-31T08:36:47.823579+00:00"
+}

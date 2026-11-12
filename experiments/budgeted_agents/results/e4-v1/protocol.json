@@ -1,0 +1,139 @@
+{
+  "protocol": "e4-v1",
+  "client_date": "2026-11-01",
+  "rounds": 180,
+  "seeds": 50,
+  "flip_round": 40,
+  "fault_start": 20,
+  "fault_end": 80,
+  "epsilon": 0.12,
+  "alpha": 0.4,
+  "fixed_trust": 0.75,
+  "trust_prior": [
+    3.0,
+    1.0
+  ],
+  "trust_retention": 0.98,
+  "message_ttl": 5,
+  "message_decay": 6.0,
+  "scenarios": [
+    "stable",
+    "noisy_stable",
+    "swap@27",
+    "swap@53",
+    "swap@91",
+    "hidden_gain@27",
+    "hidden_gain@53",
+    "hidden_gain@91",
+    "staggered@27",
+    "staggered@53",
+    "staggered@91",
+    "noisy_staggered@27",
+    "noisy_staggered@53",
+    "noisy_staggered@91"
+  ],
+  "policies": [
+    "budget_random",
+    "periodic_only",
+    "trigger_only",
+    "hybrid",
+    "e3_reference"
+  ],
+  "trace_seeds": [
+    100
+  ],
+  "noise_probability": 0.1,
+  "residual_threshold": 1.0,
+  "consecutive_errors": 2,
+  "min_experiences": 3,
+  "stale_after": 8,
+  "probe_cooldown": 8,
+  "probe_budget": 6,
+  "high_epsilon": 0.24,
+  "seed_start": 100,
+  "cases": [
+    {
+      "id": "stable",
+      "kind": "stable",
+      "change_at": null
+    },
+    {
+      "id": "noisy_stable",
+      "kind": "noisy_stable",
+      "change_at": null
+    },
+    {
+      "id": "swap@27",
+      "kind": "swap",
+      "change_at": 27
+    },
+    {
+      "id": "swap@53",
+      "kind": "swap",
+      "change_at": 53
+    },
+    {
+      "id": "swap@91",
+      "kind": "swap",
+      "change_at": 91
+    },
+    {
+      "id": "hidden_gain@27",
+      "kind": "hidden_gain",
+      "change_at": 27
+    },
+    {
+      "id": "hidden_gain@53",
+      "kind": "hidden_gain",
+      "change_at": 53
+    },
+    {
+      "id": "hidden_gain@91",
+      "kind": "hidden_gain",
+      "change_at": 91
+    },
+    {
+      "id": "staggered@27",
+      "kind": "staggered",
+      "change_at": 27
+    },
+    {
+      "id": "staggered@53",
+      "kind": "staggered",
+      "change_at": 53
+    },
+    {
+      "id": "staggered@91",
+      "kind": "staggered",
+      "change_at": 91
+    },
+    {
+      "id": "noisy_staggered@27",
+      "kind": "noisy_staggered",
+      "change_at": 27
+    },
+    {
+      "id": "noisy_staggered@53",
+      "kind": "noisy_staggered",
+      "change_at": 53
+    },
+    {
+      "id": "noisy_staggered@91",
+      "kind": "noisy_staggered",
+      "change_at": 91
+    }
+  ],
+  "trace_cases": [
+    "hidden_gain@53",
+    "staggered@91",
+    "noisy_stable"
+  ],
+  "total_budget": 12,
+  "budget_release_every": 15,
+  "budget_cooldown": 6,
+  "periodic_age": 18,
+  "hybrid_reserve": 1,
+  "stagger_delay": 23,
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 20261102
+}

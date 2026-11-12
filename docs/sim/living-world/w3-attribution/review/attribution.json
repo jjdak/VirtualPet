@@ -1,0 +1,1878 @@
+{
+  "source_sha256": "a3b63fd6fefacebb5946e5d8c69e93039ed6829fafc207ee699c6d864893cf8b",
+  "long_source_sha256": "d87fd4642bc1286cf9dbd7fbf874c2256f5976da86709a53a28f58cb04850c97",
+  "implementation_sha256": {
+    "living_world/src/world.py": "6b66005639722bb3ffec1daf50c0d90cfd103eb085da5e15f57ce47b4d551fac",
+    "living_world/src/context_world.py": "587880cf74131815c95c4baae12bd853add9e98f08cbcb12d367c99942f49273",
+    "experiments/adaptive_agents/src/core.py": "d9768ca00220666e0177c4531edc4c882d957143b786b3746fdd8bc8bedf4b48"
+  },
+  "summary": {
+    "pairs": 3,
+    "decisions": 6,
+    "exploration_decisions": 3,
+    "unique_rng_keys": 4,
+    "unique_input_states": 5,
+    "ablation_probes": 48,
+    "swapped_draw_probes": 6
+  },
+  "cases": [
+    {
+      "family": "reversal",
+      "seed": 15,
+      "age": 480,
+      "actor": "B",
+      "kind": "q",
+      "comparisons": [
+        {
+          "actor": "B",
+          "matched_trip": {
+            "control": {
+              "depart": 2583,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2589,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2594,
+              "rest": 2595
+            },
+            "hinted": {
+              "depart": 2578,
+              "place": "p",
+              "weather": "sun",
+              "eat": 2586,
+              "eat_weather": "sun",
+              "reward": -1,
+              "home": 2593,
+              "rest": 2594
+            },
+            "delta": {
+              "depart": -5,
+              "eat": -3,
+              "home": -1,
+              "rest": -1
+            },
+            "same_place": false
+          },
+          "decisions": {
+            "control": {
+              "side": "control",
+              "actor": "B",
+              "tick": 3063,
+              "offset": 2583,
+              "weather": "sun",
+              "input_sha256": "2e006eae733828b75c4eceda9738566fddebd17e1cdfeb278171ec3ca595a843",
+              "own_values": {
+                "p": -0.84448,
+                "q": 0.9999999999941804
+              },
+              "own_counts": {
+                "p": 8,
+                "q": 53
+              },
+              "own_latest": {
+                "q": {
+                  "id": "B:3022",
+                  "source": "B",
+                  "tick": 3022,
+                  "kind": "q",
+                  "claim": 1
+                },
+                "p": {
+                  "id": "B:1061",
+                  "source": "B",
+                  "tick": 1061,
+                  "kind": "p",
+                  "claim": -1
+                }
+              },
+              "trust": 0.9149582623523239,
+              "messages": [
+                {
+                  "id": "A:1449",
+                  "source": "A",
+                  "tick": 1449,
+                  "kind": "p",
+                  "claim": -1,
+                  "age": 1614,
+                  "received_tick": 1459,
+                  "effective": false,
+                  "weight": 0.0,
+                  "source_verified": true
+                },
+                {
+                  "id": "A:3036",
+                  "source": "A",
+                  "tick": 3036,
+                  "kind": "q",
+                  "claim": 1,
+                  "age": 27,
+                  "received_tick": 3039,
+                  "effective": true,
+                  "weight": 0.6984603756538429,
+                  "source_verified": true
+                }
+              ],
+              "observed": {
+                "q": {
+                  "available": true,
+                  "tick": 3024
+                },
+                "p": {
+                  "available": true,
+                  "tick": 1063
+                }
+              },
+              "hints": [],
+              "previous_choice": {
+                "tick": 3016,
+                "target": "q",
+                "scores": {
+                  "p": -0.84448,
+                  "q": 0.9999999999970723
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              },
+              "baseline": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.2860864029537078,
+                  0.008144161652410609
+                ],
+                "route": "estimated_value",
+                "candidates": [
+                  "q"
+                ],
+                "tick": 3063,
+                "target": "q",
+                "scores": {
+                  "p": -0.84448,
+                  "q": 0.9999999999982452
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              },
+              "ablations": [
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.2860864029537078,
+                    0.008144161652410609
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3063,
+                  "target": "p",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.2860864029537078,
+                    0.008144161652410609
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3063,
+                  "target": "p",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.2860864029537078,
+                    0.008144161652410609
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3063,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.6984603756538429
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.2860864029537078,
+                    0.008144161652410609
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3063,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.6984603756538429
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.2860864029537078,
+                    0.008144161652410609
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3063,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.84448,
+                    "q": 0.9999999999941804
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.2860864029537078,
+                    0.008144161652410609
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3063,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.84448,
+                    "q": 0.9999999999941804
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.2860864029537078,
+                    0.008144161652410609
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3063,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.84448,
+                    "q": 0.9999999999982452
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.2860864029537078,
+                    0.008144161652410609
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3063,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.84448,
+                    "q": 0.9999999999982452
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                }
+              ],
+              "other_branch_draws": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.0661842792065983,
+                  0.34683721689063896
+                ],
+                "route": "explore",
+                "candidates": [
+                  "p",
+                  "q"
+                ],
+                "tick": 3063,
+                "target": "p",
+                "scores": {
+                  "p": -0.84448,
+                  "q": 0.9999999999982452
+                },
+                "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+              }
+            },
+            "hinted": {
+              "side": "hinted",
+              "actor": "B",
+              "tick": 3058,
+              "offset": 2578,
+              "weather": "sun",
+              "input_sha256": "894ff7e2d2606517f3020d7f64fd79876611bda607df8787d1c845a664b6baca",
+              "own_values": {
+                "p": -0.28,
+                "q": 0.9999999999965082
+              },
+              "own_counts": {
+                "p": 5,
+                "q": 54
+              },
+              "own_latest": {
+                "q": {
+                  "id": "B:3017",
+                  "source": "B",
+                  "tick": 3017,
+                  "kind": "q",
+                  "claim": 1
+                },
+                "p": {
+                  "id": "B:2194",
+                  "source": "B",
+                  "tick": 2194,
+                  "kind": "p",
+                  "claim": -1
+                }
+              },
+              "trust": 0.9144750547383946,
+              "messages": [
+                {
+                  "id": "A:1449",
+                  "source": "A",
+                  "tick": 1449,
+                  "kind": "p",
+                  "claim": -1,
+                  "age": 1609,
+                  "received_tick": 1454,
+                  "effective": false,
+                  "weight": 0.0,
+                  "source_verified": true
+                },
+                {
+                  "id": "A:3036",
+                  "source": "A",
+                  "tick": 3036,
+                  "kind": "q",
+                  "claim": 1,
+                  "age": 22,
+                  "received_tick": 3039,
+                  "effective": true,
+                  "weight": 0.7338834216953282,
+                  "source_verified": true
+                }
+              ],
+              "observed": {
+                "q": {
+                  "available": true,
+                  "tick": 3019
+                },
+                "p": {
+                  "available": true,
+                  "tick": 2196
+                }
+              },
+              "hints": [
+                {
+                  "id": 87,
+                  "source": "player",
+                  "kind": "q",
+                  "tick": 480,
+                  "status": "visited"
+                }
+              ],
+              "previous_choice": {
+                "tick": 3011,
+                "target": "q",
+                "scores": {
+                  "p": -0.28,
+                  "q": 0.9999999999984494
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              },
+              "baseline": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.0661842792065983,
+                  0.34683721689063896
+                ],
+                "route": "explore",
+                "candidates": [
+                  "p",
+                  "q"
+                ],
+                "tick": 3058,
+                "target": "p",
+                "scores": {
+                  "p": -0.28,
+                  "q": 0.9999999999990707
+                },
+                "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+              },
+              "ablations": [
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.0661842792065983,
+                    0.34683721689063896
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3058,
+                  "target": "p",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.0661842792065983,
+                    0.34683721689063896
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3058,
+                  "target": "p",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.0661842792065983,
+                    0.34683721689063896
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3058,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.7338834216953282
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.0661842792065983,
+                    0.34683721689063896
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3058,
+                  "target": "p",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.7338834216953282
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.0661842792065983,
+                    0.34683721689063896
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3058,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.28,
+                    "q": 0.9999999999965082
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.0661842792065983,
+                    0.34683721689063896
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3058,
+                  "target": "p",
+                  "scores": {
+                    "p": -0.28,
+                    "q": 0.9999999999965082
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.0661842792065983,
+                    0.34683721689063896
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3058,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.28,
+                    "q": 0.9999999999990707
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.0661842792065983,
+                    0.34683721689063896
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3058,
+                  "target": "p",
+                  "scores": {
+                    "p": -0.28,
+                    "q": 0.9999999999990707
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                }
+              ],
+              "other_branch_draws": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.2860864029537078,
+                  0.008144161652410609
+                ],
+                "route": "estimated_value",
+                "candidates": [
+                  "q"
+                ],
+                "tick": 3058,
+                "target": "q",
+                "scores": {
+                  "p": -0.28,
+                  "q": 0.9999999999990707
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "family": "reversal",
+      "seed": 19,
+      "age": 480,
+      "actor": "A",
+      "kind": "q",
+      "comparisons": [
+        {
+          "actor": "A",
+          "matched_trip": {
+            "control": {
+              "depart": 2673,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2681,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2688,
+              "rest": 2689
+            },
+            "hinted": {
+              "depart": 2666,
+              "place": "p",
+              "weather": "sun",
+              "eat": 2672,
+              "eat_weather": "sun",
+              "reward": -1,
+              "home": 2677,
+              "rest": 2678
+            },
+            "delta": {
+              "depart": -7,
+              "eat": -9,
+              "home": -11,
+              "rest": -11
+            },
+            "same_place": false
+          },
+          "decisions": {
+            "control": {
+              "side": "control",
+              "actor": "A",
+              "tick": 3153,
+              "offset": 2673,
+              "weather": "sun",
+              "input_sha256": "cf9257e02d6311d6139a96929a6797cea56988ad1dab6d2640023bfbc87e1b17",
+              "own_values": {
+                "p": -0.9997968800866631,
+                "q": 0.9999999999730573
+              },
+              "own_counts": {
+                "p": 21,
+                "q": 51
+              },
+              "own_latest": {
+                "p": {
+                  "id": "A:2144",
+                  "source": "A",
+                  "tick": 2144,
+                  "kind": "p",
+                  "claim": -1
+                },
+                "q": {
+                  "id": "A:3114",
+                  "source": "A",
+                  "tick": 3114,
+                  "kind": "q",
+                  "claim": 1
+                }
+              },
+              "trust": 0.9189752138363538,
+              "messages": [
+                {
+                  "id": "B:2991",
+                  "source": "B",
+                  "tick": 2991,
+                  "kind": "p",
+                  "claim": -1,
+                  "age": 162,
+                  "received_tick": 2994,
+                  "effective": false,
+                  "weight": 0.0,
+                  "source_verified": true
+                },
+                {
+                  "id": "B:3102",
+                  "source": "B",
+                  "tick": 3102,
+                  "kind": "q",
+                  "claim": 1,
+                  "age": 51,
+                  "received_tick": 3107,
+                  "effective": true,
+                  "weight": 0.5518405529467871,
+                  "source_verified": true
+                }
+              ],
+              "observed": {
+                "p": {
+                  "available": true,
+                  "tick": 2146
+                },
+                "q": {
+                  "available": true,
+                  "tick": 3116
+                }
+              },
+              "hints": [],
+              "previous_choice": {
+                "tick": 3106,
+                "target": "q",
+                "scores": {
+                  "p": -0.9998559714247085,
+                  "q": 0.9999999999796237
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              },
+              "baseline": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.8081786514552514,
+                  0.533858147250711
+                ],
+                "route": "estimated_value",
+                "candidates": [
+                  "q"
+                ],
+                "tick": 3153,
+                "target": "q",
+                "scores": {
+                  "p": -0.9997968800866631,
+                  "q": 0.9999999999879254
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              },
+              "ablations": [
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.5518405529467871
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.5518405529467871
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.9997968800866631,
+                    "q": 0.9999999999730573
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.9997968800866631,
+                    "q": 0.9999999999730573
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.9997968800866631,
+                    "q": 0.9999999999879254
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.9997968800866631,
+                    "q": 0.9999999999879254
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                }
+              ],
+              "other_branch_draws": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.06311812567256425,
+                  0.057943001565913144
+                ],
+                "route": "explore",
+                "candidates": [
+                  "p",
+                  "q"
+                ],
+                "tick": 3153,
+                "target": "p",
+                "scores": {
+                  "p": -0.9997968800866631,
+                  "q": 0.9999999999879254
+                },
+                "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+              }
+            },
+            "hinted": {
+              "side": "hinted",
+              "actor": "A",
+              "tick": 3146,
+              "offset": 2666,
+              "weather": "sun",
+              "input_sha256": "df7f2c73aae8acc8bac85600448d56918b9a930d2d673a8a65bc30ac25f822c9",
+              "own_values": {
+                "p": -0.7408,
+                "q": 0.9999999999979049
+              },
+              "own_counts": {
+                "p": 7,
+                "q": 56
+              },
+              "own_latest": {
+                "p": {
+                  "id": "A:1994",
+                  "source": "A",
+                  "tick": 1994,
+                  "kind": "p",
+                  "claim": -1
+                },
+                "q": {
+                  "id": "A:3106",
+                  "source": "A",
+                  "tick": 3106,
+                  "kind": "q",
+                  "claim": 1
+                }
+              },
+              "trust": 0.9170073167237411,
+              "messages": [
+                {
+                  "id": "B:2994",
+                  "source": "B",
+                  "tick": 2994,
+                  "kind": "p",
+                  "claim": -1,
+                  "age": 152,
+                  "received_tick": 2997,
+                  "effective": true,
+                  "weight": 0.20056040058963664,
+                  "source_verified": true
+                },
+                {
+                  "id": "B:3104",
+                  "source": "B",
+                  "tick": 3104,
+                  "kind": "q",
+                  "claim": 1,
+                  "age": 42,
+                  "received_tick": 3104,
+                  "effective": true,
+                  "weight": 0.6025167412004726,
+                  "source_verified": true
+                }
+              ],
+              "observed": {
+                "p": {
+                  "available": true,
+                  "tick": 1996
+                },
+                "q": {
+                  "available": true,
+                  "tick": 3108
+                }
+              },
+              "hints": [
+                {
+                  "id": 92,
+                  "source": "player",
+                  "kind": "q",
+                  "tick": 480,
+                  "status": "visited"
+                }
+              ],
+              "previous_choice": {
+                "tick": 3098,
+                "target": "q",
+                "scores": {
+                  "p": -0.8247903768885545,
+                  "q": 0.9999999999986326
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              },
+              "baseline": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.06311812567256425,
+                  0.057943001565913144
+                ],
+                "route": "explore",
+                "candidates": [
+                  "p",
+                  "q"
+                ],
+                "tick": 3146,
+                "target": "p",
+                "scores": {
+                  "p": -0.7927852558328339,
+                  "q": 0.9999999999991672
+                },
+                "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+              },
+              "ablations": [
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.20056040058963664,
+                    "q": 0.6025167412004726
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": -0.20056040058963664,
+                    "q": 0.6025167412004726
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.7408,
+                    "q": 0.9999999999979049
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": -0.7408,
+                    "q": 0.9999999999979049
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.7927852558328339,
+                    "q": 0.9999999999991672
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": -0.7927852558328339,
+                    "q": 0.9999999999991672
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                }
+              ],
+              "other_branch_draws": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.8081786514552514,
+                  0.533858147250711
+                ],
+                "route": "estimated_value",
+                "candidates": [
+                  "q"
+                ],
+                "tick": 3146,
+                "target": "q",
+                "scores": {
+                  "p": -0.7927852558328339,
+                  "q": 0.9999999999991672
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "family": "reversal",
+      "seed": 19,
+      "age": 480,
+      "actor": "B",
+      "kind": "q",
+      "comparisons": [
+        {
+          "actor": "A",
+          "matched_trip": {
+            "control": {
+              "depart": 2673,
+              "place": "q",
+              "weather": "sun",
+              "eat": 2681,
+              "eat_weather": "sun",
+              "reward": 1,
+              "home": 2688,
+              "rest": 2689
+            },
+            "hinted": {
+              "depart": 2666,
+              "place": "p",
+              "weather": "sun",
+              "eat": 2672,
+              "eat_weather": "sun",
+              "reward": -1,
+              "home": 2677,
+              "rest": 2678
+            },
+            "delta": {
+              "depart": -7,
+              "eat": -9,
+              "home": -11,
+              "rest": -11
+            },
+            "same_place": false
+          },
+          "decisions": {
+            "control": {
+              "side": "control",
+              "actor": "A",
+              "tick": 3153,
+              "offset": 2673,
+              "weather": "sun",
+              "input_sha256": "cf9257e02d6311d6139a96929a6797cea56988ad1dab6d2640023bfbc87e1b17",
+              "own_values": {
+                "p": -0.9997968800866631,
+                "q": 0.9999999999730573
+              },
+              "own_counts": {
+                "p": 21,
+                "q": 51
+              },
+              "own_latest": {
+                "p": {
+                  "id": "A:2144",
+                  "source": "A",
+                  "tick": 2144,
+                  "kind": "p",
+                  "claim": -1
+                },
+                "q": {
+                  "id": "A:3114",
+                  "source": "A",
+                  "tick": 3114,
+                  "kind": "q",
+                  "claim": 1
+                }
+              },
+              "trust": 0.9189752138363538,
+              "messages": [
+                {
+                  "id": "B:2991",
+                  "source": "B",
+                  "tick": 2991,
+                  "kind": "p",
+                  "claim": -1,
+                  "age": 162,
+                  "received_tick": 2994,
+                  "effective": false,
+                  "weight": 0.0,
+                  "source_verified": true
+                },
+                {
+                  "id": "B:3102",
+                  "source": "B",
+                  "tick": 3102,
+                  "kind": "q",
+                  "claim": 1,
+                  "age": 51,
+                  "received_tick": 3107,
+                  "effective": true,
+                  "weight": 0.5518405529467871,
+                  "source_verified": true
+                }
+              ],
+              "observed": {
+                "p": {
+                  "available": true,
+                  "tick": 2146
+                },
+                "q": {
+                  "available": true,
+                  "tick": 3116
+                }
+              },
+              "hints": [],
+              "previous_choice": {
+                "tick": 3106,
+                "target": "q",
+                "scores": {
+                  "p": -0.9998559714247085,
+                  "q": 0.9999999999796237
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              },
+              "baseline": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.8081786514552514,
+                  0.533858147250711
+                ],
+                "route": "estimated_value",
+                "candidates": [
+                  "q"
+                ],
+                "tick": 3153,
+                "target": "q",
+                "scores": {
+                  "p": -0.9997968800866631,
+                  "q": 0.9999999999879254
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              },
+              "ablations": [
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.5518405529467871
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.5518405529467871
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.9997968800866631,
+                    "q": 0.9999999999730573
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.9997968800866631,
+                    "q": 0.9999999999730573
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.9997968800866631,
+                    "q": 0.9999999999879254
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.8081786514552514,
+                    0.533858147250711
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3153,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.9997968800866631,
+                    "q": 0.9999999999879254
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                }
+              ],
+              "other_branch_draws": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.06311812567256425,
+                  0.057943001565913144
+                ],
+                "route": "explore",
+                "candidates": [
+                  "p",
+                  "q"
+                ],
+                "tick": 3153,
+                "target": "p",
+                "scores": {
+                  "p": -0.9997968800866631,
+                  "q": 0.9999999999879254
+                },
+                "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+              }
+            },
+            "hinted": {
+              "side": "hinted",
+              "actor": "A",
+              "tick": 3146,
+              "offset": 2666,
+              "weather": "sun",
+              "input_sha256": "20cd847dad6ce3e42328b77a3524ce1c998098f2f74fc984bb369177fae60f83",
+              "own_values": {
+                "p": -0.7408,
+                "q": 0.9999999999979049
+              },
+              "own_counts": {
+                "p": 7,
+                "q": 56
+              },
+              "own_latest": {
+                "p": {
+                  "id": "A:1994",
+                  "source": "A",
+                  "tick": 1994,
+                  "kind": "p",
+                  "claim": -1
+                },
+                "q": {
+                  "id": "A:3106",
+                  "source": "A",
+                  "tick": 3106,
+                  "kind": "q",
+                  "claim": 1
+                }
+              },
+              "trust": 0.9153992761038902,
+              "messages": [
+                {
+                  "id": "B:3136",
+                  "source": "B",
+                  "tick": 3136,
+                  "kind": "p",
+                  "claim": -1,
+                  "age": 10,
+                  "received_tick": 3139,
+                  "effective": true,
+                  "weight": 0.8282875174618304,
+                  "source_verified": true
+                },
+                {
+                  "id": "B:3087",
+                  "source": "B",
+                  "tick": 3087,
+                  "kind": "q",
+                  "claim": 1,
+                  "age": 59,
+                  "received_tick": 3092,
+                  "effective": true,
+                  "weight": 0.5074307951706027,
+                  "source_verified": true
+                }
+              ],
+              "observed": {
+                "p": {
+                  "available": true,
+                  "tick": 1996
+                },
+                "q": {
+                  "available": true,
+                  "tick": 3108
+                }
+              },
+              "hints": [],
+              "previous_choice": {
+                "tick": 3098,
+                "target": "q",
+                "scores": {
+                  "p": -0.8539651006380713,
+                  "q": 0.9999999999993706
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              },
+              "baseline": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.06311812567256425,
+                  0.057943001565913144
+                ],
+                "route": "explore",
+                "candidates": [
+                  "p",
+                  "q"
+                ],
+                "tick": 3146,
+                "target": "p",
+                "scores": {
+                  "p": -0.9554921245261064,
+                  "q": 0.9999999999989679
+                },
+                "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+              },
+              "ablations": [
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": 0.0,
+                    "q": 0.0
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.8282875174618304,
+                    "q": 0.5074307951706027
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": false,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": -0.8282875174618304,
+                    "q": 0.5074307951706027
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": false,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.7408,
+                    "q": 0.9999999999979049
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": false,
+                  "exploration": true,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": -0.7408,
+                    "q": 0.9999999999979049
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": false,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "estimated_value",
+                  "candidates": [
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "q",
+                  "scores": {
+                    "p": -0.9554921245261064,
+                    "q": 0.9999999999989679
+                  },
+                  "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+                },
+                {
+                  "own": true,
+                  "messages": true,
+                  "exploration": true,
+                  "draws": [
+                    0.06311812567256425,
+                    0.057943001565913144
+                  ],
+                  "route": "explore",
+                  "candidates": [
+                    "p",
+                    "q"
+                  ],
+                  "tick": 3146,
+                  "target": "p",
+                  "scores": {
+                    "p": -0.9554921245261064,
+                    "q": 0.9999999999989679
+                  },
+                  "reason": "晴天出发。偶尔换一个地方，检查旧经验是否还适用。"
+                }
+              ],
+              "other_branch_draws": {
+                "own": true,
+                "messages": true,
+                "exploration": true,
+                "draws": [
+                  0.8081786514552514,
+                  0.533858147250711
+                ],
+                "route": "estimated_value",
+                "candidates": [
+                  "q"
+                ],
+                "tick": 3146,
+                "target": "q",
+                "scores": {
+                  "p": -0.9554921245261064,
+                  "q": 0.9999999999989679
+                },
+                "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

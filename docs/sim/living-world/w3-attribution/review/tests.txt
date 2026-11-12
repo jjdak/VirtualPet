@@ -1,0 +1,9 @@
+test_messages_can_really_flip_the_fixed_decision (test_w3_attribution.ChoiceAttribution.test_messages_can_really_flip_the_fixed_decision) ... ok
+test_registered_sample_replays_exactly_and_probes_explain_the_choices (test_w3_attribution.ChoiceAttribution.test_registered_sample_replays_exactly_and_probes_explain_the_choices) ... ok
+test_swapping_draws_keeps_message_age_and_can_disable_exploration (test_w3_attribution.ChoiceAttribution.test_swapping_draws_keeps_message_age_and_can_disable_exploration) ... ok
+test_value_ablation_preserves_known_places_and_unknown_has_priority (test_w3_attribution.ChoiceAttribution.test_value_ablation_preserves_known_places_and_unknown_has_priority) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.111s
+
+OK

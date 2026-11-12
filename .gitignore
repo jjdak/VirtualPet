@@ -18,3 +18,23 @@ build_output.log
 /courtyard/public/models/*metadata.json
 
 /blender/scripts/__pycache__/
+
+# S1 runtime imports contain the existing private character and artwork.
+/sim/.godot/
+/sim/assets/private/
+/sim/evidence/
+
+# Reproducible experiment source is public; weights and environments are private.
+/experiments/two_agents/__pycache__/
+/experiments/adaptive_agents/**/__pycache__/
+
+# E3 experiment Python cache
+/experiments/reinspection_agents/**/__pycache__/
+
+# E4 experiment Python cache
+/experiments/budgeted_agents/**/__pycache__/
+/experiments/frequency_agents/**/__pycache__/
+/experiments/unresolved_agents/**/__pycache__/
+
+# W1 realtime world: runtime saves already live under .runtime/.
+/living_world/**/__pycache__/

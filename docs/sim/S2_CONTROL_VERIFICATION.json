@@ -1,0 +1,155 @@
+{
+  "date": "2026-10-23",
+  "stage": "S2 responsive controls; local feedback design recorded, S3/S4 unimplemented",
+  "checks": {
+    "headless": {
+      "escape_stops": true,
+      "focus_loss_stops": true,
+      "graphical": false,
+      "new_input_resumes": true,
+      "passed": true,
+      "redirect_cancels_old_turn": true,
+      "redirect_heading_delta": 0.182435035705566,
+      "release_cancels_turn": true,
+      "release_heading_drift": 0.0,
+      "resumed_status": true,
+      "seated_return_stable": true,
+      "stop_button_drift": 0.0,
+      "stop_interrupted": true,
+      "stop_started": true,
+      "takeover_cancels_action": true,
+      "turn_started": true,
+      "world_keeps_running": true
+    },
+    "graphical": {
+      "escape_stops": true,
+      "focus_loss_stops": true,
+      "graphical": true,
+      "new_input_resumes": true,
+      "passed": true,
+      "redirect_cancels_old_turn": true,
+      "redirect_heading_delta": 0.202492713928223,
+      "release_cancels_turn": true,
+      "release_heading_drift": 0.0,
+      "resumed_status": true,
+      "seated_return_stable": true,
+      "stop_button_drift": 0.0,
+      "stop_interrupted": true,
+      "stop_started": true,
+      "takeover_cancels_action": true,
+      "turn_started": true,
+      "world_keeps_running": true
+    }
+  },
+  "s2_regression_graphical": {
+    "bank_distance": 0.0638263896107674,
+    "bank_result": "已到池边",
+    "blocked_drift": 0.0,
+    "boat_blocked": true,
+    "boat_released": true,
+    "bone_count": 58,
+    "camera_look": true,
+    "clips": [
+      "GirlA - courtyard rig",
+      "Motion/Idle",
+      "Motion/Stop",
+      "Motion/TurnLeft",
+      "Motion/TurnRight",
+      "Motion/Walk"
+    ],
+    "contact_checks": true,
+    "contacts": {
+      "corrected_slide_sum": 0.457137731706382,
+      "max_correction": 0.220000013709068,
+      "max_segment_error": 1.19209289550781e-07,
+      "phases": {
+        "Idle": {
+          "corrected_slide_sum": 0.0296707043591198,
+          "raw_slide_sum": 0.702299819095515,
+          "samples": 784
+        },
+        "Stop": {
+          "corrected_slide_sum": 0.0689659532993971,
+          "raw_slide_sum": 1.0872700980708,
+          "samples": 123
+        },
+        "TurnLeft": {
+          "corrected_slide_sum": 0.103375103302483,
+          "raw_slide_sum": 1.90001638660942,
+          "samples": 327
+        },
+        "TurnRight": {
+          "corrected_slide_sum": 0.0864373505770004,
+          "raw_slide_sum": 1.98658050342056,
+          "samples": 386
+        },
+        "Walk": {
+          "corrected_slide_sum": 0.168688620168382,
+          "raw_slide_sum": 1.19265089882538,
+          "samples": 141
+        }
+      },
+      "raw_slide_sum": 6.86881770602167,
+      "samples": 1761
+    },
+    "engine": "4.7.2-stable (official)",
+    "events": [
+      {
+        "boat_x": 1.9270087480545,
+        "event": "blocked",
+        "time": 11.6666666666668
+      },
+      {
+        "event": "branch_removed",
+        "time": 13.6000000000003
+      },
+      {
+        "boat_x": 1.9270087480545,
+        "event": "drifting",
+        "time": 14.0333333333336
+      }
+    ],
+    "first_person": true,
+    "graphical": true,
+    "grounded": true,
+    "idle_blend": 0.0,
+    "input_turn_entered": true,
+    "leg_angle_change": 1.03477418422699,
+    "manual_interrupt": true,
+    "passed": true,
+    "removed_before_arrival": true,
+    "replaced_after_pass": true,
+    "reset_ok": true,
+    "stop_clip_completed": true,
+    "stop_clip_entered": true,
+    "stopped_speed": 0.0,
+    "support_foot_height": 0.0230345129966736,
+    "turns": {
+      "TurnLeft_300ms": 0.581448435783386,
+      "TurnLeft_error": 2.34525012743347e-08,
+      "TurnRight_300ms": 0.216609716415405,
+      "TurnRight_error": 1.38277633787709e-09
+    },
+    "unreachable_result": "前方不可达，请手动绕行",
+    "walk_blend": 1.0,
+    "walking_distance": 1.04305171966553,
+    "wall_blocked": true
+  },
+  "video": {
+    "path": "sim/evidence/s2-control-demo.mp4",
+    "width": 1280,
+    "height": 800,
+    "r_frame_rate": "30/1",
+    "duration": "15.166667",
+    "nb_read_frames": "455",
+    "sha256": "b883fe4d2e47fe7972de652da40dc53154f80d77fea6392eb3d61267d337440a"
+  },
+  "source_blend_sha256": "1c94af34f7a029aebf1626ae5f8c9eb4e9820a5d79842fe061402db3f58e47da",
+  "owner_acceptance": false,
+  "limitations": [
+    "No gait-phase matching or complete 180-degree turn recording",
+    "Cancel pose fades rather than a fully authored brake/replan",
+    "No S3 observation/control-epoch protocol or LLM integration",
+    "Programmatic input tests and movie capture do not establish manual feel"
+  ]
+}

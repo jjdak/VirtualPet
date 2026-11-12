@@ -1,0 +1,24 @@
+{
+  "protocol": "e5-v1",
+  "client_date": "2026-11-02",
+  "finished_utc": "2026-11-02T15:01:57.451603+00:00",
+  "python": "3.11.15",
+  "episodes": 5200,
+  "choices": 1872000,
+  "elapsed_seconds": 184.51880429126322,
+  "source_sha256": {
+    "docs/sim/experiments/e5/PLAN.md": "16d03c45edd3c082dd801a26147ef9a6923490e4b17d930b77a79b273928c33f",
+    "experiments/adaptive_agents/src/core.py": "d9768ca00220666e0177c4531edc4c882d957143b786b3746fdd8bc8bedf4b48",
+    "experiments/budgeted_agents/src/core.py": "fac362f94a04d87e29b51348ea5bffa3439afacecf0fe758dbbafcd96762c6f6",
+    "experiments/frequency_agents/src/core.py": "d0fcbab578eb02250888ef7c7fa878090594224a7fd5605cb01745b970e59782",
+    "experiments/frequency_agents/src/replay.html": "69e3489565168af914dad1efbab2ed3673d14590b660f415da12d2a833d1f8a1",
+    "experiments/frequency_agents/src/report.py": "044c1acc4f5748862ad65e4ec33ecd04042615b8b04e537c8d6cb59011399b87",
+    "experiments/frequency_agents/src/run.py": "29edd2384ba5fde050620557ffab67a06099db711daeb566434963112ba0a173",
+    "experiments/frequency_agents/src/verify.py": "1788d4d0c14bd27f5b109366402eb1ee40850d539e232f348348dac9e1977cea",
+    "experiments/frequency_agents/tests/test_core.py": "ff4627759de40a842a25faba76cec2fa663c9e26763070a2f32b638d245c4967",
+    "experiments/reinspection_agents/src/core.py": "5fd3a60a47f9a0dc7520eddf446ee57a9cf81c29a6beb32ebc06c93f5eb70166"
+  },
+  "protocol_sha256": "1b30bd9e5a556535616e478aef2b631ecaf3e419739ebc809f1332868ae2fe9e",
+  "dependencies": "Python standard library only",
+  "llm_calls": 0
+}

@@ -1,0 +1,19 @@
+test_all_policies_independent_audit (test_core.TicketTests.test_all_policies_independent_audit) ... ok
+test_budget_block_retained_then_release (test_core.TicketTests.test_budget_block_retained_then_release) ... ok
+test_cooldown_retained (test_core.TicketTests.test_cooldown_retained) ... ok
+test_deadline_inclusive_and_expiry (test_core.TicketTests.test_deadline_inclusive_and_expiry) ... ok
+test_duplicate_does_not_extend_lifetime (test_core.TicketTests.test_duplicate_does_not_extend_lifetime) ... ok
+test_episode_restoration_and_noise_audit (test_core.TicketTests.test_episode_restoration_and_noise_audit) ... ok
+test_fresh_process_ticket_restore (test_core.TicketTests.test_fresh_process_ticket_restore) ... ok
+test_isolation_and_hidden_state (test_core.TicketTests.test_isolation_and_hidden_state) ... ok
+test_legacy_and_fixed_identical_to_e5 (test_core.TicketTests.test_legacy_and_fixed_identical_to_e5) ... ok
+test_message_cannot_resolve_but_personal_sample_can (test_core.TicketTests.test_message_cannot_resolve_but_personal_sample_can) ... ok
+test_oneshot_expires_without_resolution (test_core.TicketTests.test_oneshot_expires_without_resolution) ... ok
+test_reject_corrupt_ticket (test_core.TicketTests.test_reject_corrupt_ticket) ... ok
+test_remembers_through_freshness_gate (test_core.TicketTests.test_remembers_through_freshness_gate) ... ok
+test_resolve_then_new_signal (test_core.TicketTests.test_resolve_then_new_signal) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.526s
+
+OK

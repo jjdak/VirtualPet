@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-01",
+  "method": "actual in-app browser interaction and screenshot inspection",
+  "url": "http://127.0.0.1:4188/e2-v1/replay.html",
+  "passed": true,
+  "observations": [
+    {
+      "check": "play/pause",
+      "observed": "action 2/10 during playback; pause operated"
+    },
+    {
+      "check": "round slider; faulty_source/recent_trust/seed0",
+      "round79_trust": 0.188,
+      "round119_trust": 0.646
+    },
+    {
+      "check": "scenario selection",
+      "observed": "reversal round 40 and stale_source round 50 displayed their corresponding values and event explanations"
+    },
+    {
+      "check": "stale_source/recent_trust/seed0 round50",
+      "observed": "B personal p approximately -0.99 versus q -1.00; old repeated message ignored"
+    },
+    {
+      "check": "full-page screenshot",
+      "observed": "layout and text visually inspected; final faulty-source round119"
+    }
+  ],
+  "screenshot": "trust-recovery.jpg",
+  "limitations": [
+    "saved-trajectory playback, not live agents",
+    "no strict FPS measurement",
+    "mobile layout not tested",
+    "subjective interest not accepted by owner"
+  ]
+}

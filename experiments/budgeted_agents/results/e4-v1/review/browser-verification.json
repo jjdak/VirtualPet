@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-01",
+  "url": "http://127.0.0.1:4190/e4-v1/replay.html",
+  "passed": true,
+  "method": "Actual CUA browser controls and accessibility snapshots, plus visually inspected screenshot",
+  "checks": [
+    "play advances action; pause stops",
+    "jump to next reinspection reaches round54",
+    "hidden_gain@53 round54 random cooldown refusal / hybrid periodic approved",
+    "noisy_stable round66 false-alarm trigger result -1",
+    "staggered@91 shows changes91/114",
+    "E3 comparator explicitly non-equal-budget",
+    "all14 case table expanded and collapsed",
+    "slider changes displayed round"
+  ],
+  "screenshots": [
+    "budget-comparison.jpg",
+    "noise-cost.jpg"
+  ],
+  "final_view": {
+    "case": "hidden_gain@53",
+    "comparator": "budget_random",
+    "round": 54
+  },
+  "limits": [
+    "Not FPS or subjective owner acceptance",
+    "Reservation refusal covered by unit tests, not asserted observed in browser",
+    "All12 combinations checked with separate DOM doubles, not all exercised in actual browser"
+  ]
+}

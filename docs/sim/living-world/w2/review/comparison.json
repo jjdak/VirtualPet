@@ -1,0 +1,283 @@
+{
+  "conditioned": {
+    "controlled": {
+      "seeds": 32,
+      "matches_denominator": 128,
+      "other_denominator": 64,
+      "counts": {
+        "matches_personal_history": 116,
+        "opposite_history_different_choices": 52,
+        "same_history_same_choices": 64,
+        "swap_reverses_both": 52,
+        "within_person_switch": 52
+      },
+      "seed0_probes": {
+        "opposite": {
+          "sun": {
+            "A": "p",
+            "B": "q"
+          },
+          "rain": {
+            "A": "q",
+            "B": "p"
+          }
+        },
+        "swapped": {
+          "sun": {
+            "A": "q",
+            "B": "p"
+          },
+          "rain": {
+            "A": "p",
+            "B": "q"
+          }
+        },
+        "same": {
+          "sun": {
+            "A": "p",
+            "B": "p"
+          },
+          "rain": {
+            "A": "q",
+            "B": "q"
+          }
+        }
+      }
+    },
+    "free": {
+      "episodes": 32,
+      "steps_per_episode": 960,
+      "meals": {
+        "warmup": {
+          "sun": {
+            "meals": 161,
+            "beneficial": 95,
+            "rate": 0.5900621118012422
+          },
+          "rain": {
+            "meals": 129,
+            "beneficial": 95,
+            "rate": 0.7364341085271318
+          }
+        },
+        "later": {
+          "sun": {
+            "meals": 664,
+            "beneficial": 504,
+            "rate": 0.7590361445783133
+          },
+          "rain": {
+            "meals": 631,
+            "beneficial": 447,
+            "rate": 0.7083993660855784
+          }
+        }
+      },
+      "mean_seed_later_rate": 0.7352294992528866,
+      "later_rate_by_seed": [
+        0.6904761904761905,
+        0.75,
+        0.725,
+        0.6904761904761905,
+        0.7948717948717948,
+        0.775,
+        0.7142857142857143,
+        0.75,
+        0.75,
+        0.8205128205128205,
+        0.8157894736842105,
+        0.725,
+        0.75,
+        0.75,
+        0.7073170731707317,
+        0.725,
+        0.6590909090909091,
+        0.725,
+        0.75,
+        0.75,
+        0.725,
+        0.75,
+        0.7142857142857143,
+        0.75,
+        0.725,
+        0.75,
+        0.6904761904761905,
+        0.75,
+        0.7142857142857143,
+        0.6904761904761905,
+        0.725,
+        0.725
+      ],
+      "same_weather_departure_pairs": {
+        "pairs": 766,
+        "different": 144
+      },
+      "departures": {
+        "A/rain/p": 79,
+        "A/rain/q": 332,
+        "A/sun/p": 336,
+        "A/sun/q": 47,
+        "B/rain/p": 28,
+        "B/rain/q": 376,
+        "B/sun/p": 375,
+        "B/sun/q": 46
+      }
+    }
+  },
+  "illustration": {
+    "seed": 0,
+    "example_tick": 700,
+    "next_live_choices": {
+      "A": {
+        "tick": 713,
+        "target": "p",
+        "scores": {
+          "p": 1.0,
+          "q": 0.9416618641410466
+        },
+        "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+      },
+      "B": {
+        "tick": 736,
+        "target": "q",
+        "scores": {
+          "p": -0.7742205075635359,
+          "q": 0.8542464071432724
+        },
+        "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。"
+      }
+    },
+    "scope": "Post-hoc illustration, excluded from all comparisons."
+  },
+  "pooled": {
+    "controlled": {
+      "seeds": 32,
+      "matches_denominator": 128,
+      "other_denominator": 64,
+      "counts": {
+        "matches_personal_history": 64,
+        "opposite_history_different_choices": 52,
+        "same_history_same_choices": 64,
+        "swap_reverses_both": 52,
+        "within_person_switch": 0
+      },
+      "seed0_probes": {
+        "opposite": {
+          "sun": {
+            "A": "p",
+            "B": "q"
+          },
+          "rain": {
+            "A": "p",
+            "B": "q"
+          }
+        },
+        "swapped": {
+          "sun": {
+            "A": "q",
+            "B": "p"
+          },
+          "rain": {
+            "A": "q",
+            "B": "p"
+          }
+        },
+        "same": {
+          "sun": {
+            "A": "p",
+            "B": "p"
+          },
+          "rain": {
+            "A": "p",
+            "B": "p"
+          }
+        }
+      }
+    },
+    "free": {
+      "episodes": 32,
+      "steps_per_episode": 960,
+      "meals": {
+        "warmup": {
+          "sun": {
+            "meals": 163,
+            "beneficial": 95,
+            "rate": 0.5828220858895705
+          },
+          "rain": {
+            "meals": 206,
+            "beneficial": 24,
+            "rate": 0.11650485436893204
+          }
+        },
+        "later": {
+          "sun": {
+            "meals": 768,
+            "beneficial": 469,
+            "rate": 0.6106770833333334
+          },
+          "rain": {
+            "meals": 931,
+            "beneficial": 283,
+            "rate": 0.3039742212674543
+          }
+        }
+      },
+      "mean_seed_later_rate": 0.44634905201203245,
+      "later_rate_by_seed": [
+        0.3684210526315789,
+        0.4423076923076923,
+        0.4528301886792453,
+        0.4444444444444444,
+        0.4423076923076923,
+        0.52,
+        0.4528301886792453,
+        0.39285714285714285,
+        0.46153846153846156,
+        0.42592592592592593,
+        0.4444444444444444,
+        0.41818181818181815,
+        0.5833333333333334,
+        0.4230769230769231,
+        0.375,
+        0.47058823529411764,
+        0.4339622641509434,
+        0.4528301886792453,
+        0.3448275862068966,
+        0.5416666666666666,
+        0.5957446808510638,
+        0.4,
+        0.375,
+        0.3448275862068966,
+        0.39285714285714285,
+        0.6222222222222222,
+        0.4528301886792453,
+        0.4444444444444444,
+        0.39285714285714285,
+        0.5,
+        0.41818181818181815,
+        0.4528301886792453
+      ],
+      "same_weather_departure_pairs": {
+        "pairs": 916,
+        "different": 191
+      },
+      "departures": {
+        "A/rain/p": 394,
+        "A/rain/q": 168,
+        "A/sun/p": 301,
+        "A/sun/q": 166,
+        "B/rain/p": 402,
+        "B/rain/q": 175,
+        "B/sun/p": 297,
+        "B/sun/q": 171
+      }
+    }
+  },
+  "paired_later": {
+    "mean_difference": 0.28888044724085415,
+    "wins": 32,
+    "ties": 0,
+    "losses": 0
+  }
+}

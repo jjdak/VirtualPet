@@ -1,0 +1,17 @@
+test_double_surprise_delayed_probe_and_no_free_reset (test_core.E3Tests.test_double_surprise_delayed_probe_and_no_free_reset) ... ok
+test_e2_baseline_exact_behavior (test_core.E3Tests.test_e2_baseline_exact_behavior) ... ok
+test_full_restore_all_scenarios_and_horizon (test_core.E3Tests.test_full_restore_all_scenarios_and_horizon) ... ok
+test_independent_auditor_rejects_corrupt_evidence (test_core.E3Tests.test_independent_auditor_rejects_corrupt_evidence) ... ok
+test_noise_and_unobserved_improvement (test_core.E3Tests.test_noise_and_unobserved_improvement) ... ok
+test_observation_boundary_and_independent_state (test_core.E3Tests.test_observation_boundary_and_independent_state) ... ok
+test_paired_interval_and_truncation (test_core.E3Tests.test_paired_interval_and_truncation) ... ok
+test_probe_budget_and_cooldown (test_core.E3Tests.test_probe_budget_and_cooldown) ... ok
+test_recent_alternative_and_messages_do_not_trigger (test_core.E3Tests.test_recent_alternative_and_messages_do_not_trigger) ... ok
+test_resume_pending_probe_in_new_process (test_core.E3Tests.test_resume_pending_probe_in_new_process) ... ok
+test_same_trigger_random_control_can_retry_same_food (test_core.E3Tests.test_same_trigger_random_control_can_retry_same_food) ... ok
+test_single_surprise_does_not_trigger (test_core.E3Tests.test_single_surprise_does_not_trigger) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.696s
+
+OK

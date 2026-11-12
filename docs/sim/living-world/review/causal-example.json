@@ -1,0 +1,510 @@
+{
+  "seed": 42,
+  "interventions": [
+    {
+      "tick": 0,
+      "action": "hint",
+      "actor": "A",
+      "kind": "q"
+    },
+    {
+      "tick": 10,
+      "action": "environment",
+      "kind": "q",
+      "effect": 1,
+      "available": true
+    }
+  ],
+  "note": "Fixed illustrative trajectory, not a general learning-performance claim.",
+  "frames": [
+    {
+      "tick": 0,
+      "resources": {
+        "p": {
+          "available": true,
+          "effect": 1
+        },
+        "q": {
+          "available": true,
+          "effect": -1
+        }
+      },
+      "residents": {
+        "A": {
+          "pos": [
+            4,
+            5
+          ],
+          "values": {
+            "p": 0.0,
+            "q": 0.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 0
+          },
+          "hints": [
+            {
+              "id": 2,
+              "source": "player",
+              "kind": "q",
+              "tick": 0,
+              "status": "pending"
+            }
+          ],
+          "inbox": {},
+          "trust": 0.6
+        },
+        "B": {
+          "pos": [
+            6,
+            5
+          ],
+          "values": {
+            "p": 0.0,
+            "q": 0.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 0
+          },
+          "hints": [],
+          "inbox": {},
+          "trust": 0.6
+        }
+      }
+    },
+    {
+      "tick": 9,
+      "resources": {
+        "p": {
+          "available": true,
+          "effect": 1
+        },
+        "q": {
+          "available": true,
+          "effect": -1
+        }
+      },
+      "residents": {
+        "A": {
+          "pos": [
+            8,
+            2
+          ],
+          "values": {
+            "p": 0.0,
+            "q": -1.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 1
+          },
+          "hints": [
+            {
+              "id": 2,
+              "source": "player",
+              "kind": "q",
+              "tick": 0,
+              "status": "visited"
+            }
+          ],
+          "inbox": {},
+          "trust": 0.6
+        },
+        "B": {
+          "pos": [
+            7,
+            5
+          ],
+          "values": {
+            "p": 0.0,
+            "q": 0.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 0
+          },
+          "hints": [],
+          "inbox": {},
+          "trust": 0.6
+        }
+      }
+    },
+    {
+      "tick": 10,
+      "resources": {
+        "p": {
+          "available": true,
+          "effect": 1
+        },
+        "q": {
+          "available": true,
+          "effect": 1
+        }
+      },
+      "residents": {
+        "A": {
+          "pos": [
+            7,
+            2
+          ],
+          "values": {
+            "p": 0.0,
+            "q": -1.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 1
+          },
+          "hints": [
+            {
+              "id": 2,
+              "source": "player",
+              "kind": "q",
+              "tick": 0,
+              "status": "visited"
+            }
+          ],
+          "inbox": {},
+          "trust": 0.6
+        },
+        "B": {
+          "pos": [
+            8,
+            5
+          ],
+          "values": {
+            "p": 0.0,
+            "q": 0.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 0
+          },
+          "hints": [],
+          "inbox": {},
+          "trust": 0.6
+        }
+      }
+    },
+    {
+      "tick": 14,
+      "resources": {
+        "p": {
+          "available": true,
+          "effect": 1
+        },
+        "q": {
+          "available": true,
+          "effect": 1
+        }
+      },
+      "residents": {
+        "A": {
+          "pos": [
+            5,
+            4
+          ],
+          "values": {
+            "p": 0.0,
+            "q": -1.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 1
+          },
+          "hints": [
+            {
+              "id": 2,
+              "source": "player",
+              "kind": "q",
+              "tick": 0,
+              "status": "visited"
+            }
+          ],
+          "inbox": {},
+          "trust": 0.6
+        },
+        "B": {
+          "pos": [
+            8,
+            2
+          ],
+          "values": {
+            "p": 0.0,
+            "q": 1.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 1
+          },
+          "hints": [],
+          "inbox": {
+            "q": {
+              "id": "A:9",
+              "source": "A",
+              "tick": 9,
+              "kind": "q",
+              "claim": -1
+            }
+          },
+          "trust": 0.5
+        }
+      }
+    },
+    {
+      "tick": 19,
+      "resources": {
+        "p": {
+          "available": true,
+          "effect": 1
+        },
+        "q": {
+          "available": true,
+          "effect": 1
+        }
+      },
+      "residents": {
+        "A": {
+          "pos": [
+            4,
+            5
+          ],
+          "values": {
+            "p": 0.0,
+            "q": -1.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 1
+          },
+          "hints": [
+            {
+              "id": 2,
+              "source": "player",
+              "kind": "q",
+              "tick": 0,
+              "status": "visited"
+            }
+          ],
+          "inbox": {
+            "q": {
+              "id": "B:14",
+              "source": "B",
+              "tick": 14,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          "trust": 0.6
+        },
+        "B": {
+          "pos": [
+            6,
+            5
+          ],
+          "values": {
+            "p": 0.0,
+            "q": 1.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 1
+          },
+          "hints": [],
+          "inbox": {
+            "q": {
+              "id": "A:9",
+              "source": "A",
+              "tick": 9,
+              "kind": "q",
+              "claim": -1
+            }
+          },
+          "trust": 0.5004161802902181
+        }
+      }
+    },
+    {
+      "tick": 50,
+      "resources": {
+        "p": {
+          "available": true,
+          "effect": 1
+        },
+        "q": {
+          "available": true,
+          "effect": 1
+        }
+      },
+      "residents": {
+        "A": {
+          "pos": [
+            4,
+            5
+          ],
+          "values": {
+            "p": 1.0,
+            "q": -1.0
+          },
+          "counts": {
+            "p": 1,
+            "q": 1
+          },
+          "hints": [
+            {
+              "id": 2,
+              "source": "player",
+              "kind": "q",
+              "tick": 0,
+              "status": "visited"
+            }
+          ],
+          "inbox": {
+            "q": {
+              "id": "B:14",
+              "source": "B",
+              "tick": 14,
+              "kind": "q",
+              "claim": 1
+            }
+          },
+          "trust": 0.6
+        },
+        "B": {
+          "pos": [
+            6,
+            5
+          ],
+          "values": {
+            "p": 0.0,
+            "q": 1.0
+          },
+          "counts": {
+            "p": 0,
+            "q": 1
+          },
+          "hints": [],
+          "inbox": {
+            "q": {
+              "id": "A:9",
+              "source": "A",
+              "tick": 9,
+              "kind": "q",
+              "claim": -1
+            },
+            "p": {
+              "id": "A:27",
+              "source": "A",
+              "tick": 27,
+              "kind": "p",
+              "claim": 1
+            }
+          },
+          "trust": 0.5029655756913105
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "tick": 0,
+      "type": "world",
+      "text": "世界开始了。两个人知道地点，但还不知道食物的效果。"
+    },
+    {
+      "id": 2,
+      "tick": 0,
+      "type": "hint",
+      "text": "你只向阿禾建议：可以去紫穗地看看。",
+      "actor": "A",
+      "kind": "q"
+    },
+    {
+      "id": 3,
+      "tick": 1,
+      "type": "decision",
+      "text": "阿禾决定去紫穗地。",
+      "actor": "A"
+    },
+    {
+      "id": 4,
+      "tick": 8,
+      "type": "decision",
+      "text": "小岚决定去紫穗地。",
+      "actor": "B"
+    },
+    {
+      "id": 5,
+      "tick": 9,
+      "type": "experience",
+      "text": "阿禾尝了紫穗地的食物，感到不适。",
+      "actor": "A",
+      "kind": "q",
+      "reward": -1
+    },
+    {
+      "id": 6,
+      "tick": 10,
+      "type": "environment",
+      "text": "你改变了紫穗地：开放，食物有益。角色尚未因此获知效果。",
+      "kind": "q",
+      "effect": 1,
+      "available": true
+    },
+    {
+      "id": 7,
+      "tick": 12,
+      "type": "message",
+      "text": "阿禾向小岚分享了紫穗地的亲历。",
+      "sender": "A",
+      "receiver": "B",
+      "evidence_tick": 9
+    },
+    {
+      "id": 8,
+      "tick": 14,
+      "type": "experience",
+      "text": "小岚尝了紫穗地的食物，感觉不错。",
+      "actor": "B",
+      "kind": "q",
+      "reward": 1
+    },
+    {
+      "id": 9,
+      "tick": 19,
+      "type": "message",
+      "text": "小岚向阿禾分享了紫穗地的亲历。",
+      "sender": "B",
+      "receiver": "A",
+      "evidence_tick": 14
+    },
+    {
+      "id": 10,
+      "tick": 21,
+      "type": "decision",
+      "text": "阿禾决定去青禾地。",
+      "actor": "A"
+    },
+    {
+      "id": 11,
+      "tick": 27,
+      "type": "experience",
+      "text": "阿禾尝了青禾地的食物，感觉不错。",
+      "actor": "A",
+      "kind": "p",
+      "reward": 1
+    },
+    {
+      "id": 12,
+      "tick": 32,
+      "type": "message",
+      "text": "阿禾向小岚分享了青禾地的亲历。",
+      "sender": "A",
+      "receiver": "B",
+      "evidence_tick": 27
+    }
+  ]
+}

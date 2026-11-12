@@ -1,0 +1,44 @@
+{
+  "protocol": "e3-v1",
+  "client_date": "2026-11-01",
+  "rounds": 120,
+  "seeds": 100,
+  "flip_round": 40,
+  "fault_start": 20,
+  "fault_end": 80,
+  "epsilon": 0.12,
+  "alpha": 0.4,
+  "fixed_trust": 0.75,
+  "trust_prior": [
+    3.0,
+    1.0
+  ],
+  "trust_retention": 0.98,
+  "message_ttl": 5,
+  "message_decay": 6.0,
+  "scenarios": [
+    "stable",
+    "reversal",
+    "stale_source",
+    "noisy_stable",
+    "noisy_reversal",
+    "hidden_improvement"
+  ],
+  "policies": [
+    "random_12",
+    "random_24",
+    "surprise_random",
+    "surprise_stale"
+  ],
+  "trace_seeds": [
+    0
+  ],
+  "noise_probability": 0.1,
+  "residual_threshold": 1.0,
+  "consecutive_errors": 2,
+  "min_experiences": 3,
+  "stale_after": 8,
+  "probe_cooldown": 8,
+  "probe_budget": 6,
+  "high_epsilon": 0.24
+}

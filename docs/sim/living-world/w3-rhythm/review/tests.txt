@@ -1,0 +1,9 @@
+test_all_saved_ledgers_trip_lengths_and_endpoint_count_accounting (test_w3_rhythm.RhythmDiagnosis.test_all_saved_ledgers_trip_lengths_and_endpoint_count_accounting) ... ok
+test_body_sync_preserves_memory_and_distinguishes_ordinal (test_w3_rhythm.RhythmDiagnosis.test_body_sync_preserves_memory_and_distinguishes_ordinal) ... ok
+test_fresh_replays_cover_count_equality_positive_negative_and_long_lags (test_w3_rhythm.RhythmDiagnosis.test_fresh_replays_cover_count_equality_positive_negative_and_long_lags) ... ok
+test_ledger_clipping_and_restored_boundary (test_w3_rhythm.RhythmDiagnosis.test_ledger_clipping_and_restored_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.704s
+
+OK

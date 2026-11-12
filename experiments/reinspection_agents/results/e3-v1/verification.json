@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "episodes_recomputed": 2400,
+  "choices_recomputed": 576000,
+  "traces_independently_audited": 24,
+  "physical_actions_audited": 51840,
+  "checks": [
+    "source/config fingerprints",
+    "world schedule and noise",
+    "actions and rewards",
+    "personal-only prediction and delayed probe",
+    "staleness/cooldown/budget",
+    "messages",
+    "final snapshots",
+    "truncation"
+  ]
+}

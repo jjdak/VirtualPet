@@ -1,8 +1,54 @@
 # VirtualPet
 
+开发、PR 合并及里程碑归档遵循 [Git 工作流程](docs/GIT_WORKFLOW.md)。[本次主线整合记录](docs/archive/integration-2026-11-12/PROGRESS.md)。
+
+## 26 对世界的节奏诊断 · 2026-11-12
+
+14 对出发次数相同、只是同序游程错开；12 对还存在次数差异。27 个受影响角色的偏移在延长观察中均保持，末段时差由累计不适取食次数差对应的饥饿恢复量解释。对齐身体日程与抽样序号后，保留记忆的 600 步探针未再分开。[逐案结果与验证](docs/sim/living-world/w3-rhythm/PROGRESS.md)。
+
+## 按出发次数配对探索 · 2026-11-12
+
+完成全部 640 条件、5120 条世界轨迹的对照。效果互换组仍有 14/256 对出现依赖交流的同伴行为变化；末段可配对出发的地点分歧为 0，终点仍有 26 对身体状态不同。未配对尾部单列，不能称为完全趋同。[结果、实例与验证](docs/sim/living-world/w3-coupling/PROGRESS.md)。
+
+## 三次改选的直接原因 · 2026-11-11
+
+三对邻近游程中的改选均触发偶尔探索。六次出发的亲历和有效消息都偏向紫穗；只关闭本次探索，六次均选紫穗。种子 19 的两对共享抽样，不能算作独立重复。[逐次证据与反事实](docs/sim/living-world/w3-attribution/PROGRESS.md)。游程诊断与本轮归因结果均已保存到 GitHub，固定提交见进展记录。
+
+## 第 +2640 步的 11 对世界
+
+12 名状态有差异的角色最近一趟在两侧都选同地。7 对可用固定时差对齐，1 对邻近三趟同地但时差变化，3 对邻近游程有地点分歧。[游程图](docs/sim/living-world/w3-endpoint/review/index.html) · [计划与结果](docs/sim/living-world/w3-endpoint/PROGRESS.md)。
+
+## W3 延长观察
+
+从第 +240 步仍有行为差异的 45 对世界继续到 +2640。两个人在两边最终都常去相同地点，末步仍有 11 对出现行动差异。图中可以查看每次实际出发。[结果与复现](docs/sim/living-world/w3-long/PROGRESS.md) · [离线结果页](docs/sim/living-world/w3-long/review/index.html)。
+
+## W3 同档分支 · 2026-11-09
+
+运行 `./living_world/w3.command` 后打开 <http://127.0.0.1:4195/>。从同一个 W2 存档同时观察自由生活与一条私下建议的后果，沿时间轴检查消息和选择。主比较 384 对中 65 对改变收件人行为，同伴改选 0 对。效果互换补充比较 256 对中 18 对出现依赖交流的同伴改选。[计划](docs/sim/living-world/w3/PLAN.md) · [进展与证据](docs/sim/living-world/w3/PROGRESS.md)。
+
+## 当前阶段 W2 · 两种天气下的个人经验（2026-11-06）
+
+运行 `./living_world/w2.command` 后打开 <http://127.0.0.1:4194/>，点击“载入双人示例”即可观察经历如何影响下一次出发。两种天气的亲历与同伴消息分别保存，玩家可切换天气、调整食物及给单人线索。32 个种子自由生活后段的平均有益取食率为 73.5%，合并天气记忆对照为 44.6%。[计划](docs/sim/living-world/w2/PLAN.md) · [进展与证据](docs/sim/living-world/w2/PROGRESS.md)。
+
+## 当前进展：W1 两角色实时小世界（2026-11-06）
+
+运行 `./living_world/run.command`，打开 <http://127.0.0.1:4193/>。两角色会自行移动、取食、休息和近距离分享亲历；玩家可改变环境、给单人地点建议，查看独立记忆并保存恢复。15 项核心/HTTP 检查与 12 项 Chromium 浏览器检查通过，导入后两人记忆和在途行动完整恢复。主观体验待反馈。
+
+[启动与操作](living_world/README.md) · [先行计划](docs/sim/living-world/PLAN.md) · [进展与证据](docs/sim/living-world/PROGRESS.md)。以下保留阶段历史，不自动重启 E7、Godot 美术或模型训练。
+
+## 当前进展：E6 已完成（2026-11-04）
+
+E1–E5 已[归档到 GitHub](https://github.com/jjdak/VirtualPet/tree/agent-lab-e1-e5-2026-11-02)。E6 验证保留待核查事项：修复一个已知漏查，但在新变化时刻未优于同触发短期对照。[完整结果](docs/sim/experiments/e6/PROGRESS.md) · [运行与复现](experiments/unresolved_agents/README.md)。本轮收束，不自动开展下一实验。以下保留阶段历史。
+
+## 当前阶段：双角色行为实验（2026-11-02）
+
+E1–E5 已完成并整理为 [GitHub 归档](https://github.com/jjdak/VirtualPet/tree/agent-lab-e1-e5-2026-11-02)：从小模型经验利用，到信任、主动复查、预算和复查频率对照。E5 未证明自适应优于简单固定间隔；成功与负结果均保留。[归档与恢复](docs/archive/agent-lab-e1-e5/README.md) · [实验索引](docs/sim/experiments/README.md)。旧庭院/建模保留，下述旧阶段说明为历史记录。用户已授权归档后开展一轮 E6，检验保留未解决异常；以 continuation 和最新实验记录为准。
+
 ## 当前阶段：小庭院仿真研究（2026-10-21）
 
-用户已认可“观察、干预、接管”的新方向，B2 美术阶段已收束并保存至 GitHub 归档标签 [`courtyard-b2-archive-2026-10-21`](https://github.com/jjdak/VirtualPet/tree/courtyard-b2-archive-2026-10-21)。当前完成研究，下一步是独立 Godot 迁移/接管验证；新 sim 尚未实现。
+用户已认可“观察、干预、接管”的新方向，B2 美术阶段已收束并保存至 GitHub 归档标签 [`courtyard-b2-archive-2026-10-21`](https://github.com/jjdak/VirtualPet/tree/courtyard-b2-archive-2026-10-21)。**S2 转身、停步与脚底接触候选已交付**：现成动作、受碰撞约束的位移、脚部校正、去池边、纸船阻挡/清障，以及原控制/第一视角；本轮同时修正 Godot 画面泛白。[启动小样](sim/run.command) · [操作说明](sim/README.md) · [最新进展](docs/sim/S2_CONTROL_PASS.md)。角色手部清障、完整寻路与 LLM 尚未实现；动作衔接、实时美术和主观自然度仍待改进/反馈。
+
+已新增转身/停步打断、可靠接管、Space 停下和失焦停止。[LLM 反馈路线](docs/sim/LLM_FEEDBACK_DESIGN.md)已记录：先局部结构化观察与动作结果，再考虑视觉；当前未接模型。
 
 [新阶段计划与一手来源](docs/SIM_STAGE_PLAN.md) · [旧成果收束及恢复](docs/archive/B2_CLOSEOUT.md) · [继续工作卡](docs/live2d/continuation.json)
 
