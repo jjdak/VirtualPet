@@ -1,0 +1,15 @@
+{
+  "pullRequest": "https://github.com/jjdak/VirtualPet/pull/2",
+  "state": "MERGED",
+  "sourceCommit": "a52982c96da60c53a6bd659ff996342a4095722d",
+  "mergeCommit": "be705063912b52681d9e839aa89ca22923786b1c",
+  "mergedAt": "2026-11-12T06:09:04Z",
+  "verifiedMergedTree": "d52b3561d97ef61b383c9fc908c7bbcbc015939b",
+  "rhythmCommitIncluded": "bba1f2c2fd4650126d220f1e9d9f53ac46fd659f",
+  "pythonTestsPassed": 114,
+  "headlessGodotPassed": true,
+  "remoteBranchesDeleted": 10,
+  "localOldBranchesDeleted": 12,
+  "annotatedTagsCreated": 10,
+  "existingTagsPreserved": 2
+}
