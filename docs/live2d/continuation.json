@@ -3,8 +3,8 @@
   "updatedAt": "2026-11-13",
   "latestOwnerFeedback": {
     "date": "2026-11-13",
-    "quote": "继续完成最后的收尾：清理已经合入的临时回执分支，把本地切回并同步 main，确认工作区干净，做好进展记录。",
-    "interpretation": "Resume normally approved cleanup of the merged receipt branch, fast-forward main, verify clean state and publish the closeout record through a short-lived documentation PR."
+    "quote": "接下来回到小世界的体验，把“给线索→获得亲历→告诉同伴→同伴改选”这条过程展示清楚，让玩家能看懂自己的干预带来了什么影响。先做好计划再推进，记录进展，按新的分支和 PR 流程来。",
+    "interpretation": "Deliver a bounded W4 experience on the existing paired-world page, grounded in exact report provenance, with planning, verification and a short-lived feature PR."
   },
   "activeTrack": "two-resident-living-world",
   "decision": {
@@ -26,9 +26,9 @@
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "W3-rhythm-diagnosis",
-    "status": "rhythm_diagnosis_merged_into_main",
-    "nextAction": "Use main as the baseline for the next user-directed bounded task; short-lived PR branches and immutable milestone tags are adopted.",
+    "id": "W4-intervention-story",
+    "status": "implemented_locally_verified_owner_experience_pending",
+    "nextAction": "Review the W4 feature PR and ask the owner to experience giving a hint and following the four actual event stages; merge and tag within authorization. Do not infer subjective acceptance.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -197,7 +197,7 @@
     ]
   },
   "nextActions": [
-    "Discuss concrete enjoyable directions for an individual, including a companion inside an existing game or a bounded creative tool. Do not automatically advance exploreBrain experiments, merge repositories or resume courtyard demo expansion; no direction selected."
+    "Review W4 intervention story in the local page and feature PR; preserve pending owner experience acceptance and do not expand learning policy or art scope automatically."
   ],
   "preservedLive2DCheckpoint": {
     "baselineModel": "PrivateAssets/Live2D/Models/PhoebeRigLiteV1/phoebe-rig-lite-v1-imported.cmo3",
@@ -756,5 +756,26 @@
     "milestones": "annotated immutable tags",
     "cleanup": "verify current branch head is contained in main before deletion",
     "receiptPolicy": "Post-merge receipts use a short-lived documentation PR, deleted after merge."
+  },
+  "livingWorldW4": {
+    "plan": "docs/sim/living-world/w4-story/PLAN.md",
+    "progress": "docs/sim/living-world/w4-story/PROGRESS.md",
+    "branch": "codex/w4-intervention-story-2026-11-13",
+    "launch": "./living_world/w4.command",
+    "url": "http://127.0.0.1:4198/",
+    "status": "implemented_locally_verified_owner_experience_pending",
+    "validation": {
+      "python_tests": 61,
+      "new_story_tests": 11,
+      "browser_checks": 13,
+      "owner_accepted": false
+    },
+    "default_example_offsets": [
+      0,
+      56,
+      59,
+      66
+    ],
+    "policy": "Original W3 clock RNG and W2 save schema unchanged; instance-local observer and exact report knockout only."
   }
 }
