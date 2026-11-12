@@ -1,6 +1,6 @@
 # W4 · 一条线索的后来
 
-2026-11-13。本轮计划先记录于 [PLAN.md](PLAN.md)，从 main `2e45e46ce4f420f5eab28767d17e32a6d89a8be9` 创建短期分支 `codex/w4-intervention-story-2026-11-13`。实现与本地验证完成，玩家是否看得懂、是否有参与感仍待体验反馈。通过 feature PR 保存，本轮不代替用户作主观验收。
+2026-11-13。本轮计划先记录于 [PLAN.md](PLAN.md)，从 main `2e45e46ce4f420f5eab28767d17e32a6d89a8be9` 创建短期分支 `codex/w4-intervention-story-2026-11-13`。实现与本地验证完成，玩家是否看得懂、是否有参与感仍待体验反馈。已推送到 [PR #5](https://github.com/jjdak/VirtualPet/pull/5)，目标 main；实现与验证固定于 [7318cb6](https://github.com/jjdak/VirtualPet/commit/7318cb6daf97c3aa500e08b40b6a856fa06ad8f8)。PR 保持待审阅，本轮不代替用户作主观验收。
 
 ## 可以体验什么
 

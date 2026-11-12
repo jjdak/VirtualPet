@@ -776,6 +776,8 @@
       59,
       66
     ],
-    "policy": "Original W3 clock RNG and W2 save schema unchanged; instance-local observer and exact report knockout only."
+    "policy": "Original W3 clock RNG and W2 save schema unchanged; instance-local observer and exact report knockout only.",
+    "pr": "https://github.com/jjdak/VirtualPet/pull/5",
+    "implementationCommit": "7318cb6daf97c3aa500e08b40b6a856fa06ad8f8"
   }
 }
