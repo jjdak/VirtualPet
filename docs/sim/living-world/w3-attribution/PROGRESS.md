@@ -4,7 +4,7 @@
 
 [先行计划](PLAN.md) · [逐次证据与全部反事实](review/attribution.json) · [运行摘要](review/run.txt) · [测试日志](review/tests.txt)
 
-上一轮游程诊断已先保存到 GitHub，成果提交 `e781014`，归档回执 `6639ec3`。远端分支读回与本地一致。[游程诊断固定归档](https://github.com/jjdak/VirtualPet/tree/6639ec31ebbed62becce9836e9afe04383d801d2)。本轮分析保存在独立本地分支 `codex/w3-choice-attribution-2026-11-10`，未推送。
+上一轮游程诊断已先保存到 GitHub，成果提交 `e781014`，归档回执 `6639ec3`。远端分支读回与本地一致。[游程诊断固定归档](https://github.com/jjdak/VirtualPet/tree/6639ec31ebbed62becce9836e9afe04383d801d2)。2026-11-12 本轮分析也已保存至 GitHub 分支 `codex/w3-choice-attribution-2026-11-10`，远端读回提交与本地一致。[归因成果固定版本](https://github.com/jjdak/VirtualPet/tree/8264963394b98dfbe7c42f7a4799d034cb4c4666)。
 
 ## 锁定的出发
 

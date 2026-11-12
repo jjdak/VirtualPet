@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-11-11",
+  "updatedAt": "2026-11-12",
   "latestOwnerFeedback": {
     "date": "2026-11-11",
     "quote": "先把这轮游程诊断整理好保存到 GitHub，再看看那 3 对确实选过不同地点的世界：当时为什么会改选，是亲历、同伴消息，还是偶尔探索？先做好计划再推进，记录进展，保持目录整洁。",
@@ -653,9 +653,10 @@
     "swappedDrawProbes": 6,
     "hintedDestinationChangesFromExploration": 3,
     "testsPassed": 4,
-    "publicRemoteSaved": false,
+    "publicRemoteSaved": true,
     "ownerExperienceAccepted": false,
     "branch": "codex/w3-choice-attribution-2026-11-10",
-    "interpretation": "At the sampled departures, personal and social estimates favor q on both branches. Turning off exploration sends all to q; swapping only RNG draws swaps destinations. This does not remove historical social effects on departure timing."
+    "interpretation": "At the sampled departures, personal and social estimates favor q on both branches. Turning off exploration sends all to q; swapping only RNG draws swaps destinations. This does not remove historical social effects on departure timing.",
+    "verifiedArchiveCommit": "8264963394b98dfbe7c42f7a4799d034cb4c4666"
   }
 }
