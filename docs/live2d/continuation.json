@@ -27,8 +27,8 @@
   },
   "milestone": {
     "id": "W3-rhythm-diagnosis",
-    "status": "integration_checks_passed",
-    "nextAction": "Merge authorized integration PR #2, verify tags, clean only merged branches and record receipts.",
+    "status": "rhythm_diagnosis_merged_into_main",
+    "nextAction": "Use main as the baseline for the next user-directed bounded task; short-lived PR branches and immutable milestone tags are adopted.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -175,7 +175,8 @@
     "W3 archive verified on GitHub. 45 endpoint-divergent pairs reproduced and continued to +2640. Both residents met sustained dominant-choice agreement in all 45; 11 pairs still differed physically at endpoint.",
     "W3 extended observation archived on GitHub. All 11 pairs with physical differences at +2640 reproduced. All 12 affected residents made same-place latest excursions with matching departure-relative paths through return.",
     "2026-11-12 W3 departure coupling completed all 640 original conditions / 5120 trajectories through +2640; clock +240 matches archive, original 45 long cases match endpoints, six targeted checks and five selected fresh replays pass. Runtime and save format unchanged.",
-    "2026-11-12 W3 rhythm diagnosis reproduces all 26 prior rows and 27 endpoint-affected actors; meal ledger predicts departure lags, old unmatched departures acquire counterparts through +3240, three bounded synchronization conditions and four checks pass. gh consolidation draft PR #2 is open and mergeable; no main merge or branch deletion performed."
+    "2026-11-12 W3 rhythm diagnosis reproduces all 26 prior rows and 27 endpoint-affected actors; meal ledger predicts departure lags, old unmatched departures acquire counterparts through +3240, three bounded synchronization conditions and four checks pass. gh consolidation draft PR #2 is open and mergeable; no main merge or branch deletion performed.",
+    "2026-11-12 PR #2 merged as be705063 with the verified merge tree; 114 Python checks and headless Godot control pass. Ten annotated tags verified remotely, ten merged remote and twelve merged local old branches safely deleted; private assets retained."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -700,7 +701,7 @@
     "plan": "docs/sim/living-world/w3-rhythm/PLAN.md",
     "progress": "docs/sim/living-world/w3-rhythm/PROGRESS.md",
     "result": "docs/sim/living-world/w3-rhythm/review/summary.json",
-    "branch": "codex/w3-rhythm-diagnosis-2026-11-12",
+    "branch": "main",
     "pairs": 26,
     "affectedPeople": 27,
     "sameCountPairs": 14,
@@ -710,24 +711,32 @@
     "bodyAndOrdinalResplitPairs": 0,
     "probeSteps": 600,
     "testsPassed": 4,
-    "publicRemoteSaved": false,
+    "publicRemoteSaved": true,
     "ownerExperienceAccepted": false,
-    "interpretation": "Late same-ordinal lag equals 30 times control-minus-hinted cumulative bad meals. Complete shifted body cycles match. Syncing schedule plus RNG ordinal removes future physical divergence in 600-step probes with memory retained; this is not a claim of permanent convergence."
+    "interpretation": "Late same-ordinal lag equals 30 times control-minus-hinted cumulative bad meals. Complete shifted body cycles match. Syncing schedule plus RNG ordinal removes future physical divergence in 600-step probes with memory retained; this is not a claim of permanent convergence.",
+    "verifiedArchiveCommit": "bba1f2c2fd4650126d220f1e9d9f53ac46fd659f",
+    "milestoneTag": "living-world-w3-rhythm-2026-11-12",
+    "formerBranch": "codex/w3-rhythm-diagnosis-2026-11-12",
+    "mergedPullRequest": 2
   },
   "githubConsolidationReview": {
     "progress": "docs/archive/integration-2026-11-12/PROGRESS.md",
     "pullRequest": "https://github.com/jjdak/VirtualPet/pull/2",
-    "status": "authorized_integration_checks_passed",
+    "status": "merged_and_old_branches_cleaned",
     "base": "main",
     "head": "codex/w3-departure-coupling-2026-11-12",
-    "reviewedHead": "c18c15b423d66dcf8f0effa78b4e2af59570ecff",
-    "remoteWorkBranches": 10,
-    "aheadCommits": 20,
-    "merged": false,
-    "branchesDeleted": false,
+    "reviewedHead": "a52982c96da60c53a6bd659ff996342a4095722d",
+    "remoteWorkBranches": 0,
+    "merged": true,
+    "branchesDeleted": true,
     "includesRhythm": true,
     "pythonTestsPassed": 114,
-    "headlessGodotPassed": true
+    "headlessGodotPassed": true,
+    "mergeCommit": "be705063912b52681d9e839aa89ca22923786b1c",
+    "integratedSourceCommits": 22,
+    "deletedRemoteBranches": 10,
+    "deletedLocalOldBranches": 12,
+    "annotatedTagsCreated": 10
   },
   "gitWorkflow": {
     "document": "docs/GIT_WORKFLOW.md",
@@ -735,6 +744,7 @@
     "defaultBranch": "main",
     "development": "short-lived codex branches and PRs",
     "milestones": "annotated immutable tags",
-    "cleanup": "verify current branch head is contained in main before deletion"
+    "cleanup": "verify current branch head is contained in main before deletion",
+    "receiptPolicy": "Post-merge receipts use a short-lived documentation PR, deleted after merge."
   }
 }

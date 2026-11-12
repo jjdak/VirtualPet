@@ -1,0 +1,58 @@
+{
+  "verifiedAnnotatedTags": [
+    {
+      "tag": "sim-s2-2026-10-22",
+      "commit": "2d2b95ff5232e49c4c2fe5a59e3895c374d053e8",
+      "tag_object": "dee68972a2799561d6b068e7916558032d64c56d"
+    },
+    {
+      "tag": "agent-lab-e6-2026-11-04",
+      "commit": "57beef493cf9dd25a79e643c2d2271f6c3eecf70",
+      "tag_object": "02e1fe160ed9615258dfd2ccabae3f104b203b23"
+    },
+    {
+      "tag": "living-world-w1-2026-11-06",
+      "commit": "103c6ce8be5df2dde98fb4f185c43f9188ce8c9d",
+      "tag_object": "5f01a965a36ee962756371fb89b65a3cb6af4372"
+    },
+    {
+      "tag": "living-world-w2-2026-11-06",
+      "commit": "83c8797a6343b888f49ed30014607f645149a0f5",
+      "tag_object": "fb9b7fbab3f343e5fff7a6c053fad34876d66f39"
+    },
+    {
+      "tag": "living-world-w3-2026-11-09",
+      "commit": "8233ab1b506fee2257c27ac908321339486f261e",
+      "tag_object": "63df8efefb1f1cb6b403e70806866592fac69409"
+    },
+    {
+      "tag": "living-world-w3-long-2026-11-09",
+      "commit": "b1d6da9c83300cf9d2c11f84891c72ff8fa5bb7e",
+      "tag_object": "a251637c159af2912af97979538521524192a98c"
+    },
+    {
+      "tag": "living-world-w3-endpoint-2026-11-09",
+      "commit": "6639ec31ebbed62becce9836e9afe04383d801d2",
+      "tag_object": "f263a69092d56072171c3f481f5c0c267aa86863"
+    },
+    {
+      "tag": "living-world-w3-attribution-2026-11-11",
+      "commit": "1a9c82842ba25e7f9b157591e2e363818d5dc491",
+      "tag_object": "aab7ff9f809d0c89d6027ae08d77bbefc8972cd6"
+    },
+    {
+      "tag": "living-world-w3-coupling-2026-11-12",
+      "commit": "c18c15b423d66dcf8f0effa78b4e2af59570ecff",
+      "tag_object": "cf67274b084edd5f3e0818dd47904ef91ebb1001"
+    },
+    {
+      "tag": "living-world-w3-rhythm-2026-11-12",
+      "commit": "bba1f2c2fd4650126d220f1e9d9f53ac46fd659f",
+      "tag_object": "76d4e360a53fd1f7ba3a12b34339d37a23b713f1"
+    }
+  ],
+  "preservedExistingTags": [
+    "agent-lab-e1-e5-2026-11-02",
+    "courtyard-b2-archive-2026-10-21"
+  ]
+}

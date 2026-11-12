@@ -1,0 +1,99 @@
+{
+  "mainAfterPR2": "be705063912b52681d9e839aa89ca22923786b1c",
+  "deletedRemoteBranches": [
+    {
+      "branch": "codex/agent-lab-e1-e5-archive-2026-11-02",
+      "commit": "ac3c2fd4c895269e08f41be72159ee847b2afe32"
+    },
+    {
+      "branch": "codex/courtyard-sim-transition-2026-10-21",
+      "commit": "2d2b95ff5232e49c4c2fe5a59e3895c374d053e8"
+    },
+    {
+      "branch": "codex/e6-unresolved-anomalies-2026-11-02",
+      "commit": "57beef493cf9dd25a79e643c2d2271f6c3eecf70"
+    },
+    {
+      "branch": "codex/w1-living-world-2026-11-06",
+      "commit": "103c6ce8be5df2dde98fb4f185c43f9188ce8c9d"
+    },
+    {
+      "branch": "codex/w2-context-learning-2026-11-06",
+      "commit": "83c8797a6343b888f49ed30014607f645149a0f5"
+    },
+    {
+      "branch": "codex/w3-choice-attribution-2026-11-10",
+      "commit": "1a9c82842ba25e7f9b157591e2e363818d5dc491"
+    },
+    {
+      "branch": "codex/w3-departure-coupling-2026-11-12",
+      "commit": "a52982c96da60c53a6bd659ff996342a4095722d"
+    },
+    {
+      "branch": "codex/w3-endpoint-trips-2026-11-09",
+      "commit": "6639ec31ebbed62becce9836e9afe04383d801d2"
+    },
+    {
+      "branch": "codex/w3-extended-observation-2026-11-09",
+      "commit": "b1d6da9c83300cf9d2c11f84891c72ff8fa5bb7e"
+    },
+    {
+      "branch": "codex/w3-paired-worlds-2026-11-09",
+      "commit": "8233ab1b506fee2257c27ac908321339486f261e"
+    }
+  ],
+  "deletedLocalBranches": [
+    {
+      "branch": "codex/agent-lab-e1-e5-archive-2026-11-02",
+      "commit": "ac3c2fd4c895269e08f41be72159ee847b2afe32"
+    },
+    {
+      "branch": "codex/courtyard-sim-transition-2026-10-21",
+      "commit": "2d2b95ff5232e49c4c2fe5a59e3895c374d053e8"
+    },
+    {
+      "branch": "codex/e6-unresolved-anomalies-2026-11-02",
+      "commit": "57beef493cf9dd25a79e643c2d2271f6c3eecf70"
+    },
+    {
+      "branch": "codex/reboot-minimal-pet",
+      "commit": "78802569cf5f9b63c8f0365fac8039c11d0e516b"
+    },
+    {
+      "branch": "codex/w1-living-world-2026-11-06",
+      "commit": "103c6ce8be5df2dde98fb4f185c43f9188ce8c9d"
+    },
+    {
+      "branch": "codex/w2-context-learning-2026-11-06",
+      "commit": "83c8797a6343b888f49ed30014607f645149a0f5"
+    },
+    {
+      "branch": "codex/w3-choice-attribution-2026-11-10",
+      "commit": "1a9c82842ba25e7f9b157591e2e363818d5dc491"
+    },
+    {
+      "branch": "codex/w3-departure-coupling-2026-11-12",
+      "commit": "c18c15b423d66dcf8f0effa78b4e2af59570ecff"
+    },
+    {
+      "branch": "codex/w3-endpoint-trips-2026-11-09",
+      "commit": "6639ec31ebbed62becce9836e9afe04383d801d2"
+    },
+    {
+      "branch": "codex/w3-extended-observation-2026-11-09",
+      "commit": "b1d6da9c83300cf9d2c11f84891c72ff8fa5bb7e"
+    },
+    {
+      "branch": "codex/w3-paired-worlds-2026-11-09",
+      "commit": "8233ab1b506fee2257c27ac908321339486f261e"
+    },
+    {
+      "branch": "codex/w3-rhythm-diagnosis-2026-11-12",
+      "commit": "a52982c96da60c53a6bd659ff996342a4095722d"
+    }
+  ],
+  "retained": [],
+  "remainingRemoteHeads": {
+    "refs/heads/main": "be705063912b52681d9e839aa89ca22923786b1c"
+  }
+}
