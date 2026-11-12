@@ -1,0 +1,48 @@
+{
+  "endpoint": 2640,
+  "stop": 3240,
+  "source_sha256": "bc3786ff427143ae3ff5724b0329f48e6112d9d74656afe16f9d05cd754527a9",
+  "cases_sha256": "de5be56ca51f9baa4c1010c57f4330ca271fdadee8fc0d4890a21e19b2121027",
+  "summary": {
+    "pairs": 26,
+    "affected_people": 27,
+    "count_classes": {
+      "different_count": 13,
+      "same_count": 14
+    },
+    "pair_count_classes": {
+      "different_count": 12,
+      "same_count": 14
+    },
+    "tail_lag_distribution": {
+      "[30]": 16,
+      "[180]": 2,
+      "[-30]": 4,
+      "[150]": 2,
+      "[330]": 1,
+      "[300]": 1,
+      "[60]": 1
+    },
+    "extended_stable_lags": 27,
+    "extended_same_places": 27,
+    "extended_identical_body_cycles": 27,
+    "all_original_endpoint_trips_paired": true,
+    "probes": {
+      "natural": {
+        "any_body_difference_pairs": 26,
+        "endpoint_different_pairs": 17,
+        "sequence_difference_pairs": 24
+      },
+      "body_only": {
+        "any_body_difference_pairs": 12,
+        "endpoint_different_pairs": 4,
+        "sequence_difference_pairs": 12
+      },
+      "body_and_ordinal": {
+        "any_body_difference_pairs": 0,
+        "endpoint_different_pairs": 0,
+        "sequence_difference_pairs": 0
+      }
+    }
+  }
+}
