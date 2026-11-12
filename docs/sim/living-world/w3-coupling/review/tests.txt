@@ -1,0 +1,11 @@
+test_archive_integrity_summary_and_selected_fresh_replays (test_w3_coupling.DepartureCoupling.test_archive_integrity_summary_and_selected_fresh_replays) ... ok
+test_checkpoint_is_frozen_while_the_longer_rollout_continues (test_w3_coupling.DepartureCoupling.test_checkpoint_is_frozen_while_the_longer_rollout_continues) ... ok
+test_departure_number_survives_save_and_weather_and_ignores_clock (test_w3_coupling.DepartureCoupling.test_departure_number_survives_save_and_weather_and_ignores_clock) ... ok
+test_no_hint_identical_replays_and_empty_supply_does_not_increment (test_w3_coupling.DepartureCoupling.test_no_hint_identical_replays_and_empty_supply_does_not_increment) ... ok
+test_same_random_inputs_do_not_force_same_choice (test_w3_coupling.DepartureCoupling.test_same_random_inputs_do_not_force_same_choice) ... ok
+test_tail_alignment_excludes_cross_boundary_and_unmatched (test_w3_coupling.DepartureCoupling.test_tail_alignment_excludes_cross_boundary_and_unmatched) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.709s
+
+OK

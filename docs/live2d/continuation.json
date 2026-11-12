@@ -2,9 +2,9 @@
   "schemaVersion": 2,
   "updatedAt": "2026-11-12",
   "latestOwnerFeedback": {
-    "date": "2026-11-11",
-    "quote": "先把这轮游程诊断整理好保存到 GitHub，再看看那 3 对确实选过不同地点的世界：当时为什么会改选，是亲历、同伴消息，还是偶尔探索？先做好计划再推进，记录进展，保持目录整洁。",
-    "interpretation": "Archive the previous endpoint diagnosis, then attribute the registered three destination mismatches to pre-choice evidence and exploration."
+    "date": "2026-11-12",
+    "quote": "先把这轮归因结果整理好保存到 GitHub，再按角色的出发次数配对随机探索，看看排除出发时差带来的抽样差异后，干预还能留下哪些影响。先做好计划再推进，记录进展，保持目录整洁。",
+    "interpretation": "Archive attribution, then compare departure-indexed random coupling against clock coupling from all original W3 forks, preserving paired communication controls."
   },
   "activeTrack": "two-resident-living-world",
   "decision": {
@@ -26,9 +26,9 @@
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "W3-choice-attribution",
-    "status": "choice_attribution_complete_locally",
-    "nextAction": "Review the three departure explanations. A separate decision-indexed random coupling comparison is proposed but not started.",
+    "id": "W3-departure-coupling",
+    "status": "departure_coupling_complete_locally",
+    "nextAction": "Review the matched-randomness evidence and relay example. No new world rules or further experiment started.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -173,7 +173,8 @@
     "W2 on 2026-11-06: 32 seeds per policy, paired context probes and 960-step worlds. Late mean beneficial meal rate 73.5% vs 44.6%. 21 Python and 15 browser checks passed.",
     "2026-11-09 W3: W2 archive confirmed on GitHub. 384 primary paired conditions and 256 exploratory post-swap pairs with matched communication ablation. Primary hints changed recipients in 65 pairs; post-swap hints led to 18 peer choice changes.",
     "W3 archive verified on GitHub. 45 endpoint-divergent pairs reproduced and continued to +2640. Both residents met sustained dominant-choice agreement in all 45; 11 pairs still differed physically at endpoint.",
-    "W3 extended observation archived on GitHub. All 11 pairs with physical differences at +2640 reproduced. All 12 affected residents made same-place latest excursions with matching departure-relative paths through return."
+    "W3 extended observation archived on GitHub. All 11 pairs with physical differences at +2640 reproduced. All 12 affected residents made same-place latest excursions with matching departure-relative paths through return.",
+    "2026-11-12 W3 departure coupling completed all 640 original conditions / 5120 trajectories through +2640; clock +240 matches archive, original 45 long cases match endpoints, six targeted checks and five selected fresh replays pass. Runtime and save format unchanged."
   ],
   "live2dResumeGate": {
     "status": "not_met",
@@ -657,6 +658,39 @@
     "ownerExperienceAccepted": false,
     "branch": "codex/w3-choice-attribution-2026-11-10",
     "interpretation": "At the sampled departures, personal and social estimates favor q on both branches. Turning off exploration sends all to q; swapping only RNG draws swaps destinations. This does not remove historical social effects on departure timing.",
-    "verifiedArchiveCommit": "8264963394b98dfbe7c42f7a4799d034cb4c4666"
+    "verifiedArchiveCommit": "8264963394b98dfbe7c42f7a4799d034cb4c4666",
+    "archiveReceiptCommit": "1a9c82842ba25e7f9b157591e2e363818d5dc491"
+  },
+  "livingWorldW3Coupling": {
+    "plan": "docs/sim/living-world/w3-coupling/PLAN.md",
+    "progress": "docs/sim/living-world/w3-coupling/PROGRESS.md",
+    "result": "docs/sim/living-world/w3-coupling/review/summary.json",
+    "branch": "codex/w3-departure-coupling-2026-11-12",
+    "publicRemoteSaved": false,
+    "ownerExperienceAccepted": false,
+    "pairs": 640,
+    "worldTrajectories": 5120,
+    "horizon": 2640,
+    "testsPassed": 6,
+    "primary": {
+      "pairs": 384,
+      "departureRecipientEverChanged": 64,
+      "departurePeerEverChanged": 0,
+      "departureEndpointDifferentPairs": 0
+    },
+    "reversal": {
+      "pairs": 256,
+      "clockCommunicationDependentPeerPairs": 19,
+      "departureCommunicationDependentPeerPairs": 14,
+      "clockEndpointDifferentPairs": 12,
+      "departureEndpointDifferentPairs": 26,
+      "departureFinalValueDifferentPairs": 37
+    },
+    "departureTailMatchedChoices": 14449,
+    "departureTailChoiceMismatches": 0,
+    "departureTailUnpairedChoices": 71,
+    "departureTailCrossBoundaryPairs": 76,
+    "finalGreedyDifferentPeople": 0,
+    "interpretation": "Intervention still changes early experiences and peer choices with coupled draws. Late matched destinations agree, while memory counts, estimates and timing may remain different. The two modes also change control trajectories; their difference is coupling sensitivity, not an isolated historical timing effect."
   }
 }

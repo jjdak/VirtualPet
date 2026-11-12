@@ -1,0 +1,520 @@
+{
+  "case": {
+    "family": "reversal",
+    "seed": 4,
+    "age": 480,
+    "actor": "A",
+    "kind": "q"
+  },
+  "stop": 66,
+  "peer": "B",
+  "paired_choice": {
+    "control": {
+      "n": 16,
+      "t": 66,
+      "weather": "sun",
+      "target": "p",
+      "draws": [
+        0.5850626083497638,
+        0.03570935490858773
+      ],
+      "route": "estimated_value",
+      "scores": {
+        "p": -0.7738090982697633,
+        "q": -1.0
+      }
+    },
+    "hinted": {
+      "n": 16,
+      "t": 66,
+      "weather": "sun",
+      "target": "q",
+      "draws": [
+        0.5850626083497638,
+        0.03570935490858773
+      ],
+      "route": "estimated_value",
+      "scores": {
+        "p": -0.6966093623253856,
+        "q": 0.3994019549228236
+      }
+    }
+  },
+  "history": {
+    "control": {
+      "A": [
+        {
+          "tick": 482,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": []
+        },
+        {
+          "tick": 493,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": 0.35241141088995637,
+            "q": -1.0
+          }
+        },
+        {
+          "tick": 499,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": []
+        },
+        {
+          "tick": 511,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": -0.07677650886161719,
+            "q": -1.0
+          }
+        },
+        {
+          "tick": 514,
+          "type": "message",
+          "text": "晴天 · 小岚说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "B:514",
+            "source": "B",
+            "tick": 514,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 517,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": [
+            {
+              "id": "B:514",
+              "match": true,
+              "age": 3
+            }
+          ]
+        },
+        {
+          "tick": 528,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": -0.8634419275823262,
+            "q": -1.0
+          }
+        },
+        {
+          "tick": 534,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": []
+        },
+        {
+          "tick": 534,
+          "type": "message",
+          "text": "晴天 · 小岚说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "B:534",
+            "source": "B",
+            "tick": 534,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 546,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": -0.921234240662361,
+            "q": -1.0
+          }
+        }
+      ],
+      "B": [
+        {
+          "tick": 487,
+          "type": "message",
+          "text": "晴天 · 阿禾说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "A:482",
+            "source": "A",
+            "tick": 482,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 504,
+          "type": "message",
+          "text": "晴天 · 阿禾说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "A:499",
+            "source": "A",
+            "tick": 499,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 506,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": -0.46682597122500535,
+            "q": -1.0
+          }
+        },
+        {
+          "tick": 514,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": [
+            {
+              "id": "A:387",
+              "match": false,
+              "age": 127
+            },
+            {
+              "id": "A:482",
+              "match": true,
+              "age": 32
+            },
+            {
+              "id": "A:499",
+              "match": true,
+              "age": 15
+            }
+          ]
+        },
+        {
+          "tick": 522,
+          "type": "message",
+          "text": "晴天 · 阿禾说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "A:517",
+            "source": "A",
+            "tick": 517,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 526,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": -0.6291863699422895,
+            "q": -1.0
+          }
+        },
+        {
+          "tick": 534,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": [
+            {
+              "id": "A:517",
+              "match": true,
+              "age": 17
+            }
+          ]
+        },
+        {
+          "tick": 534,
+          "type": "message",
+          "text": "晴天 · 阿禾说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "A:534",
+            "source": "A",
+            "tick": 534,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 546,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": -0.7738090982697633,
+            "q": -1.0
+          }
+        }
+      ]
+    },
+    "hinted": {
+      "A": [
+        {
+          "tick": 482,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": []
+        },
+        {
+          "tick": 493,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": 0.35241141088995637,
+            "q": -0.35
+          }
+        },
+        {
+          "tick": 499,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": []
+        },
+        {
+          "tick": 511,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": -0.07677650886161719,
+            "q": -0.35
+          }
+        },
+        {
+          "tick": 514,
+          "type": "message",
+          "text": "晴天 · 小岚说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "B:514",
+            "source": "B",
+            "tick": 514,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 517,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": [
+            {
+              "id": "B:514",
+              "match": true,
+              "age": 3
+            }
+          ]
+        },
+        {
+          "tick": 528,
+          "type": "decision",
+          "text": "晴天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。 也考虑了你给的地点建议，结果要亲自验证。",
+          "weather": "sun",
+          "target": "q",
+          "scores": {
+            "p": -0.8634419275823262,
+            "q": -0.35
+          }
+        },
+        {
+          "tick": 536,
+          "type": "experience",
+          "text": "晴天 · 亲自在紫穗地取食：感觉不错。",
+          "weather": "sun",
+          "kind": "q",
+          "reward": 1,
+          "validated": []
+        },
+        {
+          "tick": 539,
+          "type": "message",
+          "text": "晴天 · 小岚说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "B:534",
+            "source": "B",
+            "tick": 534,
+            "kind": "p",
+            "claim": -1
+          }
+        }
+      ],
+      "B": [
+        {
+          "tick": 487,
+          "type": "message",
+          "text": "晴天 · 阿禾说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "A:482",
+            "source": "A",
+            "tick": 482,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 504,
+          "type": "message",
+          "text": "晴天 · 阿禾说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "A:499",
+            "source": "A",
+            "tick": 499,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 506,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": -0.46682597122500535,
+            "q": -1.0
+          }
+        },
+        {
+          "tick": 514,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": [
+            {
+              "id": "A:387",
+              "match": false,
+              "age": 127
+            },
+            {
+              "id": "A:482",
+              "match": true,
+              "age": 32
+            },
+            {
+              "id": "A:499",
+              "match": true,
+              "age": 15
+            }
+          ]
+        },
+        {
+          "tick": 522,
+          "type": "message",
+          "text": "晴天 · 阿禾说在青禾地取食后感到不适；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "A:517",
+            "source": "A",
+            "tick": 517,
+            "kind": "p",
+            "claim": -1
+          }
+        },
+        {
+          "tick": 526,
+          "type": "decision",
+          "text": "晴天 · 准备去青禾地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "p",
+          "scores": {
+            "p": -0.6291863699422895,
+            "q": -1.0
+          }
+        },
+        {
+          "tick": 534,
+          "type": "experience",
+          "text": "晴天 · 亲自在青禾地取食：感到不适。",
+          "weather": "sun",
+          "kind": "p",
+          "reward": -1,
+          "validated": [
+            {
+              "id": "A:517",
+              "match": true,
+              "age": 17
+            }
+          ]
+        },
+        {
+          "tick": 539,
+          "type": "message",
+          "text": "晴天 · 阿禾说在紫穗地取食后感觉不错；这是对方的经历。",
+          "weather": "sun",
+          "message": {
+            "id": "A:536",
+            "source": "A",
+            "tick": 536,
+            "kind": "q",
+            "claim": 1
+          }
+        },
+        {
+          "tick": 546,
+          "type": "decision",
+          "text": "晴天 · 准备去紫穗地。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+          "weather": "sun",
+          "target": "q",
+          "scores": {
+            "p": -0.6966093623253856,
+            "q": 0.3994019549228236
+          }
+        }
+      ]
+    }
+  }
+}
