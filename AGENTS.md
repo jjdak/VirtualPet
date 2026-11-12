@@ -1,5 +1,9 @@
 # VirtualPet 工作入口
 
+## Git 流程（2026-11-12 用户确认）
+
+采用短期 `codex/` 工作分支与 PR，已合入分支核对祖先关系后清理；里程碑用注释标签和固定提交记录，不继续累积长期阶段分支。每轮遵循 [docs/GIT_WORKFLOW.md](docs/GIT_WORKFLOW.md)，计划、验证和进展仍需记录。本轮整合 PR #2、合并 main 与清理已合入分支已有用户明确授权。
+
 ## 当前方向覆盖说明（2026-10-21）
 
 用户已授权收束 B2、保存 GitHub，并开启“观察、干预、接管”的小型 sim 阶段。每轮仍先读 continuation 和 COURTYARD_PROTOTYPE，再读 `docs/SIM_STAGE_PLAN.md`；以下旧方向与此处冲突时，以本段和 continuation 为准。

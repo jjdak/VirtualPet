@@ -3,9 +3,8 @@
   "updatedAt": "2026-11-12",
   "latestOwnerFeedback": {
     "date": "2026-11-12",
-    "quote": "先把这轮随机配对的结果整理好保存到 GitHub，再看看那 26 对终点仍不同的世界：既然后来选的地方相同，是出发次数不同，还是同一趟的时间错开了？这些差异为什么会一直保留？先做好计划再推进，记录进展，保持目录整洁。",
-    "followUp": "仓库远端推了很多分支都没有合入，你用gh工具可以管理吗",
-    "interpretation": "Archive coupling, diagnose count and phase persistence in all 26 endpoint pairs, and inspect remote branch consolidation using gh."
+    "quote": "可以，把这轮节奏诊断也整理进整合 PR，检查通过后合入 main，再清理已经合入的旧分支。以后按你说的用短期分支和 PR 推进，里程碑用标签记录，做好进展记录，保持目录整洁。",
+    "interpretation": "Explicitly authorized to add rhythm diagnosis to PR #2, verify and merge it, delete only merged branches, and adopt short-lived PR branches with milestone tags."
   },
   "activeTrack": "two-resident-living-world",
   "decision": {
@@ -28,8 +27,8 @@
   },
   "milestone": {
     "id": "W3-rhythm-diagnosis",
-    "status": "rhythm_diagnosis_complete_locally",
-    "nextAction": "Review the rhythm ledger and consolidation draft PR #2. No merge, branch deletion or new simulation rules applied.",
+    "status": "integration_checks_passed",
+    "nextAction": "Merge authorized integration PR #2, verify tags, clean only merged branches and record receipts.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -716,15 +715,26 @@
     "interpretation": "Late same-ordinal lag equals 30 times control-minus-hinted cumulative bad meals. Complete shifted body cycles match. Syncing schedule plus RNG ordinal removes future physical divergence in 600-step probes with memory retained; this is not a claim of permanent convergence."
   },
   "githubConsolidationReview": {
-    "progress": "docs/archive/GITHUB_BRANCH_REVIEW_2026-11-12.md",
+    "progress": "docs/archive/integration-2026-11-12/PROGRESS.md",
     "pullRequest": "https://github.com/jjdak/VirtualPet/pull/2",
-    "status": "draft",
+    "status": "authorized_integration_checks_passed",
     "base": "main",
     "head": "codex/w3-departure-coupling-2026-11-12",
     "reviewedHead": "c18c15b423d66dcf8f0effa78b4e2af59570ecff",
     "remoteWorkBranches": 10,
     "aheadCommits": 20,
     "merged": false,
-    "branchesDeleted": false
+    "branchesDeleted": false,
+    "includesRhythm": true,
+    "pythonTestsPassed": 114,
+    "headlessGodotPassed": true
+  },
+  "gitWorkflow": {
+    "document": "docs/GIT_WORKFLOW.md",
+    "adopted": "2026-11-12",
+    "defaultBranch": "main",
+    "development": "short-lived codex branches and PRs",
+    "milestones": "annotated immutable tags",
+    "cleanup": "verify current branch head is contained in main before deletion"
   }
 }

@@ -1,5 +1,7 @@
 # VirtualPet
 
+开发、PR 合并及里程碑归档遵循 [Git 工作流程](docs/GIT_WORKFLOW.md)。[本次主线整合记录](docs/archive/integration-2026-11-12/PROGRESS.md)。
+
 ## 26 对世界的节奏诊断 · 2026-11-12
 
 14 对出发次数相同、只是同序游程错开；12 对还存在次数差异。27 个受影响角色的偏移在延长观察中均保持，末段时差由累计不适取食次数差对应的饥饿恢复量解释。对齐身体日程与抽样序号后，保留记忆的 600 步探针未再分开。[逐案结果与验证](docs/sim/living-world/w3-rhythm/PROGRESS.md)。

@@ -1,0 +1,48 @@
+{
+  "plannedAnnotatedTags": [
+    {
+      "tag": "sim-s2-2026-10-22",
+      "commit": "2d2b95ff5232e49c4c2fe5a59e3895c374d053e8"
+    },
+    {
+      "tag": "agent-lab-e6-2026-11-04",
+      "commit": "57beef493cf9dd25a79e643c2d2271f6c3eecf70"
+    },
+    {
+      "tag": "living-world-w1-2026-11-06",
+      "commit": "103c6ce8be5df2dde98fb4f185c43f9188ce8c9d"
+    },
+    {
+      "tag": "living-world-w2-2026-11-06",
+      "commit": "83c8797a6343b888f49ed30014607f645149a0f5"
+    },
+    {
+      "tag": "living-world-w3-2026-11-09",
+      "commit": "8233ab1b506fee2257c27ac908321339486f261e"
+    },
+    {
+      "tag": "living-world-w3-long-2026-11-09",
+      "commit": "b1d6da9c83300cf9d2c11f84891c72ff8fa5bb7e"
+    },
+    {
+      "tag": "living-world-w3-endpoint-2026-11-09",
+      "commit": "6639ec31ebbed62becce9836e9afe04383d801d2"
+    },
+    {
+      "tag": "living-world-w3-attribution-2026-11-11",
+      "commit": "1a9c82842ba25e7f9b157591e2e363818d5dc491"
+    },
+    {
+      "tag": "living-world-w3-coupling-2026-11-12",
+      "commit": "c18c15b423d66dcf8f0effa78b4e2af59570ecff"
+    },
+    {
+      "tag": "living-world-w3-rhythm-2026-11-12",
+      "commit": "bba1f2c2fd4650126d220f1e9d9f53ac46fd659f"
+    }
+  ],
+  "preserveExistingTags": [
+    "agent-lab-e1-e5-2026-11-02",
+    "courtyard-b2-archive-2026-10-21"
+  ]
+}

@@ -1,0 +1,106 @@
+
+Suite experiments/two_agents
+test_action_preconditions (test_world.WorldTests.test_action_preconditions) ... ok
+test_format_wrapper_does_not_repair_choices (test_world.WorldTests.test_format_wrapper_does_not_repair_choices) ... ok
+test_hidden_effects_and_causal_controls (test_world.WorldTests.test_hidden_effects_and_causal_controls) ... ok
+test_isolation_and_message_range (test_world.WorldTests.test_isolation_and_message_range) ... ok
+test_probe_execution_does_not_contaminate_other_probe (test_world.WorldTests.test_probe_execution_does_not_contaminate_other_probe) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.007s
+
+OK
+
+Suite experiments/adaptive_agents/tests
+test_action_preconditions_and_path (test_core.MechanismTests.test_action_preconditions_and_path) ... ok
+test_expiry_older_message_and_copy (test_core.MechanismTests.test_expiry_older_message_and_copy) ... ok
+test_online_value_update_and_ablation (test_core.MechanismTests.test_online_value_update_and_ablation) ... ok
+test_private_state_and_no_hidden_schedule (test_core.MechanismTests.test_private_state_and_no_hidden_schedule) ... ok
+test_resume_in_fresh_python_process (test_core.MechanismTests.test_resume_in_fresh_python_process) ... ok
+test_save_resume_preserves_next_actions (test_core.MechanismTests.test_save_resume_preserves_next_actions) ... ok
+test_trust_requires_personal_confirmation (test_core.MechanismTests.test_trust_requires_personal_confirmation) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.148s
+
+OK
+
+Suite experiments/reinspection_agents/tests
+test_double_surprise_delayed_probe_and_no_free_reset (test_core.E3Tests.test_double_surprise_delayed_probe_and_no_free_reset) ... ok
+test_e2_baseline_exact_behavior (test_core.E3Tests.test_e2_baseline_exact_behavior) ... ok
+test_full_restore_all_scenarios_and_horizon (test_core.E3Tests.test_full_restore_all_scenarios_and_horizon) ... ok
+test_independent_auditor_rejects_corrupt_evidence (test_core.E3Tests.test_independent_auditor_rejects_corrupt_evidence) ... ok
+test_noise_and_unobserved_improvement (test_core.E3Tests.test_noise_and_unobserved_improvement) ... ok
+test_observation_boundary_and_independent_state (test_core.E3Tests.test_observation_boundary_and_independent_state) ... ok
+test_paired_interval_and_truncation (test_core.E3Tests.test_paired_interval_and_truncation) ... ok
+test_probe_budget_and_cooldown (test_core.E3Tests.test_probe_budget_and_cooldown) ... ok
+test_recent_alternative_and_messages_do_not_trigger (test_core.E3Tests.test_recent_alternative_and_messages_do_not_trigger) ... ok
+test_resume_pending_probe_in_new_process (test_core.E3Tests.test_resume_pending_probe_in_new_process) ... ok
+test_same_trigger_random_control_can_retry_same_food (test_core.E3Tests.test_same_trigger_random_control_can_retry_same_food) ... ok
+test_single_surprise_does_not_trigger (test_core.E3Tests.test_single_surprise_does_not_trigger) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.575s
+
+OK
+
+Suite experiments/budgeted_agents/tests
+test_asynchronous_and_hidden_rewards (test_core.BudgetTests.test_asynchronous_and_hidden_rewards) ... ok
+test_auditor_rejects_budget_and_reward_corruption (test_core.BudgetTests.test_auditor_rejects_budget_and_reward_corruption) ... ok
+test_budget_bound_restore_and_independent_memory (test_core.BudgetTests.test_budget_bound_restore_and_independent_memory) ... ok
+test_cooldown_budget_and_request_expiry (test_core.BudgetTests.test_cooldown_budget_and_request_expiry) ... ok
+test_cost_account_and_interval (test_core.BudgetTests.test_cost_account_and_interval) ... ok
+test_event_recovery_censored_at_next_change (test_core.BudgetTests.test_event_recovery_censored_at_next_change) ... ok
+test_new_process_pending_request_restore (test_core.BudgetTests.test_new_process_pending_request_restore) ... ok
+test_no_hidden_background_random_or_world_schedule (test_core.BudgetTests.test_no_hidden_background_random_or_world_schedule) ... ok
+test_periodic_age_and_reserve (test_core.BudgetTests.test_periodic_age_and_reserve) ... ok
+test_random_attempt_same_target_is_charged (test_core.BudgetTests.test_random_attempt_same_target_is_charged) ... ok
+test_reference_rules_equal_e3 (test_core.BudgetTests.test_reference_rules_equal_e3) ... ok
+test_release_schedule_and_limit (test_core.BudgetTests.test_release_schedule_and_limit) ... ok
+test_trigger_priority_can_use_reserved_token (test_core.BudgetTests.test_trigger_priority_can_use_reserved_token) ... ok
+test_unknown_items_do_not_spend (test_core.BudgetTests.test_unknown_items_do_not_spend) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.544s
+
+OK
+
+Suite experiments/frequency_agents/tests
+test_all_strategies_budget_and_independent_audit (test_core.FrequencyTests.test_all_strategies_budget_and_independent_audit) ... ok
+test_audit_rejects_corrupt_gain_and_score (test_core.FrequencyTests.test_audit_rejects_corrupt_gain_and_score) ... ok
+test_episode_restore_across_change (test_core.FrequencyTests.test_episode_restore_across_change) ... ok
+test_fixed18_exact_e4_hybrid (test_core.FrequencyTests.test_fixed18_exact_e4_hybrid) ... ok
+test_messages_and_other_actor_do_not_change_interval (test_core.FrequencyTests.test_messages_and_other_actor_do_not_change_interval) ... ok
+test_pending_feedback_fresh_process_restore (test_core.FrequencyTests.test_pending_feedback_fresh_process_restore) ... ok
+test_rejected_and_ordinary_actions_do_not_update (test_core.FrequencyTests.test_rejected_and_ordinary_actions_do_not_update) ... ok
+test_stable_interval_reaches_cap (test_core.FrequencyTests.test_stable_interval_reaches_cap) ... ok
+test_threshold_and_bounds (test_core.FrequencyTests.test_threshold_and_bounds) ... ok
+test_trigger_feedback_same_rule (test_core.FrequencyTests.test_trigger_feedback_same_rule) ... ok
+test_unhelpful_probe_backs_off (test_core.FrequencyTests.test_unhelpful_probe_backs_off) ... ok
+test_useful_probe_shrinks_next_interval (test_core.FrequencyTests.test_useful_probe_shrinks_next_interval) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.637s
+
+OK
+
+Suite experiments/unresolved_agents/tests
+test_all_policies_independent_audit (test_core.TicketTests.test_all_policies_independent_audit) ... ok
+test_budget_block_retained_then_release (test_core.TicketTests.test_budget_block_retained_then_release) ... ok
+test_cooldown_retained (test_core.TicketTests.test_cooldown_retained) ... ok
+test_deadline_inclusive_and_expiry (test_core.TicketTests.test_deadline_inclusive_and_expiry) ... ok
+test_duplicate_does_not_extend_lifetime (test_core.TicketTests.test_duplicate_does_not_extend_lifetime) ... ok
+test_episode_restoration_and_noise_audit (test_core.TicketTests.test_episode_restoration_and_noise_audit) ... ok
+test_fresh_process_ticket_restore (test_core.TicketTests.test_fresh_process_ticket_restore) ... ok
+test_isolation_and_hidden_state (test_core.TicketTests.test_isolation_and_hidden_state) ... ok
+test_legacy_and_fixed_identical_to_e5 (test_core.TicketTests.test_legacy_and_fixed_identical_to_e5) ... ok
+test_message_cannot_resolve_but_personal_sample_can (test_core.TicketTests.test_message_cannot_resolve_but_personal_sample_can) ... ok
+test_oneshot_expires_without_resolution (test_core.TicketTests.test_oneshot_expires_without_resolution) ... ok
+test_reject_corrupt_ticket (test_core.TicketTests.test_reject_corrupt_ticket) ... ok
+test_remembers_through_freshness_gate (test_core.TicketTests.test_remembers_through_freshness_gate) ... ok
+test_resolve_then_new_signal (test_core.TicketTests.test_resolve_then_new_signal) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.440s
+
+OK

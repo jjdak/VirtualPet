@@ -109,4 +109,4 @@ python3 living_world/studies/w3_rhythm.py
 python3 -m unittest discover -s living_world/tests -p test_w3_rhythm.py -v
 ```
 
-复算可加 `--output /tmp/virtualpet-rhythm-review`，避免覆盖正式证据。所有新证据集中在本目录，源码和测试分别放在 `living_world/studies/` 与 `living_world/tests/`。无新增依赖，运行时和旧实验数据未改。本轮本地保存，尚未推送。
+复算可加 `--output /tmp/virtualpet-rhythm-review`，避免覆盖正式证据。所有新证据集中在本目录，源码和测试分别放在 `living_world/studies/` 与 `living_world/tests/`。无新增依赖，运行时和旧实验数据未改。本轮纳入整合 PR #2，验证与合并回执见[主线整合记录](../../../archive/integration-2026-11-12/PROGRESS.md)。
