@@ -1,0 +1,10 @@
+{
+  "verified_date": "2026-11-13",
+  "command": "python3 -m unittest discover -s living_world/tests -p 'test_*.py' -v",
+  "status": "passed",
+  "tests": 61,
+  "new_story_tests": 11,
+  "seconds": 10.877,
+  "scope": "W1-W3 regression plus W4 observation, provenance, attribution and save isolation; HTTP tests use isolated local ports",
+  "owner_accepted": false
+}

@@ -1,0 +1,166 @@
+{
+  "origin_hash": "8d67ac9f9ade58b12dd10e88c37986d775ee57f96c6ea6e5ffc16901b926c153",
+  "start": 480,
+  "story": {
+    "version": 1,
+    "actor": "A",
+    "peer": "B",
+    "kind": "q",
+    "nodes": [
+      {
+        "key": "hint",
+        "offset": 0,
+        "event": {
+          "id": 87,
+          "tick": 480,
+          "type": "hint",
+          "text": "晴天 · 你只向阿禾建议：可以去紫穗地看看。",
+          "weather": "sun",
+          "actor": "A",
+          "kind": "q"
+        }
+      },
+      {
+        "key": "experience",
+        "offset": 56,
+        "event": {
+          "id": 102,
+          "tick": 536,
+          "type": "experience",
+          "text": "晴天 · 阿禾尝了紫穗地的食物，感觉不错。",
+          "weather": "sun",
+          "actor": "A",
+          "kind": "q",
+          "reward": 1,
+          "report_id": "A:536"
+        },
+        "same_in_control": false,
+        "empty_visit": null
+      },
+      {
+        "key": "delivery",
+        "offset": 59,
+        "event": {
+          "id": 103,
+          "tick": 539,
+          "type": "message",
+          "text": "晴天 · 阿禾向小岚分享了紫穗地的亲历。",
+          "weather": "sun",
+          "sender": "A",
+          "receiver": "B",
+          "evidence_tick": 536,
+          "report": {
+            "id": "A:536",
+            "source": "A",
+            "tick": 536,
+            "kind": "q",
+            "claim": 1
+          }
+        }
+      },
+      {
+        "key": "choice",
+        "offset": 66,
+        "event": {
+          "event": {
+            "id": 105,
+            "tick": 546,
+            "type": "decision",
+            "text": "晴天 · 小岚决定去紫穗地。",
+            "weather": "sun",
+            "actor": "B",
+            "target": "q",
+            "scores": {
+              "p": -0.6966093623253856,
+              "q": 0.3994019549228236
+            },
+            "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "previous_target": "p",
+            "route": "estimated_value",
+            "own_values": {
+              "p": -0.28,
+              "q": -1
+            },
+            "reports": [
+              {
+                "message": {
+                  "id": "A:517",
+                  "source": "A",
+                  "tick": 517,
+                  "kind": "p",
+                  "claim": -1
+                },
+                "age": 29,
+                "without_report_target": "q",
+                "changes_target": false
+              },
+              {
+                "message": {
+                  "id": "A:536",
+                  "source": "A",
+                  "tick": 536,
+                  "kind": "q",
+                  "claim": 1
+                },
+                "age": 10,
+                "without_report_target": "p",
+                "changes_target": true
+              }
+            ]
+          },
+          "report_test": {
+            "message": {
+              "id": "A:536",
+              "source": "A",
+              "tick": 536,
+              "kind": "q",
+              "claim": 1
+            },
+            "age": 10,
+            "without_report_target": "p",
+            "changes_target": true
+          },
+          "control_choice": {
+            "id": 105,
+            "tick": 546,
+            "type": "decision",
+            "text": "晴天 · 小岚决定去青禾地。",
+            "weather": "sun",
+            "actor": "B",
+            "target": "p",
+            "scores": {
+              "p": -0.7738090982697633,
+              "q": -1
+            },
+            "reason": "晴天出发。比较亲历、近期消息和线索后，选择更值得尝试的地方。",
+            "previous_target": "p",
+            "route": "estimated_value",
+            "own_values": {
+              "p": -0.28,
+              "q": -1
+            },
+            "reports": [
+              {
+                "message": {
+                  "id": "A:534",
+                  "source": "A",
+                  "tick": 534,
+                  "kind": "p",
+                  "claim": -1
+                },
+                "age": 12,
+                "without_report_target": "p",
+                "changes_target": false
+              }
+            ]
+          },
+          "supported": true
+        }
+      }
+    ],
+    "supported": true,
+    "hint_status": "visited",
+    "hint_end": 56,
+    "horizon": 240
+  }
+}
