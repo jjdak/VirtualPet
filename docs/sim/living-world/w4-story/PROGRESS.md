@@ -1,6 +1,6 @@
 # W4 · 一条线索的后来
 
-2026-11-13。本轮计划先记录于 [PLAN.md](PLAN.md)，从 main `2e45e46ce4f420f5eab28767d17e32a6d89a8be9` 创建短期分支 `codex/w4-intervention-story-2026-11-13`。实现与本地验证完成，玩家是否看得懂、是否有参与感仍待体验反馈。已推送到 [PR #5](https://github.com/jjdak/VirtualPet/pull/5)，目标 main；实现与验证固定于 [7318cb6](https://github.com/jjdak/VirtualPet/commit/7318cb6daf97c3aa500e08b40b6a856fa06ad8f8)。PR 保持待审阅，本轮不代替用户作主观验收。
+2026-11-13。本轮计划先记录于 [PLAN.md](PLAN.md)，从 main `2e45e46ce4f420f5eab28767d17e32a6d89a8be9` 创建短期分支 `codex/w4-intervention-story-2026-11-13`。实现与本地验证完成，玩家是否看得懂、是否有参与感仍待体验反馈。已推送到 [PR #5](https://github.com/jjdak/VirtualPet/pull/5)，目标 main；实现与验证固定于 [7318cb6](https://github.com/jjdak/VirtualPet/commit/7318cb6daf97c3aa500e08b40b6a856fa06ad8f8)。2026-11-22 已合入 main，玩家体验反馈待收集。
 
 ## 可以体验什么
 
@@ -46,6 +46,12 @@ PLAYWRIGHT_BROWSERS_PATH=/Users/fengzhuo/Documents/VirtualPet/PrivateAssets/Tool
 node living_world/tests/browser-w4-story.cjs
 ```
 
-## 下一步
+## 2026-11-22 里程碑
 
-先体验默认四段过程，再换一条线索，判断玩家是否能分清“建议、亲历、转述、决定”，以及实际差异是否容易看出。根据反馈优化体验，不自动扩大世界规模或添加新学习机制。代码经 PR 审阅后按授权合入，届时用注释标签记录这一阶段并清理已合入短期分支。
+在 PR 最终提交 `380e9a67e4079dc4dd20b25b2c9d39a7b4036a2c` 的隔离副本复跑，61 项 Python 回归和 13 项浏览器检查均通过。GitHub 当时未登记远端检查或审阅讨论。合并后逐树核对，合并版本与测试版本内容一致。
+
+[PR #5](https://github.com/jjdak/VirtualPet/pull/5) 的[合并提交](https://github.com/jjdak/VirtualPet/commit/bb3182bab015f8081f6e55d57957395e2b269f9c)已用[注释标签 living-world-w4-story-2026-11-22](https://github.com/jjdak/VirtualPet/tree/living-world-w4-story-2026-11-22)标记。核对祖先关系后已清理本地与远端 W4 功能分支。
+
+## 下一步待讨论
+
+W4 的一次干预发生在起点，玩家随后观看 240 步。下一轮要讨论玩家最希望亲自决定的事情。一个可试玩的小范围提案是让世界先自行运转，让玩家看到一次取食结果，再决定何时提醒谁，或继续旁观。体验反馈将决定是否开发这一方向。
