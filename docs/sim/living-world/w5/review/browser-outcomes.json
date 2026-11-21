@@ -1,0 +1,262 @@
+{
+  "fork_wait": {
+    "start": 336,
+    "events": [
+      {
+        "id": 47,
+        "tick": 336,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了紫穗地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 48,
+        "tick": 338,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去青禾地。",
+        "weather": "sun",
+        "actor": "B"
+      }
+    ],
+    "result": {
+      "actual": {
+        "offset": 2,
+        "kind": "p"
+      },
+      "waiting": {
+        "offset": 2,
+        "kind": "p"
+      },
+      "first": null,
+      "waiting_first": null
+    }
+  },
+  "fork_early": {
+    "start": 336,
+    "events": [
+      {
+        "id": 47,
+        "tick": 336,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了紫穗地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 48,
+        "tick": 336,
+        "type": "hint",
+        "text": "晴天 · 你只向小岚建议：可以去紫穗地看看。",
+        "weather": "sun",
+        "actor": "B",
+        "kind": "q"
+      },
+      {
+        "id": 49,
+        "tick": 338,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去紫穗地。",
+        "weather": "sun",
+        "actor": "B"
+      }
+    ],
+    "result": {
+      "actual": {
+        "offset": 2,
+        "kind": "q"
+      },
+      "waiting": {
+        "offset": 2,
+        "kind": "p"
+      },
+      "first": {
+        "speaker": "player",
+        "offset": 0
+      },
+      "waiting_first": null
+    }
+  },
+  "fork_last_moment": {
+    "start": 336,
+    "events": [
+      {
+        "id": 47,
+        "tick": 336,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了紫穗地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 48,
+        "tick": 337,
+        "type": "hint",
+        "text": "晴天 · 你只向小岚建议：可以去紫穗地看看。",
+        "weather": "sun",
+        "actor": "B",
+        "kind": "q"
+      },
+      {
+        "id": 49,
+        "tick": 338,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去紫穗地。",
+        "weather": "sun",
+        "actor": "B"
+      }
+    ],
+    "result": {
+      "actual": {
+        "offset": 2,
+        "kind": "q"
+      },
+      "waiting": {
+        "offset": 2,
+        "kind": "p"
+      },
+      "first": {
+        "speaker": "player",
+        "offset": 1
+      },
+      "waiting_first": null
+    }
+  },
+  "camp_late": {
+    "start": 536,
+    "events": [
+      {
+        "id": 102,
+        "tick": 536,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了紫穗地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 103,
+        "tick": 539,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了紫穗地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 536
+      },
+      {
+        "id": 104,
+        "tick": 539,
+        "type": "message",
+        "text": "晴天 · 小岚向阿禾分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 534
+      },
+      {
+        "id": 105,
+        "tick": 539,
+        "type": "hint",
+        "text": "晴天 · 你只向小岚建议：可以去紫穗地看看。",
+        "weather": "sun",
+        "actor": "B",
+        "kind": "q"
+      },
+      {
+        "id": 106,
+        "tick": 546,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去紫穗地。",
+        "weather": "sun",
+        "actor": "B"
+      }
+    ],
+    "result": {
+      "actual": {
+        "offset": 10,
+        "kind": "q"
+      },
+      "waiting": {
+        "offset": 10,
+        "kind": "q"
+      },
+      "first": {
+        "speaker": "A",
+        "offset": 3
+      },
+      "waiting_first": {
+        "speaker": "A",
+        "offset": 3
+      }
+    }
+  },
+  "camp_wait": {
+    "start": 536,
+    "events": [
+      {
+        "id": 102,
+        "tick": 536,
+        "type": "experience",
+        "text": "晴天 · 阿禾尝了紫穗地的食物，感觉不错。",
+        "weather": "sun",
+        "actor": "A",
+        "kind": "q",
+        "reward": 1
+      },
+      {
+        "id": 103,
+        "tick": 539,
+        "type": "message",
+        "text": "晴天 · 阿禾向小岚分享了紫穗地的亲历。",
+        "weather": "sun",
+        "sender": "A",
+        "receiver": "B",
+        "evidence_tick": 536
+      },
+      {
+        "id": 104,
+        "tick": 539,
+        "type": "message",
+        "text": "晴天 · 小岚向阿禾分享了青禾地的亲历。",
+        "weather": "sun",
+        "sender": "B",
+        "receiver": "A",
+        "evidence_tick": 534
+      },
+      {
+        "id": 105,
+        "tick": 546,
+        "type": "decision",
+        "text": "晴天 · 小岚决定去紫穗地。",
+        "weather": "sun",
+        "actor": "B"
+      }
+    ],
+    "result": {
+      "actual": {
+        "offset": 10,
+        "kind": "q"
+      },
+      "waiting": {
+        "offset": 10,
+        "kind": "q"
+      },
+      "first": {
+        "speaker": "A",
+        "offset": 3
+      },
+      "waiting_first": {
+        "speaker": "A",
+        "offset": 3
+      }
+    }
+  }
+}

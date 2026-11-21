@@ -2,6 +2,10 @@
 
 开发、PR 合并及里程碑归档遵循 [Git 工作流程](docs/GIT_WORKFLOW.md)。[本次主线整合记录](docs/archive/integration-2026-11-12/PROGRESS.md)。
 
+## W5 · 趁小岚还没出发
+
+运行 `./living_world/w5.command` 后打开 <http://127.0.0.1:4199/>。在同一幕中决定什么时候提醒小岚，也可以一直等阿禾自己开口。小岚出发时可查看一直等待的结果，再从同一起点重玩。[玩法、开场与进展](docs/sim/living-world/w5/PROGRESS.md)
+
 ## W4 · 一条线索的后来 · 2026-11-13
 
 运行 `./living_world/w4.command`，打开 <http://127.0.0.1:4198/>。亲手给一次线索，再逐段观察亲历、传给同伴和下一次选择；同步查看没有干预的世界。支持换人、换地点与导入 W2。61 项回归与 13 项浏览器检查通过，主观易懂程度待体验。[计划、进展与截图](docs/sim/living-world/w4-story/PROGRESS.md)。

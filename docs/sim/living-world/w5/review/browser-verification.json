@@ -1,0 +1,28 @@
+{
+  "verified_at": "2026-11-21T16:54:31.564Z",
+  "status": "passed",
+  "checks": [
+    "fork opens paused with present evidence only and no result in the frame",
+    "continuous waiting resolves the fork at +2 with green and no speaker",
+    "early purple reminder is a current event and changes fork departure",
+    "last-moment double click submits one reminder and the step boundary stays exact",
+    "camp can pause, resume, and accept a reminder after the natural relay",
+    "camp can finish on a narrow screen without a player reminder",
+    "failed request preserves the current scene and retry applies the reminder once",
+    "another tab on the same origin starts clean, and replay and reload restore the opening",
+    "no uncaught browser exceptions"
+  ],
+  "engine": "isolated Playwright Chromium headless",
+  "browser_version": "151.0.7922.34",
+  "desktop_viewport": [
+    1420,
+    1000
+  ],
+  "narrow_viewport": [
+    390,
+    844
+  ],
+  "page_errors": [],
+  "user_saves_touched": false,
+  "owner_accepted": false
+}
