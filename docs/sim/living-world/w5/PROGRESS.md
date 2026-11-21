@@ -29,3 +29,5 @@
 复现回归用 `python3 -m unittest discover -s living_world/tests`。浏览器检查用 `node living_world/tests/browser-w5.cjs`，可通过 `PLAYWRIGHT_MODULE_PATH` 与 `PLAYWRIGHT_BROWSERS_PATH` 指向已有的 Playwright 和 Chromium。该检查在临时端口独立运行。
 
 玩法与验收方案由 GPT‑6.2 Astra 制定，模拟接入、前端与测试代码由 GPT‑6.2 Sol 实现。
+
+本轮已提交 [PR #7](https://github.com/jjdak/VirtualPet/pull/7)，目标为 main。[已验证的实现与证据](https://github.com/jjdak/VirtualPet/commit/fab974f0380b1bedeb1beffd1c632383436f1f0b)可按提交查看。
