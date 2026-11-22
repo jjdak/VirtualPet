@@ -1,0 +1,42 @@
+{
+  "verified_at": "2026-11-22T14:21:29.997Z",
+  "status": "passed",
+  "checks": [
+    "fresh world opens paused with four residents and a painted map",
+    "default follows 小岚; keyboard and actual canvas hit-select residents",
+    "step, play, and pause show intermediate camera positions during real tile motion",
+    "a chosen seed opens an unscripted world with its own residents",
+    "three consecutive trips advance the world before the player acts",
+    "a repeated click records exactly one suggestion at the chosen tick",
+    "both worlds reach several synchronized departures for paired comparison",
+    "paired inspectors show branch-specific actions, evidence, and cues",
+    "growth crosses two documented milestones and rewind shows the pre-reminder stage",
+    "rewind reaches the genuine pre-suggestion view and return restores the later view",
+    "stepping a rewind replays its recorded hint without changing the saved highest tick",
+    "reload restores the latest world from a compact replay recipe",
+    "opening a fresh browser context does not inherit the played world",
+    "390px and 768px show comparison without horizontal overflow",
+    "cancel preserves progress; same-seed replay regenerates the opening",
+    "a different seed generates a different world at its own start",
+    "no uncaught browser exceptions"
+  ],
+  "engine": "isolated Playwright Chromium headless",
+  "browser_version": "151.0.7922.34",
+  "viewports": [
+    [
+      1440,
+      1000
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      768,
+      1024
+    ]
+  ],
+  "page_errors": [],
+  "user_saves_touched": false,
+  "owner_accepted": false
+}

@@ -1,0 +1,305 @@
+{
+  "camera_movement": {
+    "tick": 6,
+    "axis": "x",
+    "from": 6.5,
+    "to": 7.5,
+    "intermediate": [
+      [
+        6,
+        6.540526314785605,
+        5.5,
+        4105849752
+      ],
+      [
+        6,
+        6.584210525311922,
+        5.5,
+        2849414097
+      ],
+      [
+        6,
+        6.627894735838237,
+        5.5,
+        151996288
+      ],
+      [
+        6,
+        6.671842104259291,
+        5.5,
+        169251335
+      ],
+      [
+        6,
+        6.715789472680342,
+        5.5,
+        361156529
+      ],
+      [
+        6,
+        6.759736841101396,
+        5.5,
+        2681771977
+      ]
+    ]
+  },
+  "pre_hint_trip_ticks": [
+    4,
+    18,
+    32
+  ],
+  "input": {
+    "tick": 32,
+    "place": "q"
+  },
+  "synchronized_events": {
+    "actual_trips": [
+      {
+        "id": 4,
+        "departure": 47,
+        "arrived": 53,
+        "place": "q",
+        "reward": 0.6,
+        "returned": 59,
+        "glyph": null,
+        "mutedPlace": "q"
+      },
+      {
+        "id": 5,
+        "departure": 63,
+        "arrived": 69,
+        "place": "q",
+        "reward": 0,
+        "returned": 75,
+        "glyph": "△",
+        "mutedPlace": "q"
+      },
+      {
+        "id": 6,
+        "departure": 79,
+        "arrived": 84,
+        "place": "r",
+        "reward": 0.84,
+        "returned": 89,
+        "glyph": "◇",
+        "mutedPlace": "r"
+      },
+      {
+        "id": 7,
+        "departure": 93,
+        "arrived": 98,
+        "place": "r",
+        "reward": 0.83,
+        "returned": 103,
+        "glyph": null,
+        "mutedPlace": "r"
+      },
+      {
+        "id": 8,
+        "departure": 107,
+        "arrived": null,
+        "place": "r",
+        "reward": null,
+        "returned": null,
+        "glyph": "○",
+        "mutedPlace": "r"
+      }
+    ],
+    "waiting_trips": [
+      {
+        "id": 4,
+        "departure": 47,
+        "arrived": 52,
+        "place": "r",
+        "reward": -0.67,
+        "returned": 57,
+        "glyph": null,
+        "mutedPlace": "r"
+      },
+      {
+        "id": 5,
+        "departure": 62,
+        "arrived": 69,
+        "place": "p",
+        "reward": 0.88,
+        "returned": 76,
+        "glyph": "◇",
+        "mutedPlace": "p"
+      },
+      {
+        "id": 6,
+        "departure": 80,
+        "arrived": 87,
+        "place": "p",
+        "reward": 0.85,
+        "returned": 94,
+        "glyph": "○",
+        "mutedPlace": "p"
+      },
+      {
+        "id": 7,
+        "departure": 98,
+        "arrived": 105,
+        "place": "p",
+        "reward": 0.87,
+        "returned": null,
+        "glyph": null,
+        "mutedPlace": "p"
+      }
+    ],
+    "recent_signal": {
+      "id": 70,
+      "tick": 105,
+      "type": "signal",
+      "text": "小岚朝小苔比了一个 △。",
+      "sender": "B",
+      "receiver": "C",
+      "glyph": "△"
+    }
+  },
+  "latest_tick": 107,
+  "trip_rows": [
+    {
+      "ordinal": "1",
+      "cells": [
+        "1",
+        "紫穗地\n提醒后 +15 步出发\n亲历 · 感觉不错",
+        "红果地\n提醒后 +15 步出发\n亲历 · 感到不适",
+        "去处不同 · 亲历不同"
+      ],
+      "trip": 4,
+      "actual": {
+        "branch": "actual",
+        "place": "q",
+        "departure": "47",
+        "reward": "0.6"
+      },
+      "waiting": {
+        "branch": "baseline",
+        "place": "r",
+        "departure": "47",
+        "reward": "-0.67"
+      }
+    },
+    {
+      "ordinal": "2",
+      "cells": [
+        "2",
+        "紫穗地\n提醒后 +31 步出发\n到时没有食物",
+        "青禾地\n提醒后 +30 步出发\n亲历 · 感觉不错",
+        "去处不同 · 提醒侧晚 1 步 · 亲历不同"
+      ],
+      "trip": 5,
+      "actual": {
+        "branch": "actual",
+        "place": "q",
+        "departure": "63",
+        "reward": "0"
+      },
+      "waiting": {
+        "branch": "baseline",
+        "place": "p",
+        "departure": "62",
+        "reward": "0.88"
+      }
+    },
+    {
+      "ordinal": "3",
+      "cells": [
+        "3",
+        "红果地\n提醒后 +47 步出发\n亲历 · 感觉不错",
+        "青禾地\n提醒后 +48 步出发\n亲历 · 感觉不错",
+        "去处不同 · 提醒侧早 1 步 · 亲历不同"
+      ],
+      "trip": 6,
+      "actual": {
+        "branch": "actual",
+        "place": "r",
+        "departure": "79",
+        "reward": "0.84"
+      },
+      "waiting": {
+        "branch": "baseline",
+        "place": "p",
+        "departure": "80",
+        "reward": "0.85"
+      }
+    },
+    {
+      "ordinal": "4",
+      "cells": [
+        "4",
+        "红果地\n提醒后 +61 步出发\n亲历 · 感觉不错",
+        "青禾地\n提醒后 +66 步出发\n亲历 · 感觉不错",
+        "去处不同 · 提醒侧早 5 步 · 亲历不同"
+      ],
+      "trip": 7,
+      "actual": {
+        "branch": "actual",
+        "place": "r",
+        "departure": "93",
+        "reward": "0.83"
+      },
+      "waiting": {
+        "branch": "baseline",
+        "place": "p",
+        "departure": "98",
+        "reward": "0.87"
+      }
+    },
+    {
+      "ordinal": "5",
+      "cells": [
+        "5",
+        "红果地\n提醒后 +75 步出发\n在路上",
+        "此刻还没有对应记录",
+        "还不能对照"
+      ],
+      "trip": 8,
+      "actual": {
+        "branch": "actual",
+        "place": "r",
+        "departure": "107",
+        "reward": ""
+      },
+      "waiting": {
+        "branch": "baseline"
+      }
+    }
+  ],
+  "growth_transition": {
+    "resident": "C",
+    "from_tick": 32,
+    "to_tick": 107,
+    "achievements": [
+      {
+        "id": "first-return",
+        "title": "初次归营",
+        "description": "完成一趟觅食并回到营地。",
+        "progress": 1,
+        "target": 1,
+        "earnedAt": 38
+      },
+      {
+        "id": "tasted-all",
+        "title": "尝遍三处",
+        "description": "亲自在三处觅食地尝到过食物。",
+        "progress": 3,
+        "target": 3,
+        "earnedAt": 90
+      }
+    ],
+    "before": 0,
+    "after": 2
+  },
+  "saved_recipe": {
+    "version": 1,
+    "seed": 7,
+    "tick": 107,
+    "input": {
+      "tick": 32,
+      "place": "q"
+    }
+  },
+  "saved_recipe_bytes": 65
+}

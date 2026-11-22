@@ -158,7 +158,8 @@ function pose(person, group) {
   const slot = group.indexOf(person);
   const offsetX = group.length > 1 ? (slot % 2 ? 9 : -9) : 0;
   const offsetY = group.length > 2 ? (slot > 1 ? 7 : -6) : 0;
-  return {x: person.x * stride + 24 + offsetX, y: person.y * stride + 24 + offsetY};
+  const centerX = person.x * stride + 24, centerY = person.y * stride + 24;
+  return {x: centerX + offsetX, y: centerY + offsetY, centerX, centerY};
 }
 
 function between(track, now) {
@@ -166,6 +167,9 @@ function between(track, now) {
   return {
     x: track.from.x + (track.to.x - track.from.x) * progress,
     y: track.from.y + (track.to.y - track.from.y) * progress,
+    centerX: track.from.centerX + (track.to.centerX - track.from.centerX) * progress,
+    centerY: track.from.centerY + (track.to.centerY - track.from.centerY) * progress,
+    walking: track.walking && progress < 1,
     progress,
   };
 }
@@ -174,8 +178,8 @@ function camera(width, height, followedPose) {
   if (!followedPose) return {x: width / 2, y: height / 2, zoom: 1};
   const padX = width / (2 * focusZoom), padY = height / (2 * focusZoom);
   return {
-    x: Math.max(padX, Math.min(width - padX, followedPose.x)),
-    y: Math.max(padY, Math.min(height - padY, followedPose.y)),
+    x: Math.max(padX, Math.min(width - padX, followedPose.centerX)),
+    y: Math.max(padY, Math.min(height - padY, followedPose.centerY)),
     zoom: focusZoom,
   };
 }
@@ -214,7 +218,7 @@ export function createTileView(canvas, summary, beat, select) {
       .sort(([, a], [, b]) => a.y - b.y);
     for (const [id, p] of visible) {
       if (id === selected) rect(ctx, "#f5e5a8", p.x - 9, p.y + 11, 18, 3);
-      sprite(ctx, world.residents[id], p.x, p.y, p.progress < 1 && Math.floor(p.progress * 6) % 2);
+      sprite(ctx, world.residents[id], p.x, p.y, p.walking && Math.floor(p.progress * 6) % 2);
     }
     for (const [id, p] of visible) {
       const busy = visible.some(([other, pose]) => other !== id && Math.abs(pose.x - p.x) < 20 && pose.y < p.y && p.y - pose.y < 22);
@@ -253,8 +257,11 @@ export function createTileView(canvas, summary, beat, select) {
       if (tween && old && old.to.x === to.x && old.to.y === to.y) return [person.id, old];
       const from = tween && old ? between(old, now) : to;
       const adjacent = old && Math.abs(old.tileX - person.x) + Math.abs(old.tileY - person.y) === 1;
-      return [person.id, {to, from, start: now, duration: tween && adjacent ? beat * person.traits.speed : 0,
-        tileX: person.x, tileY: person.y}];
+      const sameTile = old && old.tileX === person.x && old.tileY === person.y;
+      let duration = 0;
+      if (tween && adjacent) duration = beat * person.traits.speed;
+      if (tween && sameTile) duration = beat / 3;
+      return [person.id, {to, from, start: now, duration, walking: adjacent, tileX: person.x, tileY: person.y}];
     }));
     paint(now);
   }

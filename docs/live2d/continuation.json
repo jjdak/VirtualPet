@@ -3,10 +3,10 @@
   "updatedAt": "2026-11-22",
   "latestOwnerFeedback": {
     "date": "2026-11-22",
-    "quote": "不用我们刻意设置剧情，只要做好大世界的基础设定",
-    "interpretation": "Close and tag W5. Discuss later choices in a persistent tile world, seeded NPC traits and abilities, achievements and equipment, compact replay, and emergent symbols."
+    "quote": "先默认跟随小岚，把移动格子细分，让她走起来更连贯。按几个大的成长成就划分阶段，保留提醒一次和回看对照的玩法。",
+    "interpretation": "Follow individual residents and explain their current focus from their own observations and decisions. Player chooses when to intervene once and can compare the wait branch."
   },
-  "activeTrack": "two-resident-living-world",
+  "activeTrack": "living-world-w6",
   "decision": {
     "live2dStatus": "paused",
     "customCubismAutomationStatus": "stopped",
@@ -26,9 +26,9 @@
     "simRuntime": "Godot 4.7.2 stable, macOS Apple M4, GL Compatibility; no VRM plugin or LLM integration."
   },
   "milestone": {
-    "id": "W5-player-timed-reminder",
-    "status": "merged_and_tagged",
-    "nextAction": "Discuss the first persistent tile-world slice and evidence of choices after departure.",
+    "id": "W6-resident-tile-world",
+    "status": "verified_for_merge",
+    "nextAction": "Play the close-follow scene and compare later choices and achievements in both worlds.",
     "cubismActionRequired": false
   },
   "lastVerified": [
@@ -800,5 +800,20 @@
     "mergeCommit": "63778e1e1a8f64a620f55b14a7a68b26be6a797e",
     "milestoneTag": "living-world-w5-reminder-2026-11-22",
     "featureBranchCleaned": true
+  },
+  "livingWorldW6": {
+    "plan": "docs/sim/living-world/w6/PLAN.md",
+    "progress": "docs/sim/living-world/w6/PROGRESS.md",
+    "launch": "./living_world/w6.command",
+    "url": "http://127.0.0.1:4200/",
+    "review": "docs/sim/living-world/w6/review/",
+    "ownerAccepted": false,
+    "validation": {
+      "engineTests": 12,
+      "previousWorldTests": 69,
+      "browserChecks": 17,
+      "signalStudySeeds": 32,
+      "channels": 3
+    }
   }
 }
