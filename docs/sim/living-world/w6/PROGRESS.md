@@ -66,3 +66,7 @@
 [桌面开场](review/opening-desktop.png) · [点开居民与成长](review/resident-growth-desktop.png) · [桌面对照](review/comparison-desktop.png) · [窄屏对照](review/comparison-mobile.png) · [浏览器检查](review/browser-verification.json) · [中间帧、成长与存档读数](review/browser-outcomes.json)
 
 复验命令为 `node --test living_world/tests/w6-world.test.mjs`、`python3 -m unittest discover -s living_world/tests` 和 `node living_world/tests/browser-w6.cjs`。最后一项可用 `PLAYWRIGHT_MODULE_PATH` 和 `PLAYWRIGHT_BROWSERS_PATH` 指向本机已有的 Playwright 和 Chromium。运行 `node living_world/studies/w6-signals.mjs` 会重新生成逐种子实验结果。检查覆盖镜头和画面的实际变化，走路的观感和头顶图标是否容易读懂仍待玩家试玩。
+
+## GitHub 里程碑
+
+2026-11-22 已通过 [PR #9](https://github.com/jjdak/VirtualPet/pull/9) 合入 main。[固定试玩版本](https://github.com/jjdak/VirtualPet/tree/living-world-w6-tile-world-2026-11-22) 对应 [合入提交 f768a1a](https://github.com/jjdak/VirtualPet/commit/f768a1a806081e5d5597beeca5698ac2e14f7ffa)。核对本地验证的源提交 08f6292 已包含在 main，两个提交的文件树一致；随后清理了本地及远端开发分支。GitHub 当时没有为该 PR 配置自动检查，本轮运行结果见上方验证记录。

@@ -27,7 +27,7 @@
   },
   "milestone": {
     "id": "W6-resident-tile-world",
-    "status": "verified_for_merge",
+    "status": "merged_and_tagged",
     "nextAction": "Play the close-follow scene and compare later choices and achievements in both worlds.",
     "cubismActionRequired": false
   },
@@ -814,6 +814,12 @@
       "browserChecks": 17,
       "signalStudySeeds": 32,
       "channels": 3
-    }
+    },
+    "status": "merged_and_tagged",
+    "pr": "https://github.com/jjdak/VirtualPet/pull/9",
+    "implementationCommit": "08f6292252b70c26f94b671d08b6c3244adefec3",
+    "mergeCommit": "f768a1a806081e5d5597beeca5698ac2e14f7ffa",
+    "milestoneTag": "living-world-w6-tile-world-2026-11-22",
+    "featureBranchCleaned": true
   }
 }
