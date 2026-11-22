@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f0e9d4">
+  <title>方格小世界 · 庭院小记</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.mjs" type="module"></script>
+</head>
+<body>
+<main class="page">
+  <header class="masthead">
+    <span class="imprint"><span aria-hidden="true">✦</span> 庭院小记</span>
+    <form id="world-form" class="world-form">
+      <label for="seed">世界种子</label>
+      <input id="seed" type="number" value="42" min="0" max="4294967295" step="1" inputmode="numeric" required>
+      <button id="new-world" type="submit">新世界</button>
+      <button id="replay" type="button">同种子重开</button>
+    </form>
+  </header>
+  <header class="hero">
+    <h1>方格小世界</h1>
+    <p>四个人住在草地中央。看他们觅食、归家，偶尔用一个符号交流。</p>
+  </header>
+
+  <div class="layout">
+    <div class="stage">
+      <div class="bar">
+        <p id="clock" data-tick="0">第 0 步</p>
+        <small id="save-status"></small>
+      </div>
+      <div class="transport" role="group" aria-label="时间">
+        <button id="play" class="primary" type="button" disabled>继续观察</button>
+        <button id="step" type="button" disabled>等一步</button>
+        <button id="fast" type="button" disabled>等小岚下次出发</button>
+      </div>
+      <p id="status" class="status" role="status"></p>
+      <div class="camera-mode">
+        <label for="camera">镜头</label>
+        <select id="camera">
+          <option value="follow">跟随居民</option>
+          <option value="overview">看整个庭院</option>
+        </select>
+        <a id="camera-subject" href="#resident-mind"></a>
+      </div>
+      <div class="maps" id="maps">
+        <figure class="field">
+          <h2 id="actual-title" hidden>给了提醒</h2>
+          <canvas id="actual-map" width="576" height="432" role="img" aria-label="当前庭院地图" aria-describedby="actual-summary">庭院地图。</canvas>
+          <figcaption id="actual-summary"></figcaption>
+        </figure>
+        <figure class="field baseline" id="baseline" hidden>
+          <h2>一直观察</h2>
+          <canvas id="baseline-map" width="576" height="432" role="img" aria-label="无提醒的庭院地图" aria-describedby="baseline-summary">无提醒的庭院地图。</canvas>
+          <figcaption id="baseline-summary"></figcaption>
+        </figure>
+      </div>
+      <div class="landmark-key" id="landmark-key" aria-label="食物地点"></div>
+      <section class="comparison" id="comparison" aria-labelledby="comparison-title" hidden>
+        <div class="comparison-heading">
+          <h2 id="comparison-title">小岚的两条时间线</h2>
+          <div class="time-actions">
+            <button id="rewind" type="button">回到提醒前</button>
+            <button id="present" type="button" hidden>回到现在</button>
+          </div>
+        </div>
+        <p id="comparison-note"></p>
+        <p id="window-note">最多显示最近 12 个可比序号，按两边各自第几趟排列。</p>
+        <div class="table-wrap">
+          <table id="trips">
+            <thead><tr><th scope="col">第几趟</th><th scope="col">给了提醒</th><th scope="col">一直观察</th><th scope="col">实际差异</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <p id="empty-trips">等小岚再次出发后，这里会出现记录。</p>
+        </div>
+      </section>
+    </div>
+    <aside class="notebook" aria-label="居民与庭院记事">
+      <section class="intervention" aria-labelledby="intervention-title">
+        <h2 id="intervention-title">轻声提醒小岚</h2>
+        <p id="hint-note">可以在眼前这一刻私下建议一个地点。</p>
+        <div class="hint-controls">
+          <label class="sr-only" for="place">建议地点</label>
+          <select id="place"></select>
+          <button id="hint" class="accent" type="button" disabled>提醒一次</button>
+        </div>
+      </section>
+      <section class="people" aria-labelledby="people-title">
+        <h2 id="people-title">观察居民</h2>
+        <ul id="residents"></ul>
+        <section id="resident-mind" aria-labelledby="mind-name">
+          <div class="mind-heading">
+            <h3 id="mind-name"></h3>
+            <label for="mind-branch" id="mind-branch-label" hidden>时间线</label>
+            <select id="mind-branch" aria-label="居民所在时间线" hidden>
+              <option value="actual">给了提醒</option>
+              <option value="baseline">一直观察</option>
+            </select>
+          </div>
+          <p id="mind-summary"></p>
+          <details id="mind-context">
+            <summary>行动依据与亲历</summary>
+            <ul id="mind-details"></ul>
+          </details>
+          <h4>成长阶段</h4>
+          <p id="growth-status"></p>
+          <ul id="growth-stages"></ul>
+        </section>
+      </section>
+      <section class="journal" aria-labelledby="journal-title">
+        <h2 id="journal-title">庭院记事</h2>
+        <p>符号由居民选择发送，也可以沉默。它们的含义没有预设。</p>
+        <ol id="events"></ol>
+      </section>
+    </aside>
+  </div>
+</main>
+</body>
+</html>

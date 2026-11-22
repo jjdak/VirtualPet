@@ -1,0 +1,2213 @@
+{
+  "ruleVersion": 1,
+  "seedSelection": "All seeds 1601–1632, contiguous held-out range",
+  "warmup": 2000,
+  "end": 4000,
+  "definitions": {
+    "outcomes": "Real food arrivals in the evaluation interval (including unavailable food with reward zero).",
+    "normal": "Original glyph received. Sender and listener learn online.",
+    "muted": "Sender still chooses a glyph or silence and gets local feedback; listeners receive no glyph. Replay learns independently from tick zero.",
+    "permuted": "Independently permute glyph identities at each contact, without changing silence; online learners are retained.",
+    "changedChoices": "At the actual departure, mask only that listener’s glyph in the frozen state and reuse the same exploration and tie-breaking draws. Count a changed destination; the alternative was not executed.",
+    "contextStability": "For sender–receiver–latest site–reward sign contexts with eight or more observed contact actions in both intervals, count contexts with the same non-silent modal action at 60% or more in both. Includes silence in the denominator and measures sender behavior, not listener decoding."
+  },
+  "aggregate": {
+    "normal": {
+      "trips": 12968,
+      "totalReward": 2699.9299999999985,
+      "glyphSent": 9098,
+      "glyphHeard": 9098,
+      "silence": 3174,
+      "glyphChoices": 9097,
+      "changedChoices": 591,
+      "senderFeedback": 10795,
+      "feedbackExpired": 1462,
+      "meanReward": 0.208199413942011,
+      "meanRewardPerSeed": 0.20846589820053227,
+      "changedPerHeardDeparture": 0.06496647246344948,
+      "byGlyph": {
+        "◇": 2909,
+        "○": 3056,
+        "△": 3133
+      },
+      "contextStability": {
+        "eligible": 220,
+        "sameDominantGlyph": 25
+      }
+    },
+    "muted": {
+      "trips": 12994,
+      "totalReward": 2688.9900000000002,
+      "glyphSent": 9261,
+      "glyphHeard": 0,
+      "silence": 3070,
+      "glyphChoices": 0,
+      "changedChoices": 0,
+      "senderFeedback": 10873,
+      "feedbackExpired": 1461,
+      "meanReward": 0.20694089579806066,
+      "meanRewardPerSeed": 0.20754589924384353,
+      "changedPerHeardDeparture": 0,
+      "byGlyph": {
+        "◇": 0,
+        "○": 0,
+        "△": 0
+      },
+      "contextStability": {
+        "eligible": 230,
+        "sameDominantGlyph": 35
+      }
+    },
+    "permuted": {
+      "trips": 12983,
+      "totalReward": 2649.9899999999984,
+      "glyphSent": 9124,
+      "glyphHeard": 9124,
+      "silence": 3186,
+      "glyphChoices": 9122,
+      "changedChoices": 547,
+      "senderFeedback": 10776,
+      "feedbackExpired": 1537,
+      "meanReward": 0.20411230070091646,
+      "meanRewardPerSeed": 0.204819791410333,
+      "changedPerHeardDeparture": 0.05996491997368998,
+      "byGlyph": {
+        "◇": 2996,
+        "○": 2988,
+        "△": 3140
+      },
+      "contextStability": {
+        "eligible": 252,
+        "sameDominantGlyph": 41
+      }
+    }
+  },
+  "pairedNormalMinus": {
+    "muted": {
+      "meanDelta": 0.0009199989566887569,
+      "positive": 15,
+      "equal": 0,
+      "negative": 17
+    },
+    "permuted": {
+      "meanDelta": 0.003646106790199264,
+      "positive": 18,
+      "equal": 0,
+      "negative": 14
+    }
+  },
+  "seeds": [
+    {
+      "seed": 1601,
+      "normal": {
+        "trips": 453,
+        "totalReward": 5.699999999999889,
+        "glyphSent": 336,
+        "glyphHeard": 336,
+        "silence": 101,
+        "glyphChoices": 337,
+        "changedChoices": 35,
+        "senderFeedback": 400,
+        "feedbackExpired": 38,
+        "meanReward": 0.012582781456953398,
+        "byGlyph": {
+          "◇": 102,
+          "○": 129,
+          "△": 105
+        },
+        "contextStability": {
+          "eligible": 8,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 450,
+        "totalReward": -9.619999999999763,
+        "glyphSent": 323,
+        "glyphHeard": 0,
+        "silence": 117,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 407,
+        "feedbackExpired": 33,
+        "meanReward": -0.02137777777777725,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 7,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 451,
+        "totalReward": -0.9100000000003661,
+        "glyphSent": 334,
+        "glyphHeard": 334,
+        "silence": 106,
+        "glyphChoices": 335,
+        "changedChoices": 19,
+        "senderFeedback": 423,
+        "feedbackExpired": 17,
+        "meanReward": -0.0020177383592025855,
+        "byGlyph": {
+          "◇": 111,
+          "○": 98,
+          "△": 125
+        },
+        "contextStability": {
+          "eligible": 7,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1602,
+      "normal": {
+        "trips": 355,
+        "totalReward": 97.88000000000004,
+        "glyphSent": 244,
+        "glyphHeard": 244,
+        "silence": 80,
+        "glyphChoices": 244,
+        "changedChoices": 16,
+        "senderFeedback": 251,
+        "feedbackExpired": 71,
+        "meanReward": 0.275718309859155,
+        "byGlyph": {
+          "◇": 91,
+          "○": 85,
+          "△": 68
+        },
+        "contextStability": {
+          "eligible": 2,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 358,
+        "totalReward": 96.22000000000006,
+        "glyphSent": 265,
+        "glyphHeard": 0,
+        "silence": 60,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 257,
+        "feedbackExpired": 67,
+        "meanReward": 0.26877094972067056,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 3,
+          "sameDominantGlyph": 2
+        }
+      },
+      "permuted": {
+        "trips": 355,
+        "totalReward": 103.00000000000011,
+        "glyphSent": 270,
+        "glyphHeard": 270,
+        "silence": 53,
+        "glyphChoices": 270,
+        "changedChoices": 8,
+        "senderFeedback": 274,
+        "feedbackExpired": 49,
+        "meanReward": 0.29014084507042287,
+        "byGlyph": {
+          "◇": 82,
+          "○": 88,
+          "△": 100
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 2
+        }
+      }
+    },
+    {
+      "seed": 1603,
+      "normal": {
+        "trips": 405,
+        "totalReward": 41.08999999999992,
+        "glyphSent": 284,
+        "glyphHeard": 284,
+        "silence": 102,
+        "glyphChoices": 283,
+        "changedChoices": 19,
+        "senderFeedback": 341,
+        "feedbackExpired": 45,
+        "meanReward": 0.10145679012345658,
+        "byGlyph": {
+          "◇": 109,
+          "○": 68,
+          "△": 107
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 404,
+        "totalReward": 50.31999999999995,
+        "glyphSent": 271,
+        "glyphHeard": 0,
+        "silence": 123,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 360,
+        "feedbackExpired": 35,
+        "meanReward": 0.12455445544554443,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 8,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 406,
+        "totalReward": 38.609999999999744,
+        "glyphSent": 298,
+        "glyphHeard": 298,
+        "silence": 91,
+        "glyphChoices": 298,
+        "changedChoices": 27,
+        "senderFeedback": 337,
+        "feedbackExpired": 52,
+        "meanReward": 0.09509852216748706,
+        "byGlyph": {
+          "◇": 95,
+          "○": 102,
+          "△": 101
+        },
+        "contextStability": {
+          "eligible": 12,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1604,
+      "normal": {
+        "trips": 305,
+        "totalReward": 53.549999999999756,
+        "glyphSent": 191,
+        "glyphHeard": 191,
+        "silence": 75,
+        "glyphChoices": 190,
+        "changedChoices": 17,
+        "senderFeedback": 210,
+        "feedbackExpired": 54,
+        "meanReward": 0.17557377049180248,
+        "byGlyph": {
+          "◇": 66,
+          "○": 61,
+          "△": 64
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 311,
+        "totalReward": 62.55999999999998,
+        "glyphSent": 193,
+        "glyphHeard": 0,
+        "silence": 76,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 189,
+        "feedbackExpired": 80,
+        "meanReward": 0.2011575562700964,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 1,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 306,
+        "totalReward": 59.27000000000006,
+        "glyphSent": 217,
+        "glyphHeard": 217,
+        "silence": 47,
+        "glyphChoices": 218,
+        "changedChoices": 15,
+        "senderFeedback": 212,
+        "feedbackExpired": 53,
+        "meanReward": 0.19369281045751655,
+        "byGlyph": {
+          "◇": 77,
+          "○": 59,
+          "△": 81
+        },
+        "contextStability": {
+          "eligible": 3,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1605,
+      "normal": {
+        "trips": 348,
+        "totalReward": 42.50000000000007,
+        "glyphSent": 255,
+        "glyphHeard": 255,
+        "silence": 69,
+        "glyphChoices": 256,
+        "changedChoices": 13,
+        "senderFeedback": 273,
+        "feedbackExpired": 53,
+        "meanReward": 0.1221264367816094,
+        "byGlyph": {
+          "◇": 59,
+          "○": 108,
+          "△": 88
+        },
+        "contextStability": {
+          "eligible": 3,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 350,
+        "totalReward": 52.0499999999999,
+        "glyphSent": 254,
+        "glyphHeard": 0,
+        "silence": 58,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 256,
+        "feedbackExpired": 56,
+        "meanReward": 0.1487142857142854,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 2,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 350,
+        "totalReward": 52.68000000000002,
+        "glyphSent": 255,
+        "glyphHeard": 255,
+        "silence": 69,
+        "glyphChoices": 254,
+        "changedChoices": 19,
+        "senderFeedback": 263,
+        "feedbackExpired": 61,
+        "meanReward": 0.15051428571428577,
+        "byGlyph": {
+          "◇": 90,
+          "○": 88,
+          "△": 77
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1606,
+      "normal": {
+        "trips": 364,
+        "totalReward": 112.64999999999992,
+        "glyphSent": 247,
+        "glyphHeard": 247,
+        "silence": 80,
+        "glyphChoices": 247,
+        "changedChoices": 18,
+        "senderFeedback": 254,
+        "feedbackExpired": 74,
+        "meanReward": 0.30947802197802177,
+        "byGlyph": {
+          "◇": 66,
+          "○": 76,
+          "△": 105
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 357,
+        "totalReward": 103.52000000000022,
+        "glyphSent": 256,
+        "glyphHeard": 0,
+        "silence": 80,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 276,
+        "feedbackExpired": 61,
+        "meanReward": 0.28997198879551883,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 3
+        }
+      },
+      "permuted": {
+        "trips": 361,
+        "totalReward": 105.56999999999994,
+        "glyphSent": 233,
+        "glyphHeard": 233,
+        "silence": 99,
+        "glyphChoices": 233,
+        "changedChoices": 10,
+        "senderFeedback": 249,
+        "feedbackExpired": 84,
+        "meanReward": 0.29243767313019375,
+        "byGlyph": {
+          "◇": 80,
+          "○": 70,
+          "△": 83
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1607,
+      "normal": {
+        "trips": 453,
+        "totalReward": 71.59000000000023,
+        "glyphSent": 328,
+        "glyphHeard": 328,
+        "silence": 111,
+        "glyphChoices": 329,
+        "changedChoices": 27,
+        "senderFeedback": 415,
+        "feedbackExpired": 23,
+        "meanReward": 0.15803532008830073,
+        "byGlyph": {
+          "◇": 114,
+          "○": 83,
+          "△": 131
+        },
+        "contextStability": {
+          "eligible": 11,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 454,
+        "totalReward": 84.13000000000035,
+        "glyphSent": 347,
+        "glyphHeard": 0,
+        "silence": 89,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 407,
+        "feedbackExpired": 29,
+        "meanReward": 0.18530837004405365,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 13,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 452,
+        "totalReward": 67.99000000000024,
+        "glyphSent": 327,
+        "glyphHeard": 327,
+        "silence": 105,
+        "glyphChoices": 327,
+        "changedChoices": 19,
+        "senderFeedback": 402,
+        "feedbackExpired": 30,
+        "meanReward": 0.1504203539823014,
+        "byGlyph": {
+          "◇": 107,
+          "○": 114,
+          "△": 106
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1608,
+      "normal": {
+        "trips": 402,
+        "totalReward": 141.38999999999976,
+        "glyphSent": 281,
+        "glyphHeard": 281,
+        "silence": 90,
+        "glyphChoices": 281,
+        "changedChoices": 16,
+        "senderFeedback": 321,
+        "feedbackExpired": 50,
+        "meanReward": 0.35171641791044717,
+        "byGlyph": {
+          "◇": 114,
+          "○": 88,
+          "△": 79
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 400,
+        "totalReward": 120.78999999999999,
+        "glyphSent": 315,
+        "glyphHeard": 0,
+        "silence": 69,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 342,
+        "feedbackExpired": 43,
+        "meanReward": 0.301975,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 2
+        }
+      },
+      "permuted": {
+        "trips": 406,
+        "totalReward": 125.07999999999984,
+        "glyphSent": 289,
+        "glyphHeard": 289,
+        "silence": 91,
+        "glyphChoices": 288,
+        "changedChoices": 20,
+        "senderFeedback": 335,
+        "feedbackExpired": 47,
+        "meanReward": 0.30807881773398976,
+        "byGlyph": {
+          "◇": 104,
+          "○": 81,
+          "△": 104
+        },
+        "contextStability": {
+          "eligible": 3,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1609,
+      "normal": {
+        "trips": 404,
+        "totalReward": 128.4399999999998,
+        "glyphSent": 255,
+        "glyphHeard": 255,
+        "silence": 131,
+        "glyphChoices": 254,
+        "changedChoices": 15,
+        "senderFeedback": 334,
+        "feedbackExpired": 50,
+        "meanReward": 0.3179207920792074,
+        "byGlyph": {
+          "◇": 69,
+          "○": 101,
+          "△": 85
+        },
+        "contextStability": {
+          "eligible": 8,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 404,
+        "totalReward": 133.00999999999993,
+        "glyphSent": 299,
+        "glyphHeard": 0,
+        "silence": 93,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 339,
+        "feedbackExpired": 52,
+        "meanReward": 0.3292326732673266,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 2
+        }
+      },
+      "permuted": {
+        "trips": 403,
+        "totalReward": 126.53000000000003,
+        "glyphSent": 284,
+        "glyphHeard": 284,
+        "silence": 101,
+        "glyphChoices": 285,
+        "changedChoices": 14,
+        "senderFeedback": 321,
+        "feedbackExpired": 63,
+        "meanReward": 0.3139702233250621,
+        "byGlyph": {
+          "◇": 86,
+          "○": 84,
+          "△": 114
+        },
+        "contextStability": {
+          "eligible": 7,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1610,
+      "normal": {
+        "trips": 408,
+        "totalReward": 79.76000000000037,
+        "glyphSent": 263,
+        "glyphHeard": 263,
+        "silence": 123,
+        "glyphChoices": 264,
+        "changedChoices": 17,
+        "senderFeedback": 339,
+        "feedbackExpired": 46,
+        "meanReward": 0.1954901960784323,
+        "byGlyph": {
+          "◇": 97,
+          "○": 86,
+          "△": 80
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 405,
+        "totalReward": 61.73000000000013,
+        "glyphSent": 290,
+        "glyphHeard": 0,
+        "silence": 100,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 329,
+        "feedbackExpired": 61,
+        "meanReward": 0.15241975308642008,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 8,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 403,
+        "totalReward": 83.28000000000019,
+        "glyphSent": 271,
+        "glyphHeard": 271,
+        "silence": 109,
+        "glyphChoices": 271,
+        "changedChoices": 22,
+        "senderFeedback": 329,
+        "feedbackExpired": 50,
+        "meanReward": 0.20665012406947936,
+        "byGlyph": {
+          "◇": 72,
+          "○": 85,
+          "△": 114
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 3
+        }
+      }
+    },
+    {
+      "seed": 1611,
+      "normal": {
+        "trips": 452,
+        "totalReward": 125.45999999999991,
+        "glyphSent": 331,
+        "glyphHeard": 331,
+        "silence": 109,
+        "glyphChoices": 331,
+        "changedChoices": 22,
+        "senderFeedback": 417,
+        "feedbackExpired": 23,
+        "meanReward": 0.27756637168141574,
+        "byGlyph": {
+          "◇": 85,
+          "○": 114,
+          "△": 132
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 452,
+        "totalReward": 108.3200000000001,
+        "glyphSent": 344,
+        "glyphHeard": 0,
+        "silence": 94,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 415,
+        "feedbackExpired": 24,
+        "meanReward": 0.23964601769911528,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 2
+        }
+      },
+      "permuted": {
+        "trips": 451,
+        "totalReward": 104.80999999999983,
+        "glyphSent": 302,
+        "glyphHeard": 302,
+        "silence": 138,
+        "glyphChoices": 302,
+        "changedChoices": 18,
+        "senderFeedback": 420,
+        "feedbackExpired": 20,
+        "meanReward": 0.2323946784922391,
+        "byGlyph": {
+          "◇": 104,
+          "○": 96,
+          "△": 102
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 4
+        }
+      }
+    },
+    {
+      "seed": 1612,
+      "normal": {
+        "trips": 457,
+        "totalReward": 115.33000000000015,
+        "glyphSent": 340,
+        "glyphHeard": 340,
+        "silence": 100,
+        "glyphChoices": 340,
+        "changedChoices": 25,
+        "senderFeedback": 416,
+        "feedbackExpired": 25,
+        "meanReward": 0.25236323851203535,
+        "byGlyph": {
+          "◇": 90,
+          "○": 132,
+          "△": 118
+        },
+        "contextStability": {
+          "eligible": 8,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 459,
+        "totalReward": 104.79000000000008,
+        "glyphSent": 331,
+        "glyphHeard": 0,
+        "silence": 111,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 417,
+        "feedbackExpired": 26,
+        "meanReward": 0.22830065359477142,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 460,
+        "totalReward": 110.0699999999999,
+        "glyphSent": 323,
+        "glyphHeard": 323,
+        "silence": 132,
+        "glyphChoices": 322,
+        "changedChoices": 20,
+        "senderFeedback": 432,
+        "feedbackExpired": 23,
+        "meanReward": 0.23928260869565193,
+        "byGlyph": {
+          "◇": 111,
+          "○": 113,
+          "△": 99
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1613,
+      "normal": {
+        "trips": 408,
+        "totalReward": 50.75999999999976,
+        "glyphSent": 307,
+        "glyphHeard": 307,
+        "silence": 93,
+        "glyphChoices": 307,
+        "changedChoices": 22,
+        "senderFeedback": 342,
+        "feedbackExpired": 58,
+        "meanReward": 0.12441176470588178,
+        "byGlyph": {
+          "◇": 77,
+          "○": 125,
+          "△": 105
+        },
+        "contextStability": {
+          "eligible": 12,
+          "sameDominantGlyph": 2
+        }
+      },
+      "muted": {
+        "trips": 409,
+        "totalReward": 35.09999999999988,
+        "glyphSent": 293,
+        "glyphHeard": 0,
+        "silence": 102,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 351,
+        "feedbackExpired": 46,
+        "meanReward": 0.08581907090464519,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 7,
+          "sameDominantGlyph": 2
+        }
+      },
+      "permuted": {
+        "trips": 408,
+        "totalReward": 43.99000000000002,
+        "glyphSent": 290,
+        "glyphHeard": 290,
+        "silence": 93,
+        "glyphChoices": 291,
+        "changedChoices": 21,
+        "senderFeedback": 312,
+        "feedbackExpired": 71,
+        "meanReward": 0.10781862745098045,
+        "byGlyph": {
+          "◇": 104,
+          "○": 92,
+          "△": 94
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 2
+        }
+      }
+    },
+    {
+      "seed": 1614,
+      "normal": {
+        "trips": 451,
+        "totalReward": 99.84000000000013,
+        "glyphSent": 333,
+        "glyphHeard": 333,
+        "silence": 106,
+        "glyphChoices": 333,
+        "changedChoices": 17,
+        "senderFeedback": 408,
+        "feedbackExpired": 32,
+        "meanReward": 0.22137472283813775,
+        "byGlyph": {
+          "◇": 91,
+          "○": 125,
+          "△": 117
+        },
+        "contextStability": {
+          "eligible": 11,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 456,
+        "totalReward": 75.57000000000001,
+        "glyphSent": 327,
+        "glyphHeard": 0,
+        "silence": 101,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 404,
+        "feedbackExpired": 24,
+        "meanReward": 0.16572368421052633,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 11,
+          "sameDominantGlyph": 2
+        }
+      },
+      "permuted": {
+        "trips": 450,
+        "totalReward": 82.37000000000012,
+        "glyphSent": 313,
+        "glyphHeard": 313,
+        "silence": 121,
+        "glyphChoices": 314,
+        "changedChoices": 22,
+        "senderFeedback": 404,
+        "feedbackExpired": 30,
+        "meanReward": 0.1830444444444447,
+        "byGlyph": {
+          "◇": 99,
+          "○": 111,
+          "△": 103
+        },
+        "contextStability": {
+          "eligible": 12,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1615,
+      "normal": {
+        "trips": 396,
+        "totalReward": 31.409999999999997,
+        "glyphSent": 272,
+        "glyphHeard": 272,
+        "silence": 102,
+        "glyphChoices": 272,
+        "changedChoices": 18,
+        "senderFeedback": 334,
+        "feedbackExpired": 39,
+        "meanReward": 0.07931818181818182,
+        "byGlyph": {
+          "◇": 92,
+          "○": 86,
+          "△": 94
+        },
+        "contextStability": {
+          "eligible": 7,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 396,
+        "totalReward": 39.769999999999925,
+        "glyphSent": 274,
+        "glyphHeard": 0,
+        "silence": 106,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 345,
+        "feedbackExpired": 35,
+        "meanReward": 0.10042929292929274,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 395,
+        "totalReward": 24.68000000000002,
+        "glyphSent": 281,
+        "glyphHeard": 281,
+        "silence": 87,
+        "glyphChoices": 281,
+        "changedChoices": 13,
+        "senderFeedback": 302,
+        "feedbackExpired": 66,
+        "meanReward": 0.0624810126582279,
+        "byGlyph": {
+          "◇": 89,
+          "○": 90,
+          "△": 102
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1616,
+      "normal": {
+        "trips": 399,
+        "totalReward": 80.0599999999999,
+        "glyphSent": 294,
+        "glyphHeard": 294,
+        "silence": 80,
+        "glyphChoices": 295,
+        "changedChoices": 28,
+        "senderFeedback": 329,
+        "feedbackExpired": 45,
+        "meanReward": 0.20065162907268147,
+        "byGlyph": {
+          "◇": 117,
+          "○": 110,
+          "△": 67
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 2
+        }
+      },
+      "muted": {
+        "trips": 400,
+        "totalReward": 64.11999999999986,
+        "glyphSent": 280,
+        "glyphHeard": 0,
+        "silence": 93,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 338,
+        "feedbackExpired": 37,
+        "meanReward": 0.16029999999999966,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 7,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 405,
+        "totalReward": 60.52000000000004,
+        "glyphSent": 266,
+        "glyphHeard": 266,
+        "silence": 119,
+        "glyphChoices": 265,
+        "changedChoices": 15,
+        "senderFeedback": 335,
+        "feedbackExpired": 49,
+        "meanReward": 0.1494320987654322,
+        "byGlyph": {
+          "◇": 91,
+          "○": 91,
+          "△": 84
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 2
+        }
+      }
+    },
+    {
+      "seed": 1617,
+      "normal": {
+        "trips": 364,
+        "totalReward": 74.38999999999992,
+        "glyphSent": 257,
+        "glyphHeard": 257,
+        "silence": 81,
+        "glyphChoices": 257,
+        "changedChoices": 15,
+        "senderFeedback": 284,
+        "feedbackExpired": 54,
+        "meanReward": 0.20436813186813163,
+        "byGlyph": {
+          "◇": 100,
+          "○": 72,
+          "△": 85
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 367,
+        "totalReward": 66.47999999999993,
+        "glyphSent": 250,
+        "glyphHeard": 0,
+        "silence": 87,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 268,
+        "feedbackExpired": 66,
+        "meanReward": 0.18114441416893715,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 2,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 358,
+        "totalReward": 65.62999999999992,
+        "glyphSent": 267,
+        "glyphHeard": 267,
+        "silence": 65,
+        "glyphChoices": 267,
+        "changedChoices": 14,
+        "senderFeedback": 259,
+        "feedbackExpired": 73,
+        "meanReward": 0.1833240223463685,
+        "byGlyph": {
+          "◇": 80,
+          "○": 84,
+          "△": 103
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1618,
+      "normal": {
+        "trips": 397,
+        "totalReward": 115.91000000000003,
+        "glyphSent": 306,
+        "glyphHeard": 306,
+        "silence": 67,
+        "glyphChoices": 307,
+        "changedChoices": 10,
+        "senderFeedback": 325,
+        "feedbackExpired": 48,
+        "meanReward": 0.29196473551637286,
+        "byGlyph": {
+          "◇": 94,
+          "○": 105,
+          "△": 107
+        },
+        "contextStability": {
+          "eligible": 8,
+          "sameDominantGlyph": 2
+        }
+      },
+      "muted": {
+        "trips": 395,
+        "totalReward": 114.29000000000002,
+        "glyphSent": 245,
+        "glyphHeard": 0,
+        "silence": 131,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 338,
+        "feedbackExpired": 39,
+        "meanReward": 0.28934177215189877,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 397,
+        "totalReward": 106.6999999999999,
+        "glyphSent": 271,
+        "glyphHeard": 271,
+        "silence": 100,
+        "glyphChoices": 272,
+        "changedChoices": 15,
+        "senderFeedback": 318,
+        "feedbackExpired": 54,
+        "meanReward": 0.2687657430730476,
+        "byGlyph": {
+          "◇": 90,
+          "○": 85,
+          "△": 96
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1619,
+      "normal": {
+        "trips": 449,
+        "totalReward": 87.78000000000014,
+        "glyphSent": 331,
+        "glyphHeard": 331,
+        "silence": 108,
+        "glyphChoices": 330,
+        "changedChoices": 14,
+        "senderFeedback": 408,
+        "feedbackExpired": 31,
+        "meanReward": 0.19550111358574643,
+        "byGlyph": {
+          "◇": 106,
+          "○": 126,
+          "△": 99
+        },
+        "contextStability": {
+          "eligible": 12,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 454,
+        "totalReward": 123.66,
+        "glyphSent": 347,
+        "glyphHeard": 0,
+        "silence": 91,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 416,
+        "feedbackExpired": 22,
+        "meanReward": 0.27237885462555067,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 11,
+          "sameDominantGlyph": 2
+        }
+      },
+      "permuted": {
+        "trips": 453,
+        "totalReward": 104.3099999999997,
+        "glyphSent": 326,
+        "glyphHeard": 326,
+        "silence": 107,
+        "glyphChoices": 327,
+        "changedChoices": 10,
+        "senderFeedback": 402,
+        "feedbackExpired": 30,
+        "meanReward": 0.230264900662251,
+        "byGlyph": {
+          "◇": 113,
+          "○": 105,
+          "△": 108
+        },
+        "contextStability": {
+          "eligible": 12,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1620,
+      "normal": {
+        "trips": 404,
+        "totalReward": 77.16999999999999,
+        "glyphSent": 290,
+        "glyphHeard": 290,
+        "silence": 95,
+        "glyphChoices": 290,
+        "changedChoices": 11,
+        "senderFeedback": 330,
+        "feedbackExpired": 55,
+        "meanReward": 0.1910148514851485,
+        "byGlyph": {
+          "◇": 87,
+          "○": 118,
+          "△": 85
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 2
+        }
+      },
+      "muted": {
+        "trips": 406,
+        "totalReward": 82.50000000000004,
+        "glyphSent": 253,
+        "glyphHeard": 0,
+        "silence": 132,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 326,
+        "feedbackExpired": 61,
+        "meanReward": 0.20320197044334987,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 405,
+        "totalReward": 67.57999999999996,
+        "glyphSent": 246,
+        "glyphHeard": 246,
+        "silence": 144,
+        "glyphChoices": 246,
+        "changedChoices": 16,
+        "senderFeedback": 337,
+        "feedbackExpired": 53,
+        "meanReward": 0.1668641975308641,
+        "byGlyph": {
+          "◇": 77,
+          "○": 86,
+          "△": 83
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1621,
+      "normal": {
+        "trips": 445,
+        "totalReward": 70.87999999999992,
+        "glyphSent": 309,
+        "glyphHeard": 309,
+        "silence": 126,
+        "glyphChoices": 309,
+        "changedChoices": 14,
+        "senderFeedback": 404,
+        "feedbackExpired": 30,
+        "meanReward": 0.15928089887640431,
+        "byGlyph": {
+          "◇": 102,
+          "○": 98,
+          "△": 109
+        },
+        "contextStability": {
+          "eligible": 12,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 451,
+        "totalReward": 87.43999999999981,
+        "glyphSent": 348,
+        "glyphHeard": 0,
+        "silence": 94,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 413,
+        "feedbackExpired": 30,
+        "meanReward": 0.1938802660753876,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 17,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 447,
+        "totalReward": 78.2499999999998,
+        "glyphSent": 305,
+        "glyphHeard": 305,
+        "silence": 127,
+        "glyphChoices": 304,
+        "changedChoices": 14,
+        "senderFeedback": 408,
+        "feedbackExpired": 24,
+        "meanReward": 0.17505592841163267,
+        "byGlyph": {
+          "◇": 93,
+          "○": 100,
+          "△": 112
+        },
+        "contextStability": {
+          "eligible": 13,
+          "sameDominantGlyph": 2
+        }
+      }
+    },
+    {
+      "seed": 1622,
+      "normal": {
+        "trips": 350,
+        "totalReward": 101.73000000000005,
+        "glyphSent": 227,
+        "glyphHeard": 227,
+        "silence": 82,
+        "glyphChoices": 227,
+        "changedChoices": 14,
+        "senderFeedback": 232,
+        "feedbackExpired": 75,
+        "meanReward": 0.290657142857143,
+        "byGlyph": {
+          "◇": 85,
+          "○": 70,
+          "△": 72
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 2
+        }
+      },
+      "muted": {
+        "trips": 352,
+        "totalReward": 101.26999999999984,
+        "glyphSent": 215,
+        "glyphHeard": 0,
+        "silence": 97,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 256,
+        "feedbackExpired": 56,
+        "meanReward": 0.28769886363636316,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 353,
+        "totalReward": 112.49999999999989,
+        "glyphSent": 264,
+        "glyphHeard": 264,
+        "silence": 60,
+        "glyphChoices": 263,
+        "changedChoices": 17,
+        "senderFeedback": 275,
+        "feedbackExpired": 49,
+        "meanReward": 0.3186968838526909,
+        "byGlyph": {
+          "◇": 79,
+          "○": 94,
+          "△": 91
+        },
+        "contextStability": {
+          "eligible": 7,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1623,
+      "normal": {
+        "trips": 448,
+        "totalReward": 96.85999999999979,
+        "glyphSent": 311,
+        "glyphHeard": 311,
+        "silence": 114,
+        "glyphChoices": 311,
+        "changedChoices": 21,
+        "senderFeedback": 400,
+        "feedbackExpired": 25,
+        "meanReward": 0.21620535714285666,
+        "byGlyph": {
+          "◇": 94,
+          "○": 100,
+          "△": 117
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 2
+        }
+      },
+      "muted": {
+        "trips": 448,
+        "totalReward": 98.88999999999993,
+        "glyphSent": 340,
+        "glyphHeard": 0,
+        "silence": 92,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 410,
+        "feedbackExpired": 22,
+        "meanReward": 0.22073660714285698,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 3
+        }
+      },
+      "permuted": {
+        "trips": 445,
+        "totalReward": 81.89999999999999,
+        "glyphSent": 309,
+        "glyphHeard": 309,
+        "silence": 124,
+        "glyphChoices": 308,
+        "changedChoices": 23,
+        "senderFeedback": 403,
+        "feedbackExpired": 30,
+        "meanReward": 0.1840449438202247,
+        "byGlyph": {
+          "◇": 115,
+          "○": 105,
+          "△": 89
+        },
+        "contextStability": {
+          "eligible": 12,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1624,
+      "normal": {
+        "trips": 354,
+        "totalReward": 80.45999999999998,
+        "glyphSent": 248,
+        "glyphHeard": 248,
+        "silence": 76,
+        "glyphChoices": 247,
+        "changedChoices": 11,
+        "senderFeedback": 255,
+        "feedbackExpired": 69,
+        "meanReward": 0.22728813559322028,
+        "byGlyph": {
+          "◇": 65,
+          "○": 82,
+          "△": 101
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 351,
+        "totalReward": 84.47000000000006,
+        "glyphSent": 246,
+        "glyphHeard": 0,
+        "silence": 78,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 270,
+        "feedbackExpired": 53,
+        "meanReward": 0.24065527065527081,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 352,
+        "totalReward": 80.3799999999999,
+        "glyphSent": 247,
+        "glyphHeard": 247,
+        "silence": 82,
+        "glyphChoices": 247,
+        "changedChoices": 19,
+        "senderFeedback": 268,
+        "feedbackExpired": 61,
+        "meanReward": 0.22835227272727243,
+        "byGlyph": {
+          "◇": 81,
+          "○": 85,
+          "△": 81
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1625,
+      "normal": {
+        "trips": 462,
+        "totalReward": 158.8900000000002,
+        "glyphSent": 305,
+        "glyphHeard": 305,
+        "silence": 135,
+        "glyphChoices": 305,
+        "changedChoices": 24,
+        "senderFeedback": 413,
+        "feedbackExpired": 26,
+        "meanReward": 0.3439177489177494,
+        "byGlyph": {
+          "◇": 126,
+          "○": 79,
+          "△": 100
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 459,
+        "totalReward": 162.78000000000014,
+        "glyphSent": 338,
+        "glyphHeard": 0,
+        "silence": 104,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 407,
+        "feedbackExpired": 34,
+        "meanReward": 0.3546405228758173,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 460,
+        "totalReward": 173.8000000000003,
+        "glyphSent": 356,
+        "glyphHeard": 356,
+        "silence": 88,
+        "glyphChoices": 356,
+        "changedChoices": 11,
+        "senderFeedback": 420,
+        "feedbackExpired": 24,
+        "meanReward": 0.37782608695652237,
+        "byGlyph": {
+          "◇": 123,
+          "○": 106,
+          "△": 127
+        },
+        "contextStability": {
+          "eligible": 14,
+          "sameDominantGlyph": 6
+        }
+      }
+    },
+    {
+      "seed": 1626,
+      "normal": {
+        "trips": 460,
+        "totalReward": 121.45999999999964,
+        "glyphSent": 318,
+        "glyphHeard": 318,
+        "silence": 121,
+        "glyphChoices": 319,
+        "changedChoices": 26,
+        "senderFeedback": 419,
+        "feedbackExpired": 18,
+        "meanReward": 0.26404347826086877,
+        "byGlyph": {
+          "◇": 120,
+          "○": 97,
+          "△": 101
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 457,
+        "totalReward": 113.14999999999996,
+        "glyphSent": 339,
+        "glyphHeard": 0,
+        "silence": 111,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 413,
+        "feedbackExpired": 36,
+        "meanReward": 0.24759299781181612,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 7,
+          "sameDominantGlyph": 2
+        }
+      },
+      "permuted": {
+        "trips": 462,
+        "totalReward": 124.64999999999958,
+        "glyphSent": 281,
+        "glyphHeard": 281,
+        "silence": 166,
+        "glyphChoices": 280,
+        "changedChoices": 19,
+        "senderFeedback": 417,
+        "feedbackExpired": 32,
+        "meanReward": 0.2698051948051939,
+        "byGlyph": {
+          "◇": 80,
+          "○": 105,
+          "△": 96
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1627,
+      "normal": {
+        "trips": 403,
+        "totalReward": 50.75999999999985,
+        "glyphSent": 268,
+        "glyphHeard": 268,
+        "silence": 112,
+        "glyphChoices": 266,
+        "changedChoices": 17,
+        "senderFeedback": 325,
+        "feedbackExpired": 53,
+        "meanReward": 0.12595533498759268,
+        "byGlyph": {
+          "◇": 93,
+          "○": 86,
+          "△": 89
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 408,
+        "totalReward": 55.5499999999997,
+        "glyphSent": 313,
+        "glyphHeard": 0,
+        "silence": 69,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 338,
+        "feedbackExpired": 44,
+        "meanReward": 0.136151960784313,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 401,
+        "totalReward": 52.009999999999906,
+        "glyphSent": 299,
+        "glyphHeard": 299,
+        "silence": 82,
+        "glyphChoices": 298,
+        "changedChoices": 23,
+        "senderFeedback": 315,
+        "feedbackExpired": 66,
+        "meanReward": 0.12970074812967558,
+        "byGlyph": {
+          "◇": 107,
+          "○": 89,
+          "△": 103
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1628,
+      "normal": {
+        "trips": 356,
+        "totalReward": 67.94,
+        "glyphSent": 243,
+        "glyphHeard": 243,
+        "silence": 87,
+        "glyphChoices": 243,
+        "changedChoices": 16,
+        "senderFeedback": 270,
+        "feedbackExpired": 59,
+        "meanReward": 0.19084269662921347,
+        "byGlyph": {
+          "◇": 78,
+          "○": 72,
+          "△": 93
+        },
+        "contextStability": {
+          "eligible": 4,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 356,
+        "totalReward": 56.860000000000014,
+        "glyphSent": 232,
+        "glyphHeard": 0,
+        "silence": 102,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 253,
+        "feedbackExpired": 79,
+        "meanReward": 0.15971910112359555,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 2,
+          "sameDominantGlyph": 0
+        }
+      },
+      "permuted": {
+        "trips": 357,
+        "totalReward": 85.90999999999994,
+        "glyphSent": 249,
+        "glyphHeard": 249,
+        "silence": 83,
+        "glyphChoices": 250,
+        "changedChoices": 15,
+        "senderFeedback": 270,
+        "feedbackExpired": 62,
+        "meanReward": 0.24064425770308107,
+        "byGlyph": {
+          "◇": 82,
+          "○": 86,
+          "△": 81
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 0
+        }
+      }
+    },
+    {
+      "seed": 1629,
+      "normal": {
+        "trips": 451,
+        "totalReward": 102.73999999999948,
+        "glyphSent": 323,
+        "glyphHeard": 323,
+        "silence": 118,
+        "glyphChoices": 323,
+        "changedChoices": 18,
+        "senderFeedback": 415,
+        "feedbackExpired": 27,
+        "meanReward": 0.22780487804877933,
+        "byGlyph": {
+          "◇": 87,
+          "○": 101,
+          "△": 135
+        },
+        "contextStability": {
+          "eligible": 5,
+          "sameDominantGlyph": 1
+        }
+      },
+      "muted": {
+        "trips": 456,
+        "totalReward": 105.9899999999998,
+        "glyphSent": 337,
+        "glyphHeard": 0,
+        "silence": 102,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 410,
+        "feedbackExpired": 29,
+        "meanReward": 0.23243421052631535,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 8,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 460,
+        "totalReward": 109.01999999999997,
+        "glyphSent": 334,
+        "glyphHeard": 334,
+        "silence": 112,
+        "glyphChoices": 333,
+        "changedChoices": 20,
+        "senderFeedback": 411,
+        "feedbackExpired": 35,
+        "meanReward": 0.23699999999999993,
+        "byGlyph": {
+          "◇": 112,
+          "○": 113,
+          "△": 109
+        },
+        "contextStability": {
+          "eligible": 11,
+          "sameDominantGlyph": 3
+        }
+      }
+    },
+    {
+      "seed": 1630,
+      "normal": {
+        "trips": 402,
+        "totalReward": 21.580000000000105,
+        "glyphSent": 272,
+        "glyphHeard": 272,
+        "silence": 112,
+        "glyphChoices": 271,
+        "changedChoices": 16,
+        "senderFeedback": 334,
+        "feedbackExpired": 48,
+        "meanReward": 0.05368159203980125,
+        "byGlyph": {
+          "◇": 86,
+          "○": 83,
+          "△": 103
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 400,
+        "totalReward": 21.590000000000074,
+        "glyphSent": 277,
+        "glyphHeard": 0,
+        "silence": 108,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 336,
+        "feedbackExpired": 48,
+        "meanReward": 0.05397500000000019,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 402,
+        "totalReward": 16.200000000000088,
+        "glyphSent": 301,
+        "glyphHeard": 301,
+        "silence": 85,
+        "glyphChoices": 300,
+        "changedChoices": 25,
+        "senderFeedback": 334,
+        "feedbackExpired": 51,
+        "meanReward": 0.04029850746268679,
+        "byGlyph": {
+          "◇": 97,
+          "○": 104,
+          "△": 100
+        },
+        "contextStability": {
+          "eligible": 9,
+          "sameDominantGlyph": 1
+        }
+      }
+    },
+    {
+      "seed": 1631,
+      "normal": {
+        "trips": 408,
+        "totalReward": 92.36000000000008,
+        "glyphSent": 297,
+        "glyphHeard": 297,
+        "silence": 92,
+        "glyphChoices": 297,
+        "changedChoices": 16,
+        "senderFeedback": 346,
+        "feedbackExpired": 43,
+        "meanReward": 0.22637254901960804,
+        "byGlyph": {
+          "◇": 68,
+          "○": 110,
+          "△": 119
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 3
+        }
+      },
+      "muted": {
+        "trips": 410,
+        "totalReward": 110.8400000000002,
+        "glyphSent": 294,
+        "glyphHeard": 0,
+        "silence": 98,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 341,
+        "feedbackExpired": 51,
+        "meanReward": 0.27034146341463466,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 3
+        }
+      },
+      "permuted": {
+        "trips": 408,
+        "totalReward": 106.12999999999992,
+        "glyphSent": 255,
+        "glyphHeard": 255,
+        "silence": 134,
+        "glyphChoices": 255,
+        "changedChoices": 8,
+        "senderFeedback": 335,
+        "feedbackExpired": 55,
+        "meanReward": 0.2601225490196077,
+        "byGlyph": {
+          "◇": 82,
+          "○": 91,
+          "△": 82
+        },
+        "contextStability": {
+          "eligible": 10,
+          "sameDominantGlyph": 2
+        }
+      }
+    },
+    {
+      "seed": 1632,
+      "normal": {
+        "trips": 355,
+        "totalReward": 101.60999999999979,
+        "glyphSent": 232,
+        "glyphHeard": 232,
+        "silence": 96,
+        "glyphChoices": 232,
+        "changedChoices": 23,
+        "senderFeedback": 251,
+        "feedbackExpired": 75,
+        "meanReward": 0.28622535211267547,
+        "byGlyph": {
+          "◇": 79,
+          "○": 80,
+          "△": 73
+        },
+        "contextStability": {
+          "eligible": 2,
+          "sameDominantGlyph": 0
+        }
+      },
+      "muted": {
+        "trips": 359,
+        "totalReward": 120.84999999999997,
+        "glyphSent": 225,
+        "glyphHeard": 0,
+        "silence": 102,
+        "glyphChoices": 0,
+        "changedChoices": 0,
+        "senderFeedback": 246,
+        "feedbackExpired": 82,
+        "meanReward": 0.33662952646239547,
+        "byGlyph": {
+          "◇": 0,
+          "○": 0,
+          "△": 0
+        },
+        "contextStability": {
+          "eligible": 6,
+          "sameDominantGlyph": 1
+        }
+      },
+      "permuted": {
+        "trips": 361,
+        "totalReward": 97.47999999999975,
+        "glyphSent": 261,
+        "glyphHeard": 261,
+        "silence": 66,
+        "glyphChoices": 262,
+        "changedChoices": 16,
+        "senderFeedback": 254,
+        "feedbackExpired": 73,
+        "meanReward": 0.27002770083102423,
+        "byGlyph": {
+          "◇": 83,
+          "○": 88,
+          "△": 90
+        },
+        "contextStability": {
+          "eligible": 11,
+          "sameDominantGlyph": 3
+        }
+      }
+    }
+  ]
+}

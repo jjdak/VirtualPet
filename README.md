@@ -2,6 +2,10 @@
 
 开发、PR 合并及里程碑归档遵循 [Git 工作流程](docs/GIT_WORKFLOW.md)。[本次主线整合记录](docs/archive/integration-2026-11-12/PROGRESS.md)。
 
+## W6 · 持续运行的方格小世界
+
+运行 `./living_world/w6.command`，打开 <http://127.0.0.1:4200/>。从小岚身边开始，点居民查看她此刻的打算、出发时的依据和已获得的成长成就。自己选时机提醒小岚一次，过几趟再回看，与一直等待的世界比较。[玩法、复验与进展](docs/sim/living-world/w6/PROGRESS.md)
+
 ## W5 · 趁小岚还没出发
 
 运行 `./living_world/w5.command` 后打开 <http://127.0.0.1:4199/>。在同一幕中决定什么时候提醒小岚，也可以一直等阿禾自己开口。小岚出发时可查看一直等待的结果，再从同一起点重玩。[玩法、开场与进展](docs/sim/living-world/w5/PROGRESS.md)
