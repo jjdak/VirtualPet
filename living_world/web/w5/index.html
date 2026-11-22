@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f0e5">
+  <title>趁小岚还没出发 · 庭院小记</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <span class="imprint"><span class="sprig" aria-hidden="true">✦</span> 庭院小记</span>
+      <div class="opening">
+        <label for="opening">开场</label>
+        <select id="opening" aria-label="开场">
+          <option value="fork">小屋前</option>
+          <option value="camp">归家路上</option>
+        </select>
+        <button id="replay" type="button" aria-label="重玩这个开场">重玩</button>
+      </div>
+    </header>
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">趁小岚还没出发</h1>
+      <p>开场时，阿禾刚尝过紫穗，觉得不错。小岚还没听到她这次的亲历。</p>
+    </section>
+
+    <div class="layout">
+      <div class="scene">
+        <figure class="landscape">
+          <svg id="map" viewBox="0 0 760 450" role="img" aria-labelledby="map-title map-description">
+            <title id="map-title">青禾地、紫穗地和回小屋的路</title>
+            <desc id="map-description">正在打开庭院。</desc>
+            <defs>
+              <linearGradient id="meadow" x2=".15" y2="1" gradientUnits="objectBoundingBox">
+                <stop stop-color="#e5e8c9"/>
+                <stop offset="1" stop-color="#b8cbab"/>
+              </linearGradient>
+              <linearGradient id="water" x2=".3" y2="1" gradientUnits="objectBoundingBox">
+                <stop stop-color="#92b0ab"/>
+                <stop offset="1" stop-color="#61958d"/>
+              </linearGradient>
+              <g id="tree">
+                <ellipse cx="8" cy="31" rx="34" ry="13" fill="#4b7354" opacity=".16"/>
+                <path d="M-5 36 0-13 7 32" fill="#735945"/>
+                <path d="M1 12 -13-6M2 19 18 1" fill="none" stroke="#735945" stroke-width="3"/>
+                <path d="M-27-6C-40-19-24-42-11-39-8-52 19-47 24-34 48-32 39-4 26 1 17 16-14 18-27-6Z" fill="currentColor"/>
+                <path d="M-23-24Q-15-40 5-39M10-34q12 0 18 10" fill="none" stroke="#fff2c5" opacity=".44" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+              <g id="tuft" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.4">
+                <path d="M0 6Q-1 2-6 0M1 6Q2 1 6-2M1 6V-3"/>
+              </g>
+              <g id="grain" stroke="currentColor" stroke-linecap="round" stroke-width="1.4">
+                <path d="M0 6Q4-1 3-11" fill="none"/>
+                <path d="M3-2Q-5-3-4-8 1-8 3-2ZM3-6q0-6 5-7 0 5-5 7ZM3-10q-6-2-3-7 4 2 3 7Z" fill="currentColor" stroke="none"/>
+              </g>
+              <g id="cottage">
+                <ellipse cx="3" cy="12" rx="32" ry="10" fill="#4b7354" opacity=".2"/>
+                <path d="M-23-13H22V13H-23Z" fill="#f6e2ad"/>
+                <path d="M-24-13 0-34 27-13 21-10 0-28 -18-10Z" fill="currentColor"/>
+                <path d="M-29-14 0-39 30-15 24-11 0-30 -24-10Z" fill="currentColor" stroke="#604d40" stroke-linejoin="round" stroke-width="1.5"/>
+                <path d="M-18-16 0-31 19-16" fill="none" stroke="#ffebce" opacity=".5" stroke-width="1.6"/>
+                <path d="M-4 13V0q4-5 9 0v13" fill="#89684d"/>
+                <rect x="-17" y="-5" width="8" height="9" rx="1.5" fill="#a9b79d"/>
+                <path d="M-13-4v7m-3-4h6" stroke="#f6e2ad" stroke-width="1"/>
+                <path d="M-9 15h19" stroke="#967d5c" stroke-width="2" stroke-linecap="round"/>
+              </g>
+              <g id="person">
+                <ellipse cy="10" rx="13" ry="5" fill="#455c43" opacity=".22"/>
+                <path d="M-11 7q0-12 11-12T11 7q-11 7-22 0Z" fill="currentColor" stroke="#594b41" stroke-width="1"/>
+                <circle cy="-12" r="8.8" fill="#fce1b5" stroke="#594b41" stroke-width="1"/>
+                <path d="M-9-12q-2-9 8-10 10-1 10 9-4-2-6-6-3 6-12 7Z" fill="#53463a"/>
+                <path d="M-3-10h.3m6.7 0h.3" stroke="#514137" stroke-width="1.7" stroke-linecap="round"/>
+              </g>
+            </defs>
+
+            <rect width="760" height="450" fill="url(#meadow)"/>
+            <path d="M0 107C118 31 181 103 302 61S593 3 760 60V0H0ZM0 367q127-62 221 15t207 68H0Z" fill="#97ad85" opacity=".27"/>
+            <path d="M0 42q74-21 166 4t242 8q137-33 352 6M0 382q71-32 141-13t134 81" fill="none" stroke="#789972" stroke-width="1.5" opacity=".36"/>
+            <path d="M-28 310Q81 185 167 160t170 71q46 59 124 22t129-103Q664 95 781 168M474 466Q467 325 381 258t-37-157" fill="none" stroke="#869555" stroke-width="29" opacity=".24" stroke-linecap="round"/>
+            <path d="M-28 310Q81 185 167 160t170 71q46 59 124 22t129-103Q664 95 781 168M474 466Q467 325 381 258t-37-157" fill="none" stroke="#eee0b4" stroke-width="24" stroke-linecap="round"/>
+            <path d="M-28 310Q81 185 167 160t170 71q46 59 124 22t129-103Q664 95 781 168M474 466Q467 325 381 258t-37-157" fill="none" stroke="#f8eecf" stroke-width="1.6" stroke-dasharray="3 11" stroke-linecap="round"/>
+            <path d="M623 304q58-31 102 12 41 49-15 89-55 40-116 1-39-28 3-73Z" fill="#e7ddb5" stroke="#a7bb92" stroke-width="4"/>
+            <path d="M626 313q48-26 89 12 37 42-13 74-51 35-101 1-34-24 6-65Z" fill="url(#water)"/>
+            <path d="M628 329q19-8 41-1m0 22q19 0 30-5m-85 28q32 12 67 3m-41 18 16 2" fill="none" stroke="#dce6be" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+            <ellipse cx="706" cy="375" rx="8" ry="3" fill="#779c63"/>
+            <ellipse cx="699" cy="381" rx="6" ry="3" fill="#9bb473"/>
+            <path d="m709 375 2-5 4 2-2 4Z" fill="#dec1ab"/>
+
+            <g class="grove" aria-hidden="true">
+              <use href="#tree" transform="translate(48 64) scale(1.28)" color="#6e916b"/>
+              <use href="#tree" transform="translate(104 54) scale(.88)" color="#8ca477"/>
+              <use href="#tree" transform="translate(28 122) scale(.94)" color="#829e76"/>
+              <use href="#tree" transform="translate(674 56) scale(.94)" color="#91a575"/>
+              <use href="#tree" transform="translate(729 71) scale(1.28)" color="#708f67"/>
+              <use href="#tree" transform="translate(70 367) scale(1.25)" color="#799970"/>
+              <use href="#tree" transform="translate(126 394) scale(.86)" color="#90a674"/>
+              <use href="#tree" transform="translate(306 406) scale(.76)" color="#87a076"/>
+              <use href="#tree" transform="translate(745 427) scale(1.15)" color="#7f9e76"/>
+            </g>
+            <g id="texture" aria-hidden="true"></g>
+            <g id="places" aria-hidden="true"></g>
+            <path id="dispatch-path" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="1 8" visibility="hidden"/>
+            <g id="people" aria-hidden="true">
+              <g id="person-a" class="resident resident-a" visibility="hidden">
+                <circle class="pulse" cy="-9" r="24"/>
+                <use href="#person"/>
+                <text y="-33">阿禾</text>
+                <text class="cue" y="-57"></text>
+              </g>
+              <g id="person-b" class="resident resident-b" visibility="hidden">
+                <circle class="pulse" cy="-9" r="24"/>
+                <use href="#person"/>
+                <text y="-33">小岚</text>
+                <text class="cue" y="-57"></text>
+              </g>
+            </g>
+          </svg>
+          <figcaption>
+            <span id="clock" aria-live="off">庭院准备中</span>
+            <span id="positions"></span>
+          </figcaption>
+        </figure>
+        <div class="transport" role="group" aria-label="时间">
+          <button id="play" type="button" disabled>继续等待</button>
+          <button id="step" type="button" disabled>等一步</button>
+          <span id="status" role="status"></span>
+          <button id="retry" type="button" hidden>重试</button>
+        </div>
+        <section id="result" class="result" aria-labelledby="result-title" hidden>
+          <h2 id="result-title"></h2>
+          <p id="heard"></p>
+          <p id="baseline"></p>
+        </section>
+      </div>
+
+      <aside class="notebook" aria-label="小岚听见的话与庭院记事">
+        <section class="reminder" aria-labelledby="reminder-title">
+          <h2 id="reminder-title">轻声提醒小岚</h2>
+          <p id="hint-note">出发前，可以私下提醒她一次。</p>
+          <div class="choices">
+            <button id="hint" class="purple" type="button" aria-label="提醒小岚去紫穗地" disabled>提醒去紫穗地</button>
+          </div>
+        </section>
+        <section class="journal" aria-labelledby="journal-title">
+          <h2 id="journal-title">庭院记事</h2>
+          <ol id="events" aria-live="polite" aria-relevant="additions"></ol>
+        </section>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
